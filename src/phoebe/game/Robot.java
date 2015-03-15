@@ -4,6 +4,16 @@ import phoebe.basic.Color;
 import phoebe.basic.Vector;
 
 public class Robot {
+	
+	private Color color;
+	private Vector position;
+	private double distance;
+	private int oilNumber;
+	private int glueNumber;
+	private Vector speedVector;
+	
+	private boolean speedHalved;
+	private boolean speedModificationDisabled;
 
 	public Robot(Color c, Vector p){}
 	public Oil createOil(){ return null; }

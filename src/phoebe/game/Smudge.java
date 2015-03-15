@@ -4,6 +4,9 @@ import phoebe.basic.Vector;
 
 public abstract class Smudge {
 	
+	protected Vector position;
+	protected int remainingRounds;
+	
 	public Smudge(Vector p){}
 	public boolean isEffectiveAt(Vector p){ return false; }
 	public int makeOlder(){ return 0; }

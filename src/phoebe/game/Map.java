@@ -7,13 +7,18 @@ import phoebe.basic.Vector;
 
 public class Map {
 
+	private List<Line> lines;
+	private double lineWidth;
+	private int rounds;	
+	private List<Smudge> smudges;
+	
 	public Map(String map){}
 	public void addSmudge(Smudge s){}
 	public void nextRound(){}
-	public List<Smudge> getSmudges(){ return null; }
+	public List<Smudge> getSmudges(){ return smudges; }
 	public List<Smudge> getSmudgesAt(){ return null; }
 	public boolean isOnRoad(Vector v){ return true; }
-	public List<Line> getLines(){ return null; }	
-	public double getLineWidth(){ return 0; }	
+	public List<Line> getLines(){ return lines; }	
+	public double getLineWidth(){ return lineWidth; }	
 	
 }
