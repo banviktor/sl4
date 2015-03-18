@@ -2,12 +2,12 @@
 
 **Phoebe**
 
-A MarsOne telepesei szabad idejÃ¼kben robotok versenyeit szervezik. A robotok egy elÅ‘re elkÃ©szÃ­tett versenypÃ¡lyÃ¡n ugrÃ¡lnak. A pÃ¡lyÃ¡rÃ³l leugrÃ³ robotok elakadnak, Ã©s kiesnek a jÃ¡tÃ©kbÃ³l.
+A MarsOne telepesei szabad idejükben robotok versenyeit szervezik. A robotok egy elõre elkészített versenypályán ugrálnak. A pályáról leugró robotok elakadnak, és kiesnek a játékból.
 
-A robotok Ã¡llÃ³ helyzetbÅ‘l indulnak, minden robot a sajÃ¡t kezdÅ‘pozÃ­ciÃ³jÃ¡bÃ³l. A sebessÃ©gÃ¼k egysÃ©gnyi mÃ©retÅ±, tetszÅ‘leges irÃ¡nyÃº sebessÃ©gvektorral opcionÃ¡lisan mÃ³dosÃ­thatÃ³. Egy ugrÃ¡ssal a sebessÃ©ggel egyenesen arÃ¡nyos tÃ¡volsÃ¡gra tudnak eljutni.
+A robotok álló helyzetbõl indulnak, minden robot a saját kezdõpozíciójából. A sebességük egységnyi méretû, tetszõleges irányú sebességvektorral opcionálisan módosítható. Egy ugrással a sebességgel egyenesen arányos távolságra tudnak eljutni.
 
-A pÃ¡lyÃ¡n vannak olajfoltok, amikre Ã©rkezve sebessÃ©gmÃ³dosÃ­tÃ¡sra nincs mÃ³d, illetve ragacsfoltok, amik a sebessÃ©g nagysÃ¡gÃ¡t megfelezik.
+A pályán vannak olajfoltok, amikre érkezve sebességmódosításra nincs mód, illetve ragacsfoltok, amik a sebesség nagyságát megfelezik.
 
-A robotok fel vannak szerelve olaj Ã©s ragacskÃ©szlettel, amiket a jÃ¡tÃ©kos parancsÃ¡ra elugrÃ¡skor maguk mÃ¶gÃ¶tt tudnak hagyni.
+A robotok fel vannak szerelve olaj és ragacskészlettel, amiket a játékos parancsára elugráskor maguk mögött tudnak hagyni.
 
-Az nyer, aki megadott idÅ‘ alatt a legnagyobb tÃ¡volsÃ¡got tudja megtenni.
+Az nyer, aki megadott idõ alatt a legnagyobb távolságot tudja megtenni.
