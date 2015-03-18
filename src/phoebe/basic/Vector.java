@@ -91,6 +91,16 @@ public class Vector {
 	}
 	
 	/**
+	 * a megadott double-szeresére változtatja a vektort
+	 * @param mul szorzó
+	 * @return változás utáni méretu vektor
+	 */
+	public Vector multiply(double mul){
+		//TODO
+		return null;
+	}
+	
+	/**
 	 * (x,y) formátumban visszaadja a pontot
 	 */
 	public String toString(){
