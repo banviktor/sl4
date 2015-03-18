@@ -17,6 +17,7 @@ public class Game {
 	private int turnsRemaining;
 	private Map map;
 	private GameController gameController;
+	private GameController robotController;
 	private List<Robot> robots;
 	
 	
@@ -33,6 +34,9 @@ public class Game {
 		playerNumber = n;
 		map = m;
 		gameController = gc;
+		actualRobotNumber = 1;
+		
+		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
