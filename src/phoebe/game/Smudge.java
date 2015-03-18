@@ -9,7 +9,6 @@ public abstract class Smudge {
 	
 	protected Vector position;
 	protected int remainingRounds;
-
 	
 	/** 
 	 * Konstruktor a folt pozíciójának megadásával
@@ -45,5 +44,7 @@ public abstract class Smudge {
 	 * @param r a robot, amin változtatást kell létrehozni
 	 */
 	public abstract void action(Robot r);	
+	
+	public abstract String toString();
 	
 }

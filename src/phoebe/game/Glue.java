@@ -3,7 +3,6 @@ package phoebe.game;
 import phoebe.basic.Vector;
 
 public class Glue extends Smudge {
-
 	
 	/**
 	 * Konstruktor az olajfolt pozíciójának megadásával
@@ -17,6 +16,14 @@ public class Glue extends Smudge {
 	 * @param r a robot, aminek felezi a sebességét
 	 */
 	@Override
-	public void action(Robot r){}
+	public void action(Robot r){
+		r.halveSpeed();
+	}
+
+
+	@Override
+	public String toString() {
+		return "Glue@" + position;
+	}	
 
 }

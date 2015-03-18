@@ -90,4 +90,11 @@ public class Vector {
 		return (new Vector(x, y, v.x, v.y)).length();
 	}
 	
+	/**
+	 * (x,y) formátumban visszaadja a pontot
+	 */
+	public String toString(){
+		return "(" + x + "," + y + ")";
+	}
+	
 }

@@ -67,9 +67,9 @@ public class Log {
 	 * Egy függvénybõl való kilépés elõtt meghívandó metódus, mely kiírja a kilépés paramétereit.
 	 * @param returnValue A visszatérési érték
 	 */
-	public static void exitFunction(String returnValue){
+	public static void exitFunction(Object returnValue){
 		unindent();
-		writeLine("<- " + returnValue);
+		writeLine("<- " + returnValue.toString());
 	}
 	
 	/**
