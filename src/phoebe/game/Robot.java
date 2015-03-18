@@ -47,8 +47,8 @@ public class Robot {
 	 */
 	public Oil createOil(){
 		Log.enterFunction(Robot.class, "createOil");
-		
-		Oil o = new Oil(position); //olajfolt létrehozása
+		//olajfolt létrehozása
+		Oil o = new Oil(position); 
 		
 		Log.exitFunction("oil"); //TODO Oil.toString() -> Smudge
 		return o;
@@ -61,8 +61,8 @@ public class Robot {
 	 */
 	public Glue createGlue(){
 		Log.enterFunction(Robot.class, "createGlue");
-		
-		Glue g = new Glue(position); //ragacsfolt létrehozása
+		//ragacsfolt létrehozása
+		Glue g = new Glue(position); 
 		
 		Log.exitFunction("glue");
 		return g;
@@ -74,7 +74,7 @@ public class Robot {
 	 * @param v az új sebességvektor
 	 */
 	public void setSpeedVector(Vector v){
-		Log.enterFunction(Robot.class, setSpeedVector);
+		Log.enterFunction(Robot.class, "setSpeedVector");
 		
 		speedVector = v;
 		
@@ -98,37 +98,87 @@ public class Robot {
 	public Vector getPosition(){
 		Log.enterFunction(Robot.class, "getPosition");
 		
-		Log.exitFunction();
+		Log.exitFunction(position);
 		return position;
 	}
 	
 	/**
+	 * visszatér a robot aktuális sebességével
 	 * 
-	 * @return
+	 * @return a robot sebességvektorával tér vissza
 	 */
-	public Vector getSpeedVector(){ return null; }
+	public Vector getSpeedVector(){
+		Log.enterFunction(Robot.class, "getSpeedVector");
+		
+		Log.exitFunction(speedVector);
+		return speedVector;
+	}
 	
 	/**
+	 *visszatér a tárolt olajfoltok számával
 	 *
-	 *
 	 * @return
 	 */
-	public int getOilNumber(){ return 0; }
+	public int getOilNumber(){
+		Log.enterFunction(Robot.class, "getOilNumber");
+		
+		Log.exitFunction(oilNumber);
+		return oilNumber;
+	}
 	
 	/**
 	 * 
-	 * @return
-	 */
-	public int getGlueNumber(){ return 0; }
-	
-	/**
 	 * 
 	 * @return
 	 */
-	public double getDistance(){ return 0; }
+	public int getGlueNumber(){
+		Log.enterFunction(Robot.class, "getGlueNumber");
+		
+		Log.exitFunction(glueNumber);
+		return glueNumber;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
+	public double getDistance(){
+		Log.enterFunction(Robot.class, "getDistence");
+		
+		Log.exitFunction(distance);
+		return distance;
+	}
+	
+	/**
+	 * 
+	 */
+	public void halveSpeed(){
+		Log.enterFunction(Robot.class, "halveSpeed");
+		
+		Log.exitFunction();
+	}
+	
+	/**
+	 * 
+	 */
+	public void disableSpeedModification(){
+		Log.enterFunction(Robot.class, "disableSpeedModification");
 
-	public void halveSpeed(){}
-	public void disableSpeedModification(){}
-	public boolean isSpeedModificationDisabled(){ return false; }
+		speedModificationDisabled = true;
+		
+		Log.exitFunction();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isSpeedModificationDisabled(){
+		Log.enterFunction(Robot.class, "isSpeedModificationDisabled");
+		
+		Log.exitFunction(Boolean.toString(speedModificationDisabled));
+		return speedModificationDisabled;
+	}
 	
 }
