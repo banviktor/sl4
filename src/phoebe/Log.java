@@ -14,24 +14,23 @@ public class Log {
 
 	
 	
-	private static void writeLine(String msg){
-		
-		//Indent√°l√°s
+	private static void writeLine(String msg){		
+		//Indent·l·s
 		for(int i = 0; i < indentationDepth; ++i){
 			msg = "   " + msg;
 		}
 		
-		//Id√µb√©lyeg hozz√°f√ªz√©se az √ºzenet elej√©hez, ha kell
+		//IdıbÈlyeg hozz·f˚zÈse az ¸zenet elejÈhez, ha kell
 		if(prefixWithTimestamp){
 			msg = "[07:29:13] " + msg;
 		}
 		
-		//Konzolra √≠r√°s, ha kell
+		//Konzolra Ìr·s, ha kell
 		if(logToConsole){
 			System.out.println(msg);
 		}
 		
-		//F√°jlba √≠r√°s, ha kell
+		//F·jlba Ìr·s, ha kell
 		if(logToFile){
 			
 		}
