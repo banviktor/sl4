@@ -3,7 +3,6 @@ package phoebe.game;
 import phoebe.basic.Vector;
 
 public class Oil extends Smudge {
-
 	
 	/**
 	 * Konstruktor az olajfolt pozíciójának megadásával
@@ -18,6 +17,14 @@ public class Oil extends Smudge {
 	 * @param r a robot, aminek kikapcsolja a sebességváltoztatását
 	 */
 	@Override
-	public void action(Robot r){}
+	public void action(Robot r){
+		r.disableSpeedModification();
+	}
+
+
+	@Override
+	public String toString() {
+		return "Oil@" + position;
+	}
 		
 }
