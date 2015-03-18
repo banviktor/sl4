@@ -14,15 +14,7 @@ public class Glue extends Smudge {
 		super(p);
 		
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Glue.class, "Glue", p.toString());
-		
-		// Itt hívjuk meg a Smudge konstruktorhíváshoz tartozó kiírást is, mivel a super(p)
-		// metódushívásnak kell az elsõnek lennie ebben a konstruktornak, és csak így tudjuk
-		// megvalósítani a kiírások helyes sorrendjét
-		Log.enterFunction(Smudge.class, "Smudge", p.toString());
-
-		//Smudge konstruktorából való kilépés kiírása
-		Log.exitFunction();
+		Log.enterFunction(Glue.class, "Oil", p.toString());
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
