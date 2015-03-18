@@ -12,7 +12,7 @@ public abstract class Smudge {
 
 	
 	/** 
-	 * Konstruktor
+	 * Konstruktor a folt pozíciójának megadásával
 	 * @param p a folt pozíciója
 	 */
 	public Smudge(Vector p){}
