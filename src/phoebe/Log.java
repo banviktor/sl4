@@ -1,10 +1,5 @@
 package phoebe;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-
 public class Log {
 	private static int indentationDepth = 0;
 	private static boolean logToFile = false;
@@ -21,22 +16,22 @@ public class Log {
 	
 	private static void writeLine(String msg){
 		
-		//Indent·l·s
+		//Indent√°l√°s
 		for(int i = 0; i < indentationDepth; ++i){
 			msg = "   " + msg;
 		}
 		
-		//IdıbÈlyeg hozz·f˚zÈse az ¸zenet elejÈhez, ha kell
+		//Id√µb√©lyeg hozz√°f√ªz√©se az √ºzenet elej√©hez, ha kell
 		if(prefixWithTimestamp){
 			msg = "[07:29:13] " + msg;
 		}
 		
-		//Konzolra Ìr·s, ha kell
+		//Konzolra √≠r√°s, ha kell
 		if(logToConsole){
 			System.out.println(msg);
 		}
 		
-		//F·jlba Ìr·s, ha kell
+		//F√°jlba √≠r√°s, ha kell
 		if(logToFile){
 			
 		}
