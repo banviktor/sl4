@@ -2,7 +2,6 @@ package phoebe;
 
 /* 
  * 
- * 
  */
 public class Log {
 	private static int indentationDepth = 0;
