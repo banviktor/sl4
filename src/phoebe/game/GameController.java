@@ -1,6 +1,7 @@
 package phoebe.game;
 
 import phoebe.Log;
+import phoebe.UserInput;
 
 /** 
  * A játék létrehozásáért és tárolásáért felelõs osztály
@@ -14,7 +15,7 @@ public class GameController {
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
 	 */
 	public void newGame() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "newGame");
 		
 		// Ha nem fut épp játék, létrehoz egy újat
@@ -32,7 +33,7 @@ public class GameController {
 	 * Beállítja, hogy nincs futó játék
 	 */
 	public void gameEnded() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "gameEnded");
 		
 		
@@ -45,10 +46,10 @@ public class GameController {
 	 * @return
 	 */
 	public boolean isRunning() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "isRunning");
 		
-///////////////////		
+		running = UserInput.getBoolean("Van futó játék?", false);
 		
 		//Függvénybõl kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(running));		
