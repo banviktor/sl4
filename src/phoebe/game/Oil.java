@@ -56,7 +56,13 @@ public class Oil extends Smudge {
 	 */
 	@Override
 	public void action(Robot r){
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Oil.class, "action", r.toString());
+		
 		r.disableSpeedModification();
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
 	}
 
 
