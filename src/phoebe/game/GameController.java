@@ -10,7 +10,7 @@ public class GameController {
 	private Game game;
 	private boolean running;
 
-	/**
+	/** 
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
 	 */
 	public void newGame() {
