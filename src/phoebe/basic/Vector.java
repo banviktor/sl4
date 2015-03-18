@@ -91,13 +91,12 @@ public class Vector {
 	}
 	
 	/**
-	 * a megadott double-szeresére változtatja a vektort
-	 * @param mul szorzó
-	 * @return változás utáni méretu vektor
+	 * A vektort a megadott skalárral megszorozza
+	 * @param mul Szorzó
+	 * @return A vektorszorzat
 	 */
 	public Vector multiply(double mul){
-		//TODO
-		return null;
+		return new Vector(x * mul, y * mul);
 	}
 	
 	/**
