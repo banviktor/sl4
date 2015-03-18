@@ -1,5 +1,9 @@
 package phoebe;
 
+/* 
+ * 
+ * 
+ */
 public class Log {
 	private static int indentationDepth = 0;
 	private static boolean logToFile = false;
