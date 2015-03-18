@@ -25,7 +25,7 @@ public class GameController {
 			game = new Game(5, map, this);
 		}
 		
-		//Függvénybõl kilépés kiírása
+		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -37,7 +37,7 @@ public class GameController {
 		Log.enterFunction(GameController.class, "gameEnded");
 		
 		
-		//Függvénybõl kilépés kiírása
+		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -51,7 +51,7 @@ public class GameController {
 		
 		running = UserInput.getBoolean("Van futó játék?", false);
 		
-		//Függvénybõl kilépés kiírása a visszatérési értékkel
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(running));		
 		return running;
 	}
