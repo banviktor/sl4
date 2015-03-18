@@ -1,5 +1,8 @@
 package phoebe.basic;
 
+/**
+ * Egy x y pontpárt tároló osztály
+ */
 public class Vector {
 	private double x;
 	private double y;
