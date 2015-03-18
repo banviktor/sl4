@@ -21,7 +21,7 @@ public class Log {
 	 * Kiír egy sort indentálva, idõbélyeggel (beállítástól függõen) a konzolra
 	 * @param msg Az üzenet
 	 */
-	public static void writeLine(String msg){		
+	public static void write(String msg, boolean newLine){		
 		//Indentálás
 		for(int i = 0; i < indentationDepth; ++i){
 			msg = "  " + msg;
@@ -34,13 +34,24 @@ public class Log {
 		
 		//Konzolra írás, ha kell
 		if(logToConsole){
-			System.out.println(msg);
+			if(newLine)
+				System.out.println(msg);
+			else
+				System.out.print(msg);;
 		}
 		
 		//Fájlba írás, ha kell
 		if(logToFile){
 			//TODO fájlba írás
 		}
+	}	
+	
+	/**
+	 * Kiír egy sort indentálva, idõbélyeggel (beállítástól függõen) a konzolra
+	 * @param msg Az üzenet
+	 */
+	public static void writeLine(String msg){		
+		write(msg, true);
 	}	
 
 	/**
