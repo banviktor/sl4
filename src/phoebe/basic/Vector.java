@@ -35,6 +35,8 @@ public class Vector {
 	}
 	
 	public Vector normalized() {
+		if(x == 0 && y == 0)
+			return new Vector(0, 0);
 		return new Vector(x / this.length(), y / this.length());
 	}
 	
