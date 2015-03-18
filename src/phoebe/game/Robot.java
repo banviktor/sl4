@@ -19,7 +19,6 @@ public class Robot {
 	
 	/**
 	 * A robot konstruktora
-	 * 
 	 * @param c a robot színe
 	 * @param p a robot kezdeti helye
 	 */
@@ -42,7 +41,6 @@ public class Robot {
 	
 	/**
 	 * Lerak egy olajfoltot
-	 * 
 	 * @return a létrehozott olajfolt referenciájával tér vissza
 	 */
 	public Oil createOil(){
@@ -50,13 +48,12 @@ public class Robot {
 		//olajfolt létrehozása
 		Oil o = new Oil(position); 
 		
-		Log.exitFunction("oil"); //TODO Oil.toString() -> Smudge
+		Log.exitFunction(o.toString()); 
 		return o;
 	}
 	
 	/**
 	 * Lerak egy ragacsfoltot
-	 * 
 	 * @return a létrehozott ragacsfolt referenciájával tér vissza
 	 */
 	public Glue createGlue(){
@@ -64,13 +61,12 @@ public class Robot {
 		//ragacsfolt létrehozása
 		Glue g = new Glue(position); 
 		
-		Log.exitFunction("glue");
+		Log.exitFunction(g.toString());
 		return g;
 	}
 	
 	/**
 	 * Beállítja a sebességvektort
-	 * 
 	 * @param v az új sebességvektor
 	 */
 	public void setSpeedVector(Vector v){
@@ -92,7 +88,6 @@ public class Robot {
 	
 	/**
 	 * Visszatér a robot aktuális pozíciójával
-	 * 
 	 * @return a robot helyvektorával tér vissza
 	 */
 	public Vector getPosition(){
@@ -104,7 +99,6 @@ public class Robot {
 	
 	/**
 	 * Visszatér a robot aktuális sebességével
-	 * 
 	 * @return a robot sebességvektorával tér vissza
 	 */
 	public Vector getSpeedVector(){
@@ -116,7 +110,6 @@ public class Robot {
 	
 	/**
 	 *Visszatér a tárolt olajfoltok számával
-	 *
 	 * @return olajfoltok száma
 	 */
 	public int getOilNumber(){
@@ -128,7 +121,6 @@ public class Robot {
 	
 	/**
 	 * Visszatér a tárolt ragacsfoltok számával
-	 * 
 	 * @return ragacsfoltok száma
 	 */
 	public int getGlueNumber(){
@@ -140,7 +132,6 @@ public class Robot {
 	
 	/**
 	 * Visszatér a robot által megtett távolsággal
-	 * 
 	 * @return megtett távolság
 	 */
 	public double getDistance(){
@@ -172,7 +163,6 @@ public class Robot {
 
 	/**
 	 * Megadja, hogy módosíthatja-e a felhasználó a a robot sbességét
-	 * 
 	 * @return módosítható-e vagy nem
 	 */
 	public boolean isSpeedModificationDisabled(){

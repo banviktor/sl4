@@ -1,5 +1,9 @@
 package phoebe;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class UserInput {
 	
 	private static boolean asking = false;
@@ -11,19 +15,46 @@ public class UserInput {
 	public static boolean getBoolean(String question, boolean defaultValue){
 		if(!asking)
 			return defaultValue;
-		ask(question + " (I/N) :");
-			return false;
+			
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
+		while(true){
+			ask(question + " (I/N) :");
+			try{
+	            String i = br.readLine().toLowerCase();
+	            if(i.equals("i"))
+	            	return true;
+	            else if(i.equals("n"))
+	            	return false;	     
+	        } catch (IOException e) {
+	        	
+			}
+		}
 	}
 	
 	public static int getInt(String question, int defaultValue){
 		if(!asking)
 			return defaultValue;
-		ask(question + " (#) :");
-			return 0;
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
+		while(true){
+			ask(question + " (#) :");
+			try{
+	            int i = Integer.parseInt(br.readLine());
+	            return i;
+	        } catch(NumberFormatException nfe){
+	            
+	        } catch (IOException e) {
+	        	
+			}
+		}
 	}
 	
-	public static void setAsking(boolean value){
-		asking = value;
+	public static void enable(){
+		asking = true;
+	}
+	
+	public static void disable(){
+		asking = false;
 	}
 	
 }

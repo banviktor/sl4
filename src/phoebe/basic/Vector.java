@@ -91,6 +91,15 @@ public class Vector {
 	}
 	
 	/**
+	 * A vektort a megadott skalárral megszorozza
+	 * @param mul Szorzó
+	 * @return A vektorszorzat
+	 */
+	public Vector multiply(double mul){
+		return new Vector(x * mul, y * mul);
+	}
+	
+	/**
 	 * (x,y) formátumban visszaadja a pontot
 	 */
 	public String toString(){
