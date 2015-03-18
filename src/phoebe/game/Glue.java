@@ -10,7 +10,23 @@ public class Glue extends Smudge {
 	 * Konstruktor az olajfolt pozíciójának megadásával
 	 * @param p pozíció
 	 */
-	public Glue(Vector p){ super(p); }
+	public Glue(Vector p) {
+		super(p);
+		
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Glue.class, "Glue", p.toString());
+		
+		// Itt hívjuk meg a Smudge konstruktorhíváshoz tartozó kiírást is, mivel a super(p)
+		// metódushívásnak kell az elsõnek lennie ebben a konstruktornak, és csak így tudjuk
+		// megvalósítani a kiírások helyes sorrendjét
+		Log.enterFunction(Smudge.class, "Smudge", p.toString());
+
+		//Smudge konstruktorából való kilépés kiírása
+		Log.exitFunction();
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
+	}
 
 	
 	/** 
@@ -21,13 +37,13 @@ public class Glue extends Smudge {
 	 */
 	@Override
 	public boolean isEffectiveAt(Vector p) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a bemenetet
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Glue.class, "isEffectiveAt", p.toString());
 				
 		//Megadjuk, hogy a folt alatta van-e
 		boolean isHere = UserInput.getBoolean("Ez a ragacsfolt a robot alatt van?", false);
 		
-		//Függvénybõl kilépés kiírása a visszatérési értékkel
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(isHere));
 		return isHere;
 	}

@@ -17,11 +17,9 @@ public abstract class Smudge {
 	 * @param p a folt pozíciója
 	 */
 	public Smudge(Vector p) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Smudge.class, "Smudge");
-		
-		//Függvénybõl kilépés kiírása
-		Log.exitFunction();
+		// Ezt a függvényhívást nem logoljuk, mivel csak egy Glue vagy egy Oil konstruktorában
+		// hívható meg super(p) hívással (mivel az absztrakt osztály nem példányosítható),
+		// azok viszont már kezelik ezt a hívást
 	}
 	
 	
@@ -31,13 +29,13 @@ public abstract class Smudge {
 	 * @return logikai érték, mely megadja, hogy a vizsgált helyen fejt-e ki hatást a folt
 	 */
 	public boolean isEffectiveAt(Vector p) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a bemenetet
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Smudge.class, "isEffectiveHere", p.toString());
 				
 		//Megadjuk, hogy a folt alatta van-e
 		boolean isHere = UserInput.getBoolean("Ez a folt a robot alatt van?", false);
 		
-		//Függvénybõl kilépés kiírása a visszatérési értékkel
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(isHere));
 		return isHere;
 	}
@@ -51,7 +49,7 @@ public abstract class Smudge {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Smudge.class, "makeOlder");
 		
-		// Függvénybõl kilépés kiírása a visszatérési értékkel
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		// Szkeletonban mindig 1-el tér vissza, mert itt egy érték megkérdezése a felhasználótól
 		// felesleges, nem okozna új metódushívást semmilyen lehetséges érték
 		Log.exitFunction("1");
@@ -67,7 +65,7 @@ public abstract class Smudge {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Smudge.class, "getPosition");
 		
-		// Függvénybõl kilépés kiírása a visszatérési értékkel
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(position.toString());
 		return position;
 	}
