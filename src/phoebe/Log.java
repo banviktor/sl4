@@ -21,7 +21,7 @@ public class Log {
 	 * Kiír egy sort indentálva, idõbélyeggel (beállítástól függõen) a konzolra
 	 * @param msg Az üzenet
 	 */
-	private static void writeLine(String msg){		
+	public static void writeLine(String msg){		
 		//Indentálás
 		for(int i = 0; i < indentationDepth; ++i){
 			msg = "  " + msg;
