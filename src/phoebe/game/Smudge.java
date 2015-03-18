@@ -20,6 +20,9 @@ public abstract class Smudge {
 		// Ezt a függvényhívást nem logoljuk, mivel csak egy Glue vagy egy Oil konstruktorában
 		// hívható meg super(p) hívással (mivel az absztrakt osztály nem példányosítható),
 		// azok viszont már kezelik ezt a hívást
+		
+		position = p;
+		remainingRounds = 3;
 	}
 	
 	
@@ -52,8 +55,8 @@ public abstract class Smudge {
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		// Szkeletonban mindig 1-el tér vissza, mert itt egy érték megkérdezése a felhasználótól
 		// felesleges, nem okozna új metódushívást semmilyen lehetséges érték
-		Log.exitFunction("1");
-		return 1;
+		Log.exitFunction(remainingRounds);
+		return remainingRounds;
 	}
 	
 	
