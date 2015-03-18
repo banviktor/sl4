@@ -18,7 +18,7 @@ public class Robot {
 
 	
 	/**
-	 * a robot konstruktora
+	 * A robot konstruktora
 	 * 
 	 * @param c a robot színe
 	 * @param p a robot kezdeti helye
@@ -41,7 +41,7 @@ public class Robot {
 	}
 	
 	/**
-	 * lerak egy olajfoltot
+	 * Lerak egy olajfoltot
 	 * 
 	 * @return a létrehozott olajfolt referenciájával tér vissza
 	 */
@@ -55,7 +55,7 @@ public class Robot {
 	}
 	
 	/**
-	 * lerak egy ragacsfoltot
+	 * Lerak egy ragacsfoltot
 	 * 
 	 * @return a létrehozott ragacsfolt referenciájával tér vissza
 	 */
@@ -69,7 +69,7 @@ public class Robot {
 	}
 	
 	/**
-	 * beállítja a sebességvektort
+	 * Beállítja a sebességvektort
 	 * 
 	 * @param v az új sebességvektor
 	 */
@@ -82,7 +82,7 @@ public class Robot {
 	}
 	
 	/**
-	 * végrehajtja az ugrást
+	 * Végrehajtja az ugrást
 	 */
 	public void jump(){
 		Log.enterFunction(Robot.class, "jump");
@@ -91,7 +91,7 @@ public class Robot {
 	}
 	
 	/**
-	 * visszatér a robot aktuális pozíciójával
+	 * Visszatér a robot aktuális pozíciójával
 	 * 
 	 * @return a robot helyvektorával tér vissza
 	 */
@@ -103,7 +103,7 @@ public class Robot {
 	}
 	
 	/**
-	 * visszatér a robot aktuális sebességével
+	 * Visszatér a robot aktuális sebességével
 	 * 
 	 * @return a robot sebességvektorával tér vissza
 	 */
@@ -115,9 +115,9 @@ public class Robot {
 	}
 	
 	/**
-	 *visszatér a tárolt olajfoltok számával
+	 *Visszatér a tárolt olajfoltok számával
 	 *
-	 * @return
+	 * @return olajfoltok száma
 	 */
 	public int getOilNumber(){
 		Log.enterFunction(Robot.class, "getOilNumber");
@@ -127,9 +127,9 @@ public class Robot {
 	}
 	
 	/**
+	 * Visszatér a tárolt ragacsfoltok számával
 	 * 
-	 * 
-	 * @return
+	 * @return ragacsfoltok száma
 	 */
 	public int getGlueNumber(){
 		Log.enterFunction(Robot.class, "getGlueNumber");
@@ -139,9 +139,9 @@ public class Robot {
 	}
 	
 	/**
+	 * Visszatér a robot által megtett távolsággal
 	 * 
-	 * 
-	 * @return
+	 * @return megtett távolság
 	 */
 	public double getDistance(){
 		Log.enterFunction(Robot.class, "getDistence");
@@ -151,7 +151,7 @@ public class Robot {
 	}
 	
 	/**
-	 * 
+	 * Megfelezi a robot sebességét
 	 */
 	public void halveSpeed(){
 		Log.enterFunction(Robot.class, "halveSpeed");
@@ -160,7 +160,7 @@ public class Robot {
 	}
 	
 	/**
-	 * 
+	 * Letiltja a sebességmódosítást
 	 */
 	public void disableSpeedModification(){
 		Log.enterFunction(Robot.class, "disableSpeedModification");
@@ -171,8 +171,9 @@ public class Robot {
 	}
 
 	/**
+	 * Megadja, hogy módosíthatja-e a felhasználó a a robot sbességét
 	 * 
-	 * @return
+	 * @return módosítható-e vagy nem
 	 */
 	public boolean isSpeedModificationDisabled(){
 		Log.enterFunction(Robot.class, "isSpeedModificationDisabled");
