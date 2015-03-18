@@ -2,7 +2,7 @@ package phoebe.game;
 
 import phoebe.Log;
 
-/**
+/** 
  * A játék létrehozásáért és tárolásáért felelõs osztály
  */
 public class GameController {
