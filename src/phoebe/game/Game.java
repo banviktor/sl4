@@ -17,6 +17,7 @@ public class Game {
 	private int turnsRemaining;
 	private Map map;
 	private GameController gameController;
+	private GameController robotController;
 	private List<Robot> robots;
 	
 	
@@ -33,8 +34,11 @@ public class Game {
 		playerNumber = n;
 		map = m;
 		gameController = gc;
+		actualRobotNumber = 1;
 		
-		//Függvénybõl kilépés kiírása
+		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
+		
+		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -64,7 +68,7 @@ public class Game {
 			}
 		}		
 		
-		//Függvénybõl kilépés kiírása a visszatérési értékkel
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(robots.get(actualRobotNumber).toString());
 		return null;
 	}
@@ -76,7 +80,7 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "deleteActualRobot");
 		
-		//Függvénybõl kilépés kiírása
+		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -91,7 +95,7 @@ public class Game {
 			i.getDistance();
 		}
 		
-		//Függvénybõl kilépés kiírása
+		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -103,7 +107,7 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "getRobots");
 		
-		//Függvénybõl kilépés kiírása a visszatérési értékkel
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction("List<Robots>");
 		return null;
 	}
