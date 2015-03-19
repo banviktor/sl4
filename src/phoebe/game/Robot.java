@@ -94,6 +94,12 @@ public class Robot {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Robot.class, "jump");
 		
+		// Ugráskor a hely módosítása a sebességvektorral
+		position = new Vector(position.getX() + speedVector.getX(),
+				position.getY() + speedVector.getY());
+		
+		// TODO folt elhelyezése
+		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
 	}
