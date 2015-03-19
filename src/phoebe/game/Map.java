@@ -28,6 +28,7 @@ public class Map {
 	 */
 	public Map(String map) {
 		lines = new ArrayList<Line>();
+		smudges = new ArrayList<Smudge>();
 		Document dom = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		// Using factory get an instance of document builder
