@@ -1,5 +1,7 @@
 package phoebe.game;
 
+import java.util.List;
+
 import phoebe.Log;
 import phoebe.basic.Vector;
 
@@ -73,7 +75,21 @@ public class RobotController {
 	public void nextTurn(){
 		Log.enterFunction(RobotController.class, "nextTurn");
 		// get next robot, vagy mi történik?
+		actualRobot.jump();
+		if(!map.isOnRoad(actualRobot.getPosition())){
+			// A robot leesett a pályáról
+			game.deleteActualRobot();
+		}
 		
+		actualRobot = game.getNextRobot();
+		inputSpeedVector = new Vector(0, 0);
+		willPlaceOil = false;
+		willPlaceGlue = false;
+		
+		List<Smudge> modifier = map.getSmudgesAt();
+		for(Smudge s : modifier){
+			s.action(actualRobot);
+		}
 		
 		Log.exitFunction();
 	}
