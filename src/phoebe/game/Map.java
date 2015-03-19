@@ -27,6 +27,7 @@ public class Map {
 	 * @param map a map fájl helye
 	 */
 	public Map(String map) {
+		lines = new ArrayList<Line>();
 		Document dom = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		// Using factory get an instance of document builder
@@ -78,8 +79,7 @@ public class Map {
 		for (int i = 0; i < 4; ++i) {
 			nums[i] = Double.parseDouble(numsSplit[i]);
 		}
-		return new Line( new Vector(nums[0], nums[1]), 
-				new Vector(nums[2],	nums[3]));
+		return new Line( nums[0], nums[1], nums[2], nums[3] );
 	}
 
 	/**
