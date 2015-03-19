@@ -86,7 +86,7 @@ public class RobotController {
 		willPlaceOil = false;
 		willPlaceGlue = false;
 		
-		List<Smudge> modifier = map.getSmudgesAt();
+		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
 		for(Smudge s : modifier){
 			s.action(actualRobot);
 		}
