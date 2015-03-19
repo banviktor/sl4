@@ -31,6 +31,23 @@ public class Line {
 	 * @return A szakasz hossza
 	 */
 	public double length(){
-		return (new Vector(p1, p2)).length();
+		//return (new Vector(p1, p2)).length();
+		return p1.distance(  p2 );
+	}
+	
+	/**
+	 * Visszaadja az elsõ vektort
+	 * @return Elsõ vektor
+	 */
+	public Vector getVector1() {
+		return p1;
+	}
+	
+	/**
+	 * Visszaadja a második vektort
+	 * @return Második vektor
+	 */
+	public Vector getVector2() {
+		return p2;
 	}
 }
