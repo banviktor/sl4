@@ -1,8 +1,8 @@
 package phoebe.basic;
 
 public class Line {
-	private Vector p1;
-	private Vector p2;
+	private final Vector p1;
+	private final Vector p2;
 	
 	/**
 	 * Létrehoz egy szakaszt két, helyvektorral megadott pont között
