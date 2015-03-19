@@ -1,7 +1,5 @@
 package phoebe.game;
 
-import com.sun.swing.internal.plaf.metal.resources.metal;
-
 import phoebe.Log;
 import phoebe.UserInput;
 import phoebe.basic.Color;
@@ -226,6 +224,10 @@ public class Robot {
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(Boolean.toString(speedModificationDisabled));
 		return speedModificationDisabled;
+	}
+	
+	public Color getColor() {
+		return color;
 	}
 	
 }
