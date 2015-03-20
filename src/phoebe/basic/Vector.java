@@ -101,6 +101,16 @@ public class Vector {
 	}
 	
 	/**
+	 * Visszaadja a két megadott helyvektor távolságát
+	 * @param v1 Az egyik vektor
+	 * @param v2 A másik vektor
+	 * @return A két helyvektor távolsága
+	 */
+	public static double distance(Vector v1, Vector v2){
+		return (new Vector(v1, v2)).length();
+	}
+	
+	/**
 	 * A vektort a megadott skalárral megszorozza és az eredményt egy új vektorként adja vissza
 	 * @param mul Skalár
 	 * @return Skaláris szorzat
