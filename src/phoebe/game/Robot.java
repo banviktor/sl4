@@ -83,6 +83,8 @@ public class Robot {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Robot.class, "setSpeedVector", v.toString());
 		
+		speedVector = v;
+		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
 	}
@@ -96,9 +98,16 @@ public class Robot {
 		
 		// TODO folt lehelyezése
 		
+		// Megtett út nõ az ugrással
+		distance += speedVector.length();
+		
 		// Ugráskor a hely módosítása a sebességvektorral
 		position = new Vector(position.getX() + speedVector.getX(),
 				position.getY() + speedVector.getY());
+		
+		// Következõ körre felkészítés
+		speedHalved = false;
+		speedModificationDisabled = false;
 		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
@@ -194,6 +203,12 @@ public class Robot {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Robot.class, "halveSpeed");
 		
+		// Lassítás
+		if ( speedHalved == false ) {
+			speedVector = speedVector.multiply(0.5);
+			speedHalved = true;
+		}
+		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -204,6 +219,8 @@ public class Robot {
 	public void disableSpeedModification(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Robot.class, "disableSpeedModification");
+		
+		speedModificationDisabled = true;
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
