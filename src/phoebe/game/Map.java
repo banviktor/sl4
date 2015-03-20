@@ -12,6 +12,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import phoebe.Log;
 import phoebe.basic.Line;
 import phoebe.basic.Vector;
 
@@ -27,6 +28,9 @@ public class Map {
 	 * @param map a map fájl helye
 	 */
 	public Map(String map) {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "Map("+map+")");
+		
 		lines = new ArrayList<Line>();
 		smudges = new ArrayList<Smudge>();
 		Document dom = null;
@@ -66,7 +70,9 @@ public class Map {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
 	}
 
 	/**
@@ -88,7 +94,13 @@ public class Map {
 	 * @param s az új folt
 	 */
 	public void addSmudge(Smudge s) {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "addSmudge", s.toString());
+		
 		smudges.add(s);
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
 	}
 
 	/**
@@ -96,11 +108,17 @@ public class Map {
 	 * élettartama, törli a smudges listából.
 	 */
 	public void nextRound() {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "nextRound");
+					
 		for (Smudge s : smudges) {
 			if (s.makeOlder() == 0) {
 				smudges.remove(s);
 			}
 		}
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
 	}
 
 	/**
@@ -108,6 +126,12 @@ public class Map {
 	 * @return foltok
 	 */
 	public List<Smudge> getSmudges() {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "getSmudges");
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
+				
 		return smudges;
 	}
 
@@ -117,12 +141,19 @@ public class Map {
 	 * @return itt ható foltok
 	 */
 	public List<Smudge> getSmudgesAt(Vector v) {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "getSmudgesAt", v.toString());
+				
 		List<Smudge> smudgesAt = new ArrayList<Smudge>();
 		for (Smudge s : smudges) {
 			if ( s.isEffectiveAt( v )) {
 				smudgesAt.add( s );
 			}
 		}
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction();
+		
 		return smudgesAt;
 	}
 	
@@ -159,12 +190,23 @@ public class Map {
 	 * @return igaz, ha az úton van
 	 */
 	public boolean isOnRoad(Vector v) {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "isOnRoad", v.toString());
+		
+		boolean result = false;
+				
+		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
 		for (Line l : lines) {
 			if ( pointAndLineDist(l, v) < lineWidth/2 ) {
-				return true;
+				result = true;
+				break;
 			}
 		}
-		return false;
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction(result);
+				
+		return result;
 	}
 
 	/**
