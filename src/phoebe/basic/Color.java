@@ -7,15 +7,15 @@ public enum Color {
 	public String toString(){
 		switch(this){
 			case RED:
-				return "Red";
+				return "Piros";
 			case YELLOW:
-				return "Yellow";
+				return "Sárga";
 			case GREEN:
-				return "Green";
+				return "Zöld";
 			case BLUE:
-				return "Blue";
+				return "Kék";
 			case PURPLE:
-				return "Purple";
+				return "Lila";
 			default: return "";
 		}
 	}
