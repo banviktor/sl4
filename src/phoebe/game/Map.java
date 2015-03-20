@@ -29,36 +29,27 @@ public class Map {
 	 */
 	public Map(String map) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "Map("+map+")");
+		Log.enterFunction(Map.class, "Map", map);
 		
 		lines = new ArrayList<Line>();
 		smudges = new ArrayList<Smudge>();
 		Document dom = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		// Using factory get an instance of document builder
 		DocumentBuilder db;
-		// parse using builder to get DOM representation of the XML file
+		// Megpróbálja megnyitni a pályafájlt és végigparszolni
 		try {
 			db = dbf.newDocumentBuilder();
 			dom = (Document) db.parse( map );
 
-			// get the root element
 			Element docEle = dom.getDocumentElement();
 			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"));
 			rounds = Integer.parseInt(docEle.getAttribute("roundNum"));
 			
-			// get a nodelist of elements
 			NodeList nl = docEle.getElementsByTagName("line");
 			if (nl != null && nl.getLength() > 0) {
 				for (int i = 0; i < nl.getLength(); i++) {
-
-					// get the employee element
 					Element el = (Element) nl.item(i);
-
-					// get the Employee object
 					Line e = getLine(el);
-
-					// add it to list
 					lines.add(e);
 				}
 			}
@@ -214,6 +205,12 @@ public class Map {
 	 * @return utak listája
 	 */
 	public List<Line> getLines() {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "getLines");
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction("List<Line>");
+				
 		return lines;
 	}
 
@@ -222,6 +219,12 @@ public class Map {
 	 * @return utak szélessége
 	 */
 	public double getLineWidth() {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "getLineWidth");
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction(lineWidth);
+				
 		return lineWidth;
 	}
 
@@ -230,6 +233,12 @@ public class Map {
 	 * @return játszható körök száma
 	 */
 	public int getRounds() {
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(Map.class, "getRounds");
+		
+		//Metódusból kilépés kiírása
+		Log.exitFunction(rounds);
+		
 		return rounds;
 	}
 
