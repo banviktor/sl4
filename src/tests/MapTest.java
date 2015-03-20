@@ -23,6 +23,7 @@ public class MapTest {
 		assertEquals( map.getSmudgesAt(new Vector(0,0)).size(), 0 );
 		assertEquals( map.isOnRoad(new Vector(0,0)), false );
 		assertEquals( map.isOnRoad(new Vector(0.1,0.1)), true);
+		assertEquals( map.isOnRoad(new Vector(0.5,0.5)), false);
 	}
 
 }
