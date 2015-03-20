@@ -91,9 +91,13 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
 		
+		Robot winner = robots.get(0);
 		for (Robot i : robots) {
-			i.getDistance();
+			if ( i.getDistance() > winner.getDistance() ) {
+				winner = i;
+			}
 		}
+		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -109,7 +113,7 @@ public class Game {
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction("List<Robots>");
-		return null;
+		return robots;
 	}
 	
 }
