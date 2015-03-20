@@ -42,7 +42,7 @@ public class Game {
 	
 	public Game(int n, Map m, GameController gc){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
-		Log.enterFunction(Game.class, "Game", String.valueOf(n) + "Map" + "GameController");
+		Log.enterFunction(Game.class, "Game", String.valueOf(n) + " Map" + " GameController");
 
 		playerNumber = n;
 		map = m;
