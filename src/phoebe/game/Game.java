@@ -80,6 +80,11 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "deleteActualRobot");
 		
+		// Kitörli a robotot a listából 
+		robots.remove( actualRobotNumber );
+		// Visszalép, hogy a következõ robot helyes legyen
+		actualRobotNumber--;
+		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
