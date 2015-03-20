@@ -21,7 +21,7 @@ public class GameController {
 		// Ha nem fut épp játék, létrehoz egy újat
 		// Szkeleton megvalósítás miatt meghívja az isRunningot, mert ott teszi fel a kérdést
 		if (!isRunning()) {
-			Map map = new Map("xtx.txt");
+			Map map = new Map("map.xml");
 			game = new Game(5, map, this);
 		}
 		

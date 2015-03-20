@@ -1,10 +1,14 @@
 package phoebe.game;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import phoebe.Application;
 import phoebe.Log;
 import phoebe.UserInput;
+import phoebe.basic.Color;
+import phoebe.basic.Vector;
 
 /**
  * A játékot megvalósító osztály, mely tárolja a robotokat és ütemezi a köröket,
@@ -27,6 +31,15 @@ public class Game {
 	 * @param m a pálya, amin a játék játszódik
 	 * @param gc a játékhoz tartozó gameController
 	 */
+	private Vector startingVector() {
+		Vector v = null;
+		Random r = new Random();
+		do {
+			v = new Vector( r.nextDouble(), r.nextDouble() );
+		} while ( !map.isOnRoad(v) );
+		return v;
+	}
+	
 	public Game(int n, Map m, GameController gc){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
 		Log.enterFunction(Game.class, "Game", String.valueOf(n) + "Map" + "GameController");
@@ -35,6 +48,10 @@ public class Game {
 		map = m;
 		gameController = gc;
 		actualRobotNumber = 1;
+		robots = new ArrayList<Robot>();
+		for (int i=0; i<playerNumber; ++i) {
+			robots.add( new Robot( Color.values()[i], startingVector() ) );
+		}
 		
 		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
 		
