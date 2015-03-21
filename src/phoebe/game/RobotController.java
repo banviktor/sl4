@@ -38,10 +38,12 @@ public class RobotController {
 	 * Megváltoztatja az olajfolt lehelyezését jelzo flaget
 	 */
 	public void toggleOil(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "toggleOil");
 		
 		willPlaceOil = !willPlaceOil;
 		
+		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -49,10 +51,12 @@ public class RobotController {
 	 * Megváltoztatja az ragacsfolt lehelyezését jelzo flaget
 	 */
 	public void toggleGlue(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "toggleGlue");
 		
 		willPlaceGlue = !willPlaceGlue;
 		
+		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -62,10 +66,12 @@ public class RobotController {
 	 * @param v a felhasználótól kapott vektor
 	 */
 	public void setInputSpeedVector(Vector v){
-		Log.enterFunction(RobotController.class, "setInputSpeedVector");
+		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		Log.enterFunction(RobotController.class, "setInputSpeedVector", v.toString());
 		
 		inputSpeedVector = v;
 		
+		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -73,6 +79,7 @@ public class RobotController {
 	 * 
 	 */
 	public void nextTurn(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "nextTurn");
 		// get next robot, vagy mi történik?
 		actualRobot.jump();
@@ -91,6 +98,7 @@ public class RobotController {
 			s.action(actualRobot);
 		}
 		
+		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	 
@@ -99,8 +107,10 @@ public class RobotController {
 	 * @return aktív robot regeferenciája
 	 */
 	public Robot getActualRobot(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "getActualRobot");
 		
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(actualRobot.toString());
 		return actualRobot;
 	}
@@ -110,8 +120,10 @@ public class RobotController {
 	 * @return a módosítóvektor referenciája
 	 */
 	public Vector getInputSpeedVector(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "getInputSpeedVector");
 		
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(inputSpeedVector.toString());
 		return inputSpeedVector;
 	}
@@ -121,8 +133,10 @@ public class RobotController {
 	 * @return az ugrás céljának vektora
 	 */
 	public Vector getJumpDestination(){
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "getJumpDestination");
 		
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(jumpDestination.toString());
 		return jumpDestination;
 	}

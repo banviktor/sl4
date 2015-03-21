@@ -85,7 +85,7 @@ public class Robot {
 		
 		speedVector = v;
 		
-		// Metódusból kilépés kiírása a visszatérési értékkel
+		// Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 	
@@ -95,9 +95,8 @@ public class Robot {
 	public void jump(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Robot.class, "jump");
-		
-		// TODO folt lehelyezése
-		
+/*		
+!!!		
 		// Megtett út nõ az ugrással
 		distance += speedVector.length();
 		
@@ -108,7 +107,7 @@ public class Robot {
 		// Következõ körre felkészítés
 		speedHalved = false;
 		speedModificationDisabled = false;
-		
+*/		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
 	}
