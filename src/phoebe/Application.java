@@ -11,25 +11,22 @@ public class Application {
 		GameController gameController;
 		while ( !exit ) {
 			String[] command = UserInput.getCommand();
-			switch ( command[0] ) {
-			case "startgame":
+			if(command[0].equals("startgame")){
 				gameController = new GameController();
 				gameController.newGame();
-				break;
-			case "putoil":
-				break;
-			case "putglue":
-				break;
-			case "inputvector":
+			}else if(command[0].equals("putoil")){
+				//TODO
+			}else if(command[0].equals("putglue")){
+				//TODO
+			}else if(command[0].equals("inputvector")){
 				double x = Double.parseDouble( command[1] );
 				double y = Double.parseDouble( command[2] );
 				gameController = new GameController();
 				gameController.newGame();
 				break;
-			case "endturn":
-				break;
+			}else if(command[0].equals("endturn")){
+				//TODO
 			}
-
 			
 		}
 	}
