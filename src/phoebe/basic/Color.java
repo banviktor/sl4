@@ -1,5 +1,8 @@
 package phoebe.basic;
 
+/**
+ * Felsorolt típus a robotok lehetséges színeinek a tárolására
+ */
 public enum Color {
 	RED, YELLOW, GREEN, BLUE, PURPLE;
 	
