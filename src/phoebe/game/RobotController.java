@@ -3,6 +3,7 @@ package phoebe.game;
 import java.util.List;
 
 import phoebe.Log;
+import phoebe.UserInput;
 import phoebe.basic.Vector;
 
 public class RobotController {
@@ -12,6 +13,7 @@ public class RobotController {
 	private Vector jumpDestination;
 	private boolean willPlaceOil;
 	private boolean willPlaceGlue;
+	private boolean speedModificationDisabled;
 	private Game game;
 	private Map map;
 	
@@ -28,20 +30,24 @@ public class RobotController {
 		this.game = g;
 		this.map = m;
 		
+		this.inputSpeedVector = new Vector(0,0);
+		this.jumpDestination = actualRobot.getPosition();
 		this.willPlaceOil = false;
 		this.willPlaceGlue = false;
+		this.speedModificationDisabled = false;
 		
 		Log.exitFunction();
 	}
 	
 	/**
-	 * Megváltoztatja az olajfolt lehelyezését jelzo flaget
+	 * Megváltoztatja az olajfolt lehelyezését jelzõ flaget
 	 */
 	public void toggleOil(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "toggleOil");
 		
-		willPlaceOil = !willPlaceOil;
+		//Szkeleton megvalósítás: ez a függvényhívás itt valósul meg, de még nincs mellette feltételvizsgálat
+		actualRobot.getOilNumber();
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -54,7 +60,8 @@ public class RobotController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "toggleGlue");
 		
-		willPlaceGlue = !willPlaceGlue;
+		//Szkeleton megvalósítás: ez a függvényhívás itt valósul meg, de még nincs mellette feltételvizsgálat
+		actualRobot.getGlueNumber();
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -69,7 +76,11 @@ public class RobotController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(RobotController.class, "setInputSpeedVector", v.toString());
 		
-		inputSpeedVector = v;
+		if (!speedModificationDisabled) {
+			inputSpeedVector = v;
+			jumpDestination = jumpDestination.add(v);
+		}
+		
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -81,22 +92,40 @@ public class RobotController {
 	public void nextTurn(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(RobotController.class, "nextTurn");
-		// get next robot, vagy mi történik?
+		
+		// Szkeleton megvalósítás, megkérdezzük a felhasználótó, hogy rakunk-e le valamilyen foltot
+		if (UserInput.getBoolean("Fogunk lerakni olajat?", false)) {
+			map.addSmudge(actualRobot.createOil());
+		} else {
+			if (UserInput.getBoolean("Fogunk lerakni ragacsot?", false)) {
+				map.addSmudge(actualRobot.createGlue());
+			}
+		}
+		
+		// Ugrunk a robottal
+		actualRobot.setSpeedVector(actualRobot.getSpeedVector().add(inputSpeedVector));
 		actualRobot.jump();
+		
+		// Vizsgáljuk, hogy pályára estünk-e
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
 			game.deleteActualRobot();
 		}
 		
-		actualRobot = game.getNextRobot();
+		// Elkérjük a következõ robotot
+		actualRobot = game.getNextRobot();		
 		inputSpeedVector = new Vector(0, 0);
+		this.jumpDestination = actualRobot.getPosition().add(actualRobot.getSpeedVector());
 		willPlaceOil = false;
 		willPlaceGlue = false;
 		
+		// A robot alatt lévõ foltok kifejtik hatásukat
 		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
 		for(Smudge s : modifier){
 			s.action(actualRobot);
 		}
+		
+		speedModificationDisabled = actualRobot.isSpeedModificationDisabled();
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
