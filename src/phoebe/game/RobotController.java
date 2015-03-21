@@ -22,7 +22,7 @@ public class RobotController {
 	 * @param m a pályát reprezentáló objektum referenciája
 	 */
 	public RobotController(Robot r, Game g, Map m){
-		Log.enterFunction(RobotController.class, "RobotController");
+		Log.enterFunction(RobotController.class, "RobotController", r.toString() +", Game" + ", Map");
 		
 		this.actualRobot = r;
 		this.game = g;

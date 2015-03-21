@@ -25,7 +25,7 @@ public class Robot {
 	 */
 	public Robot(Color c, Vector p){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Robot.class, "Robot", c.toString() + p.toString());
+		Log.enterFunction(Robot.class, "Robot", c.toString()+ ", " + p.toString());
 		
 		this.color = c;
 		this.position = p;
