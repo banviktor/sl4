@@ -23,7 +23,6 @@ public class Application {
 				double y = Double.parseDouble( command[2] );
 				gameController = new GameController();
 				gameController.newGame();
-				break;
 			}else if(command[0].equals("endturn")){
 				//TODO
 			}
