@@ -13,6 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import phoebe.Log;
+import phoebe.UserInput;
 import phoebe.basic.Line;
 import phoebe.basic.Vector;
 
@@ -30,8 +31,8 @@ public class Map {
 	public Map(String map) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "Map", map);
-		
-		lines = new ArrayList<Line>();
+/*		
+!!!		lines = new ArrayList<Line>();
 		smudges = new ArrayList<Smudge>();
 		Document dom = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -61,7 +62,7 @@ public class Map {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+*/		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -71,15 +72,18 @@ public class Map {
 	 * @param el XML element
 	 * @return Line
 	 */
+/* Nem tudom ehhez a megvalósításhoz kell-e már
 	private Line getLine(Element el) {
+//Log?
 		String[] numsSplit = el.getTextContent().split(" ");
-		double[] nums = new double[4];
+!!!		double[] nums = new double[4];
 		for (int i = 0; i < 4; ++i) {
 			nums[i] = Double.parseDouble(numsSplit[i]);
 		}
 		return new Line( nums[0], nums[1], nums[2], nums[3] );
+	
 	}
-
+*/
 	/**
 	 * Beteszi a foltot a smudges listába.
 	 * @param s az új folt
@@ -104,6 +108,7 @@ public class Map {
 					
 		for (Smudge s : smudges) {
 			if (s.makeOlder() == 0) {
+				// Szkeleton megvalósítás: ez nem fog beövetkezni, mert egyelõre minden folt 1-el tér vissza
 				smudges.remove(s);
 			}
 		}
@@ -117,11 +122,11 @@ public class Map {
 	 * @return foltok
 	 */
 	public List<Smudge> getSmudges() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
+		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Map.class, "getSmudges");
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+		// Metódusból kilépés kiírása a visszatérési értékkel
+		Log.exitFunction("List<Smudge>");
 				
 		return smudges;
 	}
@@ -142,19 +147,21 @@ public class Map {
 			}
 		}
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+		// Metódusból kilépés kiírása a visszatérési értékkel
+		Log.exitFunction("List<Smudge>");
 		
 		return smudgesAt;
 	}
 	
 	/**
+	 * Egy pont és egy szakasz távolságát kiszámoló metódus. A használt algoritmusról bõvebben:
 	 * http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
 	 * @param l szakasz
 	 * @param v pont
 	 * @return pont és szakasz távolsága
 	 */
-	private double pointAndLineDist(Line l, Vector v) {
+/*	Nem tudom kell-e ebbe a megvalósításba majd ilyen mély, az isOnRoad úgyis csak egy kérdésfeltevébõl állna
+ * 	private double pointAndLineDist(Line l, Vector v) {
 		Vector p1 = l.getVector1();
 		Vector p2 = l.getVector2();
 		// 
@@ -174,7 +181,7 @@ public class Map {
 			return p2.distance( v );
 		}
 	}
-
+*/
 	/**
 	 * Visszaadja, hogy az adott pont rajta van-e a pályán.
 	 * @param v Vizsgált pont
@@ -183,8 +190,8 @@ public class Map {
 	public boolean isOnRoad(Vector v) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "isOnRoad", v.toString());
-		
-		boolean result = false;
+/*		
+!!!		boolean result = false;
 				
 		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
 		for (Line l : lines) {
@@ -193,8 +200,11 @@ public class Map {
 				break;
 			}
 		}
+*/		
+		// Bekérjük a játékostól, hogy az adott pont a térképen van-e
+		boolean result = UserInput.getBoolean("A térképen van ez a pont?", true);
 		
-		//Metódusból kilépés kiírása
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(result);
 				
 		return result;
@@ -208,7 +218,7 @@ public class Map {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "getLines");
 		
-		//Metódusból kilépés kiírása
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction("List<Line>");
 				
 		return lines;
@@ -222,7 +232,7 @@ public class Map {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "getLineWidth");
 		
-		//Metódusból kilépés kiírása
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(lineWidth);
 				
 		return lineWidth;
@@ -236,7 +246,7 @@ public class Map {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "getRounds");
 		
-		//Metódusból kilépés kiírása
+		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(rounds);
 		
 		return rounds;

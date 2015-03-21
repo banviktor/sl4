@@ -24,6 +24,21 @@ public class Game {
 	private GameController robotController;
 	private List<Robot> robots;
 	
+	/**
+	 * Segédfüggvény, amely generál egy random vektort a robot kezdeti helyének
+	 * @return a generált véletlenszerû vektor
+	 */
+	private Vector startingVector() {
+//Logolás?		
+		Vector v = null;
+		Random r = new Random();
+		
+		do {
+			v = new Vector( r.nextDouble(), r.nextDouble() );
+		} while ( !map.isOnRoad(v) );
+		
+		return v;
+	}
 	
 	/**
 	 * Konstruktor
@@ -31,15 +46,6 @@ public class Game {
 	 * @param m a pálya, amin a játék játszódik
 	 * @param gc a játékhoz tartozó gameController
 	 */
-	private Vector startingVector() {
-		Vector v = null;
-		Random r = new Random();
-		do {
-			v = new Vector( r.nextDouble(), r.nextDouble() );
-		} while ( !map.isOnRoad(v) );
-		return v;
-	}
-	
 	public Game(int n, Map m, GameController gc){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
 		Log.enterFunction(Game.class, "Game", String.valueOf(n) + ", Map" + ", GameController");
@@ -49,6 +55,7 @@ public class Game {
 		gameController = gc;
 		actualRobotNumber = 1;
 		robots = new ArrayList<Robot>();
+		// A megfelelõ számú robot létrehozása véletlen pozícióra
 		for (int i=0; i<playerNumber; ++i) {
 			robots.add( new Robot( Color.values()[i], startingVector() ) );
 		}
@@ -96,12 +103,12 @@ public class Game {
 	public void deleteActualRobot(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "deleteActualRobot");
-		
-		// Kitörli a robotot a listából 
+/*		
+!!!		// Kitörli a robotot a listából 
 		robots.remove( actualRobotNumber );
 		// Visszalép, hogy a következõ robot helyes legyen
 		actualRobotNumber--;
-		
+*/		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -112,15 +119,15 @@ public class Game {
 	public void gameEnd(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
-		
-		Robot winner = robots.get(0);
+/*		
+!!!		Robot winner = robots.get(0);
 		for (Robot i : robots) {
 			if ( i.getDistance() > winner.getDistance() ) {
 				winner = i;
 			}
 		}
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
-		
+*/		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}

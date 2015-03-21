@@ -32,7 +32,7 @@ public class Glue extends Smudge {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Glue.class, "isEffectiveAt", p.toString());
 				
-		//Megadjuk, hogy a folt alatta van-e
+		//Szkeleton megvalósítás, a felhasználó megadja, hogy a pozíción van-e
 		boolean isHere = UserInput.getBoolean("Ez a ragacsfolt a robot alatt van?", false);
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel

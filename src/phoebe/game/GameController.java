@@ -25,9 +25,11 @@ public class GameController {
 			
 			// Szkeleton megvalósítás, bekérjük a játékosok számát
 			int players = UserInput.getInt("Hány játékossal?", 5);
-			
+			// A határokon kívülesõ input esetén a módosítás
 			if (players < 2) { players = 2; }
 			else if (players > 5) { players = 5; }
+			
+			// Az új játék létrehozása a megfelelõ adatokkal
 			game = new Game(players, map, this);
 		}
 		
@@ -55,9 +57,10 @@ public class GameController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "isRunning");
 		
+		// Szkeleton megvalósítás, a felhasználótól megkérdezzük, hogy van-e futó játék
 		running = UserInput.getBoolean("Van futó játék?", false);
 		
-		//Metódusból kilépés kiírása a visszatérési értékkel
+		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(running));		
 		return running;
 	}
