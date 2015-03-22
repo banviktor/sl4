@@ -176,7 +176,7 @@ public class Robot {
 	 */
 	public double getDistance(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Robot.class, "getDistence");
+		Log.enterFunction(Robot.class, "getDistance");
 		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(distance);

@@ -132,11 +132,14 @@ public class Game {
 		Log.enterFunction(Game.class, "gameEnd");
 
 		Robot winner = robots.get(0);
-		for (Robot i : robots) {
-			if ( i.getDistance() > winner.getDistance() ) {
-				winner = i;
+		double winnerDistance = winner.getDistance();
+		for (int i=1; i<robots.size(); ++i) {
+			if ( robots.get(i).getDistance() > winnerDistance ) {
+				winner = robots.get(i);
+				winnerDistance = winner.getDistance();
 			}
 		}
+		
 		Log.writeLine("A nyertes: " + winner.toString() );
 		
 		gameController.gameEnded();
