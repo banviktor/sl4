@@ -5,12 +5,25 @@ import phoebe.game.*;
 
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
+		System.out.println("A szkeletonban alkalmazható parancsok listája:");
+		System.out.println("");
+		System.out.println("startgame		Elindít egy új játékot.");
+		System.out.println("putoil			Egy olajfolt lerakását kezdeményezi.");
+		System.out.println("putglue			Egy ragacsfolt lerakását kezdeményezi.");
+		System.out.println("inputvector x y	Az (x, y) vektort adja meg bemeneti sebességvektornak.");
+		System.out.println("endturn			A kör végét futtatja le.");
+		System.out.println("exit			Kilép az alkalmazásból.");
+		System.out.println("");
+		System.out.println("A \">\" jel jelzi, hogy parancsra vár az alkalmazás.");
+		System.out.println("");
 		
 		boolean exit = false;
 		while ( !exit ) {
 			String[] command = UserInput.getCommand();
-			if(command[0].equals("startgame")){
+			if(command[0].equals("exit")){
+				exit = true;
+			}else if(command[0].equals("startgame")){
 				//Inicializálás
 				GameController gc = new GameController();
 				
