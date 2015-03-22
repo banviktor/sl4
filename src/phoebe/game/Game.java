@@ -82,7 +82,7 @@ public class Game {
 			if(UserInput.getBoolean("Véget ért a játék?", false)) {
 			
 				// Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
-				gameEnd();
+				gameEnd();		
 				
 			} else {
 				
@@ -90,11 +90,18 @@ public class Game {
 				map.nextRound();
 				
 			}
-		}		
+			
+			// Ha új kör van vagy a játék véget ért, az elsõ robot lesz az aktuális
+			actualRobotNumber = 1;	
+			
+		} else {		
+			//Ha nincs új kör a következõ robotot adjuk vissza
+			actualRobotNumber++;
+		}
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction("A következõ robot, ha van");
-		return null;
+		Log.exitFunction(robots.get(actualRobotNumber));
+		return robots.get(actualRobotNumber);
 	}
 	
 	/**
