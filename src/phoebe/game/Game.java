@@ -93,7 +93,7 @@ public class Game {
 		}		
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(robots.get(actualRobotNumber).toString());
+		Log.exitFunction("A következõ robot, ha van");
 		return null;
 	}
 	
@@ -103,12 +103,7 @@ public class Game {
 	public void deleteActualRobot(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "deleteActualRobot");
-/*		
-!!!		// Kitörli a robotot a listából 
-		robots.remove( actualRobotNumber );
-		// Visszalép, hogy a következõ robot helyes legyen
-		actualRobotNumber--;
-*/		
+	
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -119,15 +114,17 @@ public class Game {
 	public void gameEnd(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
-/*		
-!!!		Robot winner = robots.get(0);
+
+		Robot winner = robots.get(0);
 		for (Robot i : robots) {
 			if ( i.getDistance() > winner.getDistance() ) {
 				winner = i;
 			}
 		}
-		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
-*/		
+		Log.writeLine("A nyertes: " + winner.getColor().toString() + " Robot!" );
+		
+		gameController.gameEnded();
+
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}

@@ -1,30 +1,101 @@
 package phoebe;
 
-import phoebe.game.GameController;
+import phoebe.basic.Vector;
+import phoebe.game.*;
 
 public class Application {
 
 	public static void main(String[] args) {
-		Log.setConsoleLogging(true);
-		UserInput.enable();
+		
 		boolean exit = false;
-		GameController gameController;
 		while ( !exit ) {
 			String[] command = UserInput.getCommand();
 			if(command[0].equals("startgame")){
-				gameController = new GameController();
-				gameController.newGame();
+				//Inicializálás
+				GameController gc = new GameController();
+				
+				//Logolás és kérdezés bekapcsolása
+				Log.setConsoleLogging(true);
+				UserInput.enable();
+				
+				//Folyamat elindítása
+				gc.newGame();
+
+				//Logolás és kérdezés kikapcsolása
+				Log.setConsoleLogging(false);
+				UserInput.disable();
 			}else if(command[0].equals("putoil")){
-				//TODO
+				//Inicializálás				
+				GameController gc = new GameController();
+				Map m = new Map("");
+				Game g = new Game(2, m, gc);
+				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				
+				//Logolás és kérdezés bekapcsolása
+				Log.setConsoleLogging(true);
+				UserInput.enable();
+				
+				//Folyamat elindítása
+				rc.toggleOil();
+
+				//Logolás és kérdezés kikapcsolása
+				Log.setConsoleLogging(false);
+				UserInput.disable();
+				
 			}else if(command[0].equals("putglue")){
-				//TODO
+				//Inicializálás		
+				GameController gc = new GameController();
+				Map m = new Map("");
+				Game g = new Game(2, m, gc);
+				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				
+				//Logolás és kérdezés bekapcsolása
+				Log.setConsoleLogging(true);
+				UserInput.enable();
+				
+				//Folyamat elindítása
+				rc.toggleGlue();
+
+				//Logolás és kérdezés kikapcsolása
+				Log.setConsoleLogging(false);
+				UserInput.disable();
+				
 			}else if(command[0].equals("inputvector")){
+				//Inicializálás				
 				double x = Double.parseDouble( command[1] );
 				double y = Double.parseDouble( command[2] );
-				gameController = new GameController();
-				gameController.newGame();
+				GameController gc = new GameController();
+				Map m = new Map("");
+				Game g = new Game(2, m, gc);
+				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				
+				//Logolás és kérdezés bekapcsolása
+				Log.setConsoleLogging(true);
+				UserInput.enable();
+				
+				//Folyamat elindítása
+				rc.setInputSpeedVector(new Vector(x,y));				
+				
+				//Logolás és kérdezés kikapcsolása
+				Log.setConsoleLogging(false);
+				UserInput.disable();
 			}else if(command[0].equals("endturn")){
-				//TODO
+				//Inicializálás	
+				GameController gc = new GameController();
+				Map m = new Map("");
+				Game g = new Game(2, m, gc);
+				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				
+				//Logolás és kérdezés bekapcsolása
+				Log.setConsoleLogging(true);
+				UserInput.enable();
+				
+				//Folyamat elindítása
+				rc.nextTurn();
+
+				//Logolás és kérdezés kikapcsolása
+				Log.setConsoleLogging(false);
+				UserInput.disable();
 			}
 			
 		}

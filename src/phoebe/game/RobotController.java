@@ -76,11 +76,10 @@ public class RobotController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(RobotController.class, "setInputSpeedVector", v.toString());
 		
-		if (!speedModificationDisabled) {
+		if (!UserInput.getBoolean("Olajfolton állunk?", true)) {
 			inputSpeedVector = v;
 			jumpDestination = jumpDestination.add(v);
 		}
-		
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -114,18 +113,20 @@ public class RobotController {
 		
 		// Elkérjük a következõ robotot
 		actualRobot = game.getNextRobot();		
-		inputSpeedVector = new Vector(0, 0);
-		this.jumpDestination = actualRobot.getPosition().add(actualRobot.getSpeedVector());
-		willPlaceOil = false;
-		willPlaceGlue = false;
-		
-		// A robot alatt lévõ foltok kifejtik hatásukat
-		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
-		for(Smudge s : modifier){
-			s.action(actualRobot);
+		if(actualRobot != null){
+			inputSpeedVector = new Vector(0, 0);
+			this.jumpDestination = actualRobot.getPosition().add(actualRobot.getSpeedVector());
+			willPlaceOil = false;
+			willPlaceGlue = false;
+			
+			// A robot alatt lévõ foltok kifejtik hatásukat
+			List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
+			for(Smudge s : modifier){
+				s.action(actualRobot);
+			}
+			
+			speedModificationDisabled = actualRobot.isSpeedModificationDisabled();			
 		}
-		
-		speedModificationDisabled = actualRobot.isSpeedModificationDisabled();
 		
 		// Metódusból kilépés kiírása
 		Log.exitFunction();
