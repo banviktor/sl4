@@ -1,6 +1,7 @@
 package phoebe.game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import phoebe.Log;
@@ -54,9 +55,11 @@ public class Map {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "nextRound");
 					
-		for (Smudge s : smudges) {
+		// A biztonságos törlés végett iterátorral járjuk véget a tömböt
+		for (Iterator<Smudge> iterator = smudges.iterator(); iterator.hasNext();) {
+			Smudge s = iterator.next();
 			if (s.makeOlder() == 0) {
-				smudges.remove(s);
+				iterator.remove();
 			}
 		}
 		

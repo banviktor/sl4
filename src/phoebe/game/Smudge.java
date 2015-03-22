@@ -52,10 +52,10 @@ public abstract class Smudge {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Smudge.class, "makeOlder");
 		
-		
-		remainingRounds = UserInput.getInt("A " + this.toString() + " hátralevõ köreinek száma nulla?", 3);
-		if (remainingRounds < 0) {
+		if (UserInput.getBoolean("A " + this.toString() + " hátralevõ köreinek száma nulla?", false)) {
 			remainingRounds = 0;
+		} else {
+			remainingRounds = 3;
 		}
 		
 		// Metódusból kilépés kiírása a visszatérési értékkel
