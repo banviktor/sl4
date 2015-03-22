@@ -161,8 +161,7 @@ public class Game {
 	}
 	
 	/**
-	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
-	 * Visszaadja a játékhoz tartozó RobotControllert
+	 * Visszaadja a játékhoz tartozó RobotControllert.
 	 * @return a RobotController
 	 */
 	public RobotController getRobotController(){
@@ -170,8 +169,7 @@ public class Game {
 	}	
 	
 	/**
-	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
-	 * Visszaadja a játékhoz tartozó Mapet
+	 * Visszaadja a játékhoz tartozó Mapet.
 	 * @return a Map
 	 */
 	public Map getMap(){

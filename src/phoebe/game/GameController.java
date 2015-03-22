@@ -66,7 +66,6 @@ public class GameController {
 	}
 	
 	/**
-	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
 	 * Visszaadja a játékhoz tartozó RobotControllert
 	 * @return a RobotController
 	 */
@@ -75,7 +74,6 @@ public class GameController {
 	}	
 	
 	/**
-	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
 	 * Visszaadja a játékhoz tartozó Mapet
 	 * @return a Map
 	 */
