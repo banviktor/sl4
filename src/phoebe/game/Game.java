@@ -107,7 +107,7 @@ public class Game {
 		}
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(robots.get(actualRobotNumber));
+		Log.exitFunction(robots.get(actualRobotNumber).toString());
 		if(ended)
 			return null;
 		return robots.get(actualRobotNumber);
