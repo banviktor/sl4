@@ -22,7 +22,11 @@ public class Map {
 	public Map(String map) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "Map", map);
-
+		
+		lineWidth = 0;
+		rounds = 3;
+		smudges = new ArrayList<Smudge>();
+		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -34,7 +38,9 @@ public class Map {
 	public void addSmudge(Smudge s) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "addSmudge", s.toString());
-				
+		
+		smudges.add(s);
+		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -48,7 +54,7 @@ public class Map {
 		Log.enterFunction(Map.class, "nextRound");
 					
 		for (Smudge s : smudges) {
-			UserInput.getBoolean("A " + s + " hátralevõ köreinek száma nulla?", false);
+			UserInput.getInt("A " + s + " hátralevõ köreinek száma nulla?", 3);
 		}
 		
 		//Metódusból kilépés kiírása
