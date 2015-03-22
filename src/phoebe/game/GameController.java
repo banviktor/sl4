@@ -65,4 +65,11 @@ public class GameController {
 		return running;
 	}
 	
+	/**
+	 * Visszaadja a játékhoz tartozó RobotControllert
+	 * @return
+	 */
+	public RobotController getRobotController(){
+		return game.getRobotController();
+	}	
 }

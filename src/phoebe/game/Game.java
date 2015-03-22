@@ -21,7 +21,7 @@ public class Game {
 	private int turnsRemaining;
 	private Map map;
 	private GameController gameController;
-	private GameController robotController;
+	private RobotController robotController;
 	private List<Robot> robots;
 	
 	/**
@@ -60,7 +60,7 @@ public class Game {
 			robots.add( new Robot( Color.values()[i], startingVector() ) );
 		}
 		
-		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
+		robotController = new RobotController(robots.get(actualRobotNumber), this, map);
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -150,5 +150,13 @@ public class Game {
 		Log.exitFunction("List<Robots>");
 		return robots;
 	}
+	
+	/**
+	 * Visszaadja a játékhoz tartozó RobotControllert
+	 * @return
+	 */
+	public RobotController getRobotController(){
+		return robotController;
+	}	
 	
 }

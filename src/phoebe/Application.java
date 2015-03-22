@@ -27,9 +27,8 @@ public class Application {
 			}else if(command[0].equals("putoil")){
 				//Inicializálás				
 				GameController gc = new GameController();
-				Map m = new Map("");
-				Game g = new Game(2, m, gc);
-				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				gc.newGame();
+				RobotController rc = gc.getRobotController();
 				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
@@ -45,9 +44,8 @@ public class Application {
 			}else if(command[0].equals("putglue")){
 				//Inicializálás		
 				GameController gc = new GameController();
-				Map m = new Map("");
-				Game g = new Game(2, m, gc);
-				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				gc.newGame();
+				RobotController rc = gc.getRobotController();
 				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
@@ -65,9 +63,8 @@ public class Application {
 				double x = Double.parseDouble( command[1] );
 				double y = Double.parseDouble( command[2] );
 				GameController gc = new GameController();
-				Map m = new Map("");
-				Game g = new Game(2, m, gc);
-				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				gc.newGame();
+				RobotController rc = gc.getRobotController();
 				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
@@ -82,9 +79,8 @@ public class Application {
 			}else if(command[0].equals("endturn")){
 				//Inicializálás	
 				GameController gc = new GameController();
-				Map m = new Map("");
-				Game g = new Game(2, m, gc);
-				RobotController rc = new RobotController(g.getRobots().get(0), g, m);
+				gc.newGame();
+				RobotController rc = gc.getRobotController();
 				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
