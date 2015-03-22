@@ -1,16 +1,7 @@
 package phoebe.game;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 import phoebe.Log;
 import phoebe.UserInput;
@@ -31,59 +22,11 @@ public class Map {
 	public Map(String map) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "Map", map);
-/*		
-!!!		lines = new ArrayList<Line>();
-		smudges = new ArrayList<Smudge>();
-		Document dom = null;
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db;
-		// Megpróbálja megnyitni a pályafájlt és végigparszolni
-		try {
-			db = dbf.newDocumentBuilder();
-			dom = (Document) db.parse( map );
 
-			Element docEle = dom.getDocumentElement();
-			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"));
-			rounds = Integer.parseInt(docEle.getAttribute("roundNum"));
-			
-			NodeList nl = docEle.getElementsByTagName("line");
-			if (nl != null && nl.getLength() > 0) {
-				for (int i = 0; i < nl.getLength(); i++) {
-					Element el = (Element) nl.item(i);
-					Line e = getLine(el);
-					lines.add(e);
-				}
-			}
-
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (org.xml.sax.SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-*/		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
 
-	/**
-	 * XML feldolgozó, az adatból Line-t készít
-	 * @param el XML element
-	 * @return Line
-	 */
-/* Nem tudom ehhez a megvalósításhoz kell-e már
-	private Line getLine(Element el) {
-//Log?
-		String[] numsSplit = el.getTextContent().split(" ");
-!!!		double[] nums = new double[4];
-		for (int i = 0; i < 4; ++i) {
-			nums[i] = Double.parseDouble(numsSplit[i]);
-		}
-		return new Line( nums[0], nums[1], nums[2], nums[3] );
-	
-	}
-*/
 	/**
 	 * Beteszi a foltot a smudges listába.
 	 * @param s az új folt
@@ -91,9 +34,7 @@ public class Map {
 	public void addSmudge(Smudge s) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "addSmudge", s.toString());
-		
-		smudges.add(s);
-		
+				
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -107,10 +48,7 @@ public class Map {
 		Log.enterFunction(Map.class, "nextRound");
 					
 		for (Smudge s : smudges) {
-			if (s.makeOlder() == 0) {
-				// Szkeleton megvalósítás: ez nem fog beövetkezni, mert egyelõre minden folt 1-el tér vissza
-				smudges.remove(s);
-			}
+			UserInput.getBoolean("A " + s + " hátralevõ köreinek száma nulla?", false);
 		}
 		
 		//Metódusból kilépés kiírása
@@ -154,35 +92,6 @@ public class Map {
 	}
 	
 	/**
-	 * Egy pont és egy szakasz távolságát kiszámoló metódus. A használt algoritmusról bõvebben:
-	 * http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
-	 * @param l szakasz
-	 * @param v pont
-	 * @return pont és szakasz távolsága
-	 */
-/*	Nem tudom kell-e ebbe a megvalósításba majd ilyen mély, az isOnRoad úgyis csak egy kérdésfeltevébõl állna
- * 	private double pointAndLineDist(Line l, Vector v) {
-		Vector p1 = l.getVector1();
-		Vector p2 = l.getVector2();
-		// 
-		double d = Math.abs( (p2.getX()-p1.getX())*(p1.getY()-v.getY()) -
-				(p1.getX()-v.getX())*(p2.getY()-p1.getY()) ) /
-				Math.sqrt( Math.pow(p2.getX()-p1.getX(),2) + Math.pow(p1.getY()-p2.getY(), 2) );
-		double sectionLen = l.length();
-		double sectionA = Math.sqrt( Math.pow(p1.distance(v), 2) - Math.pow(d, 2) );
-		double sectionB = Math.sqrt( Math.pow(p2.distance(v), 2) - Math.pow(d, 2) );
-		if (Math.abs(sectionA + sectionB - sectionLen) < 0.01) {
-			return d;
-		}
-		else if (sectionA < sectionB) {
-			return p1.distance( v );
-		}
-		else {
-			return p2.distance( v );
-		}
-	}
-*/
-	/**
 	 * Visszaadja, hogy az adott pont rajta van-e a pályán.
 	 * @param v Vizsgált pont
 	 * @return igaz, ha az úton van
@@ -190,17 +99,7 @@ public class Map {
 	public boolean isOnRoad(Vector v) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Map.class, "isOnRoad", v.toString());
-/*		
-!!!		boolean result = false;
-				
-		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
-		for (Line l : lines) {
-			if ( pointAndLineDist(l, v) < lineWidth/2 ) {
-				result = true;
-				break;
-			}
-		}
-*/		
+
 		// Bekérjük a játékostól, hogy az adott pont a térképen van-e
 		boolean result = UserInput.getBoolean("A térképen van ez a pont?", true);
 		
