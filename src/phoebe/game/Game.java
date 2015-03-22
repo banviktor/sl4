@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import phoebe.Application;
 import phoebe.Log;
 import phoebe.UserInput;
 import phoebe.basic.Color;
