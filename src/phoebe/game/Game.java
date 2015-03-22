@@ -75,6 +75,10 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "getNextRobot");	
 		
+		//Mivel nincs mûködõ isRunning, ezért kelleni fog egy boolean arra az esetre
+		//ha véget ér a játék
+		boolean ended = false;
+		
 		// Megkérdezzük a felhasználót, hogy véget ért-e egy kör
 		if (UserInput.getBoolean("Véget ért egy kör?", false)) {
 			
@@ -82,7 +86,8 @@ public class Game {
 			if(UserInput.getBoolean("Véget ért a játék?", false)) {
 			
 				// Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
-				gameEnd();		
+				gameEnd();	
+				ended = true;
 				
 			} else {
 				
@@ -103,6 +108,8 @@ public class Game {
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(robots.get(actualRobotNumber));
+		if(ended)
+			return null;
 		return robots.get(actualRobotNumber);
 	}
 	
