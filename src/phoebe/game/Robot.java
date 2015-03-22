@@ -95,19 +95,7 @@ public class Robot {
 	public void jump(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Robot.class, "jump");
-/*		
-!!!		
-		// Megtett út nõ az ugrással
-		distance += speedVector.length();
-		
-		// Ugráskor a hely módosítása a sebességvektorral
-		position = new Vector(position.getX() + speedVector.getX(),
-				position.getY() + speedVector.getY());
-		
-		// Következõ körre felkészítés
-		speedHalved = false;
-		speedModificationDisabled = false;
-*/		
+	
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
 	}
