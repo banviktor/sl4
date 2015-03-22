@@ -14,7 +14,7 @@ public class Glue extends Smudge {
 		super(p);
 		
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Glue.class, "Oil", p.toString());
+		Log.enterFunction(Glue.class, "Glue", p.toString());
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();

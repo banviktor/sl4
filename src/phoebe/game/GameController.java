@@ -21,8 +21,14 @@ public class GameController {
 		// Ha nem fut épp játék, létrehoz egy újat
 		// Szkeleton megvalósítás miatt meghívja az isRunningot, mert ott teszi fel a kérdést
 		if (!isRunning()) {
-			Map map = new Map("xtx.txt");
-			game = new Game(5, map, this);
+			Map map = new Map("map.xml");
+			
+			// Szkeleton megvalósítás, bekérjük a játékosok számát
+			int players = UserInput.getInt("Hány játékossal?", 5);
+			
+			if (players < 2) { players = 2; }
+			else if (players > 5) { players = 5; }
+			game = new Game(players, map, this);
 		}
 		
 		//Metódusból kilépés kiírása

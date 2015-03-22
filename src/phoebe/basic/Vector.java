@@ -43,8 +43,18 @@ public class Vector {
 	 * @param v A vektor, amit hozzá kell adni az aktuális vektorhoz
 	 * @return Az összegvektor
 	 */
-	public Vector add (Vector v){
+	public Vector add(Vector v){
 		return new Vector(x + v.x, y + v.y);
+	}
+	
+	/**
+	 * Két megadott vektor összegét adja vissza
+	 * @param v1 Az egyik vektor
+	 * @param v2 A másik vektor
+	 * @return A két vektor összege
+	 */
+	public static Vector add(Vector v1, Vector v2){
+		return new Vector(v1.x + v2.x, v1.y + v2.y);
 	}
 	
 	/**
@@ -91,12 +101,32 @@ public class Vector {
 	}
 	
 	/**
-	 * A vektort a megadott skalárral megszorozza
-	 * @param mul Szorzó
-	 * @return A vektorszorzat
+	 * Visszaadja a két megadott helyvektor távolságát
+	 * @param v1 Az egyik vektor
+	 * @param v2 A másik vektor
+	 * @return A két helyvektor távolsága
+	 */
+	public static double distance(Vector v1, Vector v2){
+		return (new Vector(v1, v2)).length();
+	}
+	
+	/**
+	 * A vektort a megadott skalárral megszorozza és az eredményt egy új vektorként adja vissza
+	 * @param mul Skalár
+	 * @return Skaláris szorzat
 	 */
 	public Vector multiply(double mul){
 		return new Vector(x * mul, y * mul);
+	}
+	
+	/**
+	 * A megadott vektort a megadott skalárral megszorozza
+	 * @param v Vektor
+	 * @param mul Skalár
+	 * @return Skaláris szorzat
+	 */
+	public static Vector multiply(Vector v, double mul){
+		return new Vector(v.x * mul, v.y * mul);
 	}
 	
 	/**

@@ -1,10 +1,14 @@
 package phoebe.game;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import phoebe.Application;
 import phoebe.Log;
 import phoebe.UserInput;
+import phoebe.basic.Color;
+import phoebe.basic.Vector;
 
 /**
  * A játékot megvalósító osztály, mely tárolja a robotokat és ütemezi a köröket,
@@ -27,14 +31,27 @@ public class Game {
 	 * @param m a pálya, amin a játék játszódik
 	 * @param gc a játékhoz tartozó gameController
 	 */
+	private Vector startingVector() {
+		Vector v = null;
+		Random r = new Random();
+		do {
+			v = new Vector( r.nextDouble(), r.nextDouble() );
+		} while ( !map.isOnRoad(v) );
+		return v;
+	}
+	
 	public Game(int n, Map m, GameController gc){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
-		Log.enterFunction(Game.class, "Game", String.valueOf(n) + "Map" + "GameController");
+		Log.enterFunction(Game.class, "Game", String.valueOf(n) + ", Map" + ", GameController");
 
 		playerNumber = n;
 		map = m;
 		gameController = gc;
 		actualRobotNumber = 1;
+		robots = new ArrayList<Robot>();
+		for (int i=0; i<playerNumber; ++i) {
+			robots.add( new Robot( Color.values()[i], startingVector() ) );
+		}
 		
 		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
 		
@@ -80,6 +97,11 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "deleteActualRobot");
 		
+		// Kitörli a robotot a listából 
+		robots.remove( actualRobotNumber );
+		// Visszalép, hogy a következõ robot helyes legyen
+		actualRobotNumber--;
+		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
 	}
@@ -91,9 +113,13 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
 		
+		Robot winner = robots.get(0);
 		for (Robot i : robots) {
-			i.getDistance();
+			if ( i.getDistance() > winner.getDistance() ) {
+				winner = i;
+			}
 		}
+		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -109,7 +135,7 @@ public class Game {
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction("List<Robots>");
-		return null;
+		return robots;
 	}
 	
 }

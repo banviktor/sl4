@@ -49,6 +49,18 @@ public class UserInput {
 		}
 	}
 	
+	public static String[] getCommand(){
+		System.out.print(" >");
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
+		try{
+            String i = br.readLine();
+            return i.split(" ");
+        } catch (IOException e) {
+        	return new String[]{};
+		} 	
+	}
+	
 	public static void enable(){
 		asking = true;
 	}
