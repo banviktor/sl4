@@ -74,7 +74,7 @@ public class RobotController {
 	 */
 	public void nextTurn(){
 		Log.enterFunction(RobotController.class, "nextTurn");
-		// get next robot, vagy mi történik?
+		// TODO lerakni a foltokat
 		actualRobot.jump();
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
