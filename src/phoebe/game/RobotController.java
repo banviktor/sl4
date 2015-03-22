@@ -78,7 +78,7 @@ public class RobotController {
 		
 		if (!UserInput.getBoolean("Olajfolton állunk?", true)) {
 			inputSpeedVector = v.normalized();
-			jumpDestination = jumpDestination.add(inputSpeedVector);
+			jumpDestination = actualRobot.getPosition().add(actualRobot.getSpeedVector().add(inputSpeedVector));
 		}
 		
 		// Metódusból kilépés kiírása
