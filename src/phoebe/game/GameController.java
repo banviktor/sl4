@@ -66,10 +66,20 @@ public class GameController {
 	}
 	
 	/**
+	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
 	 * Visszaadja a játékhoz tartozó RobotControllert
-	 * @return
+	 * @return a RobotController
 	 */
 	public RobotController getRobotController(){
 		return game.getRobotController();
+	}	
+	
+	/**
+	 * Szkeleton megvalósítás: csak itt lesz szükségi ilyen lekérdezésre
+	 * Visszaadja a játékhoz tartozó Mapet
+	 * @return a Map
+	 */
+	public Map getMap(){
+		return game.getMap();
 	}	
 }

@@ -95,6 +95,7 @@ public class Application {
 				gc.newGame();
 				RobotController rc = gc.getRobotController();
 				
+				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
 				UserInput.enable();
