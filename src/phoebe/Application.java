@@ -94,7 +94,10 @@ public class Application {
 				GameController gc = new GameController();
 				gc.newGame();
 				RobotController rc = gc.getRobotController();
-				
+				Map map = gc.getMap();
+				//Itt most pozíciókkal nem foglalkozunk, mert úgyis felhasználó kérdésben tudjuk meg ráléptünk-e
+				map.addSmudge(new Oil(new Vector(0,0)));
+				map.addSmudge(new Glue(new Vector(0,0)));
 				
 				//Logolás és kérdezés bekapcsolása
 				Log.setConsoleLogging(true);
