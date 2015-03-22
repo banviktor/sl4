@@ -57,7 +57,10 @@ public class Oil extends Smudge {
 		Log.exitFunction();
 	}
 
-
+	/**
+	 * Visszaadja az olaj helyét "Olaj@[Hely]" formátumban
+	 * return az olaj helye megfelelõ formátumban
+	 */
 	@Override
 	public String toString() {
 		return "Oil@" + position;

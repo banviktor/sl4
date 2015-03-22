@@ -56,7 +56,10 @@ public class Glue extends Smudge {
 		Log.exitFunction();
 	}
 
-
+	/**
+	 * Visszaadja a ragacs helyét "Olaj@[Hely]" formátumban
+	 * return a ragacs helye megfelelõ formátumban
+	 */
 	@Override
 	public String toString() {
 		return "Glue@" + position;

@@ -230,8 +230,22 @@ public class Robot {
 		return speedModificationDisabled;
 	}
 	
+	/**
+	 * Szkeleton megvalósítás, így nincs loggolva:
+	 * A robot színének lekérdezésére
+	 * @return a robot színe
+	 */
 	public Color getColor() {
 		return color;
 	}
 	
+	/**
+	 * Szkeleton megvalósítás, így nincs loggolva:
+	 * A robot színének visszatérítése "[Szín] Robot" formátumban
+	 * @return a robot színe a megfelelõ formátumban
+	 */
+	@Override
+	public String toString() {
+		return getColor() +  " Robot";
+	}
 }

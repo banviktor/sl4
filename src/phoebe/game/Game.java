@@ -137,7 +137,7 @@ public class Game {
 				winner = i;
 			}
 		}
-		Log.writeLine("A nyertes: " + winner.getColor().toString() + " Robot!" );
+		Log.writeLine("A nyertes: " + winner.toString() );
 		
 		gameController.gameEnded();
 
