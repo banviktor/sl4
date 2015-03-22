@@ -26,6 +26,7 @@ public class Map {
 		lineWidth = 0;
 		rounds = 3;
 		smudges = new ArrayList<Smudge>();
+		lines = new ArrayList<Line>();
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -54,7 +55,9 @@ public class Map {
 		Log.enterFunction(Map.class, "nextRound");
 					
 		for (Smudge s : smudges) {
-			UserInput.getInt("A " + s + " hátralevõ köreinek száma nulla?", 3);
+			if (s.makeOlder() == 0) {
+				smudges.remove(s);
+			}
 		}
 		
 		//Metódusból kilépés kiírása

@@ -52,9 +52,13 @@ public abstract class Smudge {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Smudge.class, "makeOlder");
 		
+		
+		remainingRounds = UserInput.getInt("A " + this.toString() + " hátralevõ köreinek száma nulla?", 3);
+		if (remainingRounds < 0) {
+			remainingRounds = 0;
+		}
+		
 		// Metódusból kilépés kiírása a visszatérési értékkel
-		// Szkeletonban mindig 1-el tér vissza, mert itt egy érték megkérdezése a felhasználótól
-		// felesleges, nem okozna új metódushívást semmilyen lehetséges érték
 		Log.exitFunction(remainingRounds);
 		return remainingRounds;
 	}

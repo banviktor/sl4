@@ -77,8 +77,8 @@ public class RobotController {
 		Log.enterFunction(RobotController.class, "setInputSpeedVector", v.toString());
 		
 		if (!UserInput.getBoolean("Olajfolton állunk?", true)) {
-			inputSpeedVector = v;
-			jumpDestination = jumpDestination.add(v);
+			inputSpeedVector = v.normalized();
+			jumpDestination = jumpDestination.add(inputSpeedVector);
 		}
 		
 		// Metódusból kilépés kiírása
