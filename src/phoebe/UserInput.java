@@ -50,7 +50,7 @@ public class UserInput {
 	}
 	
 	public static String[] getCommand(){
-		System.out.print(" >");
+		System.out.print(">");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
