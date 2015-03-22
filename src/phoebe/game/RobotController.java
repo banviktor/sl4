@@ -101,7 +101,7 @@ public class RobotController {
 			}
 		}
 		
-		// Ugrunk a robottal
+		// Az ugrás végrehajtása
 		actualRobot.setSpeedVector(actualRobot.getSpeedVector().add(inputSpeedVector));
 		actualRobot.jump();
 		
