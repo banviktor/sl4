@@ -33,7 +33,7 @@ public class Game {
 		Random r = new Random();
 		
 		do {
-			v = new Vector( r.nextDouble(), r.nextDouble() );
+			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
 		} while ( !map.isOnRoad(v) );
 		
 		return v;
