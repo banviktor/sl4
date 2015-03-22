@@ -95,8 +95,10 @@ public class Game {
 			actualRobotNumber = 1;	
 			
 		} else {		
-			//Ha nincs új kör a következõ robotot adjuk vissza
-			actualRobotNumber++;
+			// Ha nincs új kör a következõ robotot adjuk vissza
+			// Szkeleton megvalósítás: itt most szintén az elsõ robotot adjuk vissza, mert nem tudhatjuk
+			// mennyi van, és a userinput miatt nem teszteljük még hogy vége-e egy körnek
+			actualRobotNumber = 1;
 		}
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
