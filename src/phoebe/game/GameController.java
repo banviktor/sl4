@@ -24,7 +24,7 @@ public class GameController {
 			Map map = new Map("map.xml");
 			
 			// Szkeleton megvalósítás, bekérjük a játékosok számát
-			int players = UserInput.getInt("Hány játékossal?", 5);
+			int players = UserInput.getInt("Hány játékossal?", 2);
 			// A határokon kívülesõ input esetén a módosítás
 			if (players < 2) { players = 2; }
 			else if (players > 5) { players = 5; }
