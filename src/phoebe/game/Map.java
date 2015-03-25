@@ -241,5 +241,21 @@ public class Map {
 		
 		return rounds;
 	}
+	
+	/**
+	 * Visszaadja a legközelebbi foltot
+	 * @param v Innen adja a legközelebbi foltot
+	 * @return A vektorhoz legközelebbi folt. Ha nincs folt, null
+	 */
+	public Smudge nearestSmudgeTo(Vector v) {
+		Smudge nearestSmudge = null;
+		double minDistance = 100;
+		for (Smudge s : smudges) {
+			if ( v.distance(s.getPosition()) < minDistance ) {
+				nearestSmudge = s;
+			}
+		}
+		return nearestSmudge;
+	}
 
 }
