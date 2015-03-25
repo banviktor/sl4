@@ -130,6 +130,16 @@ public class Vector {
 	}
 	
 	/**
+	 * Visszaadja két vektor vektorátlagát
+	 * @param v1 Az egyik vektor
+	 * @param v2 A másik vektor
+	 * @return Vektorátlag
+	 */
+	public static Vector average(Vector v1, Vector v2){
+		return new Vector( (v1.x+v2.x)/2, (v1.y+v2.y)/2  );
+	}
+	
+	/**
 	 * (x,y) formátumban visszaadja a pontot
 	 */
 	public String toString(){
