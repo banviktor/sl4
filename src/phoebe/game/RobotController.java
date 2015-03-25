@@ -7,7 +7,7 @@ import phoebe.basic.Vector;
 
 public class RobotController {
 
-	private Robot actualRobot;
+	private PlayerRobot actualRobot;
 	private Vector inputSpeedVector;
 	private Vector jumpDestination;
 	private boolean willPlaceOil;
@@ -21,7 +21,7 @@ public class RobotController {
 	 * @param g a játékot reprezentáló objektum referenciája
 	 * @param m a pályát reprezentáló objektum referenciája
 	 */
-	public RobotController(Robot r, Game g, Map m){
+	public RobotController(PlayerRobot r, Game g, Map m){
 		Log.enterFunction(RobotController.class, "RobotController", r.toString() +", Game" + ", Map");
 		
 		this.actualRobot = r;
@@ -81,7 +81,7 @@ public class RobotController {
 			game.deleteActualRobot();
 		}
 		
-		actualRobot = game.getNextRobot();
+		actualRobot = game.getNextPlayerRobot();
 		inputSpeedVector = new Vector(0, 0);
 		willPlaceOil = false;
 		willPlaceGlue = false;

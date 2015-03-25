@@ -46,7 +46,7 @@ public class Glue extends Smudge {
 	 * @param r a robot, aminek felezi a sebességét
 	 */
 	@Override
-	public void action(Robot r) {
+	public void action(PlayerRobot r) {
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Glue.class, "action", r.toString());
 		

@@ -77,7 +77,7 @@ public abstract class Smudge {
 	 * Absztrakt metódus, mely a folt típusától függõ változást hoz létre az átadott robotban
 	 * @param r a robot, amin változtatást kell létrehozni
 	 */
-	public abstract void action(Robot r);	
+	public abstract void action(PlayerRobot r);	
 	
 	public abstract String toString();
 	

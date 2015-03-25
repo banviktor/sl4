@@ -47,7 +47,7 @@ public class Oil extends Smudge {
 	 * @param r a robot, aminek kikapcsolja a sebességváltoztatását
 	 */
 	@Override
-	public void action(Robot r){
+	public void action(PlayerRobot r){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Oil.class, "action", r.toString());
 		

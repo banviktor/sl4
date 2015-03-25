@@ -8,7 +8,7 @@ import phoebe.basic.Vector;
 public class PlayerRobot extends Robot {
 	
 	private Color color;
-	private Vector position;
+	
 	private double distance;
 	private int oilNumber;
 	private int glueNumber;
@@ -24,11 +24,11 @@ public class PlayerRobot extends Robot {
 	 * @param p a robot kezdeti helye
 	 */
 	public PlayerRobot(Color c, Vector p){
+		super(p);
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
 		Log.enterFunction(Robot.class, "Robot", c.toString()+ ", " + p.toString());
 		
 		this.color = c;
-		this.position = p;
 		
 		this.oilNumber = 3;
 		this.oilNumber = 3;
@@ -111,19 +111,6 @@ public class PlayerRobot extends Robot {
 		
 		// Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction();
-	}
-	
-	/**
-	 * Visszatér a robot aktuális pozíciójával
-	 * @return a robot helyvektorával tér vissza
-	 */
-	public Vector getPosition(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Robot.class, "getPosition");
-		
-		// Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(position);
-		return position;
 	}
 	
 	/**

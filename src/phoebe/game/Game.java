@@ -22,7 +22,8 @@ public class Game {
 	private Map map;
 	private GameController gameController;
 	private GameController robotController;
-	private List<Robot> robots;
+	private List<PlayerRobot> playerRobots;
+	private List<CleaningRobot> cleaningRobots;
 	
 	
 	/**
@@ -48,12 +49,13 @@ public class Game {
 		map = m;
 		gameController = gc;
 		actualRobotNumber = 1;
-		robots = new ArrayList<Robot>();
+		playerRobots = new ArrayList<PlayerRobot>();
+		cleaningRobots = new ArrayList<CleaningRobot>();
 		for (int i=0; i<playerNumber; ++i) {
-			robots.add( new Robot( Color.values()[i], startingVector() ) );
+			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector() ) );
 		}
 		
-		RobotController robotController = new RobotController(robots.get(actualRobotNumber), this, map);
+		RobotController robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
@@ -64,7 +66,7 @@ public class Game {
 	 * az épp átadott az aktuális robot
 	 * @return a sorrendben következõ robot
 	 */
-	public Robot getNextRobot(){
+	public PlayerRobot getNextPlayerRobot(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "getNextRobot");	
 		
@@ -86,7 +88,7 @@ public class Game {
 		}		
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(robots.get(actualRobotNumber).toString());
+		Log.exitFunction(playerRobots.get(actualRobotNumber).toString());
 		return null;
 	}
 	
@@ -98,7 +100,7 @@ public class Game {
 		Log.enterFunction(Game.class, "deleteActualRobot");
 		
 		// Kitörli a robotot a listából 
-		robots.remove( actualRobotNumber );
+		playerRobots.remove( actualRobotNumber );
 		// Visszalép, hogy a következõ robot helyes legyen
 		actualRobotNumber--;
 		
@@ -113,8 +115,8 @@ public class Game {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
 		
-		Robot winner = robots.get(0);
-		for (Robot i : robots) {
+		PlayerRobot winner = playerRobots.get(0);
+		for (PlayerRobot i : playerRobots) {
 			if ( i.getDistance() > winner.getDistance() ) {
 				winner = i;
 			}
@@ -126,16 +128,24 @@ public class Game {
 	}
 	
 	/**
-	 * A játékban lévõ robotok lekérdezését szolgáló metódus
-	 * @return a játékban lévõrobotok
+	 * A játékban lévõ játékosrobotok lekérdezését szolgáló metódus
+	 * @return a játékban lévõ játékosrobotok
 	 */
-	public List<Robot> getRobots(){
+	public List<PlayerRobot> getPlayerRobots(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "getRobots");
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction("List<Robots>");
-		return robots;
+		return playerRobots;
+	}
+	
+	/**
+	 * A játékban lévõ takarítórobotok lekérdezését szolgáló metódus
+	 * @return a játékban lévõ takarítórobotok
+	 */
+	public List<CleaningRobot> getCleaningRobots() {
+		return cleaningRobots;
 	}
 	
 }
