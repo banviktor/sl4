@@ -75,7 +75,8 @@ public class Map {
 		String[] numsSplit = el.getTextContent().split(" ");
 		double[] nums = new double[4];
 		for (int i = 0; i < 4; ++i) {
-			nums[i] = Double.parseDouble(numsSplit[i]);
+			// az xml fájl normálva tárolja a koordinátákat, 10x10es pályára alakítjuk
+			nums[i] = Double.parseDouble(numsSplit[i]) * 10;
 		}
 		return new Line( nums[0], nums[1], nums[2], nums[3] );
 	}
