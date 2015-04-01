@@ -29,6 +29,7 @@ public class GameController {
 			if (players < 2) { players = 2; }
 			else if (players > 5) { players = 5; }
 			game = new Game(players, map, this);
+			running = true;
 		}
 		
 		//Metódusból kilépés kiírása
@@ -42,6 +43,7 @@ public class GameController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "gameEnded");
 		
+		running = false;
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
