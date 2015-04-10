@@ -6,19 +6,28 @@ import java.io.InputStreamReader;
 
 public class UserInput {
 	
-	private static boolean asking = false;
+	private static boolean randomization = false;
+	private static boolean questions = true;
+	
+	private static void ask(String question, boolean newline){
+		if (newline)
+			question += "\n";
+		if (questions)
+			System.out.print(question);
+	}
 	
 	private static void ask(String question){
-		Log.write("[?] " + question, false);
+		if (questions)
+			System.out.print(question);
 	}
 	
 	public static boolean getBoolean(String question, boolean defaultValue){
-		if(!asking)
+		if(randomization)
 			return defaultValue;
 			
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
 		while(true){
-			ask(question + " (I/N) :");
+			ask(question + " (I/N) : ");
 			try{
 	            String i = br.readLine().toLowerCase();
 	            if(i.equals("i"))
@@ -32,12 +41,12 @@ public class UserInput {
 	}
 	
 	public static int getInt(String question, int defaultValue){
-		if(!asking)
+		if(randomization)
 			return defaultValue;
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
 		while(true){
-			ask(question + " (#) :");
+			ask(question + " (#) : ");
 			try{
 	            int i = Integer.parseInt(br.readLine());
 	            return i;
@@ -49,24 +58,52 @@ public class UserInput {
 		}
 	}
 	
+	public static double[] getDoubles(String question, double[] defaultValue) {
+		if(randomization)
+			return defaultValue;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
+		ask(question, true);
+		while(true){
+			ask(question + " (#) (#) : ");
+			try{
+				double[] result = new double[2];
+				for (int i = 0; i < result.length; i++) {
+				    result[i] = Double.parseDouble(br.readLine().split(" ")[i]);
+				}
+	        } catch(NumberFormatException nfe){
+	            
+	        } catch (IOException e) {
+	        	
+			}
+		}
+	}
+	
 	public static String[] getCommand(){
-		System.out.print(" >");
+		ask("> ");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
-            String i = br.readLine();
+            String i = br.readLine().toLowerCase();
             return i.split(" ");
         } catch (IOException e) {
         	return new String[]{};
 		} 	
 	}
 	
-	public static void enable(){
-		asking = true;
+	public static void randomOn(){
+		randomization = true;
 	}
 	
-	public static void disable(){
-		asking = false;
+	public static void randomOff(){
+		randomization = false;
+	}
+	
+	public static void questionsOn(){
+		questions = true;
+	}
+	
+	public static void questionsOff(){
+		questions = false;
 	}
 	
 }
