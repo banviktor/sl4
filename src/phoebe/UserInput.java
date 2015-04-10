@@ -79,7 +79,7 @@ public class UserInput {
 	}
 	
 	public static String[] getCommand(){
-		ask("> ");
+		//ask("> ");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
@@ -91,18 +91,22 @@ public class UserInput {
 	}
 	
 	public static void randomOn(){
+		System.out.println("Véletlenszerû események bekapcsolva.");
 		randomization = true;
 	}
 	
 	public static void randomOff(){
+		System.out.println("Véletlenszerû események kikapcsolva.");
 		randomization = false;
 	}
 	
 	public static void questionsOn(){
+		System.out.println("Kérdezés bekapcsolva.");
 		questions = true;
 	}
 	
 	public static void questionsOff(){
+		System.out.println("Kérdezés kikapcsolva.");
 		questions = false;
 	}
 	
