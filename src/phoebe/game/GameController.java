@@ -9,7 +9,7 @@ import phoebe.UserInput;
 public class GameController {
 	
 	private Game game;
-	private boolean running;
+	private boolean running = false;
 
 	/** 
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
@@ -57,7 +57,7 @@ public class GameController {
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(GameController.class, "isRunning");
 		
-		running = UserInput.getBoolean("Van futó játék?", false);
+		//running = UserInput.getBoolean("Van futó játék?", false);
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(String.valueOf(running));		
