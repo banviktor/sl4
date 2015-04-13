@@ -108,10 +108,18 @@ public class Game {
 		Log.exitFunction();
 	}
 	
+	/**
+	 * Megsemmisíti az adott pozícion lévo takarítórobotokat
+	 * @param p az adott pozíció vektora
+	 */
 	public void deleteCleanerRobotsAt(Vector p){
 		for(CleaningRobot cr : cleaningRobots){
 			if(cr.isAt(p)){
+				
+				//Olajfolt létrehozása
 				cr.createOil();
+				
+				//takarító torlése
 				cleaningRobots.remove(cr);
 			}
 		}
