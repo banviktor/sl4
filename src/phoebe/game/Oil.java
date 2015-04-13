@@ -60,7 +60,7 @@ public class Oil extends Smudge {
 
 	@Override
 	public String toString() {
-		return "Oil@" + position;
+		return "Olaj: " + position;
 	}
 		
 }

@@ -59,7 +59,7 @@ public class Glue extends Smudge {
 
 	@Override
 	public String toString() {
-		return "Glue@" + position;
+		return "Ragacs: " + position;
 	}	
 
 }
