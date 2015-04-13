@@ -80,7 +80,7 @@ public class UserInput {
 	}
 	
 	public static String[] getCommand(){
-		ask("> ");
+		ask("> "); //TODO: teszthez kiszedni
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
