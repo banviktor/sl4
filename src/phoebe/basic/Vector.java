@@ -143,7 +143,7 @@ public class Vector {
 	 * (x,y) formátumban visszaadja a pontot
 	 */
 	public String toString(){
-		return "(" + x + "," + y + ")";
+		return x + ", " + y;
 	}
 	
 }
