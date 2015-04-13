@@ -42,7 +42,7 @@ public class Map {
 			dom = (Document) db.parse( map );
 
 			Element docEle = dom.getDocumentElement();
-			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"));
+			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"))*10;
 			rounds = Integer.parseInt(docEle.getAttribute("roundNum"));
 			
 			NodeList nl = docEle.getElementsByTagName("line");
