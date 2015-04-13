@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import phoebe.basic.Vector;
+
 public class UserInput {
 	
 	private static boolean randomization = false;
@@ -58,18 +60,17 @@ public class UserInput {
 		}
 	}
 	
-	public static double[] getDoubles(String question, double[] defaultValue) {
+	public static Vector getVector(String question, Vector defaultValue) {
+		Vector vec = defaultValue;
 		if(randomization)
 			return defaultValue;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
-		ask(question, true);
 		while(true){
 			ask(question + " (#) (#) : ");
 			try{
-				double[] result = new double[2];
-				for (int i = 0; i < result.length; i++) {
-				    result[i] = Double.parseDouble(br.readLine().split(" ")[i]);
-				}
+				String[] line = br.readLine().split(" ");
+				vec = new Vector(Double.parseDouble(line[0]), Double.parseDouble(line[1]));
+				return vec;
 	        } catch(NumberFormatException nfe){
 	            
 	        } catch (IOException e) {
@@ -79,7 +80,7 @@ public class UserInput {
 	}
 	
 	public static String[] getCommand(){
-		//ask("> ");
+		ask("> ");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
@@ -108,6 +109,10 @@ public class UserInput {
 	public static void questionsOff(){
 		System.out.println("Kérdezés kikapcsolva.");
 		questions = false;
+	}
+	
+	public static boolean getRandom() {
+		return randomization;
 	}
 	
 }
