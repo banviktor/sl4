@@ -115,6 +115,23 @@ public class Game {
 	}
 	
 	/**
+	 * Megsemmisíti az adott pozícion lévo takarítórobotokat
+	 * @param p az adott pozíció vektora
+	 */
+	public void deleteCleanerRobotsAt(Vector p){
+		for(CleaningRobot cr : cleaningRobots){
+			if(cr.isAt(p)){
+				
+				//Olajfolt létrehozása
+				cr.createOil();
+				
+				//takarító torlése
+				cleaningRobots.remove(cr);
+			}
+		}
+	}
+	
+ /**
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
 	public void gameEnd(){
@@ -156,10 +173,6 @@ public class Game {
 	
 	public Map getMap() {
 		return map;
-	}
-	
-	public GameController getGameController() {
-		return gameController;
 	}
 	
 }
