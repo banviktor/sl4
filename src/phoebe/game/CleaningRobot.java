@@ -8,4 +8,14 @@ public class CleaningRobot extends Robot {
 		super(p);
 	}
 
+	public void createOil() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isAt(Vector p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
