@@ -108,6 +108,15 @@ public class Game {
 		Log.exitFunction();
 	}
 	
+	public void deleteCleanerRobotsAt(Vector p){
+		for(CleaningRobot cr : cleaningRobots){
+			if(cr.isAt(p)){
+				cr.createOil();
+				cleaningRobots.remove(cr);
+			}
+		}
+	}
+	
 	/**
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
