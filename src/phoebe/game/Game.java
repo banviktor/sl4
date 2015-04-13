@@ -27,20 +27,27 @@ public class Game {
 	
 	
 	/**
+	 * Visszaad egy lehetséges kezdõpozíciót, ami rajta van a pályán.
+	 * @return Kezdõpozíció
+	 */
+	private Vector startingVector() {
+		Vector v = null;
+		Random r = new Random();
+		int tries = 0;
+		do {
+			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
+			v = UserInput.getVector(tries==0?"Kezdõ pozíció":"Újra", v);
+			++tries;
+		} while ( !map.isOnRoad(v) );
+		return v;
+	}
+	
+	/**
 	 * Konstruktor
 	 * @param n a körök száma a játékban
 	 * @param m a pálya, amin a játék játszódik
 	 * @param gc a játékhoz tartozó gameController
 	 */
-	private Vector startingVector() {
-		Vector v = null;
-		Random r = new Random();
-		do {
-			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
-		} while ( !map.isOnRoad(v) );
-		return v;
-	}
-	
 	public Game(int n, Map m, GameController gc){
 		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
 		Log.enterFunction(Game.class, "Game", String.valueOf(n) + ", Map" + ", GameController");
@@ -52,7 +59,7 @@ public class Game {
 		playerRobots = new ArrayList<PlayerRobot>();
 		cleaningRobots = new ArrayList<CleaningRobot>();
 		for (int i=0; i<playerNumber; ++i) {
-			playerRobots.add( new PlayerRobot( Color.values()[i], UserInput.getVector(Color.values()[i].toString(), startingVector())));
+			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
 		}
 		
 		RobotController robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
