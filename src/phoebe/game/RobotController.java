@@ -74,18 +74,33 @@ public class RobotController {
 	 */
 	public void nextTurn(){
 		Log.enterFunction(RobotController.class, "nextTurn");
-		// TODO lerakni a foltokat
+		
+		//Lerakja a kiválasztott foltot
+		if(willPlaceOil){
+			map.addSmudge(new Oil(actualRobot.getPosition()));
+		} else if(willPlaceGlue){
+			map.addSmudge(new Glue(actualRobot.getPosition()));
+		}
+		
+		//Elugrik
 		actualRobot.jump();
+		
+		//Ha ráesik takarítórobotra, összetöri azt
+		game.deleteCleanerRobotsAt(actualRobot.getPosition());
+		
+		//Leesik
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
 			game.deleteActualRobot();
 		}
 		
+		//Következo robot betöltése, értékek alaphelyzetbe állítása
 		actualRobot = game.getNextPlayerRobot();
 		inputSpeedVector = new Vector(0, 0);
 		willPlaceOil = false;
 		willPlaceGlue = false;
 		
+		//Az új robot elokészítése
 		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
 		for(Smudge s : modifier){
 			s.action(actualRobot);
