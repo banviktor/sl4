@@ -36,7 +36,7 @@ public class Game {
 		Vector v = null;
 		Random r = new Random();
 		do {
-			v = new Vector( r.nextDouble(), r.nextDouble() );
+			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
 		} while ( !map.isOnRoad(v) );
 		return v;
 	}
@@ -52,7 +52,7 @@ public class Game {
 		playerRobots = new ArrayList<PlayerRobot>();
 		cleaningRobots = new ArrayList<CleaningRobot>();
 		for (int i=0; i<playerNumber; ++i) {
-			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector() ) );
+			playerRobots.add( new PlayerRobot( Color.values()[i], UserInput.getVector(Color.values()[i].toString(), startingVector())));
 		}
 		
 		RobotController robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
@@ -146,6 +146,10 @@ public class Game {
 	 */
 	public List<CleaningRobot> getCleaningRobots() {
 		return cleaningRobots;
+	}
+	
+	public Map getMap() {
+		return map;
 	}
 	
 }

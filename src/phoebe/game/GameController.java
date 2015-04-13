@@ -64,4 +64,8 @@ public class GameController {
 		return running;
 	}
 	
+	public Map getMap() {
+		return game.getMap();
+	}
+	
 }
