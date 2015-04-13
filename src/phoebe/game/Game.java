@@ -20,7 +20,7 @@ public class Game {
 	private int turnsRemaining;
 	private Map map;
 	private GameController gameController;
-	private GameController robotController;
+	private RobotController robotController;
 	private List<PlayerRobot> playerRobots;
 	private List<CleaningRobot> cleaningRobots;
 	
@@ -171,8 +171,20 @@ public class Game {
 		return cleaningRobots;
 	}
 	
+	/**
+	 * Visszaadja az itt tárolt pályát
+	 * @return Pálya
+	 */
 	public Map getMap() {
 		return map;
+	}
+	
+	/**
+	 * Visszaadja az itt tárolt robotvezérlõt
+	 * @return Robotvezérlõ
+	 */
+	public RobotController getRobotController() {
+		return robotController;
 	}
 	
 }

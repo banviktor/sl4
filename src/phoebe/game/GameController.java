@@ -64,8 +64,28 @@ public class GameController {
 		return running;
 	}
 	
+	/**
+	 * Visszaadja a game-ben tárolt pályát
+	 * @return Pálya
+	 */
 	public Map getMap() {
 		return game.getMap();
+	}
+	
+	/**
+	 * Visszaadja a tárolt játékot.
+	 * @return Játék
+	 */
+	public Game getGame() {
+		return game;
+	}
+	
+	/**
+	 * Visszaadja a game-ben tárolt robotvezérlõt
+	 * @return Robotvezérlõ
+	 */
+	public RobotController getRobotController() {
+		return game.getRobotController();
 	}
 	
 }
