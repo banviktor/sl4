@@ -3,6 +3,7 @@ package phoebe.game;
 import java.util.List;
 
 import phoebe.Log;
+import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 public class RobotController {
@@ -40,8 +41,12 @@ public class RobotController {
 	public void toggleOil(){
 		Log.enterFunction(RobotController.class, "toggleOil");
 		
-		willPlaceOil = !willPlaceOil;
-		
+		if (actualRobot.getOilNumber() > 0) {
+			willPlaceOil = !willPlaceOil;
+			willPlaceGlue = false;
+			UserIO.println("Olajfolt " + (willPlaceOil?"be.":"ki.") );
+			UserIO.println("Ragacs ki.");
+		}
 		Log.exitFunction();
 	}
 	
@@ -51,8 +56,12 @@ public class RobotController {
 	public void toggleGlue(){
 		Log.enterFunction(RobotController.class, "toggleGlue");
 		
-		willPlaceGlue = !willPlaceGlue;
-		
+		if (actualRobot.getGlueNumber() > 0) {
+			willPlaceGlue = !willPlaceGlue;
+			willPlaceOil = false;
+			UserIO.println("Ragacs " + (willPlaceGlue?"be.":"ki.") );
+			UserIO.println("Olajfolt ki.");
+		}
 		Log.exitFunction();
 	}
 	
