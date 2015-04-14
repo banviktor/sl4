@@ -182,7 +182,12 @@ public class Game {
 	
 	
 	
-	public boolean isRobotAt() {
+	public boolean isRobotAt(Vector p) {
+		for(Robot r : playerRobots){
+			if(r.isAt(p)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
