@@ -29,7 +29,8 @@ public class Application {
 					UserIO.questionsOn();
 				}
 			} else if(command[0].equals("start_game")) {
-				gc.newGame();
+				if (command.length == 2)
+					gc.newGame( Integer.parseInt(command[1] ) );
 			} else if(command[0].equals("smudge_stock")) {
 				UserIO.println("Olajfoltok:   " + gc.getRobotController().getActualRobot().getOilNumber());
 				UserIO.println("Ragacsfoltok: " + gc.getRobotController().getActualRobot().getGlueNumber());
@@ -38,8 +39,10 @@ public class Application {
 			} else if(command[0].equals("toggle_glue")) {
 				gc.getRobotController().toggleGlue();
 			} else if(command[0].equals("inputvector")) {
-				Vector input = new Vector(Double.parseDouble( command[1] ), Double.parseDouble( command[2] ));
-				gc.getRobotController().setInputSpeedVector( input );
+				if (command.length == 3) {
+					Vector input = new Vector(Double.parseDouble( command[1] ), Double.parseDouble( command[2] ));
+					gc.getRobotController().setInputSpeedVector( input );
+				}
 			} else if(command[0].equals("jump")) {
 				gc.getRobotController().nextTurn();
 			} else if(command[0].equals("list_player_robots")) {

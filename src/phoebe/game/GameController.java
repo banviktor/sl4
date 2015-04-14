@@ -24,13 +24,10 @@ public class GameController {
 	/** 
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
 	 */
-	public void newGame() {
+	public void newGame(int players) {
 		// Ha nem fut épp játék, létrehoz egy újat
 		if (!running) {
 			Map map = new Map("map.xml");
-			
-//JÁTÉKOSSZÁM BEKÉRÉS
-int players = -2;
 			
 			if (players < 2) { players = 2; }
 			else if (players > 5) { players = 5; }
