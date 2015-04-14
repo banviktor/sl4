@@ -27,6 +27,10 @@ public class UserIO {
 		System.out.print(s);
 	}
 	
+	public static void println(String s) {
+		System.out.println(s);
+	}
+	
 	public static boolean getBoolean(String question, boolean defaultValue){
 		if(randomization)
 			return defaultValue;
