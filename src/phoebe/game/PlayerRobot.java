@@ -57,6 +57,7 @@ public class PlayerRobot extends Robot {
 	@Override
 	public Oil createOil(){
 		Oil o = new Oil(position); 
+		--oilNumber;
 		return o;
 	}
 	
@@ -66,6 +67,7 @@ public class PlayerRobot extends Robot {
 	 */
 	public Glue createGlue(){
 		Glue g = new Glue(position); 
+		--glueNumber;
 		return g;
 	}
 	
