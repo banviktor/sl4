@@ -1,19 +1,24 @@
-::A konzolra valÃ³ Ã­rÃ¡s kikapcsolÃ¡sa
+::A konzolra való írás kikapcsolása
 @echo off
 
-::A kimeneti fÃ¡jl meghatÃ¡rozÃ¡sa
+::Könyvtárak
+set test_input_dir=tests/input
+set test_output_dir=tests/results
+set test_compare_dir=tests/expected
+
+::A kimeneti fájl meghatározása
 set output=%1
 if %1.==. set output=test_results.txt
 
-::A kimeneti fÃ¡jl lÃ©trehozÃ¡sa Ã¼resen
+::A kimeneti fájl létrehozása üresen
 type NUL > %output%
 
-::Tesztesetek lefuttatÃ¡sa Ã©s a kimeneti fÃ¡jlhoz fÅ±zÃ©se
+::Tesztesetek lefuttatása és a kimeneti fájlhoz fûzése
 
 ::Teszt 1
-::java phoebe.Application < teszt1_be.txt > teszt1_ki.txt
-::java difftool teszt1_ki.txt teszt1_elvart.txt >> %output%
+java -cp ./bin phoebe.Application < %test_input_dir%/teszt_2jatek_rossz.txt > %test_output_dir%/teszt_2jatek_rossz.txt
+java -cp ./bin difftool.Application %test_output_dir%/teszt_2jatek_rossz.txt %test_compare_dir%/teszt_2jatek_rossz.txt >> %output%
 
-::TesztelÃ©s vÃ©ge
+::Tesztelés vége
 echo A teszteles veget ert.
 pause

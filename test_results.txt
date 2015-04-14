@@ -1,0 +1,4 @@
+A(z) tests/results/teszt_2jatek_rossz.txt fájlt hasonlítom össze a(z) tests/expected/teszt_2jatek_rossz.txt fájllal.
+A(z) tests/results/teszt_2jatek_rossz.txt a következõ sornál nem egyezik: 0
+A(z) tests/results/teszt_2jatek_rossz.txt a következõ sornál nem egyezik: 1
+A(z) tests/results/teszt_2jatek_rossz.txt tesztje sikeres volt.

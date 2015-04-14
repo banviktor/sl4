@@ -1,0 +1,5 @@
+randomization on
+questions off
+start_game 2
+start_game 4
+exit
