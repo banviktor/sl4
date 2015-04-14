@@ -150,7 +150,9 @@ public class Game {
 	}
 	
 	
-	
+	/**
+	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
+	 */
 	public void collidePlayerRobotsWithActual() {
 		for(PlayerRobot pr : playerRobots){
 			if ( pr == robotController.getActualRobot() ) {
@@ -192,7 +194,11 @@ public class Game {
 	}
 	
 	
-	
+	/**
+	 * Megállapítja, hogy az adott pozíción van-e bármilyen robot
+	 * @param p az adott pozíció vektora
+	 * @return tartózkodik-e robot az adott helyen
+	 */
 	public boolean isRobotAt(Vector p) {
 		for(Robot r : playerRobots){
 			if(r.isAt(p)){
