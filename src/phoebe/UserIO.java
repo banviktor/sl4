@@ -18,9 +18,13 @@ public class UserIO {
 			System.out.print(question);
 	}
 	
-	private static void ask(String question){
+	public static void ask(String question){
 		if (questions)
 			System.out.print(question);
+	}
+	
+	public static void print(String s) {
+		System.out.print(s);
 	}
 	
 	public static boolean getBoolean(String question, boolean defaultValue){
