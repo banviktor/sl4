@@ -9,8 +9,18 @@ import phoebe.UserInput;
 public class GameController {
 	
 	private Game game;
-	private boolean running = false;
+	private boolean running;
 
+	
+	/**
+	 * Az osztály konstruktora
+	 */
+	public GameController() {
+		game =  null;
+		running = false;
+	}
+	
+	
 	/** 
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
 	 */
