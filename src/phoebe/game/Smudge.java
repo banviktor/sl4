@@ -20,20 +20,18 @@ public abstract class Smudge {
 	 */
 	public Smudge(Vector p) {		
 		position = p;
-		duration = 3;
+		duration = 6;
+		thickness = 2;
 	}
 	
 	
 	/** 
-	 * Metódus annak eldöntésére, hogy a folt egy adott helyen fejt-e ki hatást
+	 * Metódus annak eldöntésére, hogy az egységnyi sugarú folt egy adott helyen fejt-e ki hatást
 	 * @param p a hely, ahol vizsgáljuk a folt hatásoságát
 	 * @return logikai érték, mely megadja, hogy a vizsgált helyen fejt-e ki hatást a folt
 	 */
 	public boolean isEffectiveAt(Vector p) {
-	
-		
-		
-		return false;
+		return (position.distance(p) < 1);
 	}
 	
 	/** 
@@ -54,6 +52,15 @@ public abstract class Smudge {
 	
 	
 	/** 
+	 * A folt élettartamát lekérdezõ metódus
+	 * @return a folt élettartama
+	 */
+	public int getDuration(){
+		return duration;
+	}
+	
+	
+	/** 
 	 * A folt pozícióját lekérdezõ metódus
 	 * @return a folt pozíciója
 	 */
@@ -66,12 +73,12 @@ public abstract class Smudge {
 	 * Absztrakt metódus, mely a folt típusától függõ változást hoz létre az átadott robotban
 	 * @param r a robot, amin változtatást kell létrehozni
 	 */
-	public abstract void action(PlayerRobot r);	
+	public abstract int action(PlayerRobot r);	
 	
 
 	/** 
 	 * Absztark metódus, ami folt új körbe lépését megvalósítja meg
-	 * @return a folt kora
+	 * @return a folt élettartama
 	 */
 	public abstract int nextRound();
 	

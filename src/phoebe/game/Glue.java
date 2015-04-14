@@ -13,31 +13,7 @@ public class Glue extends Smudge {
 	public Glue(Vector p) {
 		super(p);
 		
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Glue.class, "Glue", p.toString());
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
-	}
-
-	
-	/** 
-	 * Metódus annak eldöntésére, hogy a ragacsfolt egy adott helyen fejt-e ki hatást
-	 * Csak a szkeletonba kell felülírni a szülõ függvényét, itt a kérdés feltétele miatt
-	 * @param p a hely, ahol vizsgáljuk a folt hatásoságát
-	 * @return logikai érték, mely megadja, hogy a vizsgált helyen fejt-e ki hatást a folt
-	 */
-	@Override
-	public boolean isEffectiveAt(Vector p) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Glue.class, "isEffectiveAt", p.toString());
-				
-		//Megadjuk, hogy a folt alatta van-e
-		boolean isHere = UserInput.getBoolean("Ez a ragacsfolt a robot alatt van?", false);
-		
-		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(String.valueOf(isHere));
-		return isHere;
+		duration = 4;
 	}
 	
 	
@@ -46,17 +22,24 @@ public class Glue extends Smudge {
 	 * @param r a robot, aminek felezi a sebességét
 	 */
 	@Override
-	public void action(PlayerRobot r) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Glue.class, "action", r.toString());
-		
+	public int action(PlayerRobot r) {
 		r.halveSpeed();
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+		// A ragacsfoltnak rálépéskor csökken az élettartama
+		return duration--;
 	}
 
 
+	/**
+	 * A ragacsfoltra nincs hatással a körváltás
+	 * @return a folt élettartama
+	 */
+	@Override
+	public int nextRound() {
+		return duration;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Ragacs: " + position;
