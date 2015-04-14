@@ -22,7 +22,7 @@ public class Game {
 	private GameController gameController;
 	private RobotController robotController;
 	private List<PlayerRobot> playerRobots;
-	private List<CleaningRobot> cleaningRobots;
+	private List<CleanerRobot> cleaningRobots;
 	
 	
 	/**
@@ -56,7 +56,7 @@ public class Game {
 		gameController = gc;
 		actualRobotNumber = 1;
 		playerRobots = new ArrayList<PlayerRobot>();
-		cleaningRobots = new ArrayList<CleaningRobot>();
+		cleaningRobots = new ArrayList<CleanerRobot>();
 		for (int i=0; i<playerNumber; ++i) {
 			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
 		}
@@ -119,7 +119,7 @@ public class Game {
 	 * @param p az adott pozíció vektora
 	 */
 	public void deleteCleanerRobotsAt(Vector p){
-		for(CleaningRobot cr : cleaningRobots){
+		for(CleanerRobot cr : cleaningRobots){
 			if(cr.isAt(p)){
 				
 				//Olajfolt létrehozása
@@ -167,7 +167,7 @@ public class Game {
 	 * A játékban lévõ takarítórobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévõ takarítórobotok
 	 */
-	public List<CleaningRobot> getCleaningRobots() {
+	public List<CleanerRobot> getCleaningRobots() {
 		return cleaningRobots;
 	}
 	

@@ -6,7 +6,7 @@ import phoebe.basic.Vector;
  * A takarítórobotokat megvalósító osztály, megvalósítja azok mozgását,
  * takarítását és ütközését
  */
-public class CleaningRobot extends Robot {
+public class CleanerRobot extends Robot {
 
 	private Map map;
 	private Game game;
@@ -17,7 +17,7 @@ public class CleaningRobot extends Robot {
 	 * @param m	az aktuális térkép, melyen a robot szerepel
 	 * @param g az aktuális játék, melyben a robot szerepel
 	 */
-	public CleaningRobot(Vector p, Map m, Game g) {
+	public CleanerRobot(Vector p, Map m, Game g) {
 		super(p);
 		map = m;
 		game = g;

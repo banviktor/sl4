@@ -1,6 +1,6 @@
 package phoebe;
 
-import phoebe.game.CleaningRobot;
+import phoebe.game.CleanerRobot;
 import phoebe.game.GameController;
 import phoebe.game.PlayerRobot;
 import phoebe.game.Smudge;
@@ -46,7 +46,7 @@ public class Application {
 				}
 			} else if(command[0].equals("list_cleaner_robots")) {
 				System.out.println("Takarítórobotok listája:");
-				for(CleaningRobot i : gc.getGame().getCleaningRobots()) {
+				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
 					System.out.println(i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
