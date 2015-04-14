@@ -75,12 +75,20 @@ public class Game {
 	public PlayerRobot getNextPlayerRobot(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "getNextRobot");	
+		++actualRobotNumber;
 		
+		//Ha csak egy robot maradt, vége a játéknak. Ez kör közben is elõfordulhat.
+		if (playerRobots.size() < 2) {
+			gameEnd();
+		}
 		// Megkérdezzük a felhasználót, hogy véget ért-e egy kör
-		if (UserInput.getBoolean("Véget ért egy kör?", false)) {
-			
+		//if (UserInput.getBoolean("Véget ért egy kör?", false)) {
+		if ( actualRobotNumber >= playerRobots.size() ) {
+			actualRobotNumber = 0;
+			--turnsRemaining;
 			// Ha kör vége van megkérdezzük a felhasználót, hogy játék vége is-e egyben
-			if(UserInput.getBoolean("Véget ért a játék?", false)) {
+			//if(UserInput.getBoolean("Véget ért a játék?", false)) {
+			if ( turnsRemaining == 0 ) {
 			
 				// Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
 				gameEnd();
@@ -95,7 +103,7 @@ public class Game {
 		
 		//Metódusból kilépés kiírása a visszatérési értékkel
 		Log.exitFunction(playerRobots.get(actualRobotNumber).toString());
-		return null;
+		return playerRobots.get(actualRobotNumber);
 	}
 	
 	
@@ -145,6 +153,9 @@ public class Game {
 	
 	public void collidePlayerRobotsWithActual() {
 		for(PlayerRobot pr : playerRobots){
+			if ( pr == robotController.getActualRobot() ) {
+				continue;
+			}
 			if(pr.isAt(playerRobots.get(actualRobotNumber).getPosition())){
 				if(pr.getSpeedVector().length() > playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
