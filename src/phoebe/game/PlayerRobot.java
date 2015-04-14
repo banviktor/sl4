@@ -29,7 +29,7 @@ public class PlayerRobot extends Robot {
 		this.color = c;
 		
 		this.oilNumber = 3;
-		this.oilNumber = 3;
+		this.glueNumber = 3;
 		this.distance = 0;
 		
 		this.speedVector = new Vector(0, 0);
