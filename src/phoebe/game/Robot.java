@@ -3,7 +3,11 @@ package phoebe.game;
 import phoebe.Log;
 import phoebe.basic.Vector;
 
-public class Robot {
+/**
+ * Az általános robotokat megvalósító absztrakt osztály. Tárolja a robot helyét
+ * és elérhetõvé teszi az általános funkcióit.
+ */
+public abstract class Robot {
 
 	protected Vector position;
 	
@@ -16,11 +20,21 @@ public class Robot {
 	 * @return a robot helyvektorával tér vissza
 	 */
 	public Vector getPosition(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Robot.class, "getPosition");
-		
-		// Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(position);
 		return position;
 	}
+	
+	/**
+	 * Absztrakt metódus annak eldöntésére, hogy a robot az adott pozíción található-e
+	 * @param p az adott pozíció
+	 * @return logikai érték, mely megadja, hogy a robot az adott pozíción van-e
+	 */
+	public abstract boolean isAt(Vector p);
+	
+	
+	/**
+	 * Absztrakt metódus, melyben a robot létrehoz egy olajfoltot az aktuális pozícióján
+	 * @return a létrehozott olajfolt
+	 */
+	public abstract Oil createOil();
+	
 }

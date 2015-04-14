@@ -4,7 +4,8 @@ import phoebe.Log;
 import phoebe.UserInput;
 import phoebe.basic.Vector;
 
-/* Az általános foltokat megvalósító absztarkt osztály. Tárolja a folt helyét,
+/** 
+ * Az általános foltokat megvalósító absztarkt osztály. Tárolja a folt helyét,
  * hátralévõ élettartamát, és megvalósítja a foltok általános metódusait
  */
 public abstract class Smudge {
@@ -77,7 +78,7 @@ public abstract class Smudge {
 	
 
 	/** 
-	 * Absztark metódus, ami folt új körbe lépését megvalósítja meg
+	 * Absztrakt metódus, ami folt új körbe lépését megvalósítja meg
 	 * @return a folt élettartama
 	 */
 	public abstract int nextRound();

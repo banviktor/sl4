@@ -28,6 +28,7 @@ public class CleanerRobot extends Robot {
 	 * @param p a megadott pozíció
 	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
 	 */
+	@Override
 	public boolean isAt(Vector p) {
 		return (position.distance(p) < 0.3);
 	}
@@ -36,6 +37,7 @@ public class CleanerRobot extends Robot {
 	 * Metódus, melyben a takarítórobot létrehoz egy olajfoltot az aktuális pozícióján
 	 * @return	a létrehozott olajfolt
 	 */
+	@Override
 	public Oil createOil() {
 		return new Oil(position);
 	}

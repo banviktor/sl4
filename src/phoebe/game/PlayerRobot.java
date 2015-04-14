@@ -44,6 +44,7 @@ public class PlayerRobot extends Robot {
 	 * @param p a megadott pozíció
 	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
 	 */
+	@Override
 	public boolean isAt(Vector p) {
 		return (position.distance(p) < 0.45);
 	}
@@ -53,6 +54,7 @@ public class PlayerRobot extends Robot {
 	 * Lerak egy olajfoltot
 	 * @return a létrehozott olajfolt referenciájával tér vissza
 	 */
+	@Override
 	public Oil createOil(){
 		Oil o = new Oil(position); 
 		return o;
