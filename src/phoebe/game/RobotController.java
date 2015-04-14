@@ -73,9 +73,9 @@ public class RobotController {
 		
 		//Lerakja a kiválasztott foltot
 		if(willPlaceOil){
-			map.addSmudge(new Oil(actualRobot.getPosition()));
+			map.addSmudge( actualRobot.createOil() );
 		} else if(willPlaceGlue){
-			map.addSmudge(new Glue(actualRobot.getPosition()));
+			map.addSmudge( actualRobot.createGlue() );
 		}
 		
 		//Elugrik
