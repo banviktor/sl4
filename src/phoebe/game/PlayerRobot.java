@@ -74,7 +74,7 @@ public class PlayerRobot extends Robot {
 	 * @param v az új sebességvektor
 	 */
 	public void setSpeedVector(Vector v){
-		speedVector = v.normalized();
+		speedVector = v;
 	}
 	
 	/**

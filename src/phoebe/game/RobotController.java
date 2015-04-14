@@ -64,7 +64,7 @@ public class RobotController {
 	public void setInputSpeedVector(Vector v){
 		Log.enterFunction(RobotController.class, "setInputSpeedVector");
 		
-		inputSpeedVector = v;
+		inputSpeedVector = v.normalized();
 		
 		Log.exitFunction();
 	}
