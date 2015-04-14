@@ -149,11 +149,31 @@ public class Game {
 				if(pr.getSpeedVector().length() > playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
+					//Amennyiben a másik robot a gyorsabb az épp ugró robot összetörik
+					deleteActualRobot();
+					//Véget ér az iteráció
+					return;
+					
 				} else if(pr.getSpeedVector().length() == playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
+					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
+					playerRobots.remove(pr);
+					
+					/*Két robot nem lehet egymáson, mivel legaláb az egyik összetörik
+					 *amennyiben egymásra ugranak, így nincs értelme tovább iterálni
+					 */
+					return;
+					
 				} else if(pr.getSpeedVector().length() < playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
+					
+					//Ha egyforma gyorsak mindeketten összetörnek
+					deleteActualRobot();
+					playerRobots.remove(pr);
+					
+					//Az iteráció véget ér
+					return;
 					
 				}
 			}
