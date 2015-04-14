@@ -50,13 +50,16 @@ public class Map {
 					lines.add(e);
 				}
 			}
-
+			System.out.println("Pálya betöltve.");
 		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
+			System.out.println("A pályát nem sikerült betölteni.");
+			System.exit(0);
 		} catch (org.xml.sax.SAXException e) {
-			e.printStackTrace();
+			System.out.println("A pályát nem sikerült betölteni.");
+			System.exit(0);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("A pályát nem sikerült betölteni.");
+			System.exit(0);
 		}
 		
 	}
