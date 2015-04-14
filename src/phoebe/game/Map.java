@@ -104,7 +104,7 @@ public class Map {
 		Log.enterFunction(Map.class, "nextRound");
 					
 		for (Smudge s : smudges) {
-			if (s.makeOlder() == 0) {
+			if (s.nextRound() == 0) {
 				smudges.remove(s);
 			}
 		}
