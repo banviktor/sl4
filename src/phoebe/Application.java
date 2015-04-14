@@ -54,6 +54,8 @@ public class Application {
 				for(Smudge i : gc.getGame().getMap().getSmudges()) {
 					System.out.println(i.toString());
 				}
+			} else {
+				System.out.println("Nincs ilyen parancs.");
 			}
 		}
 	}
