@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import phoebe.Log;
-import phoebe.UserInput;
+import phoebe.UserIO;
 import phoebe.basic.Color;
 import phoebe.basic.Vector;
 
@@ -35,7 +35,7 @@ public class Game {
 		int tries = 0;
 		do {
 			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
-			v = UserInput.getVector(tries==0?"Kezdő pozíció":"Újra", v);
+			v = UserIO.getVector(tries==0?"Kezdő pozíció":"Újra", v);
 			++tries;
 		} while ( !map.isOnRoad(v) );
 		return v;

@@ -1,7 +1,7 @@
 package phoebe.game;
 
 import phoebe.Log;
-import phoebe.UserInput;
+import phoebe.UserIO;
 
 /** 
  * A játék létrehozásáért és tárolásáért felelős osztály

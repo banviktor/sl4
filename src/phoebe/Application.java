@@ -13,20 +13,20 @@ public class Application {
 		boolean exit = false;
 		gc = new GameController();
 		while (!exit) {
-			String[] command = UserInput.getCommand();
+			String[] command = UserIO.getCommand();
 			if(command[0].equals("exit")){
 				exit = true;
 			} else if(command[0].equals("randomization")) {
 				if (command[1].equals("off")) {
-					UserInput.randomOff();
+					UserIO.randomOff();
 				} else {
-					UserInput.randomOn();
+					UserIO.randomOn();
 				}
 			} else if(command[0].equals("questions")) {
 				if (command[1].equals("off")) {
-					UserInput.questionsOff();
+					UserIO.questionsOff();
 				} else {
-					UserInput.questionsOn();
+					UserIO.questionsOn();
 				}
 			} else if(command[0].equals("start_game")) {
 				gc.newGame();

@@ -1,7 +1,7 @@
 package phoebe.game;
 
 import phoebe.Log;
-import phoebe.UserInput;
+import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 /** 

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 import phoebe.basic.Vector;
 
-public class UserInput {
+public class UserIO {
 	
 	private static boolean randomization = false;
 	private static boolean questions = true;
