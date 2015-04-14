@@ -13,6 +13,7 @@ public class Glue extends Smudge {
 	public Glue(Vector p) {
 		super(p);
 		
+		// A ragacsfoltnak 4 az élettartama szemben az õsosztályban alapértelmezett 6-al
 		duration = 4;
 	}
 	
