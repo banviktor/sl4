@@ -144,7 +144,20 @@ public class Game {
 	
 	
 	public void collidePlayerRobotsWithActual() {
-		
+		for(PlayerRobot pr : playerRobots){
+			if(pr.isAt(playerRobots.get(actualRobotNumber).getPosition())){
+				if(pr.getSpeedVector().length() > playerRobots
+						.get(actualRobotNumber).getSpeedVector().length()){
+					
+				} else if(pr.getSpeedVector().length() == playerRobots
+						.get(actualRobotNumber).getSpeedVector().length()){
+					
+				} else if(pr.getSpeedVector().length() < playerRobots
+						.get(actualRobotNumber).getSpeedVector().length()){
+					
+				}
+			}
+		}
 	}
 	
 	
