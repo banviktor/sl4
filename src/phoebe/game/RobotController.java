@@ -62,11 +62,7 @@ public class RobotController {
 	 * @param v a felhasználótól kapott vektor
 	 */
 	public void setInputSpeedVector(Vector v){
-		Log.enterFunction(RobotController.class, "setInputSpeedVector");
-		
 		inputSpeedVector = v.normalized();
-		
-		Log.exitFunction();
 	}
 	
 	/**
@@ -94,13 +90,13 @@ public class RobotController {
 			game.deleteActualRobot();
 		}
 		
-		//Következo robot betöltése, értékek alaphelyzetbe állítása
+		//Következõ robot betöltése, értékek alaphelyzetbe állítása
 		actualRobot = game.getNextPlayerRobot();
 		inputSpeedVector = new Vector(0, 0);
 		willPlaceOil = false;
 		willPlaceGlue = false;
 		
-		//Az új robot elokészítése
+		//Az új robot elõkészítése
 		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
 		for(Smudge s : modifier){
 			s.action(actualRobot);
@@ -114,20 +110,33 @@ public class RobotController {
 	 * @return aktív robot regeferenciája
 	 */
 	public Robot getActualRobot(){
-		Log.enterFunction(RobotController.class, "getActualRobot");
-		
-		Log.exitFunction(actualRobot.toString());
 		return actualRobot;
 	}
+	
+	
+	/**
+	 * Metódus annak lekérdezésére, hogy fogunk-e olajfoltot lerakni ugráskor
+	 * @return logikai érték, amely azt adja meg, hogy fogunk-e olajfoltot lerakni
+	 */
+	public boolean getWillPlaceOil() {
+		return willPlaceOil;
+	}
+	
+	
+	/**
+	 * Metódus annak lekérdezésére, hogy fogunk-e ragacsfoltot lerakni ugráskor
+	 * @return logikai érték, amely azt adja meg, hogy fogunk-e ragacsfoltot lerakni
+	 */
+	public boolean getWillPlaceGlue() {
+		return willPlaceGlue;
+	}
+	
 	
 	/**
 	 * Visszaadja az eltárolt móosítóvektort
 	 * @return a módosítóvektor referenciája
 	 */
 	public Vector getInputSpeedVector(){
-		Log.enterFunction(RobotController.class, "getInputSpeedVector");
-		
-		Log.exitFunction(inputSpeedVector.toString());
 		return inputSpeedVector;
 	}
 	
@@ -136,9 +145,6 @@ public class RobotController {
 	 * @return az ugrás céljának vektora
 	 */
 	public Vector getJumpDestination(){
-		Log.enterFunction(RobotController.class, "getJumpDestination");
-		
-		Log.exitFunction(jumpDestination.toString());
 		return jumpDestination;
 	}
 	
