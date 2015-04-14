@@ -165,7 +165,7 @@ public class Game {
 					//Véget ér az iteráció
 					return;
 					
-				} else if(pr.getSpeedVector().length() == playerRobots
+				} else if(pr.getSpeedVector().length() < playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
@@ -176,7 +176,7 @@ public class Game {
 					 */
 					return;
 					
-				} else if(pr.getSpeedVector().length() < playerRobots
+				} else if(pr.getSpeedVector().length() == playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
