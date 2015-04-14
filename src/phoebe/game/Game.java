@@ -54,14 +54,14 @@ public class Game {
 		playerNumber = n;
 		map = m;
 		gameController = gc;
-		actualRobotNumber = 1;
+		actualRobotNumber = 0;
 		playerRobots = new ArrayList<PlayerRobot>();
 		cleanerRobots = new ArrayList<CleanerRobot>();
 		for (int i=0; i<playerNumber; ++i) {
 			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
 		}
 		
-		RobotController robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
+		robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
 		
 		//Metódusból kilépés kiírása
 		Log.exitFunction();
