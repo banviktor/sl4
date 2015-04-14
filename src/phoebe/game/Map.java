@@ -28,9 +28,6 @@ public class Map {
 	 * @param map a map fájl helye
 	 */
 	public Map(String map) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "Map", map);
-		
 		lines = new ArrayList<Line>();
 		smudges = new ArrayList<Smudge>();
 		Document dom = null;
@@ -62,8 +59,6 @@ public class Map {
 			e.printStackTrace();
 		}
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
 	}
 
 	/**
@@ -86,71 +81,70 @@ public class Map {
 	 * @param s az új folt
 	 */
 	public void addSmudge(Smudge s) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "addSmudge", s.toString());
-		
 		smudges.add(s);
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+	}
+	
+	/**
+	 * Töröl egy foltot a smudges litából
+	 * @param s a törlendõ folt
+	 */
+	public void deleteSmudge(Smudge s) {
+		smudges.remove(s);
 	}
 
 	/**
-	 * Minden foltot egyel öregít. Azokat a foltokat, amelyeknek 0 lesz az
-	 * élettartama, törli a smudges listából.
+	 * Minden folton meghívja a nextRound() függvényt. Azokat a foltokat, amelyeknek 0 
+	 * lesz az élettartama, törli a smudges listából.
 	 */
 	public void nextRound() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "nextRound");
-					
 		for (Smudge s : smudges) {
 			if (s.nextRound() == 0) {
 				smudges.remove(s);
 			}
 		}
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
 	}
 
-	/**
-	 * Visszaadja az összes foltot.
-	 * @return foltok
-	 */
-	public List<Smudge> getSmudges() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "getSmudges");
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
-				
-		return smudges;
-	}
 
 	/**
 	 * Visszaadja az adott pontban hatást kifejtõ foltokat
 	 * @param v pont
 	 * @return itt ható foltok
 	 */
-	public List<Smudge> getSmudgesAt(Vector v) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "getSmudgesAt", v.toString());
-				
+	public List<Smudge> getSmudgesAt(Vector p) {		
 		List<Smudge> smudgesAt = new ArrayList<Smudge>();
 		for (Smudge s : smudges) {
-			if ( s.isEffectiveAt( v )) {
+			if ( s.isEffectiveAt( p )) {
 				smudgesAt.add( s );
 			}
 		}
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
-		
 		return smudgesAt;
 	}
 	
+	
 	/**
-	 * http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
+	 * Visszaadja a legközelebbi foltot a megadott pozícióhoz
+	 * @param v a megadott pozíció
+	 * @return a vektorhoz legközelebbi folt, ha nincs folt, akkor null
+	 */
+	public Smudge nearestSmudgeTo(Vector p) {
+		if (!smudges.isEmpty()) {
+			Smudge nearestSmudge = null;
+			double minDistance = p.distance(smudges.get(0).getPosition());
+			for (Smudge s : smudges) {
+				if ( p.distance(s.getPosition()) < minDistance ) {
+					nearestSmudge = s;
+				}
+			}
+			return nearestSmudge;
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * Egy szakasz és egy pont távolságát meghatározó metódus
+	 * A módszerrõl: http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
 	 * @param l szakasz
 	 * @param v pont
 	 * @return pont és szakasz távolsága
@@ -181,37 +175,35 @@ public class Map {
 	 * @param v Vizsgált pont
 	 * @return igaz, ha az úton van
 	 */
-	public boolean isOnRoad(Vector v) {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "isOnRoad", v.toString());
-		
+	public boolean isOnRoad(Vector p) {
 		boolean result = false;
 				
 		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
 		for (Line l : lines) {
-			if ( pointAndLineDist(l, v) < lineWidth/2 ) {
+			if ( pointAndLineDist(l, p) < lineWidth/2 ) {
 				result = true;
 				break;
 			}
 		}
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction(result);
-				
+			
 		return result;
 	}
 
+	
+	/**
+	 * Visszaadja az összes foltot.
+	 * @return foltok
+	 */
+	public List<Smudge> getSmudges() {	
+		return smudges;
+	}
+	
+	
 	/**
 	 * Visszaadja az utak listáját
 	 * @return utak listája
 	 */
 	public List<Line> getLines() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "getLines");
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction("List<Line>");
-				
 		return lines;
 	}
 
@@ -220,12 +212,6 @@ public class Map {
 	 * @return utak szélessége
 	 */
 	public double getLineWidth() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "getLineWidth");
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction(lineWidth);
-				
 		return lineWidth;
 	}
 
@@ -234,29 +220,7 @@ public class Map {
 	 * @return játszható körök száma
 	 */
 	public int getRounds() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát
-		Log.enterFunction(Map.class, "getRounds");
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction(rounds);
-		
 		return rounds;
 	}
 	
-	/**
-	 * Visszaadja a legközelebbi foltot
-	 * @param v Innen adja a legközelebbi foltot
-	 * @return A vektorhoz legközelebbi folt. Ha nincs folt, null
-	 */
-	public Smudge nearestSmudgeTo(Vector v) {
-		Smudge nearestSmudge = null;
-		double minDistance = 100;
-		for (Smudge s : smudges) {
-			if ( v.distance(s.getPosition()) < minDistance ) {
-				nearestSmudge = s;
-			}
-		}
-		return nearestSmudge;
-	}
-
 }
