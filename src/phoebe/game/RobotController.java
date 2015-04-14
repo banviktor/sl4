@@ -109,7 +109,7 @@ public class RobotController {
 	 * Az épp aktív robot referenciáját adja vissza
 	 * @return aktív robot regeferenciája
 	 */
-	public Robot getActualRobot(){
+	public PlayerRobot getActualRobot(){
 		return actualRobot;
 	}
 	
