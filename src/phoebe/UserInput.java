@@ -92,22 +92,22 @@ public class UserInput {
 	}
 	
 	public static void randomOn(){
-		System.out.println("Véletlenszerû események bekapcsolva.");
+		System.out.println("VÃ©letlenszerÅ± esemÃ©nyek bekapcsolva.");
 		randomization = true;
 	}
 	
 	public static void randomOff(){
-		System.out.println("Véletlenszerû események kikapcsolva.");
+		System.out.println("VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.");
 		randomization = false;
 	}
 	
 	public static void questionsOn(){
-		System.out.println("Kérdezés bekapcsolva.");
+		System.out.println("KÃ©rdezÃ©s bekapcsolva.");
 		questions = true;
 	}
 	
 	public static void questionsOff(){
-		System.out.println("Kérdezés kikapcsolva.");
+		System.out.println("KÃ©rdezÃ©s kikapcsolva.");
 		questions = false;
 	}
 	

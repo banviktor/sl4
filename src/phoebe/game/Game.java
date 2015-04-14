@@ -10,8 +10,8 @@ import phoebe.basic.Color;
 import phoebe.basic.Vector;
 
 /**
- * A játékot megvalósító osztály, mely tárolja a robotokat és ütemezi a köröket,
- * észleli a játék végét és megállapítja a nyertest
+ * A jÃ¡tÃ©kot megvalÃ³sÃ­tÃ³ osztÃ¡ly, mely tÃ¡rolja a robotokat Ã©s Ã¼temezi a kÃ¶rÃ¶ket,
+ * Ã©szleli a jÃ¡tÃ©k vÃ©gÃ©t Ã©s megÃ¡llapÃ­tja a nyertest
  */
 public class Game {
 	
@@ -26,8 +26,8 @@ public class Game {
 	
 	
 	/**
-	 * Visszaad egy lehetséges kezdõpozíciót, ami rajta van a pályán.
-	 * @return Kezdõpozíció
+	 * Visszaad egy lehetsÃ©ges kezdÅ‘pozÃ­ciÃ³t, ami rajta van a pÃ¡lyÃ¡n.
+	 * @return KezdÅ‘pozÃ­ciÃ³
 	 */
 	private Vector startingVector() {
 		Vector v = null;
@@ -35,7 +35,7 @@ public class Game {
 		int tries = 0;
 		do {
 			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
-			v = UserInput.getVector(tries==0?"Kezdõ pozíció":"Újra", v);
+			v = UserInput.getVector(tries==0?"KezdÅ‘ pozÃ­ciÃ³":"Ãšjra", v);
 			++tries;
 		} while ( !map.isOnRoad(v) );
 		return v;
@@ -43,12 +43,12 @@ public class Game {
 	
 	/**
 	 * Konstruktor
-	 * @param n a körök száma a játékban
-	 * @param m a pálya, amin a játék játszódik
-	 * @param gc a játékhoz tartozó gameController
+	 * @param n a kÃ¶rÃ¶k szÃ¡ma a jÃ¡tÃ©kban
+	 * @param m a pÃ¡lya, amin a jÃ¡tÃ©k jÃ¡tszÃ³dik
+	 * @param gc a jÃ¡tÃ©khoz tartozÃ³ gameController
 	 */
 	public Game(int n, Map m, GameController gc){
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
+		// FÃ¼ggvÃ©nybe lÃ©pÃ©skor kiÃ­rjuk az osztÃ¡ly nevÃ©t, a fÃ¼ggvÃ©nyt Ã©s a paramÃ©terlistÃ¡t.
 		Log.enterFunction(Game.class, "Game", String.valueOf(n) + ", Map" + ", GameController");
 
 		playerNumber = n;
@@ -63,45 +63,45 @@ public class Game {
 		
 		robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
 		
-		//Metódusból kilépés kiírása
+		//MetÃ³dusbÃ³l kilÃ©pÃ©s kiÃ­rÃ¡sa
 		Log.exitFunction();
 	}
 	
 	/**
-	 * A sorrendben következõ robotot adja vissza, és megjegyzi hogy 
-	 * az épp átadott az aktuális robot
-	 * @return a sorrendben következõ robot
+	 * A sorrendben kÃ¶vetkezÅ‘ robotot adja vissza, Ã©s megjegyzi hogy 
+	 * az Ã©pp Ã¡tadott az aktuÃ¡lis robot
+	 * @return a sorrendben kÃ¶vetkezÅ‘ robot
 	 */
 	public PlayerRobot getNextPlayerRobot(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
+		// FÃ¼ggvÃ©nybe lÃ©pÃ©skor kiÃ­rjuk az osztÃ¡ly nevÃ©t Ã©s a fÃ¼ggvÃ©nyt
 		Log.enterFunction(Game.class, "getNextRobot");	
 		++actualRobotNumber;
 		
-		//Ha csak egy robot maradt, vége a játéknak. Ez kör közben is elõfordulhat.
+		//Ha csak egy robot maradt, vÃ©ge a jÃ¡tÃ©knak. Ez kÃ¶r kÃ¶zben is elÅ‘fordulhat.
 		if (playerRobots.size() < 2) {
 			gameEnd();
 		}
-		// Megkérdezzük a felhasználót, hogy véget ért-e egy kör
-		//if (UserInput.getBoolean("Véget ért egy kör?", false)) {
+		// MegkÃ©rdezzÃ¼k a felhasznÃ¡lÃ³t, hogy vÃ©get Ã©rt-e egy kÃ¶r
+		//if (UserInput.getBoolean("VÃ©get Ã©rt egy kÃ¶r?", false)) {
 		if ( actualRobotNumber >= playerRobots.size() ) {
 			actualRobotNumber = 0;
 			--turnsRemaining;
-			// Ha kör vége van megkérdezzük a felhasználót, hogy játék vége is-e egyben
-			//if(UserInput.getBoolean("Véget ért a játék?", false)) {
+			// Ha kÃ¶r vÃ©ge van megkÃ©rdezzÃ¼k a felhasznÃ¡lÃ³t, hogy jÃ¡tÃ©k vÃ©ge is-e egyben
+			//if(UserInput.getBoolean("VÃ©get Ã©rt a jÃ¡tÃ©k?", false)) {
 			if ( turnsRemaining == 0 ) {
 			
-				// Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
+				// Ha vÃ©ge a jÃ¡tÃ©knak, meghÃ­vjuk a hozzÃ¡ tartozÃ³ metÃ³dust
 				gameEnd();
 				
 			} else {
 				
-				// Ha nem ért véget a játék de új kör van, akkor ezt jelezzük a Mapnek
+				// Ha nem Ã©rt vÃ©get a jÃ¡tÃ©k de Ãºj kÃ¶r van, akkor ezt jelezzÃ¼k a Mapnek
 				map.nextRound();
 				
 			}
 		}		
 		
-		//Metódusból kilépés kiírása a visszatérési értékkel
+		//MetÃ³dusbÃ³l kilÃ©pÃ©s kiÃ­rÃ¡sa a visszatÃ©rÃ©si Ã©rtÃ©kkel
 		Log.exitFunction(playerRobots.get(actualRobotNumber).toString());
 		return playerRobots.get(actualRobotNumber);
 	}
@@ -116,34 +116,34 @@ public class Game {
 	
 	
 	/**
-	 * Törli az aktuális robotot
+	 * TÃ¶rli az aktuÃ¡lis robotot
 	 */
 	public void deleteActualRobot(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
+		// FÃ¼ggvÃ©nybe lÃ©pÃ©skor kiÃ­rjuk az osztÃ¡ly nevÃ©t Ã©s a fÃ¼ggvÃ©nyt
 		Log.enterFunction(Game.class, "deleteActualRobot");
 		
-		// Kitörli a robotot a listából 
+		// KitÃ¶rli a robotot a listÃ¡bÃ³l 
 		playerRobots.remove( actualRobotNumber );
-		// Visszalép, hogy a következõ robot helyes legyen
+		// VisszalÃ©p, hogy a kÃ¶vetkezÅ‘ robot helyes legyen
 		actualRobotNumber--;
 		
-		//Metódusból kilépés kiírása
+		//MetÃ³dusbÃ³l kilÃ©pÃ©s kiÃ­rÃ¡sa
 		Log.exitFunction();
 	}
 	
 	
 	/**
-	 * Megsemmisíti az adott pozícion lévõ takarítórobotokat
-	 * @param p az adott pozíció vektora
+	 * MegsemmisÃ­ti az adott pozÃ­cion lÃ©vÅ‘ takarÃ­tÃ³robotokat
+	 * @param p az adott pozÃ­ciÃ³ vektora
 	 */
 	public void deleteCleanerRobotsAt(Vector p){
 		for(CleanerRobot cr : cleanerRobots){
 			if(cr.isAt(p)){
 				
-				//Olajfolt létrehozása
+				//Olajfolt lÃ©trehozÃ¡sa
 				cr.createOil();
 				
-				//takarítórobot törlése
+				//takarÃ­tÃ³robot tÃ¶rlÃ©se
 				cleanerRobots.remove(cr);
 			}
 		}
@@ -151,7 +151,7 @@ public class Game {
 	
 	
 	/**
-	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
+	 * MegvizsgÃ¡lja az Ã¼tkÃ¶zÃ¶ robotokat, Ã©s kitÃ¶rli a kisebb sebessÃ©gÃ¼t
 	 */
 	public void collidePlayerRobotsWithActual() {
 		for(PlayerRobot pr : playerRobots){
@@ -162,30 +162,30 @@ public class Game {
 				if(pr.getSpeedVector().length() > playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
-					//Amennyiben a másik robot a gyorsabb az épp ugró robot összetörik
+					//Amennyiben a mÃ¡sik robot a gyorsabb az Ã©pp ugrÃ³ robot Ã¶sszetÃ¶rik
 					deleteActualRobot();
-					//Véget ér az iteráció
+					//VÃ©get Ã©r az iterÃ¡ciÃ³
 					return;
 					
 				} else if(pr.getSpeedVector().length() < playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
-					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
+					//Amennyiben az aktuÃ¡lis robot a gyorsabb a mÃ¡sik robot tÃ¶rik Ã¶ssze
 					playerRobots.remove(pr);
 					
-					/*Két robot nem lehet egymáson, mivel legaláb az egyik összetörik
-					 *amennyiben egymásra ugranak, így nincs értelme tovább iterálni
+					/*KÃ©t robot nem lehet egymÃ¡son, mivel legalÃ¡b az egyik Ã¶sszetÃ¶rik
+					 *amennyiben egymÃ¡sra ugranak, Ã­gy nincs Ã©rtelme tovÃ¡bb iterÃ¡lni
 					 */
 					return;
 					
 				} else if(pr.getSpeedVector().length() == playerRobots
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
-					//Ha egyforma gyorsak mindeketten összetörnek
+					//Ha egyforma gyorsak mindeketten Ã¶sszetÃ¶rnek
 					deleteActualRobot();
 					playerRobots.remove(pr);
 					
-					//Az iteráció véget ér
+					//Az iterÃ¡ciÃ³ vÃ©get Ã©r
 					return;
 					
 				}
@@ -195,9 +195,9 @@ public class Game {
 	
 	
 	/**
-	 * Megállapítja, hogy az adott pozíción van-e bármilyen robot
-	 * @param p az adott pozíció vektora
-	 * @return tartózkodik-e robot az adott helyen
+	 * MegÃ¡llapÃ­tja, hogy az adott pozÃ­ciÃ³n van-e bÃ¡rmilyen robot
+	 * @param p az adott pozÃ­ciÃ³ vektora
+	 * @return tartÃ³zkodik-e robot az adott helyen
 	 */
 	public boolean isRobotAt(Vector p) {
 		for(Robot r : playerRobots){
@@ -210,10 +210,10 @@ public class Game {
 	
 	
 	/**
-	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
+	 * A jÃ¡tÃ©k vÃ©getÃ©rÃ©sÃ©t megvalÃ³sÃ­tÃ³ metÃ³dus, kivÃ¡lasztja a nyertest Ã©s leÃ¡llÃ­tja a jÃ¡tÃ©kot
 	 */
 	private void gameEnd(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
+		// FÃ¼ggvÃ©nybe lÃ©pÃ©skor kiÃ­rjuk az osztÃ¡ly nevÃ©t Ã©s a fÃ¼ggvÃ©nyt
 		Log.enterFunction(Game.class, "gameEnd");
 		
 		PlayerRobot winner = playerRobots.get(0);
@@ -224,14 +224,14 @@ public class Game {
 		}
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
-		//Metódusból kilépés kiírása
+		//MetÃ³dusbÃ³l kilÃ©pÃ©s kiÃ­rÃ¡sa
 		Log.exitFunction();
 	}
 	
 	
 	/**
-	 * A játékban lévõ játékosrobotok lekérdezését szolgáló metódus
-	 * @return a játékban lévõ játékosrobotok
+	 * A jÃ¡tÃ©kban lÃ©vÅ‘ jÃ¡tÃ©kosrobotok lekÃ©rdezÃ©sÃ©t szolgÃ¡lÃ³ metÃ³dus
+	 * @return a jÃ¡tÃ©kban lÃ©vÅ‘ jÃ¡tÃ©kosrobotok
 	 */
 	public List<PlayerRobot> getPlayerRobots(){
 		return playerRobots;
@@ -239,8 +239,8 @@ public class Game {
 	
 	
 	/**
-	 * A játékban lévõ takarítórobotok lekérdezését szolgáló metódus
-	 * @return a játékban lévõ takarítórobotok
+	 * A jÃ¡tÃ©kban lÃ©vÅ‘ takarÃ­tÃ³robotok lekÃ©rdezÃ©sÃ©t szolgÃ¡lÃ³ metÃ³dus
+	 * @return a jÃ¡tÃ©kban lÃ©vÅ‘ takarÃ­tÃ³robotok
 	 */
 	public List<CleanerRobot> getCleaningRobots() {
 		return cleanerRobots;
@@ -248,14 +248,14 @@ public class Game {
 	
 	
 	/**
-	 * A játékban lévõ robotok lekérdezését szolgáló metódus
-	 * @return a játékban lévõ robotok
+	 * A jÃ¡tÃ©kban lÃ©vÅ‘ robotok lekÃ©rdezÃ©sÃ©t szolgÃ¡lÃ³ metÃ³dus
+	 * @return a jÃ¡tÃ©kban lÃ©vÅ‘ robotok
 	 */
 	public List<Robot> getRobots() {
-		// Létrehozunk egy listát a játékosrobotokkal
+		// LÃ©trehozunk egy listÃ¡t a jÃ¡tÃ©kosrobotokkal
 		List<Robot> robots = new ArrayList<Robot>(playerRobots);
 		
-		// Hozzáadjuk a listához a ttakaítórobotokat is
+		// HozzÃ¡adjuk a listÃ¡hoz a ttakaÃ­tÃ³robotokat is
 		for(CleanerRobot cr : cleanerRobots) {
 			robots.add(cr);
 		}
@@ -265,8 +265,8 @@ public class Game {
 	
 	
 	/**
-	 * Visszaadja az itt tárolt pályát
-	 * @return Pálya
+	 * Visszaadja az itt tÃ¡rolt pÃ¡lyÃ¡t
+	 * @return PÃ¡lya
 	 */
 	public Map getMap() {
 		return map;
@@ -274,8 +274,8 @@ public class Game {
 	
 	
 	/**
-	 * Visszaadja az itt tárolt robotvezérlõt
-	 * @return Robotvezérlõ
+	 * Visszaadja az itt tÃ¡rolt robotvezÃ©rlÅ‘t
+	 * @return RobotvezÃ©rlÅ‘
 	 */
 	public RobotController getRobotController() {
 		return robotController;

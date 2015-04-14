@@ -43,17 +43,17 @@ public class Application {
 			} else if(command[0].equals("jump")) {
 				gc.getRobotController().nextTurn();
 			} else if(command[0].equals("list_player_robots")) {
-				System.out.println("Játékosrobotok listája:");
+				System.out.println("JÃ¡tÃ©kosrobotok listÃ¡ja:");
 				for(PlayerRobot i : gc.getGame().getPlayerRobots()) {
 					System.out.println(i.toString());
 				}
 			} else if(command[0].equals("list_cleaner_robots")) {
-				System.out.println("Takarítórobotok listája:");
+				System.out.println("TakarÃ­tÃ³robotok listÃ¡ja:");
 				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
 					System.out.println(i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
-				System.out.println("Foltok listája:");
+				System.out.println("Foltok listÃ¡ja:");
 				for(Smudge i : gc.getGame().getMap().getSmudges()) {
 					System.out.println(i.toString());
 				}

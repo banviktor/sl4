@@ -4,8 +4,8 @@ import phoebe.Log;
 import phoebe.basic.Vector;
 
 /**
- * Az általános robotokat megvalósító absztrakt osztály. Tárolja a robot helyét
- * és elérhetõvé teszi az általános funkcióit.
+ * Az Ã¡ltalÃ¡nos robotokat megvalÃ³sÃ­tÃ³ absztrakt osztÃ¡ly. TÃ¡rolja a robot helyÃ©t
+ * Ã©s elÃ©rhetÅ‘vÃ© teszi az Ã¡ltalÃ¡nos funkciÃ³it.
  */
 public abstract class Robot {
 
@@ -16,24 +16,24 @@ public abstract class Robot {
 	}
 	
 	/**
-	 * Visszatér a robot aktuális pozíciójával
-	 * @return a robot helyvektorával tér vissza
+	 * VisszatÃ©r a robot aktuÃ¡lis pozÃ­ciÃ³jÃ¡val
+	 * @return a robot helyvektorÃ¡val tÃ©r vissza
 	 */
 	public Vector getPosition(){
 		return position;
 	}
 	
 	/**
-	 * Absztrakt metódus annak eldöntésére, hogy a robot az adott pozíción található-e
-	 * @param p az adott pozíció
-	 * @return logikai érték, mely megadja, hogy a robot az adott pozíción van-e
+	 * Absztrakt metÃ³dus annak eldÃ¶ntÃ©sÃ©re, hogy a robot az adott pozÃ­ciÃ³n talÃ¡lhatÃ³-e
+	 * @param p az adott pozÃ­ciÃ³
+	 * @return logikai Ã©rtÃ©k, mely megadja, hogy a robot az adott pozÃ­ciÃ³n van-e
 	 */
 	public abstract boolean isAt(Vector p);
 	
 	
 	/**
-	 * Absztrakt metódus, melyben a robot létrehoz egy olajfoltot az aktuális pozícióján
-	 * @return a létrehozott olajfolt
+	 * Absztrakt metÃ³dus, melyben a robot lÃ©trehoz egy olajfoltot az aktuÃ¡lis pozÃ­ciÃ³jÃ¡n
+	 * @return a lÃ©trehozott olajfolt
 	 */
 	public abstract Oil createOil();
 	

@@ -8,11 +8,11 @@ public class Application {
 
 	public static void main(String[] args) {
 		if (args.length != 2){
-			System.out.println("HIBA: a paramÈterlista nem megfelelı.");
+			System.out.println("HIBA: a param√©terlista nem megfelel≈ë.");
 		}else{
 			String file1 = args[0];
 			String file2 = args[1];
-			System.out.println("A(z) " + file1 + " f·jlt hasonlÌtom ˆssze a(z) " + file2 + " f·jllal.");
+			System.out.println("A(z) " + file1 + " f√°jlt hasonl√≠tom √∂ssze a(z) " + file2 + " f√°jllal.");
 			try	{
 				BufferedReader br1 = new BufferedReader(new FileReader(file1));
 				
@@ -22,19 +22,19 @@ public class Application {
 					int lines = 0;
 					while ((line1 = br1.readLine()) != null && (line2 = br2.readLine()) != null) {
 						if ( !line1.equals(line2) ) {
-							System.out.println("A(z) " + file1 + " a kˆvetkezı sorn·l nem egyezik: " + lines);
+							System.out.println("A(z) " + file1 + " a k√∂vetkez≈ë sorn√°l nem egyezik: " + lines);
 						}
 						++lines;
 					}
 					System.out.println("A(z) " + file1 + " tesztje sikeres volt.");
 					br2.close();
 				} catch (IOException e) {
-					System.out.println("HIBA: " + file2 + " megnyit·sa sikertelen.");
+					System.out.println("HIBA: " + file2 + " megnyit√°sa sikertelen.");
 				} 
 				
 				br1.close();
 			} catch (IOException e) {
-				System.out.println("HIBA: " + file1 + " megnyit·sa sikertelen.");
+				System.out.println("HIBA: " + file1 + " megnyit√°sa sikertelen.");
 			}
 		}		
 	}

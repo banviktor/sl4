@@ -18,21 +18,21 @@ public class Log {
 	public static void setTimestampPrefix(boolean value){ prefixWithTimestamp = value; }	
 	
 	/**
-	 * Kiír egy sort indentálva, idõbélyeggel (beállítástól függõen) a konzolra
-	 * @param msg Az üzenet
+	 * KiÃ­r egy sort indentÃ¡lva, idÅ‘bÃ©lyeggel (beÃ¡llÃ­tÃ¡stÃ³l fÃ¼ggÅ‘en) a konzolra
+	 * @param msg Az Ã¼zenet
 	 */
 	public static void write(String msg, boolean newLine){		
-		//Indentálás
+		//IndentÃ¡lÃ¡s
 		for(int i = 0; i < indentationDepth; ++i){
 			msg = "  " + msg;
 		}
 		
-		//Idõbélyeg hozzáfûzése az üzenet elejéhez, ha kell
+		//IdÅ‘bÃ©lyeg hozzÃ¡fÅ±zÃ©se az Ã¼zenet elejÃ©hez, ha kell
 		if(prefixWithTimestamp){
 			msg = "[" + timestampFormat.format(new Date()) + "] " + msg;
 		}
 		
-		//Konzolra írás, ha kell
+		//Konzolra Ã­rÃ¡s, ha kell
 		if(logToConsole){
 			if(newLine)
 				System.out.println(msg);
@@ -40,25 +40,25 @@ public class Log {
 				System.out.print(msg);;
 		}
 		
-		//Fájlba írás, ha kell
+		//FÃ¡jlba Ã­rÃ¡s, ha kell
 		if(logToFile){
-			//TODO fájlba írás
+			//TODO fÃ¡jlba Ã­rÃ¡s
 		}
 	}	
 	
 	/**
-	 * Kiír egy sort indentálva, idõbélyeggel (beállítástól függõen) a konzolra
-	 * @param msg Az üzenet
+	 * KiÃ­r egy sort indentÃ¡lva, idÅ‘bÃ©lyeggel (beÃ¡llÃ­tÃ¡stÃ³l fÃ¼ggÅ‘en) a konzolra
+	 * @param msg Az Ã¼zenet
 	 */
 	public static void writeLine(String msg){		
 		write(msg, true);
 	}	
 
 	/**
-	 * Egy függvénybe való lépéskor meghívandó metódus, mely kiírja a belépés paramétereit.
-	 * @param classId A függvényt tartalmazó osztály
-	 * @param function A függvény neve
-	 * @param args A függvény paraméterlistája szövegesen
+	 * Egy fÃ¼ggvÃ©nybe valÃ³ lÃ©pÃ©skor meghÃ­vandÃ³ metÃ³dus, mely kiÃ­rja a belÃ©pÃ©s paramÃ©tereit.
+	 * @param classId A fÃ¼ggvÃ©nyt tartalmazÃ³ osztÃ¡ly
+	 * @param function A fÃ¼ggvÃ©ny neve
+	 * @param args A fÃ¼ggvÃ©ny paramÃ©terlistÃ¡ja szÃ¶vegesen
 	 */ 
 	public static void enterFunction(Class<?> classId, String function, String args){		
 		writeLine("-> [" + classId.getSimpleName() + "]: " + function + "(" + args + ")");
@@ -66,17 +66,17 @@ public class Log {
 	}
 	
 	/**
-	 * Egy függvénybe való lépéskor meghívandó metódus, mely kiírja a belépés paramétereit.
-	 * @param classId A függvényt tartalmazó osztály
-	 * @param function A függvény neve
+	 * Egy fÃ¼ggvÃ©nybe valÃ³ lÃ©pÃ©skor meghÃ­vandÃ³ metÃ³dus, mely kiÃ­rja a belÃ©pÃ©s paramÃ©tereit.
+	 * @param classId A fÃ¼ggvÃ©nyt tartalmazÃ³ osztÃ¡ly
+	 * @param function A fÃ¼ggvÃ©ny neve
 	 */ 
 	public static void enterFunction(Class<?> classId, String function){
 		enterFunction(classId, function, "");
 	}
 	
 	/**
-	 * Egy függvénybõl való kilépés elõtt meghívandó metódus, mely kiírja a kilépés paramétereit.
-	 * @param returnValue A visszatérési érték
+	 * Egy fÃ¼ggvÃ©nybÅ‘l valÃ³ kilÃ©pÃ©s elÅ‘tt meghÃ­vandÃ³ metÃ³dus, mely kiÃ­rja a kilÃ©pÃ©s paramÃ©tereit.
+	 * @param returnValue A visszatÃ©rÃ©si Ã©rtÃ©k
 	 */
 	public static void exitFunction(Object returnValue){
 		unindent();
@@ -84,7 +84,7 @@ public class Log {
 	}
 	
 	/**
-	 * Egy függvénybõl való kilépés elõtt meghívandó metódus, mely kiírja a kilépés paramétereit.
+	 * Egy fÃ¼ggvÃ©nybÅ‘l valÃ³ kilÃ©pÃ©s elÅ‘tt meghÃ­vandÃ³ metÃ³dus, mely kiÃ­rja a kilÃ©pÃ©s paramÃ©tereit.
 	 */
 	public static void exitFunction(){
 		exitFunction("");

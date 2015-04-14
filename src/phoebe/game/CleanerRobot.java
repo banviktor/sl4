@@ -3,8 +3,8 @@ package phoebe.game;
 import phoebe.basic.Vector;
 
 /**
- * A takarítórobotokat megvalósító osztály, megvalósítja azok mozgását,
- * takarítását és ütközését
+ * A takarÃ­tÃ³robotokat megvalÃ³sÃ­tÃ³ osztÃ¡ly, megvalÃ³sÃ­tja azok mozgÃ¡sÃ¡t,
+ * takarÃ­tÃ¡sÃ¡t Ã©s Ã¼tkÃ¶zÃ©sÃ©t
  */
 public class CleanerRobot extends Robot {
 
@@ -12,10 +12,10 @@ public class CleanerRobot extends Robot {
 	private Game game;
 	
 	/**
-	 * Az osztály konstruktora
-	 * @param p a robot pozíciója
-	 * @param m	az aktuális térkép, melyen a robot szerepel
-	 * @param g az aktuális játék, melyben a robot szerepel
+	 * Az osztÃ¡ly konstruktora
+	 * @param p a robot pozÃ­ciÃ³ja
+	 * @param m	az aktuÃ¡lis tÃ©rkÃ©p, melyen a robot szerepel
+	 * @param g az aktuÃ¡lis jÃ¡tÃ©k, melyben a robot szerepel
 	 */
 	public CleanerRobot(Vector p, Map m, Game g) {
 		super(p);
@@ -24,9 +24,9 @@ public class CleanerRobot extends Robot {
 	}
 
 	/**
-	 * A metódus eldönti, hogy a 0.3 egységnyi sugarú robot az adott pozíción található-e
-	 * @param p a megadott pozíció
-	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
+	 * A metÃ³dus eldÃ¶nti, hogy a 0.3 egysÃ©gnyi sugarÃº robot az adott pozÃ­ciÃ³n talÃ¡lhatÃ³-e
+	 * @param p a megadott pozÃ­ciÃ³
+	 * @return	logikai Ã©rtÃ©k, mely megadja, hogy a robot az adott pozÃ­ciÃ³n van-e
 	 */
 	@Override
 	public boolean isAt(Vector p) {
@@ -34,8 +34,8 @@ public class CleanerRobot extends Robot {
 	}
 
 	/**
-	 * Metódus, melyben a takarítórobot létrehoz egy olajfoltot az aktuális pozícióján
-	 * @return	a létrehozott olajfolt
+	 * MetÃ³dus, melyben a takarÃ­tÃ³robot lÃ©trehoz egy olajfoltot az aktuÃ¡lis pozÃ­ciÃ³jÃ¡n
+	 * @return	a lÃ©trehozott olajfolt
 	 */
 	@Override
 	public Oil createOil() {
@@ -43,7 +43,7 @@ public class CleanerRobot extends Robot {
 	}
 	
 	/**
-	 * A takarítórobot egy körbeli cselekvéseit megvalósító metódus
+	 * A takarÃ­tÃ³robot egy kÃ¶rbeli cselekvÃ©seit megvalÃ³sÃ­tÃ³ metÃ³dus
 	 */
 	public void clear() {
 		

@@ -20,7 +20,7 @@ public class PlayerRobot extends Robot {
 	
 	/**
 	 * A robot konstruktora
-	 * @param c a robot színe
+	 * @param c a robot szÃ­ne
 	 * @param p a robot kezdeti helye
 	 */
 	public PlayerRobot(Color c, Vector p){
@@ -40,9 +40,9 @@ public class PlayerRobot extends Robot {
 	
 	
 	/**
-	 * A metódus eldönti, hogy a 0.45 egységnyi sugarú robot az adott pozíción található-e
-	 * @param p a megadott pozíció
-	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
+	 * A metÃ³dus eldÃ¶nti, hogy a 0.45 egysÃ©gnyi sugarÃº robot az adott pozÃ­ciÃ³n talÃ¡lhatÃ³-e
+	 * @param p a megadott pozÃ­ciÃ³
+	 * @return	logikai Ã©rtÃ©k, mely megadja, hogy a robot az adott pozÃ­ciÃ³n van-e
 	 */
 	@Override
 	public boolean isAt(Vector p) {
@@ -52,7 +52,7 @@ public class PlayerRobot extends Robot {
 	
 	/**
 	 * Lerak egy olajfoltot
-	 * @return a létrehozott olajfolt referenciájával tér vissza
+	 * @return a lÃ©trehozott olajfolt referenciÃ¡jÃ¡val tÃ©r vissza
 	 */
 	@Override
 	public Oil createOil(){
@@ -63,7 +63,7 @@ public class PlayerRobot extends Robot {
 	
 	/**
 	 * Lerak egy ragacsfoltot
-	 * @return a létrehozott ragacsfolt referenciájával tér vissza
+	 * @return a lÃ©trehozott ragacsfolt referenciÃ¡jÃ¡val tÃ©r vissza
 	 */
 	public Glue createGlue(){
 		Glue g = new Glue(position); 
@@ -72,43 +72,43 @@ public class PlayerRobot extends Robot {
 	}
 	
 	/**
-	 * Beállítja a sebességvektort
-	 * @param v az új sebességvektor
+	 * BeÃ¡llÃ­tja a sebessÃ©gvektort
+	 * @param v az Ãºj sebessÃ©gvektor
 	 */
 	public void setSpeedVector(Vector v){
 		speedVector = v;
 	}
 	
 	/**
-	 * Végrehajtja az ugrást
+	 * VÃ©grehajtja az ugrÃ¡st
 	 */
 	public void jump(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
+		// FÃ¼ggvÃ©nybe lÃ©pÃ©skor kiÃ­rjuk az osztÃ¡ly nevÃ©t Ã©s a fÃ¼ggvÃ©nyt
 		Log.enterFunction(Robot.class, "jump");
 		
-		// TODO folt lehelyezése
+		// TODO folt lehelyezÃ©se
 		
-		// Megtett út nõ az ugrással
+		// Megtett Ãºt nÅ‘ az ugrÃ¡ssal
 		distance += speedVector.length();
 		
-		// Ugráskor a hely módosítása a sebességvektorral
+		// UgrÃ¡skor a hely mÃ³dosÃ­tÃ¡sa a sebessÃ©gvektorral
 		position = new Vector(position.getX() + speedVector.getX(),
 				position.getY() + speedVector.getY());
 		
-		// Következõ körre felkészítés
+		// KÃ¶vetkezÅ‘ kÃ¶rre felkÃ©szÃ­tÃ©s
 		speedHalved = false;
 		speedModificationDisabled = false;
 		
-		// Metódusból kilépés kiírása a visszatérési értékkel
+		// MetÃ³dusbÃ³l kilÃ©pÃ©s kiÃ­rÃ¡sa a visszatÃ©rÃ©si Ã©rtÃ©kkel
 		Log.exitFunction();
 	}
 	
 	
 	/**
-	 * Megfelezi a robot sebességét
+	 * Megfelezi a robot sebessÃ©gÃ©t
 	 */
 	public void halveSpeed(){
-		// Csak abban az esetben felez, ha ez még nem történt meg a fordulóban
+		// Csak abban az esetben felez, ha ez mÃ©g nem tÃ¶rtÃ©nt meg a fordulÃ³ban
 		if ( speedHalved == false ) {
 			speedVector = speedVector.multiply(0.5);
 			speedHalved = true;
@@ -116,7 +116,7 @@ public class PlayerRobot extends Robot {
 	}
 	
 	/**
-	 * Letiltja a sebességmódosítást
+	 * Letiltja a sebessÃ©gmÃ³dosÃ­tÃ¡st
 	 */
 	public void disableSpeedModification(){
 		speedModificationDisabled = true;
@@ -124,32 +124,32 @@ public class PlayerRobot extends Robot {
 	
 	
 	/**
-	 * Visszatér a robot aktuális sebességével
-	 * @return a robot sebességvektorával tér vissza
+	 * VisszatÃ©r a robot aktuÃ¡lis sebessÃ©gÃ©vel
+	 * @return a robot sebessÃ©gvektorÃ¡val tÃ©r vissza
 	 */
 	public Vector getSpeedVector(){
 		return speedVector;
 	}
 	
 	/**
-	 *Visszatér a tárolt olajfoltok számával
-	 * @return olajfoltok száma
+	 *VisszatÃ©r a tÃ¡rolt olajfoltok szÃ¡mÃ¡val
+	 * @return olajfoltok szÃ¡ma
 	 */
 	public int getOilNumber(){
 		return oilNumber;
 	}
 	
 	/**
-	 * Visszatér a tárolt ragacsfoltok számával
-	 * @return ragacsfoltok száma
+	 * VisszatÃ©r a tÃ¡rolt ragacsfoltok szÃ¡mÃ¡val
+	 * @return ragacsfoltok szÃ¡ma
 	 */
 	public int getGlueNumber(){
 		return glueNumber;
 	}
 	
 	/**
-	 * Visszatér a robot által megtett távolsággal
-	 * @return megtett távolság
+	 * VisszatÃ©r a robot Ã¡ltal megtett tÃ¡volsÃ¡ggal
+	 * @return megtett tÃ¡volsÃ¡g
 	 */
 	public double getDistance(){
 		return distance;
@@ -157,8 +157,8 @@ public class PlayerRobot extends Robot {
 	
 
 	/**
-	 * Megadja, hogy módosíthatja-e a felhasználó a a robot sbességét
-	 * @return módosítható-e vagy nem
+	 * Megadja, hogy mÃ³dosÃ­thatja-e a felhasznÃ¡lÃ³ a a robot sbessÃ©gÃ©t
+	 * @return mÃ³dosÃ­thatÃ³-e vagy nem
 	 */
 	public boolean isSpeedModificationDisabled(){
 		return speedModificationDisabled;

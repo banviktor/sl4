@@ -1,7 +1,7 @@
 package phoebe.basic;
 
 /**
- * Felsorolt tÌpus a robotok lehetsÈges szÌneinek a t·rol·s·ra
+ * Felsorolt t√≠pus a robotok lehets√©ges sz√≠neinek a t√°rol√°s√°ra
  */
 public enum Color {
 	RED, YELLOW, GREEN, BLUE, PURPLE;
@@ -12,11 +12,11 @@ public enum Color {
 			case RED:
 				return "Piros";
 			case YELLOW:
-				return "S·rga";
+				return "S√°rga";
 			case GREEN:
-				return "Zˆld";
+				return "Z√∂ld";
 			case BLUE:
-				return "KÈk";
+				return "K√©k";
 			case PURPLE:
 				return "Lila";
 			default: return "";

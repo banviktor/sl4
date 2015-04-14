@@ -7,33 +7,33 @@ import phoebe.basic.Vector;
 public class Glue extends Smudge {
 	
 	/**
-	 * Konstruktor az olajfolt pozíciójának megadásával
-	 * @param p pozíció
+	 * Konstruktor az olajfolt pozÃ­ciÃ³jÃ¡nak megadÃ¡sÃ¡val
+	 * @param p pozÃ­ciÃ³
 	 */
 	public Glue(Vector p) {
 		super(p);
 		
-		// A ragacsfoltnak 4 az élettartama szemben az õsosztályban alapértelmezett 6-al
+		// A ragacsfoltnak 4 az Ã©lettartama szemben az Å‘sosztÃ¡lyban alapÃ©rtelmezett 6-al
 		duration = 4;
 	}
 	
 	
 	/**
-	 * A folt hatását valósítja meg, az átadott robotnak felezi a sebességét
-	 * @param r a robot, aminek felezi a sebességét
+	 * A folt hatÃ¡sÃ¡t valÃ³sÃ­tja meg, az Ã¡tadott robotnak felezi a sebessÃ©gÃ©t
+	 * @param r a robot, aminek felezi a sebessÃ©gÃ©t
 	 */
 	@Override
 	public int action(PlayerRobot r) {
 		r.halveSpeed();
 		
-		// A ragacsfoltnak rálépéskor csökken az élettartama
+		// A ragacsfoltnak rÃ¡lÃ©pÃ©skor csÃ¶kken az Ã©lettartama
 		return duration--;
 	}
 
 
 	/**
-	 * A ragacsfoltra nincs hatással a körváltás
-	 * @return a folt élettartama
+	 * A ragacsfoltra nincs hatÃ¡ssal a kÃ¶rvÃ¡ltÃ¡s
+	 * @return a folt Ã©lettartama
 	 */
 	@Override
 	public int nextRound() {

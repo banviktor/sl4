@@ -5,9 +5,9 @@ public class Line {
 	private final Vector p2;
 	
 	/**
-	 * LÈtrehoz egy szakaszt kÈt, helyvektorral megadott pont kˆzˆtt
-	 * @param p1 Az elsı pont
-	 * @param p2 A m·sodik pont
+	 * L√©trehoz egy szakaszt k√©t, helyvektorral megadott pont k√∂z√∂tt
+	 * @param p1 Az els≈ë pont
+	 * @param p2 A m√°sodik pont
 	 */
 	public Line(Vector p1, Vector p2){
 		this.p1 = p1;
@@ -15,11 +15,11 @@ public class Line {
 	}
 	
 	/**
-	 * LÈtrehoz egy szakaszt kÈt, koordin·t·ival megadott pont kˆzˆtt
-	 * @param x1 Az elsı pont X koordin·t·ja
-	 * @param y1 Az elsı pont Y koordin·t·ja
-	 * @param x2 A m·sodik pont X koordin·t·ja
-	 * @param y2 A m·sodik pont Y koordin·t·ja
+	 * L√©trehoz egy szakaszt k√©t, koordin√°t√°ival megadott pont k√∂z√∂tt
+	 * @param x1 Az els≈ë pont X koordin√°t√°ja
+	 * @param y1 Az els≈ë pont Y koordin√°t√°ja
+	 * @param x2 A m√°sodik pont X koordin√°t√°ja
+	 * @param y2 A m√°sodik pont Y koordin√°t√°ja
 	 */
 	public Line(double x1, double y1, double x2, double y2){
 		this.p1 = new Vector(x1, y1);
@@ -27,7 +27,7 @@ public class Line {
 	}
 	
 	/**
-	 * Visszaadja a szakasz hossz·t
+	 * Visszaadja a szakasz hossz√°t
 	 * @return A szakasz hossza
 	 */
 	public double length(){
@@ -36,16 +36,16 @@ public class Line {
 	}
 	
 	/**
-	 * Visszaadja az elsı vektort
-	 * @return Elsı vektor
+	 * Visszaadja az els≈ë vektort
+	 * @return Els≈ë vektor
 	 */
 	public Vector getVector1() {
 		return p1;
 	}
 	
 	/**
-	 * Visszaadja a m·sodik vektort
-	 * @return M·sodik vektor
+	 * Visszaadja a m√°sodik vektort
+	 * @return M√°sodik vektor
 	 */
 	public Vector getVector2() {
 		return p2;

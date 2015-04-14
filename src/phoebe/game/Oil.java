@@ -7,8 +7,8 @@ import phoebe.basic.Vector;
 public class Oil extends Smudge {
 	
 	/**
-	 * Konstruktor az olajfolt pozíciójának megadásával
-	 * @param p pozíció
+	 * Konstruktor az olajfolt pozÃ­ciÃ³jÃ¡nak megadÃ¡sÃ¡val
+	 * @param p pozÃ­ciÃ³
 	 */
 	public Oil(Vector p) {
 		super(p);
@@ -16,22 +16,22 @@ public class Oil extends Smudge {
 
 	
 	/**
-	 * A folt hatását valósítja meg, az átadott robotra kikapcsolja a sebességváltoztatás
-	 * lehetõségét
-	 * @param r a robot, aminek kikapcsolja a sebességváltoztatását
+	 * A folt hatÃ¡sÃ¡t valÃ³sÃ­tja meg, az Ã¡tadott robotra kikapcsolja a sebessÃ©gvÃ¡ltoztatÃ¡s
+	 * lehetÅ‘sÃ©gÃ©t
+	 * @param r a robot, aminek kikapcsolja a sebessÃ©gvÃ¡ltoztatÃ¡sÃ¡t
 	 */
 	@Override
 	public int action(PlayerRobot r) {
 		r.disableSpeedModification();
 		
-		// Az olajfoltnak rálépéskor nem csökken az élettartama
+		// Az olajfoltnak rÃ¡lÃ©pÃ©skor nem csÃ¶kken az Ã©lettartama
 		return duration;
 	}
 
 	
 	/**
-	 * Az olajfolt az új körben eszít egyet az élettartamából
-	 * @return a folt új élettartama
+	 * Az olajfolt az Ãºj kÃ¶rben eszÃ­t egyet az Ã©lettartamÃ¡bÃ³l
+	 * @return a folt Ãºj Ã©lettartama
 	 */
 	@Override
 	public int nextRound() {

@@ -4,7 +4,7 @@ import phoebe.Log;
 import phoebe.UserInput;
 
 /** 
- * A j·tÈk lÈtrehoz·s·Èrt Ès t·rol·s·Èrt felelıs oszt·ly
+ * A j√°t√©k l√©trehoz√°s√°√©rt √©s t√°rol√°s√°√©rt felel≈ës oszt√°ly
  */
 public class GameController {
 	
@@ -13,7 +13,7 @@ public class GameController {
 
 	
 	/**
-	 * Az oszt·ly konstruktora
+	 * Az oszt√°ly konstruktora
 	 */
 	public GameController() {
 		game =  null;
@@ -22,14 +22,14 @@ public class GameController {
 	
 	
 	/** 
-	 * LÈtrehoz egy ˙j j·tÈkot ha nincs Èpp fut·s alatt egy m·sik, Ès elmenti hogy fut
+	 * L√©trehoz egy √∫j j√°t√©kot ha nincs √©pp fut√°s alatt egy m√°sik, √©s elmenti hogy fut
 	 */
 	public void newGame() {
-		// Ha nem fut Èpp j·tÈk, lÈtrehoz egy ˙jat
+		// Ha nem fut √©pp j√°t√©k, l√©trehoz egy √∫jat
 		if (!running) {
 			Map map = new Map("map.xml");
 			
-//J¡T…KOSSZ¡M BEK…R…S
+//J√ÅT√âKOSSZ√ÅM BEK√âR√âS
 int players = -2;
 			
 			if (players < 2) { players = 2; }
@@ -41,7 +41,7 @@ int players = -2;
 	}
 	
 	/**
-	 * Be·llÌtja, hogy nincs futÛ j·tÈk
+	 * Be√°ll√≠tja, hogy nincs fut√≥ j√°t√©k
 	 */
 	public void gameEnded() {
 		running = false;
@@ -49,7 +49,7 @@ int players = -2;
 	}
 	
 	/**
-	 * Visszaadja hogy van-e Èppen futÛ j·tÈk
+	 * Visszaadja hogy van-e √©ppen fut√≥ j√°t√©k
 	 * @return
 	 */
 	public boolean isRunning() {
@@ -58,8 +58,8 @@ int players = -2;
 	
 	
 	/**
-	 * Visszaadja a game-ben t·rolt robotvezÈrlıt
-	 * @return RobotvezÈrlı
+	 * Visszaadja a game-ben t√°rolt robotvez√©rl≈ët
+	 * @return Robotvez√©rl≈ë
 	 */
 	public RobotController getRobotController() {
 		return game.getRobotController();
@@ -67,8 +67,8 @@ int players = -2;
 	
 	
 	/**
-	 * Visszaadja a game-ben t·rolt p·ly·t
-	 * @return P·lya
+	 * Visszaadja a game-ben t√°rolt p√°ly√°t
+	 * @return P√°lya
 	 */
 	public Map getMap() {
 		return game.getMap();
@@ -76,8 +76,8 @@ int players = -2;
 	
 	
 	/**
-	 * Visszaadja a t·rolt j·tÈkot.
-	 * @return J·tÈk
+	 * Visszaadja a t√°rolt j√°t√©kot.
+	 * @return J√°t√©k
 	 */
 	public Game getGame() {
 		return game;

@@ -5,8 +5,8 @@ import phoebe.UserInput;
 import phoebe.basic.Vector;
 
 /** 
- * Az általános foltokat megvalósító absztarkt osztály. Tárolja a folt helyét,
- * hátralévõ élettartamát, és megvalósítja a foltok általános metódusait
+ * Az Ã¡ltalÃ¡nos foltokat megvalÃ³sÃ­tÃ³ absztarkt osztÃ¡ly. TÃ¡rolja a folt helyÃ©t,
+ * hÃ¡tralÃ©vÅ‘ Ã©lettartamÃ¡t, Ã©s megvalÃ³sÃ­tja a foltok Ã¡ltalÃ¡nos metÃ³dusait
  */
 public abstract class Smudge {
 	
@@ -16,8 +16,8 @@ public abstract class Smudge {
 	
 	
 	/** 
-	 * Konstruktor a folt pozíciójának megadásával
-	 * @param p a folt pozíciója
+	 * Konstruktor a folt pozÃ­ciÃ³jÃ¡nak megadÃ¡sÃ¡val
+	 * @param p a folt pozÃ­ciÃ³ja
 	 */
 	public Smudge(Vector p) {		
 		position = p;
@@ -27,25 +27,25 @@ public abstract class Smudge {
 	
 	
 	/** 
-	 * Metódus annak eldöntésére, hogy az egységnyi sugarú folt egy adott helyen fejt-e ki hatást
-	 * @param p a hely, ahol vizsgáljuk a folt hatásoságát
-	 * @return logikai érték, mely megadja, hogy a vizsgált helyen fejt-e ki hatást a folt
+	 * MetÃ³dus annak eldÃ¶ntÃ©sÃ©re, hogy az egysÃ©gnyi sugarÃº folt egy adott helyen fejt-e ki hatÃ¡st
+	 * @param p a hely, ahol vizsgÃ¡ljuk a folt hatÃ¡sosÃ¡gÃ¡t
+	 * @return logikai Ã©rtÃ©k, mely megadja, hogy a vizsgÃ¡lt helyen fejt-e ki hatÃ¡st a folt
 	 */
 	public boolean isEffectiveAt(Vector p) {
 		return (position.distance(p) < 1);
 	}
 	
 	/** 
-	 * A folt vastagságát cökkentõ metódus
-	 * @return a folt vastagsága
+	 * A folt vastagsÃ¡gÃ¡t cÃ¶kkentÅ‘ metÃ³dus
+	 * @return a folt vastagsÃ¡ga
 	 */
 	public int reduceThickness(){
 		return thickness--;
 	}
 	
 	/** 
-	 * A folt vastagságát lekérdezõ metódus
-	 * @return a folt vastagsága
+	 * A folt vastagsÃ¡gÃ¡t lekÃ©rdezÅ‘ metÃ³dus
+	 * @return a folt vastagsÃ¡ga
 	 */
 	public int getThickness(){
 		return thickness;
@@ -53,8 +53,8 @@ public abstract class Smudge {
 	
 	
 	/** 
-	 * A folt élettartamát lekérdezõ metódus
-	 * @return a folt élettartama
+	 * A folt Ã©lettartamÃ¡t lekÃ©rdezÅ‘ metÃ³dus
+	 * @return a folt Ã©lettartama
 	 */
 	public int getDuration(){
 		return duration;
@@ -62,8 +62,8 @@ public abstract class Smudge {
 	
 	
 	/** 
-	 * A folt pozícióját lekérdezõ metódus
-	 * @return a folt pozíciója
+	 * A folt pozÃ­ciÃ³jÃ¡t lekÃ©rdezÅ‘ metÃ³dus
+	 * @return a folt pozÃ­ciÃ³ja
 	 */
 	public Vector getPosition(){
 		return position;
@@ -71,15 +71,15 @@ public abstract class Smudge {
 	
 	
 	/** 
-	 * Absztrakt metódus, mely a folt típusától függõ változást hoz létre az átadott robotban
-	 * @param r a robot, amin változtatást kell létrehozni
+	 * Absztrakt metÃ³dus, mely a folt tÃ­pusÃ¡tÃ³l fÃ¼ggÅ‘ vÃ¡ltozÃ¡st hoz lÃ©tre az Ã¡tadott robotban
+	 * @param r a robot, amin vÃ¡ltoztatÃ¡st kell lÃ©trehozni
 	 */
 	public abstract int action(PlayerRobot r);	
 	
 
 	/** 
-	 * Absztrakt metódus, ami folt új körbe lépését megvalósítja meg
-	 * @return a folt élettartama
+	 * Absztrakt metÃ³dus, ami folt Ãºj kÃ¶rbe lÃ©pÃ©sÃ©t megvalÃ³sÃ­tja meg
+	 * @return a folt Ã©lettartama
 	 */
 	public abstract int nextRound();
 	

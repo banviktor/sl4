@@ -24,8 +24,8 @@ public class Map {
 	private List<Smudge> smudges;
 
 	/**
-	 * Beolvassa és feldolgozza a térképfájlt.
-	 * @param map a map fájl helye
+	 * Beolvassa Ã©s feldolgozza a tÃ©rkÃ©pfÃ¡jlt.
+	 * @param map a map fÃ¡jl helye
 	 */
 	public Map(String map) {
 		lines = new ArrayList<Line>();
@@ -33,7 +33,7 @@ public class Map {
 		Document dom = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
-		// Megpróbálja megnyitni a pályafájlt és végigparszolni
+		// MegprÃ³bÃ¡lja megnyitni a pÃ¡lyafÃ¡jlt Ã©s vÃ©gigparszolni
 		try {
 			db = dbf.newDocumentBuilder();
 			dom = (Document) db.parse( map );
@@ -62,7 +62,7 @@ public class Map {
 	}
 
 	/**
-	 * XML feldolgozó, az adatból Line-t készít
+	 * XML feldolgozÃ³, az adatbÃ³l Line-t kÃ©szÃ­t
 	 * @param el XML element
 	 * @return Line
 	 */
@@ -70,31 +70,31 @@ public class Map {
 		String[] numsSplit = el.getTextContent().split(" ");
 		double[] nums = new double[4];
 		for (int i = 0; i < 4; ++i) {
-			// az xml fájl normálva tárolja a koordinátákat, 10x10es pályára alakítjuk
+			// az xml fÃ¡jl normÃ¡lva tÃ¡rolja a koordinÃ¡tÃ¡kat, 10x10es pÃ¡lyÃ¡ra alakÃ­tjuk
 			nums[i] = Double.parseDouble(numsSplit[i]) * 10;
 		}
 		return new Line( nums[0], nums[1], nums[2], nums[3] );
 	}
 
 	/**
-	 * Beteszi a foltot a smudges listába.
-	 * @param s az új folt
+	 * Beteszi a foltot a smudges listÃ¡ba.
+	 * @param s az Ãºj folt
 	 */
 	public void addSmudge(Smudge s) {
 		smudges.add(s);
 	}
 	
 	/**
-	 * Töröl egy foltot a smudges litából
-	 * @param s a törlendõ folt
+	 * TÃ¶rÃ¶l egy foltot a smudges litÃ¡bÃ³l
+	 * @param s a tÃ¶rlendÅ‘ folt
 	 */
 	public void deleteSmudge(Smudge s) {
 		smudges.remove(s);
 	}
 
 	/**
-	 * Minden folton meghívja a nextRound() függvényt. Azokat a foltokat, amelyeknek 0 
-	 * lesz az élettartama, törli a smudges listából.
+	 * Minden folton meghÃ­vja a nextRound() fÃ¼ggvÃ©nyt. Azokat a foltokat, amelyeknek 0 
+	 * lesz az Ã©lettartama, tÃ¶rli a smudges listÃ¡bÃ³l.
 	 */
 	public void nextRound() {
 		for (Smudge s : smudges) {
@@ -106,9 +106,9 @@ public class Map {
 
 
 	/**
-	 * Visszaadja az adott pontban hatást kifejtõ foltokat
+	 * Visszaadja az adott pontban hatÃ¡st kifejtÅ‘ foltokat
 	 * @param v pont
-	 * @return itt ható foltok
+	 * @return itt hatÃ³ foltok
 	 */
 	public List<Smudge> getSmudgesAt(Vector p) {		
 		List<Smudge> smudgesAt = new ArrayList<Smudge>();
@@ -123,9 +123,9 @@ public class Map {
 	
 	
 	/**
-	 * Visszaadja a legközelebbi foltot a megadott pozícióhoz
-	 * @param v a megadott pozíció
-	 * @return a vektorhoz legközelebbi folt, ha nincs folt, akkor null
+	 * Visszaadja a legkÃ¶zelebbi foltot a megadott pozÃ­ciÃ³hoz
+	 * @param v a megadott pozÃ­ciÃ³
+	 * @return a vektorhoz legkÃ¶zelebbi folt, ha nincs folt, akkor null
 	 */
 	public Smudge nearestSmudgeTo(Vector p) {
 		if (!smudges.isEmpty()) {
@@ -143,11 +143,11 @@ public class Map {
 	
 	
 	/**
-	 * Egy szakasz és egy pont távolságát meghatározó metódus
-	 * A módszerrõl: http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
+	 * Egy szakasz Ã©s egy pont tÃ¡volsÃ¡gÃ¡t meghatÃ¡rozÃ³ metÃ³dus
+	 * A mÃ³dszerrÅ‘l: http://prog.hu/tudastar/84433/Szakasz+es+pont+tavolsaga+3Dben.html
 	 * @param l szakasz
 	 * @param v pont
-	 * @return pont és szakasz távolsága
+	 * @return pont Ã©s szakasz tÃ¡volsÃ¡ga
 	 */
 	private double pointAndLineDist(Line l, Vector v) {
 		Vector p1 = l.getVector1();
@@ -171,14 +171,14 @@ public class Map {
 	}
 
 	/**
-	 * Visszaadja, hogy az adott pont rajta van-e a pályán.
-	 * @param v Vizsgált pont
-	 * @return igaz, ha az úton van
+	 * Visszaadja, hogy az adott pont rajta van-e a pÃ¡lyÃ¡n.
+	 * @param v VizsgÃ¡lt pont
+	 * @return igaz, ha az Ãºton van
 	 */
 	public boolean isOnRoad(Vector p) {
 		boolean result = false;
 				
-		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
+		// EgyenkÃ©nt vÃ©gignÃ©zi, elÃ©g kÃ¶zel van-e bÃ¡rmelyik pÃ¡lyaelemhez.
 		for (Line l : lines) {
 			if ( pointAndLineDist(l, p) < lineWidth/2 ) {
 				result = true;
@@ -191,7 +191,7 @@ public class Map {
 
 	
 	/**
-	 * Visszaadja az összes foltot.
+	 * Visszaadja az Ã¶sszes foltot.
 	 * @return foltok
 	 */
 	public List<Smudge> getSmudges() {	
@@ -200,24 +200,24 @@ public class Map {
 	
 	
 	/**
-	 * Visszaadja az utak listáját
-	 * @return utak listája
+	 * Visszaadja az utak listÃ¡jÃ¡t
+	 * @return utak listÃ¡ja
 	 */
 	public List<Line> getLines() {
 		return lines;
 	}
 
 	/**
-	 * Visszaadja az utak szélességét
-	 * @return utak szélessége
+	 * Visszaadja az utak szÃ©lessÃ©gÃ©t
+	 * @return utak szÃ©lessÃ©ge
 	 */
 	public double getLineWidth() {
 		return lineWidth;
 	}
 
 	/**
-	 * Visszaadja a pályán játszható körök számát
-	 * @return játszható körök száma
+	 * Visszaadja a pÃ¡lyÃ¡n jÃ¡tszhatÃ³ kÃ¶rÃ¶k szÃ¡mÃ¡t
+	 * @return jÃ¡tszhatÃ³ kÃ¶rÃ¶k szÃ¡ma
 	 */
 	public int getRounds() {
 		return rounds;
