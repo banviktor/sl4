@@ -31,8 +31,8 @@ public class Application {
 			} else if(command[0].equals("start_game")) {
 				gc.newGame();
 			} else if(command[0].equals("smudge_stock")) {
-				System.out.println("Olajfoltok:   " + gc.getRobotController().getActualRobot().getOilNumber());
-				System.out.println("Ragacsfoltok: " + gc.getRobotController().getActualRobot().getGlueNumber());
+				UserIO.println("Olajfoltok:   " + gc.getRobotController().getActualRobot().getOilNumber());
+				UserIO.println("Ragacsfoltok: " + gc.getRobotController().getActualRobot().getGlueNumber());
 			} else if(command[0].equals("toggle_oil")) {
 				gc.getRobotController().toggleOil();
 			} else if(command[0].equals("toggle_glue")) {
@@ -43,22 +43,22 @@ public class Application {
 			} else if(command[0].equals("jump")) {
 				gc.getRobotController().nextTurn();
 			} else if(command[0].equals("list_player_robots")) {
-				System.out.println("Játékosrobotok listája:");
+				UserIO.println("Játékosrobotok listája:");
 				for(PlayerRobot i : gc.getGame().getPlayerRobots()) {
-					System.out.println(i.toString());
+					UserIO.println(i.toString());
 				}
 			} else if(command[0].equals("list_cleaner_robots")) {
-				System.out.println("Takarítórobotok listája:");
+				UserIO.println("Takarítórobotok listája:");
 				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
-					System.out.println(i.toString());
+					UserIO.println(i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
-				System.out.println("Foltok listája:");
+				UserIO.println("Foltok listája:");
 				for(Smudge i : gc.getGame().getMap().getSmudges()) {
-					System.out.println(i.toString());
+					UserIO.println(i.toString());
 				}
 			} else {
-				System.out.println("Nincs ilyen parancs.");
+				UserIO.println("Nincs ilyen parancs.");
 			}
 		}
 	}

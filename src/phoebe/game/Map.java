@@ -13,6 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import phoebe.Log;
+import phoebe.UserIO;
 import phoebe.basic.Line;
 import phoebe.basic.Vector;
 
@@ -50,15 +51,15 @@ public class Map {
 					lines.add(e);
 				}
 			}
-			System.out.println("Pálya betöltve.");
+			UserIO.println("Pálya betöltve.");
 		} catch (ParserConfigurationException e) {
-			System.out.println("A pályát nem sikerült betölteni.");
+			UserIO.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		} catch (org.xml.sax.SAXException e) {
-			System.out.println("A pályát nem sikerült betölteni.");
+			UserIO.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		} catch (IOException e) {
-			System.out.println("A pályát nem sikerült betölteni.");
+			UserIO.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		}
 		
