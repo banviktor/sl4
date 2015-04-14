@@ -88,6 +88,9 @@ public class RobotController {
 		//Ha ráesik takarítórobotra, összetöri azt
 		game.deleteCleanerRobotsAt(actualRobot.getPosition());
 		
+		//Ha egy másik játékos robotjával ütközik
+		game.collidePlayerRobotsWithActual();
+		
 		//Leesik
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
