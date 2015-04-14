@@ -1,5 +1,6 @@
 package phoebe;
 
+import phoebe.basic.Vector;
 import phoebe.game.CleanerRobot;
 import phoebe.game.GameController;
 import phoebe.game.PlayerRobot;
@@ -30,15 +31,17 @@ public class Application {
 			} else if(command[0].equals("start_game")) {
 				gc.newGame();
 			} else if(command[0].equals("smudge_stock")) {
-				;
+				System.out.println("Olajfoltok:   " + gc.getRobotController().getActualRobot().getOilNumber());
+				System.out.println("Ragacsfoltok: " + gc.getRobotController().getActualRobot().getGlueNumber());
 			} else if(command[0].equals("toggle_oil")) {
-				;
+				gc.getRobotController().toggleOil();
 			} else if(command[0].equals("toggle_glue")) {
-				;
+				gc.getRobotController().toggleGlue();
 			} else if(command[0].equals("inputvector")) {
-				;
+				Vector input = new Vector(Double.parseDouble( command[1] ), Double.parseDouble( command[2] ));
+				gc.getRobotController().setInputSpeedVector( input );
 			} else if(command[0].equals("jump")) {
-				;
+				gc.getRobotController().nextTurn();
 			} else if(command[0].equals("list_player_robots")) {
 				System.out.println("Játékosrobotok listája:");
 				for(PlayerRobot i : gc.getGame().getPlayerRobots()) {
