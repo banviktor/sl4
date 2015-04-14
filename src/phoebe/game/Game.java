@@ -22,7 +22,7 @@ public class Game {
 	private GameController gameController;
 	private RobotController robotController;
 	private List<PlayerRobot> playerRobots;
-	private List<CleanerRobot> cleaningRobots;
+	private List<CleanerRobot> cleanerRobots;
 	
 	
 	/**
@@ -56,7 +56,7 @@ public class Game {
 		gameController = gc;
 		actualRobotNumber = 1;
 		playerRobots = new ArrayList<PlayerRobot>();
-		cleaningRobots = new ArrayList<CleanerRobot>();
+		cleanerRobots = new ArrayList<CleanerRobot>();
 		for (int i=0; i<playerNumber; ++i) {
 			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
 		}
@@ -98,6 +98,15 @@ public class Game {
 		return null;
 	}
 	
+	
+	
+	
+	private void spawnCleanerRobot() {
+		
+	}
+	
+	
+	
 	/**
 	 * Törli az aktuális robotot
 	 */
@@ -114,27 +123,41 @@ public class Game {
 		Log.exitFunction();
 	}
 	
+	
 	/**
-	 * Megsemmisíti az adott pozícion lévo takarítórobotokat
+	 * Megsemmisíti az adott pozícion lévõ takarítórobotokat
 	 * @param p az adott pozíció vektora
 	 */
 	public void deleteCleanerRobotsAt(Vector p){
-		for(CleanerRobot cr : cleaningRobots){
+		for(CleanerRobot cr : cleanerRobots){
 			if(cr.isAt(p)){
 				
 				//Olajfolt létrehozása
 				cr.createOil();
 				
-				//takarító torlése
-				cleaningRobots.remove(cr);
+				//takarítórobot törlése
+				cleanerRobots.remove(cr);
 			}
 		}
 	}
 	
- /**
+	
+	
+	public void collidePlayerRobotsWithActual() {
+		
+	}
+	
+	
+	
+	public boolean isRobotAt() {
+		return false;
+	}
+	
+	
+	/**
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
-	public void gameEnd(){
+	private void gameEnd(){
 		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
 		Log.enterFunction(Game.class, "gameEnd");
 		
@@ -150,26 +173,41 @@ public class Game {
 		Log.exitFunction();
 	}
 	
+	
 	/**
 	 * A játékban lévõ játékosrobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévõ játékosrobotok
 	 */
 	public List<PlayerRobot> getPlayerRobots(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Game.class, "getRobots");
-		
-		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction("List<Robots>");
 		return playerRobots;
 	}
+	
 	
 	/**
 	 * A játékban lévõ takarítórobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévõ takarítórobotok
 	 */
 	public List<CleanerRobot> getCleaningRobots() {
-		return cleaningRobots;
+		return cleanerRobots;
 	}
+	
+	
+	/**
+	 * A játékban lévõ robotok lekérdezését szolgáló metódus
+	 * @return a játékban lévõ robotok
+	 */
+	public List<Robot> getRobots() {
+		// Létrehozunk egy listát a játékosrobotokkal
+		List<Robot> robots = new ArrayList<Robot>(playerRobots);
+		
+		// Hozzáadjuk a listához a ttakaítórobotokat is
+		for(CleanerRobot cr : cleanerRobots) {
+			robots.add(cr);
+		}
+		
+		return robots;
+	}
+	
 	
 	/**
 	 * Visszaadja az itt tárolt pályát
@@ -178,6 +216,7 @@ public class Game {
 	public Map getMap() {
 		return map;
 	}
+	
 	
 	/**
 	 * Visszaadja az itt tárolt robotvezérlõt

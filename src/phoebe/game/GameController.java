@@ -15,16 +15,12 @@ public class GameController {
 	 * Létrehoz egy új játékot ha nincs épp futás alatt egy másik, és elmenti hogy fut
 	 */
 	public void newGame() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(GameController.class, "newGame");
-		
 		// Ha nem fut épp játék, létrehoz egy újat
-		// Szkeleton megvalósítás miatt meghívja az isRunningot, mert ott teszi fel a kérdést
-		if (!isRunning()) {
+		if (!running) {
 			Map map = new Map("map.xml");
 			
-			// Szkeleton megvalósítás, bekérjük a játékosok számát
-			int players = UserInput.getInt("Hány játékossal?", 5);
+//JÁTÉKOSSZÁM BEKÉRÉS
+int players = -2;
 			
 			if (players < 2) { players = 2; }
 			else if (players > 5) { players = 5; }
@@ -32,21 +28,14 @@ public class GameController {
 			running = true;
 		}
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
 	}
 	
 	/**
 	 * Beállítja, hogy nincs futó játék
 	 */
 	public void gameEnded() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(GameController.class, "gameEnded");
-		
 		running = false;
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+		game = null;
 	}
 	
 	/**
@@ -54,15 +43,18 @@ public class GameController {
 	 * @return
 	 */
 	public boolean isRunning() {
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(GameController.class, "isRunning");
-		
-		//running = UserInput.getBoolean("Van futó játék?", false);
-		
-		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(String.valueOf(running));		
 		return running;
 	}
+	
+	
+	/**
+	 * Visszaadja a game-ben tárolt robotvezérlõt
+	 * @return Robotvezérlõ
+	 */
+	public RobotController getRobotController() {
+		return game.getRobotController();
+	}
+	
 	
 	/**
 	 * Visszaadja a game-ben tárolt pályát
@@ -72,20 +64,13 @@ public class GameController {
 		return game.getMap();
 	}
 	
+	
 	/**
 	 * Visszaadja a tárolt játékot.
 	 * @return Játék
 	 */
 	public Game getGame() {
 		return game;
-	}
-	
-	/**
-	 * Visszaadja a game-ben tárolt robotvezérlõt
-	 * @return Robotvezérlõ
-	 */
-	public RobotController getRobotController() {
-		return game.getRobotController();
 	}
 	
 }
