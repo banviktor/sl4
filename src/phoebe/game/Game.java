@@ -200,8 +200,13 @@ public class Game {
 	 * @return tartózkodik-e robot az adott helyen
 	 */
 	public boolean isRobotAt(Vector p) {
-		for(Robot r : playerRobots){
+		for(PlayerRobot r : playerRobots){
 			if(r.isAt(p)){
+				return true;
+			}
+		}
+		for(CleanerRobot cr : cleanerRobots){
+			if(cr.isAt(p)){
 				return true;
 			}
 		}
