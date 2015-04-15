@@ -33,6 +33,10 @@ public class GameController {
 			else if (players > 5) { players = 5; }
 			game = new Game(players, map, this);
 			running = true;
+			UserIO.println("Új játék elkezdve " + players + " játékossal.");
+		}
+		else {
+			UserIO.println("Folyamatban van egy másik játék, nem lehet újat kezdeni.");
 		}
 		
 	}
