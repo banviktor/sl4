@@ -76,7 +76,8 @@ public class RobotController {
 	}
 	
 	/**
-	 * 
+	 * A robot elvégzi a kör végi teendőit, leteszi a foltot, ugrik,
+	 * majd a következő robot felkészül a körére
 	 */
 	public void nextTurn(){
 		Log.enterFunction(RobotController.class, "nextTurn");
@@ -125,7 +126,7 @@ public class RobotController {
 	 
 	/**
 	 * Az épp aktív robot referenciáját adja vissza
-	 * @return aktív robot regeferenciája
+	 * @return aktív robot referenciája
 	 */
 	public PlayerRobot getActualRobot(){
 		return actualRobot;
