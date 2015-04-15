@@ -10,6 +10,7 @@ public class UserIO {
 	
 	private static boolean randomization = false;
 	private static boolean questions = true;
+	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
 	private static void ask(String question, boolean newline){
 		if (newline)
@@ -33,9 +34,7 @@ public class UserIO {
 	
 	public static boolean getBoolean(String question, boolean defaultValue){
 		if(randomization)
-			return defaultValue;
-			
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
+			return defaultValue;	
 		while(true){
 			ask(question + " (I/N) : ");
 			try{
@@ -53,8 +52,6 @@ public class UserIO {
 	public static int getInt(String question, int defaultValue){
 		if(randomization)
 			return defaultValue;
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
 		while(true){
 			ask(question + " (#) : ");
 			try{
@@ -72,7 +69,6 @@ public class UserIO {
 		Vector vec = defaultValue;
 		if(randomization)
 			return defaultValue;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		while(true){
 			ask(question + " (#) (#) : ");
 			try{
@@ -89,10 +85,9 @@ public class UserIO {
 	
 	public static String[] getCommand(){
 		ask("> "); //TODO: teszthez kiszedni
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		try{
-            String i = br.readLine().toLowerCase();
+            String i = br.readLine();
+            i = i.toLowerCase();
             return i.split(" ");
         } catch (IOException e) {
         	return new String[]{};
