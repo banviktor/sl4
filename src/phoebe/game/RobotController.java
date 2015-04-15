@@ -72,6 +72,7 @@ public class RobotController {
 	 */
 	public void setInputSpeedVector(Vector v){
 		inputSpeedVector = v.normalized();
+		UserIO.println("Inputvector: " + v.normalized());
 	}
 	
 	/**
@@ -87,19 +88,24 @@ public class RobotController {
 			map.addSmudge( actualRobot.createGlue() );
 		}
 		
+		// Robot sebességének növelése
+		actualRobot.setSpeedVector( actualRobot.getSpeedVector().add(inputSpeedVector) );
+		
 		//Elugrik
 		actualRobot.jump();
-		
-		//Ha ráesik takarítórobotra, összetöri azt
-		game.deleteCleanerRobotsAt(actualRobot.getPosition());
-		
-		//Ha egy másik játékos robotjával ütközik
-		game.collidePlayerRobotsWithActual();
 		
 		//Leesik
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
 			game.deleteActualRobot();
+			UserIO.println("A robot leesett.");
+		}
+		else {
+			//Ha ráesik takarítórobotra, összetöri azt
+			game.deleteCleanerRobotsAt(actualRobot.getPosition());
+		
+			//Ha egy másik játékos robotjával ütközik
+			game.collidePlayerRobotsWithActual();
 		}
 		
 		//Következő robot betöltése, értékek alaphelyzetbe állítása
