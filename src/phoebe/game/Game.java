@@ -37,6 +37,7 @@ public class Game {
 			v = new Vector( r.nextDouble()*Map.size, r.nextDouble()*Map.size );
 			v = UserIO.getVector(tries==0?"Kezdő pozíció":"Újra", v);
 			++tries;
+//Itt még  finomítani kéne hogy a szélük se ütközzön
 		} while ( !map.isOnRoad(v) || isRobotAt(v) );
 		return v;
 	}
@@ -48,9 +49,7 @@ public class Game {
 	 * @param gc a játékhoz tartozó gameController
 	 */
 	public Game(int n, Map m, GameController gc){
-		// Függvénybe lépéskor kiírjuk az osztály nevét, a függvényt és a paraméterlistát.
-		Log.enterFunction(Game.class, "Game", String.valueOf(n) + ", Map" + ", GameController");
-
+		
 		playerNumber = n;
 		map = m;
 		gameController = gc;
@@ -63,8 +62,6 @@ public class Game {
 		
 		robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
 	}
 	
 	/**
@@ -73,36 +70,34 @@ public class Game {
 	 * @return a sorrendben következő robot
 	 */
 	public PlayerRobot getNextPlayerRobot(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Game.class, "getNextRobot");	
 		++actualRobotNumber;
 		
 		//Ha csak egy robot maradt, vége a játéknak. Ez kör közben is előfordulhat.
 		if (playerRobots.size() < 2) {
 			gameEnd();
 		}
-		// Megkérdezzük a felhasználót, hogy véget ért-e egy kör
-		//if (UserInput.getBoolean("Véget ért egy kör?", false)) {
+		
+		//Ha a körben az utolsó robot is lépett, új kör kezdődik
 		if ( actualRobotNumber >= playerRobots.size() ) {
 			actualRobotNumber = 0;
 			--turnsRemaining;
-			// Ha kör vége van megkérdezzük a felhasználót, hogy játék vége is-e egyben
-			//if(UserInput.getBoolean("Véget ért a játék?", false)) {
-			if ( turnsRemaining == 0 ) {
 			
-				// Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
+			if ( turnsRemaining == 0 ) {
+				//Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
 				gameEnd();
 				
 			} else {
-				
-				// Ha nem ért véget a játék de új kör van, akkor ezt jelezzük a Mapnek
+				//Ha nem ért véget a játék de új kör van, akkor ezt jelezzük a Mapnek
 				map.nextRound();
 				
+				//És új takarítórobotot hozhatunk létre, az aktuálisakat pedig működtetjük
+				spawnCleanerRobot();
+				for(CleanerRobot cr : cleanerRobots) {
+					cr.clear();
+				}
 			}
 		}		
 		
-		//Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction(playerRobots.get(actualRobotNumber).toString());
 		return playerRobots.get(actualRobotNumber);
 	}
 	
@@ -119,16 +114,10 @@ public class Game {
 	 * Törli az aktuális robotot
 	 */
 	public void deleteActualRobot(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Game.class, "deleteActualRobot");
-		
 		// Kitörli a robotot a listából 
 		playerRobots.remove( actualRobotNumber );
 		// Visszalép, hogy a következő robot helyes legyen
 		actualRobotNumber--;
-		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
 	}
 	
 	
@@ -154,6 +143,7 @@ public class Game {
 	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
 	 */
 	public void collidePlayerRobotsWithActual() {
+//HIÁNYZIK A SEBESSÉG MÓDOSÍTÁSA
 		for(PlayerRobot pr : playerRobots){
 			if ( pr == robotController.getActualRobot() ) {
 				continue;
@@ -218,20 +208,21 @@ public class Game {
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
 	private void gameEnd(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Game.class, "gameEnd");
 		
+		//Megnézzük az összes robot közül kinek a legnagyobb a megtett távolsága
 		PlayerRobot winner = playerRobots.get(0);
 		for (PlayerRobot i : playerRobots) {
 			if ( i.getDistance() > winner.getDistance() ) {
 				winner = i;
 			}
 		}
+		
+		//Kiírjuk a nyertest
 		UserIO.println("A " + winner.getColor() + " robot nyert!");
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
-		//Metódusból kilépés kiírása
-		Log.exitFunction();
+		//Értesítjük gameControllert a játék végéről
+		gameController.gameEnded();
 	}
 	
 	
