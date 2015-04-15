@@ -1,5 +1,8 @@
 package phoebe.game;
 
+import java.util.List;
+
+
 import phoebe.basic.Vector;
 
 /**
@@ -49,6 +52,36 @@ public class CleanerRobot extends Robot {
 	 */
 	public void clear() {
 		//Megnézzük, hol a legközelebbi folt, ami felé haladhatunk
+		Smudge nearest = map.getNearestSmudgeTo(position);
+		
+		if (nearest.getPosition().distance(position) > 1) {
+			//Ha még nem vagyunk rajta, ugrunk
+//position = position .add(position.add(nearest.getPosition()).normalized());
+			
+			//És ellenőrizzük ugrottunk-e valakire
+			boolean newJump = true;
+			while (newJump) {
+				newJump = false;
+				for (double i = 0; i<360; i+=45) {
+					double radians = Math.toRadians(i);
+					//A robot szélein 8 pontra megnézzük, ütközött-e valakivel
+					if (game.isRobotAt(position.add(new Vector(cleanerRadius*Math.cos(radians), cleanerRadius*Math.sin(radians))))) {
+						//Ha ugrottunk, egy véletlen irányba elugrunk, és ott újra ellenőrizzük majd
+						position = position .add(new Vector(Math.random(),Math.random()));
+						newJump = true;
+					}
+				}
+			}
+			
+			//Ezután takarítunk minen foltot, amin vagyunk
+			List<Smudge> smudges = map.getSmudgesAt(position);
+			for (Smudge s : smudges) {
+				if(s.reduceThickness() == 0) {
+					map.deleteSmudge(s);
+				}			
+			}
+		}
+		
 		
 		
 	}
