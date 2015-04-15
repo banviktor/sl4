@@ -34,7 +34,7 @@ public class Game {
 		Random r = new Random();
 		int tries = 0;
 		do {
-			v = new Vector( r.nextDouble()*10, r.nextDouble()*10 );
+			v = new Vector( r.nextDouble()*Map.size, r.nextDouble()*Map.size );
 			v = UserIO.getVector(tries==0?"Kezdő pozíció":"Újra", v);
 			++tries;
 		} while ( !map.isOnRoad(v) );

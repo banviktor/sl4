@@ -23,6 +23,7 @@ public class Map {
 	private double lineWidth;
 	private int rounds;
 	private List<Smudge> smudges;
+	public static final double size = 10;
 
 	/**
 	 * Beolvassa és feldolgozza a térképfájlt.
@@ -40,7 +41,7 @@ public class Map {
 			dom = (Document) db.parse( map );
 
 			Element docEle = dom.getDocumentElement();
-			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"))*10;
+			lineWidth = Double.parseDouble(docEle.getAttribute("lineWidth"))*size;
 			rounds = Integer.parseInt(docEle.getAttribute("roundNum"));
 			
 			NodeList nl = docEle.getElementsByTagName("line");
@@ -75,7 +76,7 @@ public class Map {
 		double[] nums = new double[4];
 		for (int i = 0; i < 4; ++i) {
 			// az xml fájl normálva tárolja a koordinátákat, 10x10es pályára alakítjuk
-			nums[i] = Double.parseDouble(numsSplit[i]) * 10;
+			nums[i] = Double.parseDouble(numsSplit[i]) * size;
 		}
 		return new Line( nums[0], nums[1], nums[2], nums[3] );
 	}
