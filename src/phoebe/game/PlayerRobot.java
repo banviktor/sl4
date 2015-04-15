@@ -17,7 +17,7 @@ public class PlayerRobot extends Robot {
 	private boolean speedHalved;
 	private boolean speedModificationDisabled;
 	
-	public final double radius = 0.45;
+	public final double playerRadius = 0.45;
 
 	
 	/**
@@ -48,7 +48,7 @@ public class PlayerRobot extends Robot {
 	 */
 	@Override
 	public boolean isAt(Vector p) {
-		return (position.distance(p) < radius);
+		return (position.distance(p) < playerRadius);
 	}
 	
 	
