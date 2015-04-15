@@ -220,6 +220,8 @@ public class Game {
 			}
 		}
 		
+		gameController.gameEnded();
+		
 		//Kiírjuk a nyertest
 		UserIO.println("A " + winner.getColor() + " robot nyert!");
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
