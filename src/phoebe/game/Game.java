@@ -157,7 +157,7 @@ public class Game {
 					deleteActualRobot();
 					//A másik a kettő átlagával megy tovább
 					pr.setSpeedVector(avgSpeed);
-					//Véget ér az iteráció
+					//Véget ér az iteráció, mivel az ugró megsemmisült
 					return;
 					
 				} else if(pr.getSpeedVector().length() < actualRobot.
@@ -169,13 +169,8 @@ public class Game {
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
 					playerRobots.remove(pr);
 					
-					//Az aktuális a kettő átlagával megy tovább
+					//Az aktuális a kettő átlagával megy tovább, és ütközhet másokkal
 					actualRobot.setSpeedVector(avgSpeed);
-					
-					/*Két robot nem lehet egymáson, mivel legaláb az egyik összetörik
-					 *amennyiben egymásra ugranak, így nincs értelme tovább iterálni
-					 */
-					return;
 					
 				} else if(pr.getSpeedVector().length() == actualRobot
 						.getSpeedVector().length()){
