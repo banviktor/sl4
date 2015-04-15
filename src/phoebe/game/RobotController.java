@@ -32,6 +32,8 @@ public class RobotController {
 		this.willPlaceOil = false;
 		this.willPlaceGlue = false;
 		
+		this.inputSpeedVector = new Vector(0, 0);
+		
 		Log.exitFunction();
 	}
 	
