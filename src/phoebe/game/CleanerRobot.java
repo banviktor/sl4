@@ -56,7 +56,7 @@ public class CleanerRobot extends Robot {
 		
 		if (nearest.getPosition().distance(position) > 1) {
 			//Ha még nem vagyunk rajta, ugrunk felé egységnyit
-			position = position .add(new Vector(nearest.getPosition(), position).normalized());
+			position = position .add(new Vector(position,nearest.getPosition()).normalized());
 			
 			//És ellenőrizzük ugrottunk-e valakire
 			boolean newJump = true;
