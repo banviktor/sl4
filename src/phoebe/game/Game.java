@@ -173,9 +173,10 @@ public class Game {
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
 					playerRobots.remove(pr);
-					//Ha az ugró egyedül maradt, ő nyer
-					if (playerRobots.size() > 1)
+					//Ha az ugró egyedül maradt, ő nyer, ezért akkor életben hagyjuk
+					if (playerRobots.size() > 1) {
 						deleteActualRobot();
+					}
 					
 					//Az iteráció véget ér
 					return;
