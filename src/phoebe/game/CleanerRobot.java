@@ -48,6 +48,8 @@ public class CleanerRobot extends Robot {
 	 * A takarítórobot egy körbeli cselekvéseit megvalósító metódus
 	 */
 	public void clear() {
+		//Megnézzük, hol a legközelebbi folt, ami felé haladhatunk
+		
 		
 	}
 }

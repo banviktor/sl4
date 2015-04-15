@@ -132,7 +132,7 @@ public class Map {
 	 * @param v a megadott pozíció
 	 * @return a vektorhoz legközelebbi folt, ha nincs folt, akkor null
 	 */
-	public Smudge nearestSmudgeTo(Vector p) {
+	public Smudge getNearestSmudgeTo(Vector p) {
 		if (!smudges.isEmpty()) {
 			Smudge nearestSmudge = null;
 			double minDistance = p.distance(smudges.get(0).getPosition());
