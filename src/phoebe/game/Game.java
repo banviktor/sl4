@@ -143,7 +143,6 @@ public class Game {
 	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
 	 */
 	public void collidePlayerRobotsWithActual() {
-//HIÁNYZIK A SEBESSÉG MÓDOSÍTÁSA
 		PlayerRobot actualRobot = robotController.getActualRobot();
 		for(PlayerRobot pr : playerRobots){
 			if ( pr == actualRobot ) {
