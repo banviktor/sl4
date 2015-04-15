@@ -222,6 +222,7 @@ public class Game {
 				winner = i;
 			}
 		}
+		UserIO.println("A " + winner.getColor() + " robot nyert!");
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
 		//Metódusból kilépés kiírása

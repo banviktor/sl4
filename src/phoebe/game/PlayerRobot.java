@@ -16,6 +16,8 @@ public class PlayerRobot extends Robot {
 	
 	private boolean speedHalved;
 	private boolean speedModificationDisabled;
+	
+	public final double radius = 0.45;
 
 	
 	/**
@@ -46,7 +48,7 @@ public class PlayerRobot extends Robot {
 	 */
 	@Override
 	public boolean isAt(Vector p) {
-		return (position.distance(p) < 0.45);
+		return (position.distance(p) < radius);
 	}
 	
 	
@@ -92,8 +94,7 @@ public class PlayerRobot extends Robot {
 		distance += speedVector.length();
 		
 		// Ugráskor a hely módosítása a sebességvektorral
-		position = new Vector(position.getX() + speedVector.getX(),
-				position.getY() + speedVector.getY());
+		position = position.add( speedVector );
 		
 		// Következő körre felkészítés
 		speedHalved = false;
