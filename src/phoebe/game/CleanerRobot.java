@@ -55,8 +55,8 @@ public class CleanerRobot extends Robot {
 		Smudge nearest = map.getNearestSmudgeTo(position);
 		
 		if (nearest.getPosition().distance(position) > 1) {
-			//Ha még nem vagyunk rajta, ugrunk
-//position = position .add(position.add(nearest.getPosition()).normalized());
+			//Ha még nem vagyunk rajta, ugrunk felé egységnyit
+			position = position .add(new Vector(nearest.getPosition(), position).normalized());
 			
 			//És ellenőrizzük ugrottunk-e valakire
 			boolean newJump = true;
