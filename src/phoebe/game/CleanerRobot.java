@@ -11,6 +11,8 @@ public class CleanerRobot extends Robot {
 	private Map map;
 	private Game game;
 	
+	public final double cleanerRadius = 0.3;
+	
 	/**
 	 * Az osztály konstruktora
 	 * @param p a robot pozíciója
