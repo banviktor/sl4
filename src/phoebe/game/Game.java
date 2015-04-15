@@ -144,32 +144,42 @@ public class Game {
 	 */
 	public void collidePlayerRobotsWithActual() {
 //HIÁNYZIK A SEBESSÉG MÓDOSÍTÁSA
+		PlayerRobot actualRobot = robotController.getActualRobot();
 		for(PlayerRobot pr : playerRobots){
-			if ( pr == robotController.getActualRobot() ) {
+			if ( pr == actualRobot ) {
 				continue;
 			}
-			if(pr.isAt(playerRobots.get(actualRobotNumber).getPosition())){
-				if(pr.getSpeedVector().length() > playerRobots
-						.get(actualRobotNumber).getSpeedVector().length()){
+			if(pr.isAt(actualRobot.getPosition())){
+				if(pr.getSpeedVector().length() > actualRobot.getSpeedVector().length()){
 					
+					Vector avgSpeed = actualRobot.getSpeedVector()
+							.add(pr.getSpeedVector()).multiply(0.5);
 					//Amennyiben a másik robot a gyorsabb az épp ugró robot összetörik
 					deleteActualRobot();
+					//A másik a kettő átlagával megy tovább
+					pr.setSpeedVector(avgSpeed);
 					//Véget ér az iteráció
 					return;
 					
-				} else if(pr.getSpeedVector().length() < playerRobots
-						.get(actualRobotNumber).getSpeedVector().length()){
+				} else if(pr.getSpeedVector().length() < actualRobot.
+						getSpeedVector().length()){
+					
+					Vector avgSpeed = actualRobot.getSpeedVector()
+							.add(pr.getSpeedVector()).multiply(0.5);
 					
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
 					playerRobots.remove(pr);
+					
+					//Az aktuális a kettő átlagával megy tovább
+					actualRobot.setSpeedVector(avgSpeed);
 					
 					/*Két robot nem lehet egymáson, mivel legaláb az egyik összetörik
 					 *amennyiben egymásra ugranak, így nincs értelme tovább iterálni
 					 */
 					return;
 					
-				} else if(pr.getSpeedVector().length() == playerRobots
-						.get(actualRobotNumber).getSpeedVector().length()){
+				} else if(pr.getSpeedVector().length() == actualRobot
+						.getSpeedVector().length()){
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
 					playerRobots.remove(pr);
