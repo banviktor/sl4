@@ -37,7 +37,7 @@ public class Game {
 			v = new Vector( r.nextDouble()*Map.size, r.nextDouble()*Map.size );
 			v = UserIO.getVector(tries==0?"Kezdő pozíció":"Újra", v);
 			++tries;
-		} while ( !map.isOnRoad(v) );
+		} while ( !map.isOnRoad(v) && isRobotAt(v) );
 		return v;
 	}
 	
