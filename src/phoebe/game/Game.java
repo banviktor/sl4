@@ -182,8 +182,10 @@ public class Game {
 						.get(actualRobotNumber).getSpeedVector().length()){
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
-					deleteActualRobot();
 					playerRobots.remove(pr);
+					//Ha az ugró egyedül maradt, ő nyer
+					if (playerRobots.size() > 1)
+						deleteActualRobot();
 					
 					//Az iteráció véget ér
 					return;
