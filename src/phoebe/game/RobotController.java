@@ -23,8 +23,6 @@ public class RobotController {
 	 * @param m a pályát reprezentáló objektum referenciája
 	 */
 	public RobotController(PlayerRobot r, Game g, Map m){
-		Log.enterFunction(RobotController.class, "RobotController", r.toString() +", Game" + ", Map");
-		
 		this.actualRobot = r;
 		this.game = g;
 		this.map = m;
@@ -33,38 +31,30 @@ public class RobotController {
 		this.willPlaceGlue = false;
 		
 		this.inputSpeedVector = new Vector(0, 0);
-		
-		Log.exitFunction();
 	}
 	
 	/**
 	 * Megváltoztatja az olajfolt lehelyezését jelzo flaget
 	 */
 	public void toggleOil(){
-		Log.enterFunction(RobotController.class, "toggleOil");
-		
 		if (actualRobot.getOilNumber() > 0) {
 			willPlaceOil = !willPlaceOil;
 			willPlaceGlue = false;
 			UserIO.println("Olajfolt " + (willPlaceOil?"be.":"ki.") );
 			UserIO.println("Ragacs ki.");
 		}
-		Log.exitFunction();
 	}
 	
 	/**
 	 * Megváltoztatja az ragacsfolt lehelyezését jelzo flaget
 	 */
 	public void toggleGlue(){
-		Log.enterFunction(RobotController.class, "toggleGlue");
-		
 		if (actualRobot.getGlueNumber() > 0) {
 			willPlaceGlue = !willPlaceGlue;
 			willPlaceOil = false;
 			UserIO.println("Ragacs " + (willPlaceGlue?"be.":"ki.") );
 			UserIO.println("Olajfolt ki.");
 		}
-		Log.exitFunction();
 	}
 	
 	/**
@@ -82,8 +72,6 @@ public class RobotController {
 	 * majd a következő robot felkészül a körére
 	 */
 	public void nextTurn(){
-		Log.enterFunction(RobotController.class, "nextTurn");
-		
 		//Lerakja a kiválasztott foltot
 		if(willPlaceOil){
 			map.addSmudge( actualRobot.createOil() );
@@ -122,8 +110,6 @@ public class RobotController {
 		for(Smudge s : modifier){
 			s.action(actualRobot);
 		}
-		
-		Log.exitFunction();
 	}
 	 
 	/**
