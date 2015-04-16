@@ -48,17 +48,17 @@ public class Application {
 			} else if(command[0].equals("list_player_robots")) {
 				UserIO.println("Játékosrobotok listája:");
 				for(PlayerRobot i : gc.getGame().getPlayerRobots()) {
-					UserIO.println(i.toString());
+					UserIO.println("\t" + i.toString());
 				}
 			} else if(command[0].equals("list_cleaner_robots")) {
 				UserIO.println("Takarítórobotok listája:");
 				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
-					UserIO.println(i.toString());
+					UserIO.println("\t" + i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
 				UserIO.println("Foltok listája:");
 				for(Smudge i : gc.getGame().getMap().getSmudges()) {
-					UserIO.println(i.toString());
+					UserIO.println("\t" + i.toString());
 				}
 			} else {
 				UserIO.println("Nincs ilyen parancs.");
