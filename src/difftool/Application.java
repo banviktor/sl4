@@ -21,7 +21,9 @@ public class Application {
 					String line1, line2;
 					int lines = 0;
 					boolean matches = true;
-					while ((line1 = br1.readLine().trim()) != null && (line2 = br2.readLine().trim()) != null) {
+					while ((line1 = br1.readLine()) != null && (line2 = br2.readLine()) != null) {
+						line1 = line1.trim();
+						line2 = line2.trim();
 						if ( !line1.equals(line2) && !line1.equals("") && !line2.equals("") ) {
 							System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 							matches = false;
