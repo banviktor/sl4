@@ -8,8 +8,8 @@ import phoebe.basic.Vector;
  * és elérhetővé teszi az általános funkcióit.
  */
 public abstract class Robot {
-
 	protected Vector position;
+	protected double radius = 0;
 	
 	public Robot(Vector p) {
 		this.position = p;
@@ -28,7 +28,18 @@ public abstract class Robot {
 	 * @param p az adott pozíció
 	 * @return logikai érték, mely megadja, hogy a robot az adott pozíción van-e
 	 */
-	public abstract boolean isAt(Vector p);
+	public boolean isAt(Vector p){
+		return (position.distance(p) < radius);
+	}
+	
+	/**
+	 * Megvizsgálja, hogy a robot és a paramtéterként kapott másik robot átfedi-e egymást.
+	 * @param r A másik robot
+	 * @return Átfedik-e egymást
+	 */
+	public boolean overlaps(Robot r){
+		return (position.distance(r.position) < (radius + r.radius));
+	}
 	
 	
 	/**

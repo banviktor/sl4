@@ -14,8 +14,6 @@ public class CleanerRobot extends Robot {
 	private Map map;
 	private Game game;
 	
-	public final double cleanerRadius = 0.3;
-	
 	/**
 	 * Az osztály konstruktora
 	 * @param p a robot pozíciója
@@ -26,16 +24,7 @@ public class CleanerRobot extends Robot {
 		super(p);
 		map = m;
 		game = g;
-	}
-
-	/**
-	 * A metódus eldönti, hogy a 0.3 egységnyi sugarú robot az adott pozíción található-e
-	 * @param p a megadott pozíció
-	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
-	 */
-	@Override
-	public boolean isAt(Vector p) {
-		return (position.distance(p) < 0.3);
+		this.radius = 0.3;
 	}
 
 	/**
@@ -65,7 +54,7 @@ public class CleanerRobot extends Robot {
 				for (double i = 0; i<360; i+=45) {
 					double radians = Math.toRadians(i);
 					//A robot szélein 8 pontra megnézzük, ütközött-e valakivel
-					if (game.isRobotAt(position.add(new Vector(cleanerRadius*Math.cos(radians), cleanerRadius*Math.sin(radians))))) {
+					if (game.isRobotAt(position.add(new Vector(radius*Math.cos(radians), radius*Math.sin(radians))))) {
 						//Ha ugrottunk, egy véletlen irányba elugrunk, és ott újra ellenőrizzük majd
 						position = position .add(new Vector(Math.random(),Math.random()));
 						newJump = true;
@@ -83,6 +72,5 @@ public class CleanerRobot extends Robot {
 		}
 		
 	}
-		
 		
 }

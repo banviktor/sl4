@@ -16,8 +16,6 @@ public class PlayerRobot extends Robot {
 	
 	private boolean speedHalved;
 	private boolean speedModificationDisabled;
-	
-	public final double playerRadius = 0.45;
 
 	
 	/**
@@ -33,24 +31,14 @@ public class PlayerRobot extends Robot {
 		this.oilNumber = 3;
 		this.glueNumber = 3;
 		this.distance = 0;
+		this.radius = 0.45;
 		
 		this.speedVector = new Vector(0, 0);
 		
 		this.speedHalved = false;
 		this.speedModificationDisabled = false;
+	
 	}
-	
-	
-	/**
-	 * A metódus eldönti, hogy a 0.45 egységnyi sugarú robot az adott pozíción található-e
-	 * @param p a megadott pozíció
-	 * @return	logikai érték, mely megadja, hogy a robot az adott pozíción van-e
-	 */
-	@Override
-	public boolean isAt(Vector p) {
-		return (position.distance(p) < playerRadius);
-	}
-	
 	
 	/**
 	 * Lerak egy olajfoltot
