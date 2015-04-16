@@ -84,7 +84,6 @@ public class UserIO {
 	}
 	
 	public static String[] getCommand(){
-		ask(""); //TODO: teszthez kiszedni
 		try{
             String i = br.readLine();
             i = i.toLowerCase();
