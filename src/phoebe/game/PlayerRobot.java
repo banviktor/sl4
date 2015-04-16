@@ -96,6 +96,9 @@ public class PlayerRobot extends Robot {
 		// Ugráskor a hely módosítása a sebességvektorral
 		position = position.add( speedVector );
 		
+		// Új pozíció kiírása
+		UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());
+		
 		// Következő körre felkészítés
 		speedHalved = false;
 		speedModificationDisabled = false;
