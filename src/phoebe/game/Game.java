@@ -23,25 +23,7 @@ public class Game {
 	private RobotController robotController;
 	private List<PlayerRobot> playerRobots;
 	private List<CleanerRobot> cleanerRobots;
-	
-	
-	/**
-	 * Visszaad egy lehetséges kezdőpozíciót, ami rajta van a pályán.
-	 * @return Kezdőpozíció
-	 */
-	private Vector startingVector() {
-		Vector v = null;
-		Random r = new Random();
-		int tries = 0;
-		do {
-			v = new Vector( r.nextDouble()*Map.size, r.nextDouble()*Map.size );
-			v = UserIO.getVector(tries==0?"Kezdő pozíció":"Újra", v);
-			++tries;
-//Itt még  finomítani kéne hogy a szélük se ütközzön
-		} while ( !map.isOnRoad(v) || isRobotAt(v) );
-		return v;
-	}
-	
+		
 	/**
 	 * Konstruktor
 	 * @param n a körök száma a játékban
@@ -57,8 +39,29 @@ public class Game {
 		playerRobots = new ArrayList<PlayerRobot>();
 		cleanerRobots = new ArrayList<CleanerRobot>();
 		round = 1;
+		
+		Random rand = new Random();
+		
+		// Robotok lerakása a kezdőpozíciójukra
 		for (int i=0; i<playerNumber; ++i) {
-			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
+			PlayerRobot newRobot;
+			boolean collision;
+			do {
+				collision = false;
+				Vector startingVector = UserIO.getVector(Color.values()[i].toString() + " Robot kezdőpozíciója", 
+						new Vector(rand.nextDouble() * Map.size, rand.nextDouble() * Map.size));
+				newRobot = new PlayerRobot( Color.values()[i], startingVector);
+				
+				// Megnézzük, hogy ütközik-e ezen a pozíción másik robottal
+				// Még csak játékosrobotok lehetnek
+				for(PlayerRobot p : playerRobots){
+					if(p.overlaps(newRobot)){
+						collision = true;
+						break;
+					}
+				}
+			} while(!map.isOnRoad(newRobot.getPosition()) | collision);
+			playerRobots.add(newRobot);
 		}
 		
 		robotController = new RobotController(playerRobots.get(actualRobotNumber), this, map);
