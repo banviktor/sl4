@@ -10,3 +10,5 @@ A robot leesett.
 A Sárga robot nyert!
 Pálya betöltve.
 Új játék elkezdve 2 játékossal.
+Ez a(z) 1. kör.
+A Piros Robot következik.

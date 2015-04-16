@@ -6,4 +6,6 @@ start_game 2
 inputvector -5 0
 jump
 start_game 2
+2 3
+5 5
 exit
