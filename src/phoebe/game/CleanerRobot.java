@@ -43,6 +43,10 @@ public class CleanerRobot extends Robot {
 		//Megnézzük, hol a legközelebbi folt, ami felé haladhatunk
 		Smudge nearest = map.getNearestSmudgeTo(position);
 		
+		// Ha nincs folt, egy helyben marad.
+		if (nearest == null)
+			return;
+		
 		if (nearest.getPosition().distance(position) > 1) {
 			//Ha még nem vagyunk rajta, ugrunk felé egységnyit
 			position = position .add(new Vector(position,nearest.getPosition()).normalized());
