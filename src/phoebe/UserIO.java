@@ -8,7 +8,7 @@ import phoebe.basic.Vector;
 
 public class UserIO {
 	
-	private static boolean randomization = false;
+	private static boolean randomization = true;
 	private static boolean questions = true;
 	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
@@ -84,7 +84,7 @@ public class UserIO {
 	}
 	
 	public static String[] getCommand(){
-		ask("> "); //TODO: teszthez kiszedni
+		ask(""); //TODO: teszthez kiszedni
 		try{
             String i = br.readLine();
             i = i.toLowerCase();
