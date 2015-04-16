@@ -1,0 +1,19 @@
+randomization off
+questions off
+start_game 2
+2 1
+8 9
+toggle_oil
+inputvector 0 1
+jump
+list_smudges
+jump
+I
+3 1
+inputvector 0 -1
+jump
+list_smudges
+jump
+N
+list_smudges
+exit

@@ -1,0 +1,19 @@
+randomization off
+questions off
+start_game 2
+5 5
+5 1
+toggle_glue
+jump
+inputvector 0 5
+jump
+I
+6 5
+0 -5
+jump
+inputvector 0 5
+jump
+N
+list_cleaner_robots
+list_smudges
+exit

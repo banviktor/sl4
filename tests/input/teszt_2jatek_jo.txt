@@ -1,0 +1,9 @@
+randomization off
+questions off
+start_game 2
+2 3
+5 5
+inputvector -5 0
+jump
+start_game 2
+exit
