@@ -113,7 +113,7 @@ public class UserIO {
 		questions = false;
 	}
 	
-	public static boolean getRandom() {
+	public static boolean isRandom() {
 		return randomization;
 	}
 	

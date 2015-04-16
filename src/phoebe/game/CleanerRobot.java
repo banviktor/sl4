@@ -62,7 +62,7 @@ public class CleanerRobot extends Robot {
 						Vector newPosition = position.add(modification.normalized());
 						
 						//Ha nem manuálisan lett beállítva az új irány, akkor megnézzük, hogy kiment-e a mapról
-						if(!UserIO.getRandom()){
+						if(!UserIO.isRandom()){
 							while(newPosition.getX() < 0 | newPosition.getX() > Map.size | newPosition.getY() < 0 | newPosition.getY() > Map.size){
 								newPosition = position.add((new Vector(Math.random(), Math.random())).normalized());
 							}
