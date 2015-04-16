@@ -75,8 +75,10 @@ public class RobotController {
 		//Lerakja a kiválasztott foltot
 		if(willPlaceOil){
 			map.addSmudge( actualRobot.createOil() );
+			UserIO.println("Olajfolt lehelyezve.");
 		} else if(willPlaceGlue){
 			map.addSmudge( actualRobot.createGlue() );
+			UserIO.println("Ragacsfolt lehelyezve.");
 		}
 		
 		// Robot sebességének növelése
