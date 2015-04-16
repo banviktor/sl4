@@ -245,7 +245,7 @@ public class Game {
 		gameController.gameEnded();
 		
 		//Kiírjuk a nyertest
-		UserIO.println("A " + winner.getColor() + " robot nyert!");
+		UserIO.println("A " + winner.getColor() + " Robot nyert!");
 		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
 	}
