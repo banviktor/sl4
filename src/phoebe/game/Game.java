@@ -105,7 +105,20 @@ public class Game {
 	
 	
 	private void spawnCleanerRobot() {
+		Random r = new Random();
 		
+		// Spawnolási esély: ([aktuális foltok száma] - [aktuális takarítók száma]) * 20%
+		double chance = (double) (map.getSmudges().size() - cleanerRobots.size()) * r.nextDouble();
+		boolean toSpawn = chance <= 0.2;
+		
+		// Ha új robotot spawnolunk
+		if(UserIO.getBoolean("Legyen új takarítórobot?", toSpawn)){
+			double x = r.nextInt(2) * 10;
+			double y = r.nextInt(2) * 10;
+			Vector p = UserIO.getVector("Az új takarítórobot pozíciója", new Vector(x, y));
+			cleanerRobots.add(new CleanerRobot(p, map, this));
+			UserIO.println("Takarítórobot indul útnak innen: " + p.getX() + ", " + p.getY());
+		}
 	}
 	
 	
