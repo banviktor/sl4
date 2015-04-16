@@ -21,7 +21,7 @@ public class UserIO {
 	
 	public static void ask(String question){
 		if (questions)
-			System.out.print(question);
+			ask(question, false);
 	}
 	
 	public static void print(String s) {
