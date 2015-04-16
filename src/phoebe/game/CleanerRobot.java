@@ -2,7 +2,7 @@ package phoebe.game;
 
 import java.util.List;
 
-
+import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 /**
@@ -49,19 +49,27 @@ public class CleanerRobot extends Robot {
 		
 		if (nearest.getPosition().distance(position) > 1) {
 			//Ha még nem vagyunk rajta, ugrunk felé egységnyit
-			position = position .add(new Vector(position,nearest.getPosition()).normalized());
+			position = position.add(new Vector(position,nearest.getPosition()).normalized());
 			
-			//És ellenőrizzük ugrottunk-e valakire
+			// Megnézzük, hogy ütközik-e másik robottal az új pozíción
 			boolean newJump = true;
 			while (newJump) {
 				newJump = false;
-				for (double i = 0; i<360; i+=45) {
-					double radians = Math.toRadians(i);
-					//A robot szélein 8 pontra megnézzük, ütközött-e valakivel
-					if (game.isRobotAt(position.add(new Vector(radius*Math.cos(radians), radius*Math.sin(radians))))) {
-						//Ha ugrottunk, egy véletlen irányba elugrunk, és ott újra ellenőrizzük majd
-						position = position .add(new Vector(Math.random(),Math.random()));
+				for(Robot r : game.getRobots()){
+					if(r.overlaps(this)){
+						// Ha ütközés van
+						Vector modification = UserIO.getVector("Takarítórobot ütközött " + position.toString() + ", merre próbáljon ugrani?", new Vector(Math.random(), Math.random()));						
+						Vector newPosition = position.add(modification.normalized());
+						
+						//Ha nem manuálisan lett beállítva az új irány, akkor megnézzük, hogy kiment-e a mapról
+						if(!UserIO.getRandom()){
+							while(newPosition.getX() < 0 | newPosition.getX() > Map.size | newPosition.getY() < 0 | newPosition.getY() > Map.size){
+								newPosition = position.add((new Vector(Math.random(), Math.random())).normalized());
+							}
+						}
+						
 						newJump = true;
+						break;
 					}
 				}
 			}
