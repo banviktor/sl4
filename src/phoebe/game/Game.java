@@ -17,7 +17,7 @@ public class Game {
 	
 	private int playerNumber;
 	private int actualRobotNumber;
-	private int turnsRemaining;
+	private int round;
 	private Map map;
 	private GameController gameController;
 	private RobotController robotController;
@@ -56,6 +56,7 @@ public class Game {
 		actualRobotNumber = 0;
 		playerRobots = new ArrayList<PlayerRobot>();
 		cleanerRobots = new ArrayList<CleanerRobot>();
+		round = 1;
 		for (int i=0; i<playerNumber; ++i) {
 			playerRobots.add( new PlayerRobot( Color.values()[i], startingVector()));
 		}
@@ -77,12 +78,14 @@ public class Game {
 			gameEnd();
 		}
 		
+		UserIO.println("Ez a(z) " + (round) + ". kör.");
+		
 		//Ha a körben az utolsó robot is lépett, új kör kezdődik
 		if ( actualRobotNumber >= playerRobots.size() ) {
 			actualRobotNumber = 0;
-			--turnsRemaining;
+			++round;
 			
-			if ( turnsRemaining == 0 ) {
+			if ( round > map.getRounds() ) {
 				//Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
 				gameEnd();
 				
