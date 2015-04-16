@@ -78,8 +78,6 @@ public class Game {
 			gameEnd();
 		}
 		
-		UserIO.println("Ez a(z) " + (round) + ". kör.");
-		
 		//Ha a körben az utolsó robot is lépett, új kör kezdődik
 		if ( actualRobotNumber >= playerRobots.size() ) {
 			actualRobotNumber = 0;
@@ -99,7 +97,10 @@ public class Game {
 					cr.clear();
 				}
 			}
-		}		
+		}	
+		
+		UserIO.println("Ez a(z) " + (round) + ". kör.");
+		UserIO.println("A " + playerRobots.get(actualRobotNumber).getColor().toString() + " Robot következik.");
 		
 		return playerRobots.get(actualRobotNumber);
 	}
