@@ -12,20 +12,20 @@ A Sárga Robot következik.
 Ez a(z) 2. kör.
 A Piros Robot következik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
+Új pozíció: 7.0, 3.0
 Ez a(z) 2. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 3. kör.
 A Piros Robot következik.
-Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
+Inputvector: 1.0, 0.0
+Új pozíció: 8.0, 3.0
 Ez a(z) 3. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 4. kör.
 A Piros Robot következik.
-Inputvector: 1.0, 0.0
+Inputvector: -1.0, 0.0
 Új pozíció: 8.0, 3.0
 Ez a(z) 4. kör.
 A Sárga Robot következik.
@@ -40,20 +40,20 @@ A Sárga Robot következik.
 Ez a(z) 6. kör.
 A Piros Robot következik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
+Új pozíció: 7.0, 3.0
 Ez a(z) 6. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 7. kör.
 A Piros Robot következik.
-Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
+Inputvector: 1.0, 0.0
+Új pozíció: 8.0, 3.0
 Ez a(z) 7. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 8. kör.
 A Piros Robot következik.
-Inputvector: 1.0, 0.0
+Inputvector: -1.0, 0.0
 Új pozíció: 8.0, 3.0
 Ez a(z) 8. kör.
 A Sárga Robot következik.
@@ -68,20 +68,20 @@ A Sárga Robot következik.
 Ez a(z) 10. kör.
 A Piros Robot következik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
+Új pozíció: 7.0, 3.0
 Ez a(z) 10. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 11. kör.
 A Piros Robot következik.
-Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
+Inputvector: 1.0, 0.0
+Új pozíció: 8.0, 3.0
 Ez a(z) 11. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 12. kör.
 A Piros Robot következik.
-Inputvector: 1.0, 0.0
+Inputvector: -1.0, 0.0
 Új pozíció: 8.0, 3.0
 Ez a(z) 12. kör.
 A Sárga Robot következik.
@@ -96,20 +96,20 @@ A Sárga Robot következik.
 Ez a(z) 14. kör.
 A Piros Robot következik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
+Új pozíció: 7.0, 3.0
 Ez a(z) 14. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 15. kör.
 A Piros Robot következik.
-Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
+Inputvector: 1.0, 0.0
+Új pozíció: 8.0, 3.0
 Ez a(z) 15. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 16. kör.
 A Piros Robot következik.
-Inputvector: 1.0, 0.0
+Inputvector: -1.0, 0.0
 Új pozíció: 8.0, 3.0
 Ez a(z) 16. kör.
 A Sárga Robot következik.
@@ -124,18 +124,22 @@ A Sárga Robot következik.
 Ez a(z) 18. kör.
 A Piros Robot következik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
+Új pozíció: 7.0, 3.0
 Ez a(z) 18. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 19. kör.
 A Piros Robot következik.
-Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
+Inputvector: 1.0, 0.0
+Új pozíció: 8.0, 3.0
 Ez a(z) 19. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
 Ez a(z) 20. kör.
+A Piros Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 8.0, 3.0
+Ez a(z) 20. kör.
 A Sárga Robot következik.
 Új pozíció: 5.0, 6.0
-A Piros robot nyert!
+A Piros Robot nyert!

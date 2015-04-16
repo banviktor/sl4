@@ -11,27 +11,11 @@ inputvector 6 0
 jump
 jump
 N
-inputvector -5 0
-jump
-jump
-N
 inputvector 6 0
 jump
 jump
 N
 inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
-jump
-jump
-N
-inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
 jump
 jump
 N
@@ -43,27 +27,11 @@ inputvector 6 0
 jump
 jump
 N
-inputvector -5 0
-jump
-jump
-N
 inputvector 6 0
 jump
 jump
 N
 inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
-jump
-jump
-N
-inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
 jump
 jump
 N
@@ -75,27 +43,11 @@ inputvector 6 0
 jump
 jump
 N
-inputvector -5 0
-jump
-jump
-N
 inputvector 6 0
 jump
 jump
 N
 inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
-jump
-jump
-N
-inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
 jump
 jump
 N
@@ -107,27 +59,11 @@ inputvector 6 0
 jump
 jump
 N
-inputvector -5 0
-jump
-jump
-N
 inputvector 6 0
 jump
 jump
 N
 inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
-jump
-jump
-N
-inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
 jump
 jump
 N
@@ -139,10 +75,6 @@ inputvector 6 0
 jump
 jump
 N
-inputvector -5 0
-jump
-jump
-N
 inputvector 6 0
 jump
 jump
@@ -150,17 +82,4 @@ N
 inputvector -5 0
 jump
 jump
-N
-inputvector 6 0
-jump
-jump
-N
-inputvector -5 0
-jump
-jump
-N
-inputvector 6 0
-jump
-jump
-N
 exit
