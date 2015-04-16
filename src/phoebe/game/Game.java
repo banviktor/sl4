@@ -79,6 +79,7 @@ public class Game {
 		//Ha csak egy robot maradt, vége a játéknak. Ez kör közben is előfordulhat.
 		if (playerRobots.size() < 2) {
 			gameEnd();
+			return null;
 		}
 		
 		//Ha a körben az utolsó robot is lépett, új kör kezdődik
@@ -89,6 +90,7 @@ public class Game {
 			if ( round > map.getRounds() ) {
 				//Ha vége a játéknak, meghívjuk a hozzá tartozó metódust
 				gameEnd();
+				return null;
 				
 			} else {
 				//Ha nem ért véget a játék de új kör van, akkor ezt jelezzük a Mapnek

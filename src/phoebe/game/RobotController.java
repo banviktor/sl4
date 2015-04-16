@@ -101,15 +101,17 @@ public class RobotController {
 		
 		//Következő robot betöltése, értékek alaphelyzetbe állítása
 		actualRobot = game.getNextPlayerRobot();
-		inputSpeedVector = new Vector(0, 0);
-		willPlaceOil = false;
-		willPlaceGlue = false;
-		
-		//Az új robot előkészítése
-		List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
-		for(Smudge s : modifier){
-			s.action(actualRobot);
-		}
+		if(actualRobot != null){
+			inputSpeedVector = new Vector(0, 0);
+			willPlaceOil = false;
+			willPlaceGlue = false;
+			
+			//Az új robot előkészítése
+			List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
+			for(Smudge s : modifier){
+				s.action(actualRobot);
+			}
+		}		
 	}
 	 
 	/**
