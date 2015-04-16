@@ -1,0 +1,49 @@
+Véletlenszerû események kikapcsolva.
+Kérdezés kikapcsolva.
+Pálya betöltve.
+Új játék elkezdve 2 játékossal.
+Ez a(z) 1. kör.
+A Piros Robot következik.
+Ragacs be.
+Olajfolt ki.
+Inputvector 0.0, 1.0
+Ragacsfolt lehelyezve.
+Új pozíció: 5.0, 3.0
+Ez a(z) 1. kör.
+A Sárga Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 4.501, 2.0
+Ez a(z) 1. kör.
+A Zöld Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 5.499, 2.0
+Ez a(z) 1. kör.
+A Kék Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 7.0, 1.501
+Ez a(z) 1. kör.
+A Lila Robot következik.
+Új pozíció: 7.0, 2.499
+Ez a(z) 2. kör.
+A Piros Robot következik.
+Inputvector 0.0, 1.0
+Új pozíció: 5.0, 5.0
+Ez a(z) 2. kör.
+A Sárga Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 4.501, 3.5
+Ez a(z) 2. kör.
+A Zöld Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 5.499, 3.5
+Ez a(z) 2. kör.
+A Kék Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 5.0, 1.501
+Ez a(z) 2. kör.
+A Lila Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 5.0, 2.499
+Ez a(z) 3. kör.
+A Piros Robot következik.
+Foltok listája:
