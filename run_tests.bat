@@ -1,6 +1,8 @@
 ::A konzolra való írás kikapcsolása
 @echo off
 
+chcp 852
+
 ::Könyvtárak
 set test_input_dir=tests/input
 set test_output_dir=tests/results
