@@ -1,6 +1,5 @@
 package phoebe.game;
 
-import phoebe.Log;
 import phoebe.UserIO;
 
 /** 

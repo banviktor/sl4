@@ -3,7 +3,6 @@ package phoebe.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import phoebe.Log;
 import phoebe.UserIO;
 import phoebe.basic.Vector;
 
@@ -116,7 +115,7 @@ public class RobotController {
 					}
 				}
 				//Kiírjuk a takarítókat (jelenleg sok értelme nincs)
-				for(CleanerRobot cr : deletedCleaners){
+				for(CleanerRobot cr: deletedCleaners){
 					UserIO.println("\t" + "Takarítórobot");
 				}
 			}

@@ -1,7 +1,5 @@
 package phoebe.game;
 
-import phoebe.Log;
-import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 public class Oil extends Smudge {
