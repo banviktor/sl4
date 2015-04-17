@@ -7,4 +7,4 @@ A Piros Robot következik.
 Játékosrobotok listája:
 	Piros: 2.0, 1.0
 	Sárga: 3.0, 3.0
-	Zöld: 5.0 4.0
+	Zöld: 5.0, 4.0
