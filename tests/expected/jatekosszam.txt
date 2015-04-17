@@ -1,10 +1,10 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 3 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
-Játékosrobotok listája:
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 3 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+JÃ¡tÃ©kosrobotok listÃ¡ja:
 	Piros: 2.0, 1.0
-	Sárga: 3.0, 3.0
-	Zöld: 5.0, 4.0
+	SÃ¡rga: 3.0, 3.0
+	ZÃ¶ld: 5.0, 4.0

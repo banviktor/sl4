@@ -1,145 +1,145 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 1. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 2. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 1. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 2. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 2. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 3. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 2. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 3. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 3. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 4. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 3. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 4. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 4. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 5. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 4. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 5. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 5. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 6. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 5. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 6. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 6. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 7. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 6. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 7. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 7. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 8. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 7. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 8. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 8. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 9. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 8. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 9. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 9. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 10. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 9. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 10. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 10. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 11. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 10. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 11. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 11. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 12. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 11. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 12. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 12. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 13. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 12. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 13. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 13. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 14. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 13. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 14. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 14. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 15. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 14. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 15. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 15. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 16. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 15. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 16. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 16. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 17. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 16. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 17. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 17. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 18. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 17. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 18. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 7.0, 3.0
-Ez a(z) 18. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 19. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 7.0, 3.0
+Ez a(z) 18. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 19. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 19. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
-Ez a(z) 20. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 19. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
+Ez a(z) 20. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 8.0, 3.0
-Ez a(z) 20. kör.
-A Sárga Robot következik.
-Új pozíció: 5.0, 6.0
+Ãšj pozÃ­ciÃ³: 8.0, 3.0
+Ez a(z) 20. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 6.0
 A Piros Robot nyert!

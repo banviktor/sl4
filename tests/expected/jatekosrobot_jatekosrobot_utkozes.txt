@@ -1,49 +1,49 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 5 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
-Új pozíció: 2.0, 4.0
-Ez a(z) 1. kör.
-A Sárga Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 5 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 2.0, 4.0
+Ez a(z) 1. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
 Inputvector: 0.0, 1.0
-Új pozíció: 3.0, 2.0
-Ez a(z) 1. kör.
-A Zöld Robot következik.
+Ãšj pozÃ­ciÃ³: 3.0, 2.0
+Ez a(z) 1. kÃ¶r.
+A ZÃ¶ld Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 6.0, 8.0
-Ez a(z) 1. kör.
-A Kék Robot következik.
+Ãšj pozÃ­ciÃ³: 6.0, 8.0
+Ez a(z) 1. kÃ¶r.
+A KÃ©k Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 6.0, 8.0
-Ez a robot a következõkkel ütközött:
-    Zöld
-Ez a(z) 1. kör.
-A Lila Robot következik.
-Játékosrobotok listája:
+Ãšj pozÃ­ciÃ³: 6.0, 8.0
+Ez a robot a kÃ¶vetkezÅ‘kkel Ã¼tkÃ¶zÃ¶tt:
+    ZÃ¶ld
+Ez a(z) 1. kÃ¶r.
+A Lila Robot kÃ¶vetkezik.
+JÃ¡tÃ©kosrobotok listÃ¡ja:
 	Piros: 2.0, 4.0
-	Sárga: 3.0, 2.0
+	SÃ¡rga: 3.0, 2.0
 	Lila: 2.0, 9.0
-Új pozíció: 2.0, 9.0
-Ez a(z) 2. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 2.0, 9.0
+Ez a(z) 2. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: 1.0, 0.0
-Új pozíció: 3.0, 4.0
-Ez a(z) 2. kör.
-A Sárga Robot következik.
+Ãšj pozÃ­ciÃ³: 3.0, 4.0
+Ez a(z) 2. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
 Inputvector: 0.0, 1.0
-Új pozíció: 3.0, 4.0
-Ez a robot a következõkkel ütközött:
+Ãšj pozÃ­ciÃ³: 3.0, 4.0
+Ez a robot a kÃ¶vetkezÅ‘kkel Ã¼tkÃ¶zÃ¶tt:
     Piros
-Ez a(z) 2. kör.
-A Lila Robot következik.
-Új pozíció: 2.0, 9.0
-Ez a(z) 3. kör.
-A Sárga Robot következik.
-Játékosrobotok listája:
-	Sárga: 3.0, 4.0
+Ez a(z) 2. kÃ¶r.
+A Lila Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 2.0, 9.0
+Ez a(z) 3. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+JÃ¡tÃ©kosrobotok listÃ¡ja:
+	SÃ¡rga: 3.0, 4.0
 	Lila: 2.0, 9.0
-Új pozíció: 3.5, 5.0
-Ez a(z) 3. kör.
-A Lila Robot következik.
+Ãšj pozÃ­ciÃ³: 3.5, 5.0
+Ez a(z) 3. kÃ¶r.
+A Lila Robot kÃ¶vetkezik.

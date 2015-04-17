@@ -1,14 +1,14 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 1.0, 3.0
+Ãšj pozÃ­ciÃ³: 1.0, 3.0
 A robot leesett.
-A Sárga Robot nyert!
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+A SÃ¡rga Robot nyert!
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.

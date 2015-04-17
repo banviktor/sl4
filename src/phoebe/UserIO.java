@@ -3,6 +3,8 @@ package phoebe;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 
 import phoebe.basic.Vector;
 
@@ -11,12 +13,22 @@ public class UserIO {
 	private static boolean randomization = true;
 	private static boolean questions = true;
 	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private static PrintStream out = null;
+	
+	static {
+		try {
+			out = new PrintStream(System.out, true, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	private static void ask(String question, boolean newline){
 		if (newline)
 			question += "\n";
 		if (questions)
-			System.out.print(question);
+			print(question);
 	}
 	
 	public static void ask(String question){
@@ -25,11 +37,11 @@ public class UserIO {
 	}
 	
 	public static void print(String s) {
-		System.out.print(s);
+		out.print(s);
 	}
 	
 	public static void println(String s) {
-		System.out.println(s);
+		out.println(s);
 	}
 	
 	public static boolean getBoolean(String question, boolean defaultValue){
@@ -94,22 +106,22 @@ public class UserIO {
 	}
 	
 	public static void randomOn(){
-		System.out.println("Véletlenszerű események bekapcsolva.");
+		println("Véletlenszerű események bekapcsolva.");
 		randomization = true;
 	}
 	
 	public static void randomOff(){
-		System.out.println("Véletlenszerű események kikapcsolva.");
+		println("Véletlenszerű események kikapcsolva.");
 		randomization = false;
 	}
 	
 	public static void questionsOn(){
-		System.out.println("Kérdezés bekapcsolva.");
+		println("Kérdezés bekapcsolva.");
 		questions = true;
 	}
 	
 	public static void questionsOff(){
-		System.out.println("Kérdezés kikapcsolva.");
+		println("Kérdezés kikapcsolva.");
 		questions = false;
 	}
 	

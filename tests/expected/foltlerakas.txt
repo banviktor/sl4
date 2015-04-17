@@ -1,19 +1,19 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Olajfoltok:   3
 Ragacsfoltok: 3
 Olajfolt be.
 Ragacs ki.
 Olajfolt lehelyezve.
-Új pozíció: 2.0, 3.0
-Ez a(z) 1. kör.
-A Sárga Robot következik.
-Új pozíció: 3.0, 1.0
-Ez a(z) 2. kör.
-A Piros Robot következik.
+Ãšj pozÃ­ciÃ³: 2.0, 3.0
+Ez a(z) 1. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 3.0, 1.0
+Ez a(z) 2. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Olajfoltok:   2
 Ragacsfoltok: 3

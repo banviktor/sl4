@@ -1,24 +1,24 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Olajfolt be.
 Ragacs ki.
 Inputvector: 0.0, 1.0
 Olajfolt lehelyezve.
-Új pozíció: 2.0, 2.0
-Ez a(z) 1. kör.
-A Sárga Robot következik.
+Ãšj pozÃ­ciÃ³: 2.0, 2.0
+Ez a(z) 1. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
 Inputvector: -1.0, 0.0
-Új pozíció: 2.0, 1.0
-Ez a(z) 2. kör.
-A Piros Robot következik.
-Új pozíció: 2.0, 3.0
-Ez a(z) 2. kör.
-A Sárga Robot következik.
-Ebben a körben nem lehet sebességvektort megadni a robotnak.
-Új pozíció: 1.0, 1.0
+Ãšj pozÃ­ciÃ³: 2.0, 1.0
+Ez a(z) 2. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 2.0, 3.0
+Ez a(z) 2. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
+Ebben a kÃ¶rben nem lehet sebessÃ©gvektort megadni a robotnak.
+Ãšj pozÃ­ciÃ³: 1.0, 1.0
 A robot leesett.
 A Piros Robot nyert!

@@ -1,30 +1,30 @@
-Véletlenszerû események kikapcsolva.
-Kérdezés kikapcsolva.
-Pálya betöltve.
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
+VÃ©letlenszerÅ± esemÃ©nyek kikapcsolva.
+KÃ©rdezÃ©s kikapcsolva.
+PÃ¡lya betÃ¶ltve.
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
 Ragacs be.
 Olajfolt ki.
 Ragacsfolt lehelyezve.
-Új pozíció: 5.0, 5.0
-Ez a(z) 1. kör.
-A Sárga Robot következik.
+Ãšj pozÃ­ciÃ³: 5.0, 5.0
+Ez a(z) 1. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
 Inputvector: 0.0, 1.0
-Új pozíció: 5.0, 2.0
-Takarítórobot indul útnak innen: 6.1, 5.0
-Ez a(z) 2. kör.
-A Piros Robot következik.
-Új pozíció: 5.0, 5.0
-Ez a(z) 2. kör.
-A Sárga Robot következik.
+Ãšj pozÃ­ciÃ³: 5.0, 2.0
+TakarÃ­tÃ³robot indul Ãºtnak innen: 6.1, 5.0
+Ez a(z) 2. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+Ãšj pozÃ­ciÃ³: 5.0, 5.0
+Ez a(z) 2. kÃ¶r.
+A SÃ¡rga Robot kÃ¶vetkezik.
 Inputvector: 0.0, 1.0
-Új pozíció: 5.0, 4.0
-Ez a robot a következõkkel ütközött:
-	Takarítórobot
-Ez a(z) 3. kör.
-A Piros Robot következik.
-Takarítórobotok listája:
-Foltok listája:
+Ãšj pozÃ­ciÃ³: 5.0, 4.0
+Ez a robot a kÃ¶vetkezÅ‘kkel Ã¼tkÃ¶zÃ¶tt:
+	TakarÃ­tÃ³robot
+Ez a(z) 3. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+TakarÃ­tÃ³robotok listÃ¡ja:
+Foltok listÃ¡ja:
 	Ragacs: 5.0, 5.0
 	Olaj: 5.1, 4.0

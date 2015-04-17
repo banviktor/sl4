@@ -1,5 +1,5 @@
-Pálya betöltve.	
-Új játék elkezdve 2 játékossal.
-Ez a(z) 1. kör.
-A Piros Robot következik.
-Folyamatban van egy másik játék, nem lehet újat kezdeni.
+PÃ¡lya betÃ¶ltve.	
+Ãšj jÃ¡tÃ©k elkezdve 2 jÃ¡tÃ©kossal.
+Ez a(z) 1. kÃ¶r.
+A Piros Robot kÃ¶vetkezik.
+Folyamatban van egy mÃ¡sik jÃ¡tÃ©k, nem lehet Ãºjat kezdeni.
