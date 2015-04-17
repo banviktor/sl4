@@ -9,6 +9,7 @@ public class Application {
 	public static void main(String[] args) {
 		if (args.length != 2){
 			System.out.println("HIBA: a paraméterlista nem megfelelő.");
+			System.out.println();
 		}else{
 			String file1 = args[0];
 			String file2 = args[1];
@@ -26,6 +27,7 @@ public class Application {
 						line2 = line2.trim();
 						if ( !line1.equals(line2) && !line1.equals("") && !line2.equals("") ) {
 							System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+							System.out.println();
 							matches = false;
 							break;
 						}
@@ -33,15 +35,18 @@ public class Application {
 					}
 					if(matches){
 						System.out.println("A(z) " + file1 + " tesztje sikeres volt.");
+						System.out.println();
 					}						
 					br2.close();
 				} catch (IOException e) {
 					System.out.println("HIBA: " + file2 + " megnyitása sikertelen.");
+					System.out.println();
 				} 
 				
 				br1.close();
 			} catch (IOException e) {
 				System.out.println("HIBA: " + file1 + " megnyitása sikertelen.");
+				System.out.println();
 			}
 		}		
 	}
