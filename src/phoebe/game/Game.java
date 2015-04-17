@@ -148,14 +148,14 @@ public class Game {
 	 * Megsemmisíti az adott pozícion lévő takarítórobotokat
 	 * @param p az adott pozíció vektora
 	 */
-	public List<CleanerRobot> deleteCleanerRobotsAt(Vector p){
+	public List<CleanerRobot> collideCleanerRobotsWithActual(){
 		List<CleanerRobot> deleted = new ArrayList<CleanerRobot>();
 		
 		Iterator<CleanerRobot> robotIterator = cleanerRobots.iterator();
 		
 		while(robotIterator.hasNext()){
 			CleanerRobot cr = robotIterator.next();
-			if(cr.isAt(p)){
+			if(cr.overlaps(playerRobots.get(actualRobotNumber))){
 				
 				//Olajfolt létrehozása
 				map.addSmudge(cr.createOil());
@@ -175,7 +175,7 @@ public class Game {
 	 */
 	public List<PlayerRobot> collidePlayerRobotsWithActual() {
 		List<PlayerRobot> deleted = new ArrayList<PlayerRobot>();
-		PlayerRobot actualRobot = robotController.getActualRobot();
+		PlayerRobot actualRobot = playerRobots.get(actualRobotNumber);
 		
 		// Létrehozunk a robotokról egy listát, amiben az actualrobot nincs benne
 		List<PlayerRobot> robotsWithoutActual = new ArrayList<PlayerRobot>(playerRobots);
@@ -186,7 +186,7 @@ public class Game {
 		
 		while(robotIterator.hasNext()){
 			PlayerRobot pr = robotIterator.next();
-			if(pr.isAt(actualRobot.getPosition())){
+			if(pr.overlaps(actualRobot)){
 				if(pr.getSpeedVector().length() > actualRobot.getSpeedVector().length()){					
 					Vector avgSpeed = actualRobot.getSpeedVector()
 							.add(pr.getSpeedVector()).multiply(0.5);

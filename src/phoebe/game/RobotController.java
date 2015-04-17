@@ -100,7 +100,7 @@ public class RobotController {
 		else {			
 			//Ha ráesik takarítórobotra, összetöri azt
 			List<CleanerRobot> deletedCleaners = new ArrayList<CleanerRobot>(
-					game.deleteCleanerRobotsAt(actualRobot.getPosition()));
+					game.collideCleanerRobotsWithActual());
 		
 			//Ha egy másik játékos robotjával ütközik
 			List<PlayerRobot> deletedPlayers = new ArrayList<PlayerRobot>(
