@@ -134,11 +134,12 @@ public class Map {
 	 */
 	public Smudge getNearestSmudgeTo(Vector p) {
 		if (!smudges.isEmpty()) {
-			Smudge nearestSmudge = null;
+			Smudge nearestSmudge = smudges.get(0);
 			double minDistance = p.distance(smudges.get(0).getPosition());
 			for (Smudge s : smudges) {
 				if ( p.distance(s.getPosition()) < minDistance ) {
 					nearestSmudge = s;
+					minDistance = p.distance(s.getPosition());
 				}
 			}
 			return nearestSmudge;
