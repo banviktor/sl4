@@ -84,5 +84,9 @@ public class CleanerRobot extends Robot {
 		}
 		
 	}
+	
+	public String toString(){
+		return "Takarítórobot: " + position.getX() + ", " + position.getY();
+	}
 		
 }
