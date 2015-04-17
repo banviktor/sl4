@@ -68,6 +68,8 @@ public class CleanerRobot extends Robot {
 							}
 						}
 						
+						position = newPosition;
+						
 						newJump = true;
 						break;
 					}
