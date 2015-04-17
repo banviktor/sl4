@@ -35,7 +35,7 @@ public class Oil extends Smudge {
 	 */
 	@Override
 	public int nextRound() {
-		return duration--;
+		return --duration;
 	}
 	
 

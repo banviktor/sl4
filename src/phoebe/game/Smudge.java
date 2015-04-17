@@ -40,7 +40,7 @@ public abstract class Smudge {
 	 * @return a folt vastagsága
 	 */
 	public int reduceThickness(){
-		return thickness--;
+		return --thickness;
 	}
 	
 	/** 
