@@ -1,7 +1,7 @@
 Véletlenszerű események kikapcsolva.
 Kérdezés kikapcsolva.
 Pálya betöltve.
-Új játék elkezdve 2 játékossal.
+Új játék elkezdve 5 játékossal.
 Ez a(z) 1. kör.
 A Piros Robot következik.
 Ragacs be.
