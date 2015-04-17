@@ -80,7 +80,7 @@ public class CleanerRobot extends Robot {
 		//Ezután takarítunk minen foltot, amin vagyunk
 		List<Smudge> smudges = map.getSmudgesAt(position);
 		for (Smudge s : smudges) {
-			if(s.reduceThickness() == 0) {
+			if(s.reduceThickness() <= 0) {
 				map.deleteSmudge(s);
 			}			
 		}
