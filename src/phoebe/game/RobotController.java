@@ -11,7 +11,6 @@ public class RobotController {
 
 	private PlayerRobot actualRobot;
 	private Vector inputSpeedVector;
-	private Vector jumpDestination;
 	private boolean willPlaceOil;
 	private boolean willPlaceGlue;
 	private Game game;
@@ -168,14 +167,6 @@ public class RobotController {
 	 */
 	public Vector getInputSpeedVector(){
 		return inputSpeedVector;
-	}
-	
-	/**
-	 * Visszaadja az aktuális robot ugrásának célját
-	 * @return az ugrás céljának vektora
-	 */
-	public Vector getJumpDestination(){
-		return jumpDestination;
 	}
 	
 }
