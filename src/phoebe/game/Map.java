@@ -2,6 +2,7 @@ package phoebe.game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -102,9 +103,11 @@ public class Map {
 	 * lesz az élettartama, törli a smudges listából.
 	 */
 	public void nextRound() {
-		for (Smudge s : smudges) {
-			if (s.nextRound() == 0) {
-				smudges.remove(s);
+		Iterator<Smudge> smudgeIterator = smudges.iterator();
+		while (smudgeIterator.hasNext()) {
+			Smudge s = smudgeIterator.next();
+			if (s.nextRound() <= 0) {
+				smudgeIterator.remove();
 			}
 		}
 	}
