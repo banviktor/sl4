@@ -129,7 +129,9 @@ public class RobotController {
 			//Az új robot előkészítése
 			List<Smudge> modifier = map.getSmudgesAt(actualRobot.getPosition());
 			for(Smudge s : modifier){
-				s.action(actualRobot);
+				if(s.action(actualRobot) <= 0){
+					map.deleteSmudge(s);
+				}
 			}
 		}		
 	}
