@@ -150,17 +150,22 @@ public class Game {
 	 */
 	public List<CleanerRobot> deleteCleanerRobotsAt(Vector p){
 		List<CleanerRobot> deleted = new ArrayList<CleanerRobot>();
-		for(CleanerRobot cr : cleanerRobots){
+		
+		Iterator<CleanerRobot> robotIterator = cleanerRobots.iterator();
+		
+		while(robotIterator.hasNext()){
+			CleanerRobot cr = robotIterator.next();
 			if(cr.isAt(p)){
 				
 				//Olajfolt létrehozása
-				cr.createOil();
+				map.addSmudge(cr.createOil());
 				
 				//takarítórobot törlése
 				deleted.add(cr);
-				cleanerRobots.remove(cr);
+				robotIterator.remove();
 			}
 		}
+		
 		return deleted;
 	}
 	
