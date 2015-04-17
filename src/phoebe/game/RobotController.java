@@ -63,6 +63,10 @@ public class RobotController {
 	 * @param v a felhasználótól kapott vektor
 	 */
 	public void setInputSpeedVector(Vector v){
+		if(actualRobot.isSpeedModificationDisabled()){
+			UserIO.println("Ebben a körben nem lehet sebességvektort megadni a robotnak.");
+			return;
+		}
 		inputSpeedVector = v.normalized();
 		UserIO.println("Inputvector: " + v.normalized());
 	}
