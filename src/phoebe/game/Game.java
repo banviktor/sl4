@@ -148,7 +148,8 @@ public class Game {
 	 * Megsemmisíti az adott pozícion lévő takarítórobotokat
 	 * @param p az adott pozíció vektora
 	 */
-	public void deleteCleanerRobotsAt(Vector p){
+	public List<CleanerRobot> deleteCleanerRobotsAt(Vector p){
+		List<CleanerRobot> deleted = new ArrayList<CleanerRobot>();
 		for(CleanerRobot cr : cleanerRobots){
 			if(cr.isAt(p)){
 				
@@ -156,16 +157,19 @@ public class Game {
 				cr.createOil();
 				
 				//takarítórobot törlése
+				deleted.add(cr);
 				cleanerRobots.remove(cr);
 			}
 		}
+		return deleted;
 	}
 	
 	
 	/**
 	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
 	 */
-	public void collidePlayerRobotsWithActual() {
+	public List<PlayerRobot> collidePlayerRobotsWithActual() {
+		List<PlayerRobot> deleted = new ArrayList<PlayerRobot>();
 		PlayerRobot actualRobot = robotController.getActualRobot();
 		
 		// Létrehozunk a robotokról egy listát, amiben az actualrobot nincs benne
@@ -178,16 +182,19 @@ public class Game {
 		while(robotIterator.hasNext()){
 			PlayerRobot pr = robotIterator.next();
 			if(pr.isAt(actualRobot.getPosition())){
-				if(pr.getSpeedVector().length() > actualRobot.getSpeedVector().length()){
-					
+				if(pr.getSpeedVector().length() > actualRobot.getSpeedVector().length()){					
 					Vector avgSpeed = actualRobot.getSpeedVector()
 							.add(pr.getSpeedVector()).multiply(0.5);
-					//Amennyiben a másik robot a gyorsabb az épp ugró robot összetörik
+					
+					// Amennyiben a másik robot a gyorsabb az épp ugró robot összetörik
+					deleted.add(actualRobot);
 					deleteActualRobot();
-					//A másik a kettő átlagával megy tovább
+					
+					// A másik a kettő átlagával megy tovább
 					pr.setSpeedVector(avgSpeed);
+					
 					//Véget ér az iteráció, mivel az ugró megsemmisült
-					return;
+					return deleted;
 					
 				} else if(pr.getSpeedVector().length() < actualRobot.
 						getSpeedVector().length()){
@@ -196,6 +203,7 @@ public class Game {
 							.add(pr.getSpeedVector()).multiply(0.5);
 					
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
+					deleted.add(pr);
 					playerRobots.remove(pr);
 					robotIterator.remove();
 					
@@ -206,20 +214,23 @@ public class Game {
 						.getSpeedVector().length()){
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
+					deleted.add(pr);
 					playerRobots.remove(pr);
 					robotIterator.remove();
 					
 					//Ha az ugró egyedül maradt, ő nyer, ezért akkor életben hagyjuk
 					if (playerRobots.size() > 1) {
+						deleted.add(actualRobot);
 						deleteActualRobot();
 					}
 					
 					//Az iteráció véget ér
-					return;
+					return deleted;
 					
 				}
 			}
 		}
+		return deleted;
 	}
 	
 	

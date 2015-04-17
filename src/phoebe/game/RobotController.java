@@ -1,5 +1,6 @@
 package phoebe.game;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import phoebe.Log;
@@ -93,12 +94,30 @@ public class RobotController {
 			game.deleteActualRobot();
 			UserIO.println("A robot leesett.");
 		}
-		else {
+		else {			
 			//Ha ráesik takarítórobotra, összetöri azt
-			game.deleteCleanerRobotsAt(actualRobot.getPosition());
+			List<CleanerRobot> deletedCleaners = new ArrayList<CleanerRobot>(
+					game.deleteCleanerRobotsAt(actualRobot.getPosition()));
 		
 			//Ha egy másik játékos robotjával ütközik
-			game.collidePlayerRobotsWithActual();
+			List<PlayerRobot> deletedPlayers = new ArrayList<PlayerRobot>(
+					game.collidePlayerRobotsWithActual());
+			
+			//Ha volt ütközés
+			if((deletedCleaners.size() + deletedPlayers.size()) > 0){
+				UserIO.println("Ez a robot a következőkkel ütközött:");
+				//Kiírjuk a játékosokat
+				for(PlayerRobot pr : deletedPlayers){
+					if(!pr.equals(actualRobot)){
+						UserIO.println("\t" + pr.getColor().toString());
+					}
+				}
+				//Kiírjuk a takarítókat (jelenleg sok értelme nincs)
+				for(CleanerRobot cr : deletedCleaners){
+					UserIO.println("\t" + "Takarítórobot");
+				}
+			}
+			
 		}
 		
 		//Következő robot betöltése, értékek alaphelyzetbe állítása
