@@ -12,5 +12,4 @@ N
 jump
 inputvector 5 0
 jump
-N
 exit
