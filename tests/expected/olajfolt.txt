@@ -21,4 +21,4 @@ A Sárga Robot következik.
 Ebben a körben nem lehet sebességvektort megadni a robotnak.
 Új pozíció: 1.0, 1.0
 A robot leesett.
-A Piros robot nyert!
+A Piros Robot nyert!
