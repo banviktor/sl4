@@ -47,7 +47,7 @@ public class CleanerRobot extends Robot {
 		if (nearest == null)
 			return;
 		
-		if (nearest.getPosition().distance(position) > 1) {
+		if (!nearest.isEffectiveAt(position)) {
 			//Ha még nem vagyunk rajta, ugrunk felé egységnyit
 			position = position.add(new Vector(position,nearest.getPosition()).normalized());
 			
