@@ -55,8 +55,9 @@ public class CleanerRobot extends Robot {
 			boolean newJump = true;
 			while (newJump) {
 				newJump = false;
-				for(Robot r : game.getRobots()){
-					if(r.overlaps(this) && !r.equals(this)){
+	//			for(Robot r : game.getRobots()){
+	//				if(r.overlaps(this) && !r.equals(this)){
+				if(game.isRobotCollision(this)) {
 						// Ha ütközés van
 						Vector modification = UserIO.getVector("Takarítórobot ütközött " + position.toString() + ", merre próbáljon ugrani?", new Vector(Math.random(), Math.random()));						
 						Vector newPosition = position.add(modification.normalized());
@@ -72,7 +73,7 @@ public class CleanerRobot extends Robot {
 						
 						newJump = true;
 						break;
-					}
+	//				}
 				}
 			}
 		}

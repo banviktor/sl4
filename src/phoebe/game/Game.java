@@ -248,14 +248,14 @@ public class Game {
 	 * @param p az adott pozíció vektora
 	 * @return tartózkodik-e robot az adott helyen
 	 */
-	public boolean isRobotAt(Vector p) {
+	public boolean isRobotCollision(Robot robot) {
 		for(PlayerRobot r : playerRobots){
-			if(r.isAt(p)){
+			if(r.overlaps(robot)){
 				return true;
 			}
 		}
 		for(CleanerRobot cr : cleanerRobots){
-			if(cr.isAt(p)){
+			if(cr.overlaps(robot)){
 				return true;
 			}
 		}
