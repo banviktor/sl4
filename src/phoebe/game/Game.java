@@ -250,11 +250,19 @@ public class Game {
 	 */
 	public boolean isRobotCollision(Robot robot) {
 		for(PlayerRobot r : playerRobots){
+			// Önmagával ne ütközzön
+			if (r == robot) {
+				continue;
+			}
 			if(r.overlaps(robot)){
 				return true;
 			}
 		}
 		for(CleanerRobot cr : cleanerRobots){
+			// Önmagával ne ütközzön
+			if (cr == robot) {
+				continue;
+			}
 			if(cr.overlaps(robot)){
 				return true;
 			}
