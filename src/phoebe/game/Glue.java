@@ -25,9 +25,9 @@ public class Glue extends Smudge {
 	@Override
 	public int action(PlayerRobot r) {
 		r.halveSpeed();
-		
+
 		// A ragacsfoltnak rálépéskor csökken az élettartama
-		return duration--;
+		return --duration;
 	}
 
 
