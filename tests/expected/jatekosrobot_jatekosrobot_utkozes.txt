@@ -11,7 +11,7 @@ Inputvector: 0.0, 1.0
 Új pozíció: 3.0, 2.0
 Ez a(z) 1. kör.
 A Zöld Robot következik.
-Inputvector 1.0, 0.0
+Inputvector: 1.0, 0.0
 Új pozíció: 6.0, 8.0
 Ez a(z) 1. kör.
 A Kék Robot következik.
