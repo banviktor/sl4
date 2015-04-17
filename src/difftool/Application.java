@@ -14,39 +14,60 @@ public class Application {
 			String file1 = args[0];
 			String file2 = args[1];
 			System.out.println("A(z) " + file1 + " fájlt hasonlítom össze a(z) " + file2 + " fájllal.");
+			BufferedReader br1 = null, br2 = null;
 			try	{
-				BufferedReader br1 = new BufferedReader(new FileReader(file1));
+				br1 = new BufferedReader(new FileReader(file1));
 				
 				try {
-					BufferedReader br2 = new BufferedReader(new FileReader(file2));
+					br2 = new BufferedReader(new FileReader(file2));
 					String line1, line2;
-					int lines = 0;
+					line1 = br1.readLine();
+					line2 = br2.readLine();
+					int lines = 1;
 					boolean matches = true;
-					while ((line1 = br1.readLine()) != null && (line2 = br2.readLine()) != null) {
+					while (line1 != null && line2 != null) {
 						line1 = line1.trim();
 						line2 = line2.trim();
 						if ( !line1.equals(line2) && !line1.equals("") && !line2.equals("") ) {
 							System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 							System.out.println();
 							matches = false;
-							break;
+							return;
 						}
+						line1 = br1.readLine();
+						line2 = br2.readLine();
 						++lines;
 					}
-					if(matches){
+					if (line1 != null) {
+						System.out.println("A(z) " + file1 + " folytatódik.");
+						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println();
+					}
+					else if (line2 != null) {
+						System.out.println("A(z) " + file2 + " folytatódik.");
+						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println();
+					}
+					else if(matches){
 						System.out.println("A(z) " + file1 + " tesztje sikeres volt.");
 						System.out.println();
 					}						
-					br2.close();
 				} catch (IOException e) {
 					System.out.println("HIBA: " + file2 + " megnyitása sikertelen.");
 					System.out.println();
-				} 
-				
-				br1.close();
+				} finally {
+					br2.close();
+				}
 			} catch (IOException e) {
 				System.out.println("HIBA: " + file1 + " megnyitása sikertelen.");
 				System.out.println();
+			} finally {
+				if (br1 != null)
+					try {
+						br1.close();
+					} catch (IOException e) {
+						;
+					}
 			}
 		}		
 	}
