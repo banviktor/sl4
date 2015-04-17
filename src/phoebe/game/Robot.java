@@ -22,15 +22,7 @@ public abstract class Robot {
 	public Vector getPosition(){
 		return position;
 	}
-	
-	/**
-	 * Absztrakt metódus annak eldöntésére, hogy a robot az adott pozíción található-e
-	 * @param p az adott pozíció
-	 * @return logikai érték, mely megadja, hogy a robot az adott pozíción van-e
-	 */
-	public boolean isAt(Vector p){
-		return (position.distance(p) < radius);
-	}
+
 	
 	/**
 	 * Megvizsgálja, hogy a robot és a paramtéterként kapott másik robot átfedi-e egymást.
