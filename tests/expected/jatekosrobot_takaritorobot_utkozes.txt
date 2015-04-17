@@ -12,7 +12,7 @@ Ez a(z) 1. kör.
 A Sárga Robot következik.
 Inputvector: 0.0, 1.0
 Új pozíció: 5.0, 2.0
-Takarítórobot indul útnak innen: 6.0, 5.0
+Takarítórobot indul útnak innen: 6.1, 5.0
 Ez a(z) 2. kör.
 A Piros Robot következik.
 Új pozíció: 5.0, 5.0
@@ -21,8 +21,10 @@ A Sárga Robot következik.
 Inputvector: 0.0, 1.0
 Új pozíció: 5.0, 4.0
 Ez a robot a következõkkel ütközött:
-    Takarítórobot
+	Takarítórobot
+Ez a(z) 3. kör.
+A Piros Robot következik.
 Takarítórobotok listája:
 Foltok listája:
 	Ragacs: 5.0, 5.0
-	Olaj: 5.0, 4.0
+	Olaj: 5.1, 4.0
