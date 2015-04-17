@@ -169,4 +169,17 @@ public class RobotController {
 		return inputSpeedVector;
 	}
 	
+	/**
+	 * Visszaadja az aktuális robot ugrásának célját
+	 * @return az ugrás céljának vektora
+	 */
+	public Vector getJumpDestination(){
+		return new Vector(inputSpeedVector.getX()
+				+actualRobot.getPosition().getX()
+				+actualRobot.getSpeedVector().getX(), 
+				inputSpeedVector.getY()
+				+actualRobot.getPosition().getY()
+				+actualRobot.getSpeedVector().getY());
+	}
+	
 }
