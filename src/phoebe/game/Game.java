@@ -1,6 +1,7 @@
 package phoebe.game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -166,10 +167,16 @@ public class Game {
 	 */
 	public void collidePlayerRobotsWithActual() {
 		PlayerRobot actualRobot = robotController.getActualRobot();
-		for(PlayerRobot pr : playerRobots){
-			if ( pr == actualRobot ) {
-				continue;
-			}
+		
+		// Létrehozunk a robotokról egy listát, amiben az actualrobot nincs benne
+		List<PlayerRobot> robotsWithoutActual = new ArrayList<PlayerRobot>(playerRobots);
+		robotsWithoutActual.remove(actualRobot);
+		
+		// Ennek a listának az iterátorával haladunk
+		Iterator<PlayerRobot> robotIterator = robotsWithoutActual.iterator();
+		
+		while(robotIterator.hasNext()){
+			PlayerRobot pr = robotIterator.next();
 			if(pr.isAt(actualRobot.getPosition())){
 				if(pr.getSpeedVector().length() > actualRobot.getSpeedVector().length()){
 					
@@ -190,6 +197,7 @@ public class Game {
 					
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
 					playerRobots.remove(pr);
+					robotIterator.remove();
 					
 					//Az aktuális a kettő átlagával megy tovább, és ütközhet másokkal
 					actualRobot.setSpeedVector(avgSpeed);
@@ -199,6 +207,8 @@ public class Game {
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
 					playerRobots.remove(pr);
+					robotIterator.remove();
+					
 					//Ha az ugró egyedül maradt, ő nyer, ezért akkor életben hagyjuk
 					if (playerRobots.size() > 1) {
 						deleteActualRobot();
