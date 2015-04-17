@@ -6,7 +6,7 @@ Ez a(z) 1. kör.
 A Piros Robot következik.
 Ragacs be.
 Olajfolt ki.
-Inputvector 0.0, 1.0
+Inputvector: 0.0, 1.0
 Ragacsfolt lehelyezve.
 Új pozíció: 5.0, 3.0
 Ez a(z) 1. kör.
@@ -23,6 +23,7 @@ Inputvector: -1.0, 0.0
 Új pozíció: 7.0, 1.501
 Ez a(z) 1. kör.
 A Lila Robot következik.
+Inputvector: -1.0, 0.0
 Új pozíció: 7.0, 2.499
 Ez a(z) 2. kör.
 A Piros Robot következik.
