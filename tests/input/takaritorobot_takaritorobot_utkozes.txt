@@ -2,10 +2,12 @@ randomization off
 questions off
 start_game 2
 5 5
-2 1
+2 5
 toggle_glue
 inputvector 0 5
 jump
+toggle_glue
+inputvector 0 5
 jump
 I
 5 4.05
