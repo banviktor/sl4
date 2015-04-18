@@ -62,22 +62,6 @@ public class UserIO {
 		}
 	}
 	
-	public static int getInt(String question, int defaultValue){
-		if(randomization)
-			return defaultValue;
-		while(true){
-			ask(question + " (#) : ");
-			try{
-	            int i = Integer.parseInt( br.readLine().replaceAll(",", "") );
-	            return i;
-	        } catch(NumberFormatException nfe){
-	            
-	        } catch (IOException e) {
-	        	
-			}
-		}
-	}
-	
 	public static Vector getVector(String question, Vector defaultValue) {
 		Vector vec = defaultValue;
 		if(randomization)
