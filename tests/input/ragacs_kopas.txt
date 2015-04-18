@@ -29,5 +29,16 @@ jump
 inputvector -5 0
 jump
 N
+inputvector 0 5
+jump
+inputvector 0 5
+jump
+inputvector 0 5
+jump
+inputvector -5 0
+jump
+inputvector -5 0
+jump
+N
 list_smudges
 exit
