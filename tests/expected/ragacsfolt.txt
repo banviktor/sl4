@@ -19,3 +19,5 @@ A Piros Robot következik.
 Ez a(z) 2. kör.
 A Sárga Robot következik.
 Új pozíció: 1.5, 1.0
+Ez a(z) 3. kör.
+A Piros Robot következik.
