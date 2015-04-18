@@ -1,6 +1,5 @@
 package phoebe.game;
 
-import phoebe.Log;
 import phoebe.UserIO;
 import phoebe.basic.Color;
 import phoebe.basic.Vector;
@@ -72,12 +71,7 @@ public class PlayerRobot extends Robot {
 	/**
 	 * Végrehajtja az ugrást
 	 */
-	public void jump(){
-		// Függvénybe lépéskor kiírjuk az osztály nevét és a függvényt
-		Log.enterFunction(Robot.class, "jump");
-		
-		// TODO folt lehelyezése
-		
+	public void jump(){				
 		// Megtett út nő az ugrással
 		distance += speedVector.length();
 		
@@ -90,9 +84,6 @@ public class PlayerRobot extends Robot {
 		// Következő körre felkészítés
 		speedHalved = false;
 		speedModificationDisabled = false;
-		
-		// Metódusból kilépés kiírása a visszatérési értékkel
-		Log.exitFunction();
 	}
 	
 	

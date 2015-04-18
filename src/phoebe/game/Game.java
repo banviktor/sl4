@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import phoebe.Log;
 import phoebe.UserIO;
 import phoebe.basic.Color;
 import phoebe.basic.Vector;
@@ -289,7 +288,6 @@ public class Game {
 		
 		//Kiírjuk a nyertest
 		UserIO.println("A " + winner.getColor() + " Robot nyert!");
-		Log.writeLine("The winner is Robot " + winner.getColor().toString() + "!!" );
 		
 	}
 	
