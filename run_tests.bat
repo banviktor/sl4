@@ -76,4 +76,5 @@ java -cp ./bin difftool.Application %test_output_dir%/takaritorobot_takaritas.tx
 
 ::Tesztelés vége
 echo A teszteles veget ert.
+echo A reszletes eredmenyek a(z) %output% fajlban talalhatoak meg.
 pause
