@@ -1,2 +1,5 @@
-> V�letlenszer� esem�nyek bekapcsolva.
-> 
+Pálya betöltve.
+Új játék elkezdve 2 játékossal.
+Ez a(z) 1. kör.
+A Piros Robot következik.
+Folyamatban van egy másik játék, nem lehet újat kezdeni.
