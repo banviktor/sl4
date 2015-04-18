@@ -39,13 +39,11 @@ public class Application {
 						++lines;
 					}
 					if (line1 != null) {
-						System.out.println("A(z) " + file1 + " folytatódik.");
-						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 						System.out.println();
 					}
 					else if (line2 != null) {
-						System.out.println("A(z) " + file2 + " folytatódik.");
-						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 						System.out.println();
 					}
 					else if(matches){
