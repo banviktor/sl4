@@ -47,4 +47,24 @@ Inputvector: -1.0, 0.0
 Új pozíció: 5.0, 2.499
 Ez a(z) 3. kör.
 A Piros Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 5.0, 8.0
+Ez a(z) 3. kör.
+A Sárga Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 4.501, 6.0
+Ez a(z) 3. kör.
+A Zöld Robot következik.
+Inputvector: 0.0, 1.0
+Új pozíció: 5.499, 6.0
+Ez a(z) 3. kör.
+A Kék Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 3.0, 1.501
+Ez a(z) 3. kör.
+A Lila Robot következik.
+Inputvector: -1.0, 0.0
+Új pozíció: 3.0, 2.499
+Ez a(z) 4. kör.
+A Piros Robot következik.
 Foltok listája:
