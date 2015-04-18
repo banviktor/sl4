@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 import phoebe.basic.Vector;
+import phoebe.game.Map;
 
 public class UserIO {
 	
@@ -67,7 +68,7 @@ public class UserIO {
 		while(true){
 			ask(question + " (#) : ");
 			try{
-	            int i = Integer.parseInt(br.readLine());
+	            int i = Integer.parseInt( br.readLine().replaceAll(",", "") );
 	            return i;
 	        } catch(NumberFormatException nfe){
 	            
@@ -82,9 +83,13 @@ public class UserIO {
 		if(randomization)
 			return defaultValue;
 		while(true){
-			ask(question + " (#) (#) : ");
+			// (0-10) (0-10) : 
+			ask(question + " (0-" + (int)Map.size + ") (0-" + (int)Map.size + ") : ");
 			try{
-				String[] line = br.readLine().split(" ");
+				// A (), jeleket kivesszük az inputból
+				String[] line = br.readLine().replaceAll(",|\\(|\\)", "").split(" ");
+				if (line.length != 2)
+					continue;
 				vec = new Vector(Double.parseDouble(line[0]), Double.parseDouble(line[1]));
 				return vec;
 	        } catch(NumberFormatException nfe){
