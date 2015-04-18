@@ -27,7 +27,7 @@ Inputvector: -1.0, 0.0
 Új pozíció: 7.0, 2.499
 Ez a(z) 2. kör.
 A Piros Robot következik.
-Inputvector 0.0, 1.0
+Inputvector: 0.0, 1.0
 Új pozíció: 5.0, 5.0
 Ez a(z) 2. kör.
 A Sárga Robot következik.
