@@ -6,6 +6,16 @@ import java.io.IOException;
 
 public class Application {
 
+	/**
+	 * A tesztelést kiértékelő program a difftool nevet viseli, mely a következő parancssori argumentumokat várja induláskor:
+	 * <eredmény_fájl>		a teszt eredményét tartalmazó fájl elérési útja
+	 * <elvárt_fájl>		a teszt elvárt eredményét tartalmazó fájl elérési útja
+	 * 
+	 * Futáskor összehasonlítja soronként a két fájlt, és ha eltérést talál, akkor kiírja melyik sorban találta az eltérést,
+	 * utána megszakítja futását.
+	 * Ha nem talált eltérést, akkor a tesztelőt informálja a teszt sikerességéről a szabványos kimeneten.
+	 * @param args bementi paraméterek
+	 */
 	public static void main(String[] args) {
 		if (args.length != 2){
 			System.out.println("HIBA: a paraméterlista nem megfelelő.");
@@ -39,13 +49,11 @@ public class Application {
 						++lines;
 					}
 					if (line1 != null) {
-						System.out.println("A(z) " + file1 + " folytatódik.");
-						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 						System.out.println();
 					}
 					else if (line2 != null) {
-						System.out.println("A(z) " + file2 + " folytatódik.");
-						//System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
+						System.out.println("A(z) " + file1 + " a következő sornál nem egyezik: " + lines);
 						System.out.println();
 					}
 					else if(matches){
