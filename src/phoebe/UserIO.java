@@ -71,7 +71,7 @@ public class UserIO {
 			ask(question + " (0-" + (int)Map.size + ") (0-" + (int)Map.size + ") : ");
 			try{
 				// A (), jeleket kivesszük az inputból
-				String[] line = br.readLine().replaceAll(",|\\(|\\)", "").split(" ");
+				String[] line = br.readLine().replaceAll(",|\\(|\\)|<|>", "").split(" ");
 				if (line.length != 2)
 					continue;
 				vec = new Vector(Double.parseDouble(line[0]), Double.parseDouble(line[1]));

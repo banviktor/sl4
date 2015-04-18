@@ -42,6 +42,7 @@ public class Application {
 				}
 			} else if(command[0].equals("start_game")) {
 				if (command.length == 2)
+					command[1] = command[1].replaceAll(",|\\(|\\)|<|>", "");
 					gc.newGame( Integer.parseInt(command[1] ) );
 			} else if(command[0].equals("smudge_stock")) {
 				if ( !gc.isRunning() ) {
