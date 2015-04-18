@@ -20,8 +20,8 @@ public class UserIO {
 		try {
 			out = new PrintStream(System.out, true, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("A program nem tud UTF-8 kodolassal irni a kimenetre.");
+			out = System.out;
 		}
 	}
 	
