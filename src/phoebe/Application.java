@@ -44,30 +44,54 @@ public class Application {
 				if (command.length == 2)
 					gc.newGame( Integer.parseInt(command[1] ) );
 			} else if(command[0].equals("smudge_stock")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				UserIO.println("Olajfoltok:   " + gc.getRobotController().getActualRobot().getOilNumber());
 				UserIO.println("Ragacsfoltok: " + gc.getRobotController().getActualRobot().getGlueNumber());
 			} else if(command[0].equals("toggle_oil")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				gc.getRobotController().toggleOil();
 			} else if(command[0].equals("toggle_glue")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				gc.getRobotController().toggleGlue();
 			} else if(command[0].equals("inputvector")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				if (command.length == 3) {
 					Vector input = new Vector(Double.parseDouble( command[1] ), Double.parseDouble( command[2] ));
 					gc.getRobotController().setInputSpeedVector( input );
 				}
 			} else if(command[0].equals("jump")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				gc.getRobotController().nextTurn();
 			} else if(command[0].equals("list_player_robots")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				UserIO.println("Játékosrobotok listája:");
 				for(PlayerRobot i : gc.getGame().getPlayerRobots()) {
 					UserIO.println("\t" + i.toString());
 				}
 			} else if(command[0].equals("list_cleaner_robots")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				UserIO.println("Takarítórobotok listája:");
 				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
 					UserIO.println("\t" + i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
+				if ( !gc.isRunning() ) {
+					continue;
+				}
 				UserIO.println("Foltok listája:");
 				for(Smudge i : gc.getGame().getMap().getSmudges()) {
 					UserIO.println("\t" + i.toString());
