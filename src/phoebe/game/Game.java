@@ -69,9 +69,10 @@ public class Game {
 	}
 	
 	/**
-	 * A sorrendben következő robotot adja vissza, és megjegyzi hogy 
-	 * az épp átadott az aktuális robot
-	 * @return a sorrendben következő robot
+	 * A sorrendben következő robotot adja vissza. Ha csak egy robot maradt, a játék véget ér.
+	 * Ha az utolsó robot lépett, növeli a körök számát (ami ha eléri a maximális számot a 
+	 * játék véget ér), létrehozza esetlegesen az új takarítórobotot, továbbá az összes takarítórobotot dolgoztatja.
+	 * @return A sorrendben következő robot
 	 */
 	public PlayerRobot getNextPlayerRobot(){
 		++actualRobotNumber;
