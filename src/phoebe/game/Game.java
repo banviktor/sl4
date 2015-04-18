@@ -306,7 +306,7 @@ public class Game {
 	 * A játékban lévő takarítórobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévő takarítórobotok
 	 */
-	public List<CleanerRobot> getCleaningRobots() {
+	public List<CleanerRobot> getCleanerRobots() {
 		return cleanerRobots;
 	}
 	

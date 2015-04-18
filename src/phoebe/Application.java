@@ -86,7 +86,7 @@ public class Application {
 					continue;
 				}
 				UserIO.println("Takarítórobotok listája:");
-				for(CleanerRobot i : gc.getGame().getCleaningRobots()) {
+				for(CleanerRobot i : gc.getGame().getCleanerRobots()) {
 					UserIO.println("\t" + i.toString());
 				}
 			} else if(command[0].equals("list_smudges")) {
