@@ -114,8 +114,8 @@ public class RobotController {
 						UserIO.println("\t" + pr.getColor().toString());
 					}
 				}
-				//Kiírjuk a takarítókat (jelenleg sok értelme nincs)
-				for(CleanerRobot cr: deletedCleaners){
+				//Kiírjuk a takarítókat
+				for (int i=0;i<deletedCleaners.size();++i) {
 					UserIO.println("\t" + "Takarítórobot");
 				}
 			}
