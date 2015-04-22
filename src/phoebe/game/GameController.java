@@ -1,7 +1,5 @@
 package phoebe.game;
 
-import phoebe.UserIO;
-
 /** 
  * A játék létrehozásáért és tárolásáért felelős osztály
  */
@@ -32,12 +30,12 @@ public class GameController {
 			else if (players > 5) { players = 5; }
 			game = new Game(players, map, this);
 			running = true;
-			UserIO.println("Új játék elkezdve " + players + " játékossal.");
-			UserIO.println("Ez a(z) 1. kör.");
-			UserIO.println("A Piros Robot következik.");
+			//UserIO.println("Új játék elkezdve " + players + " játékossal.");
+			//UserIO.println("Ez a(z) 1. kör.");
+			//UserIO.println("A Piros Robot következik.");
 		}
 		else {
-			UserIO.println("Folyamatban van egy másik játék, nem lehet újat kezdeni.");
+			//UserIO.println("Folyamatban van egy másik játék, nem lehet újat kezdeni.");
 		}
 		
 	}

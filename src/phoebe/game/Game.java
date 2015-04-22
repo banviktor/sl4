@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import phoebe.UserIO;
 import phoebe.basic.Color;
 import phoebe.basic.Vector;
 
@@ -48,8 +47,7 @@ public class Game {
 			boolean collision;
 			do {
 				collision = false;
-				Vector startingVector = UserIO.getVector(Color.values()[i].toString() + " Robot kezdőpozíciója", 
-						new Vector(rand.nextDouble() * Map.size, rand.nextDouble() * Map.size));
+				Vector startingVector = new Vector(rand.nextDouble() * Map.size, rand.nextDouble() * Map.size);
 				newRobot = new PlayerRobot( Color.values()[i], startingVector);
 				
 				// Megnézzük, hogy ütközik-e ezen a pozíción másik robottal
@@ -105,8 +103,8 @@ public class Game {
 			}
 		}	
 		
-		UserIO.println("Ez a(z) " + (round) + ". kör.");
-		UserIO.println("A " + playerRobots.get(actualRobotNumber).getColor().toString() + " Robot következik.");
+		//UserIO.println("Ez a(z) " + (round) + ". kör.");
+		//UserIO.println("A " + playerRobots.get(actualRobotNumber).getColor().toString() + " Robot következik.");
 		
 		return playerRobots.get(actualRobotNumber);
 	}
@@ -119,15 +117,14 @@ public class Game {
 		
 		// Spawnolási esély: ([aktuális foltok száma] - [aktuális takarítók száma]) * 20%
 		double chance = (double) (map.getSmudges().size() - cleanerRobots.size()) * r.nextDouble();
-		boolean toSpawn = chance <= 0.2;
 		
 		// Ha új robotot spawnolunk
-		if(UserIO.getBoolean("Legyen új takarítórobot?", toSpawn)){
+		if(chance <= 0.2){
 			double x = r.nextInt(2) * 10;
 			double y = r.nextInt(2) * 10;
-			Vector p = UserIO.getVector("Az új takarítórobot pozíciója", new Vector(x, y));
+			Vector p = new Vector(x, y);
 			cleanerRobots.add(new CleanerRobot(p, map, this));
-			UserIO.println("Takarítórobot indul útnak innen: " + p.getX() + ", " + p.getY());
+			//UserIO.println("Takarítórobot indul útnak innen: " + p.getX() + ", " + p.getY());
 		}
 	}
 	
@@ -288,7 +285,7 @@ public class Game {
 		gameController.gameEnded();
 		
 		//Kiírjuk a nyertest
-		UserIO.println("A " + winner.getColor() + " Robot nyert!");
+		//UserIO.println("A " + winner.getColor() + " Robot nyert!");
 		
 	}
 	

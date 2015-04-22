@@ -2,7 +2,6 @@ package phoebe.game;
 
 import java.util.List;
 
-import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 /**
@@ -59,15 +58,8 @@ public class CleanerRobot extends Robot {
 	//				if(r.overlaps(this) && !r.equals(this)){
 				if(game.isRobotCollision(this)) {
 						// Ha ütközés van
-						Vector modification = UserIO.getVector("Takarítórobot ütközött " + position.toString() + ", merre próbáljon ugrani?", new Vector(Math.random(), Math.random()));						
+						Vector modification = new Vector(Math.random(), Math.random());						
 						Vector newPosition = position.add(modification.normalized());
-						
-						//Ha nem manuálisan lett beállítva az új irány, akkor megnézzük, hogy kiment-e a mapról
-						if(!UserIO.isRandom()){
-							while(newPosition.getX() < 0 | newPosition.getX() > Map.size | newPosition.getY() < 0 | newPosition.getY() > Map.size){
-								newPosition = position.add((new Vector(Math.random(), Math.random())).normalized());
-							}
-						}
 						
 						position = newPosition;
 						
