@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 public class ViewPanel extends JPanel{
 	
+	public ViewPanel() {
+		
+	}
+	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
