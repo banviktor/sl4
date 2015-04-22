@@ -1,6 +1,7 @@
 package phoebe.gfx;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -43,6 +44,8 @@ public class Window extends JFrame{
 		oil = new JButton("Oil");
 		jump = new JButton("Jump");
 		
+		setUpButtons();
+		
 		buttonPanel.add(glue);
 		buttonPanel.add(jump);
 		buttonPanel.add(oil);
@@ -51,6 +54,18 @@ public class Window extends JFrame{
 		
 		this.add(new ViewPanel(),BorderLayout.CENTER);
 		
+	}
+	
+	private void setUpButtons(){
+		glue.setBackground(new Color(98, 77, 125));
+		glue.setForeground(Color.WHITE);
+        glue.setFocusPainted(false);
+		oil.setBackground(new Color(98, 77, 125));
+		oil.setForeground(Color.WHITE);
+        oil.setFocusPainted(false);
+		jump.setBackground(new Color(98, 77, 125));
+		jump.setForeground(Color.WHITE);
+        jump.setFocusPainted(false);
 	}
 	
 	public void getPlayerNumber () {
