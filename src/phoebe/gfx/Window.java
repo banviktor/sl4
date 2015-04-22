@@ -1,10 +1,14 @@
 package phoebe.gfx;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Window extends JFrame{
-	JButton smudge;
+	JButton glue;
 	JButton oil;
 	JButton jump;
 	
@@ -13,6 +17,25 @@ public class Window extends JFrame{
 	}
 	
 	private void initComponents(){
+		this.setLayout(new BorderLayout());
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new FlowLayout());
 		
+		glue = new JButton("Glue");
+		oil = new JButton("Oil");
+		jump = new JButton("Jump");
+		
+		buttonPanel.add(glue);
+		buttonPanel.add(jump);
+		buttonPanel.add(oil);
+		
+		this.add(buttonPanel, BorderLayout.SOUTH);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		Window win = new Window();
+		win.setVisible(true);
 	}
 }
