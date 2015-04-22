@@ -57,8 +57,7 @@ public class Window extends JFrame{
 		
 		getContentPane().add(new ViewPanel(),BorderLayout.CENTER);
 		
-		
-		
+		setVisible(true);
 	}
 	
 	private void setUpButtons(){
