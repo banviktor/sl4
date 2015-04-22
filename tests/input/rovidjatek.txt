@@ -1,8 +1,0 @@
-randomization off
-questions off
-start_game 2
-8 3
-5 6
-inputvector 5 0
-jump
-exit
