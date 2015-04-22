@@ -38,9 +38,11 @@ public class Window extends JFrame{
 	public void newGame(int n) {
 		//gc.newGame(n);
 		
-		this.removeAll();
+		getContentPane().removeAll();
+		getContentPane().repaint();
 		
 		glue = new JButton("Glue");
+		glue.setVisible(true);
 		oil = new JButton("Oil");
 		jump = new JButton("Jump");
 		
@@ -49,10 +51,13 @@ public class Window extends JFrame{
 		buttonPanel.add(glue);
 		buttonPanel.add(jump);
 		buttonPanel.add(oil);
+		buttonPanel.setVisible(true);
 		
-		this.add(buttonPanel, BorderLayout.SOUTH);
+		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 		
-		this.add(new ViewPanel(),BorderLayout.CENTER);
+		getContentPane().add(new ViewPanel(),BorderLayout.CENTER);
+		
+		
 		
 	}
 	
