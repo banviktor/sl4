@@ -1,6 +1,5 @@
 package phoebe.game;
 
-import phoebe.UserIO;
 import phoebe.basic.Color;
 import phoebe.basic.Vector;
 
@@ -79,7 +78,7 @@ public class PlayerRobot extends Robot {
 		position = position.add( speedVector );
 		
 		// Új pozíció kiírása
-		UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());
+		//UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());
 		
 		// Következő körre felkészítés
 		speedHalved = false;

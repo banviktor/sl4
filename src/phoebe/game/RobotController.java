@@ -3,7 +3,6 @@ package phoebe.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import phoebe.UserIO;
 import phoebe.basic.Vector;
 
 public class RobotController {
@@ -39,8 +38,8 @@ public class RobotController {
 		if (actualRobot.getOilNumber() > 0) {
 			willPlaceOil = !willPlaceOil;
 			willPlaceGlue = false;
-			UserIO.println("Olajfolt " + (willPlaceOil?"be.":"ki.") );
-			UserIO.println("Ragacs ki.");
+			//UserIO.println("Olajfolt " + (willPlaceOil?"be.":"ki.") );
+			//UserIO.println("Ragacs ki.");
 		}
 	}
 	
@@ -51,8 +50,8 @@ public class RobotController {
 		if (actualRobot.getGlueNumber() > 0) {
 			willPlaceGlue = !willPlaceGlue;
 			willPlaceOil = false;
-			UserIO.println("Ragacs " + (willPlaceGlue?"be.":"ki.") );
-			UserIO.println("Olajfolt ki.");
+			//UserIO.println("Ragacs " + (willPlaceGlue?"be.":"ki.") );
+			//UserIO.println("Olajfolt ki.");
 		}
 	}
 	
@@ -63,11 +62,11 @@ public class RobotController {
 	 */
 	public void setInputSpeedVector(Vector v){
 		if(actualRobot.isSpeedModificationDisabled()){
-			UserIO.println("Ebben a körben nem lehet sebességvektort megadni a robotnak.");
+			//UserIO.println("Ebben a körben nem lehet sebességvektort megadni a robotnak.");
 			return;
 		}
 		inputSpeedVector = v.normalized();
-		UserIO.println("Inputvector: " + v.normalized());
+		//UserIO.println("Inputvector: " + v.normalized());
 	}
 	
 	/**
@@ -78,10 +77,10 @@ public class RobotController {
 		//Lerakja a kiválasztott foltot
 		if(willPlaceOil){
 			map.addSmudge( actualRobot.createOil() );
-			UserIO.println("Olajfolt lehelyezve.");
+			//UserIO.println("Olajfolt lehelyezve.");
 		} else if(willPlaceGlue){
 			map.addSmudge( actualRobot.createGlue() );
-			UserIO.println("Ragacsfolt lehelyezve.");
+			//UserIO.println("Ragacsfolt lehelyezve.");
 		}
 		
 		// Robot sebességének növelése
@@ -94,7 +93,7 @@ public class RobotController {
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
 			game.deleteActualRobot();
-			UserIO.println("A robot leesett.");
+			//UserIO.println("A robot leesett.");
 		}
 		else {			
 			//Ha ráesik takarítórobotra, összetöri azt
@@ -107,16 +106,16 @@ public class RobotController {
 			
 			//Ha volt ütközés
 			if((deletedCleaners.size() + deletedPlayers.size()) > 0){
-				UserIO.println("Ez a robot a következőkkel ütközött:");
+				//UserIO.println("Ez a robot a következőkkel ütközött:");
 				//Kiírjuk a játékosokat
 				for(PlayerRobot pr : deletedPlayers){
 					if(!pr.equals(actualRobot)){
-						UserIO.println("\t" + pr.getColor().toString());
+						//UserIO.println("\t" + pr.getColor().toString());
 					}
 				}
 				//Kiírjuk a takarítókat
 				for (int i=0;i<deletedCleaners.size();++i) {
-					UserIO.println("\t" + "Takarítórobot");
+					//UserIO.println("\t" + "Takarítórobot");
 				}
 			}
 			
