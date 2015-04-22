@@ -45,7 +45,7 @@ public class RobotController {
 	}
 	
 	/**
-	 * Megváltoztatja az ragacsfolt lehelyezését jelzo flaget
+	 * Megváltoztatja a ragacsfolt lehelyezését jelzo flaget
 	 */
 	public void toggleGlue(){
 		if (actualRobot.getGlueNumber() > 0) {
