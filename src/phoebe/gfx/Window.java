@@ -14,6 +14,9 @@ public class Window extends JFrame{
 	
 	public Window(){
 		initComponents();
+		
+		this.setSize(300, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	private void initComponents(){
@@ -31,7 +34,7 @@ public class Window extends JFrame{
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.add(new ViewPanel(),BorderLayout.CENTER);
 	}
 	
 	public static void main(String[] args) {
