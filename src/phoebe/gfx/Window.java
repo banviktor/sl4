@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import control.GameButtonListener;
+import phoebe.control.GameButtonListener;
 import phoebe.game.GameController;
 
 public class Window extends JFrame{
