@@ -12,6 +12,8 @@ import phoebe.control.GameButtonListener;
 import phoebe.game.GameController;
 
 public class Window extends JFrame{
+	private static final long serialVersionUID = 2764832581974173222L;
+	
 	JButton glue;
 	JButton oil;
 	JButton jump;
@@ -21,7 +23,7 @@ public class Window extends JFrame{
 	public Window(GameController gc) {
 		initComponents();
 		
-		this.setSize(300, 300);
+		this.setSize(616, 675); // így a ViewPanel 600x600-as lesz
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.gc = gc;
@@ -36,13 +38,12 @@ public class Window extends JFrame{
 	}
 	
 	public void newGame(int n) {
-		//gc.newGame(n);
+		gc.newGame(n);
 		
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		
 		glue = new JButton("Glue");
-		glue.setVisible(true);
 		oil = new JButton("Oil");
 		jump = new JButton("Jump");
 		
@@ -53,9 +54,9 @@ public class Window extends JFrame{
 		buttonPanel.add(oil);
 		buttonPanel.setVisible(true);
 		
-		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+		this.add(buttonPanel, BorderLayout.SOUTH);
 		
-		getContentPane().add(new ViewPanel(),BorderLayout.CENTER);
+		this.add(new ViewPanel(gc),BorderLayout.CENTER);
 		
 		setVisible(true);
 	}
@@ -73,10 +74,19 @@ public class Window extends JFrame{
 	}
 	
 	public void getPlayerNumber () {
-		JButton twoPlayerButton = new JButton("2 játékos");
-		twoPlayerButton.setActionCommand("2 player");
-		twoPlayerButton.addActionListener(new GameButtonListener(this));
-		this.add(twoPlayerButton, BorderLayout.CENTER);
+		JPanel getNumberPanel = new JPanel();
+		getNumberPanel.setLayout(new FlowLayout());
+		
+		JButton[] numberButton = new JButton[4];
+		for(int i=0; i<4; ++i) {
+			numberButton[i] = new JButton(Integer.toString(i+2));
+			numberButton[i].setActionCommand((i+2) + " player");
+			numberButton[i].addActionListener(new GameButtonListener(this));
+			getNumberPanel.add( numberButton[i] );
+		}
+		
+		this.add(getNumberPanel, BorderLayout.CENTER);
+		
 	}
 	
 	public static void main(String[] args) {
