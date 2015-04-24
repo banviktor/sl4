@@ -96,6 +96,8 @@ public class MainWindow extends JFrame{
 		GameController gc = new GameController();
 		MainWindow win = new MainWindow(gc);
 		win.setVisible(true);
+		Render render = new Render(win);
+		render.start();
 	}
 
 }
