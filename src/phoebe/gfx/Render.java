@@ -6,6 +6,7 @@ public class Render extends Thread {
 	
 	public Render(MainWindow mw){
 		this.mw = mw;
+		this.setDaemon(true);
 	}
 
 	@Override
