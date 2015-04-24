@@ -88,21 +88,21 @@ public class ViewPanel extends JPanel{
 				BufferedImage resized = resize( image, diameter );
 				
 				//Bal felső sarok
-	            int x = transform(r.getPosition().getX()-r.getRadius());
-	            int y = transform(r.getPosition().getY()-r.getRadius());
-	            
-	            //Valós középpont
-	            int rotateX = transform(r.getPosition().getX());
-	            int rotateY = transform(r.getPosition().getY());
-	            
-	            //A forgatás szöge
-	            double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
-	            
-	            //Rajzolás
-	            g.rotate(angle, rotateX, rotateY);
-	            g.drawImage(resized, x, y, this);
-	            g.rotate(-angle, rotateX, rotateY);
-	        }
+				int x = transform(r.getPosition().getX()-r.getRadius());
+				int y = transform(r.getPosition().getY()-r.getRadius());
+				
+				//Valós középpont
+				int rotateX = transform(r.getPosition().getX());
+				int rotateY = transform(r.getPosition().getY());
+				
+				//A forgatás szöge
+				double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
+				
+				//Rajzolás
+				g.rotate(angle, rotateX, rotateY);
+				g.drawImage(resized, x, y, this);
+				g.rotate(-angle, rotateX, rotateY);
+			}
 		}
 		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
 			Image image = cleanerRobotSprite;
@@ -112,12 +112,12 @@ public class ViewPanel extends JPanel{
 				BufferedImage resized = resize( image, diameter );
 				
 				//Bal felső sarok
-	            int x = transform(r.getPosition().getX()-r.getRadius());
-	            int y = transform(r.getPosition().getY()-r.getRadius());
-	
-	            //Rajzolás
-	            g.drawImage(resized, x, y, this);
-	        }
+				int x = transform(r.getPosition().getX()-r.getRadius());
+				int y = transform(r.getPosition().getY()-r.getRadius());
+				
+				//Rajzolás
+				g.drawImage(resized, x, y, this);
+			}
 		}
 		g.drawString(Double.toString(Math.random()*30), 30, 30); // DEBUG
 	}
