@@ -6,11 +6,11 @@ import phoebe.basic.Vector;
  * Az általános foltokat megvalósító absztarkt osztály. Tárolja a folt helyét,
  * hátralévő élettartamát, és megvalósítja a foltok általános metódusait
  */
-public abstract class Smudge {
-	
+public abstract class Smudge {	
 	protected Vector position;
 	protected int duration;
 	protected int thickness;
+	protected double radius = 0.5;
 	
 	
 	/** 
@@ -80,6 +80,14 @@ public abstract class Smudge {
 	 * @return a folt élettartama
 	 */
 	public abstract int nextRound();
+	
+	/**
+	 * Visszatér a folt sugarával.
+	 * @return folt sugara
+	 */
+	public double getRadius() {
+		return radius;
+	}
 	
 	
 	public abstract String toString();
