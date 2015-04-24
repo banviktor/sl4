@@ -20,6 +20,8 @@ public class Window extends JFrame{
 	private JPanel buttonPanel;
 	private GameController gc;
 	
+	protected ViewPanel vp;
+	
 	public Window(GameController gc) {
 		initComponents();
 		
@@ -56,7 +58,8 @@ public class Window extends JFrame{
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 		
-		this.add(new ViewPanel(gc),BorderLayout.CENTER);
+		vp = new ViewPanel(gc);
+		this.add(vp ,BorderLayout.CENTER);
 		
 		setVisible(true);
 	}
