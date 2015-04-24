@@ -14,11 +14,11 @@ import phoebe.game.GameController;
 public class Window extends JFrame{
 	private static final long serialVersionUID = 2764832581974173222L;
 	
-	JButton glue;
-	JButton oil;
-	JButton jump;
-	JPanel buttonPanel;
-	GameController gc;
+	private JButton glue;
+	private JButton oil;
+	private JButton jump;
+	private JPanel buttonPanel;
+	private GameController gc;
 	
 	public Window(GameController gc) {
 		initComponents();
