@@ -97,7 +97,6 @@ public class MainWindow extends JFrame{
 		MainWindow win = new MainWindow(gc);
 		win.setVisible(true);
 		Render render = new Render(win);
-		render.setDaemon(true);
 		render.start();
 	}
 
