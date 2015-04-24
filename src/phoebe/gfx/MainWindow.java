@@ -27,6 +27,7 @@ public class MainWindow extends JFrame{
 		
 		this.setSize(616, 675); // így a ViewPanel 600x600-as lesz
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
 		
 		this.gc = gc;
 		
