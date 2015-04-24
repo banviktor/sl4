@@ -51,10 +51,6 @@ public class MainWindow extends JFrame{
 		jump = new JButton("Jump");
 		
 		setUpButtons();
-		
-		buttonPanel.add(glue);
-		buttonPanel.add(jump);
-		buttonPanel.add(oil);
 		buttonPanel.setVisible(true);
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
@@ -75,6 +71,10 @@ public class MainWindow extends JFrame{
 		jump.setBackground(new Color(98, 77, 125));
 		jump.setForeground(Color.WHITE);
         jump.setFocusPainted(false);
+        
+        buttonPanel.add(glue);
+		buttonPanel.add(jump);
+		buttonPanel.add(oil);
 	}
 	
 	public void getPlayerNumber () {
