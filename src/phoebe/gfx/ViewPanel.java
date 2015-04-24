@@ -60,6 +60,7 @@ public class ViewPanel extends JPanel{
 		int lineWidth = transform(map.getLineWidth());
 		List<Line> lines = map.getLines();
 		g.setColor(Color.GRAY);
+		g.setStroke(new BasicStroke(lineWidth));
 		for(Line l : lines) {
 			Vector v1 = l.getVector1();
 			Vector v2 = l.getVector2();
@@ -68,7 +69,6 @@ public class ViewPanel extends JPanel{
 			int x2 = transform(v2.getX());
 			int y2 = transform(v2.getY());
 			g.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
-			g.setStroke(new BasicStroke(lineWidth));
 			g.drawLine(x1, y1, x2, y2);
 			g.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
 		}
@@ -100,6 +100,7 @@ public class ViewPanel extends JPanel{
 	            g.drawImage(resized, x, y, this);
 	        }
 		}
+		g.drawString(Double.toString(Math.random()*30), 30, 30); // DEBUG
 	}
 	
 	/**
