@@ -109,10 +109,11 @@ public class MainWindow extends JFrame{
 		
 		//Négy különböző gombot hozunk létre a játékosszám beolvasásához
 		JButton[] numberButton = new JButton[4];
+		GameButtonListener gbl = new GameButtonListener(this);
 		for(int i=0; i<4; ++i) {
 			numberButton[i] = new JButton(Integer.toString(i+2));
 			numberButton[i].setActionCommand((i+2) + " player");
-			numberButton[i].addActionListener(new GameButtonListener(this));
+			numberButton[i].addActionListener(gbl);
 			getNumberPanel.add( numberButton[i] );
 		}
 		
