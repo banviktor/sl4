@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import phoebe.basic.Line;
 import phoebe.basic.Vector;
+import phoebe.game.CleanerRobot;
 import phoebe.game.GameController;
 import phoebe.game.Map;
 import phoebe.game.PlayerRobot;
@@ -78,17 +79,24 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawRobots(Graphics2D g) {
-		// TODO: cleanerRobotok
 		// TODO: orientation, flares
-		List<PlayerRobot> robots = gc.getGame().getPlayerRobots();
-		for(int i=0;i<robots.size();++i) {
-			PlayerRobot r = robots.get(i);
+		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
 			Image image = robotSprites[r.getColor().toInt()];
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
 				BufferedImage resized = resize( image, diameter );
 	            int x = transform(r.getPosition().getX()-r.getRadius());
 	            int y = transform(r.getPosition().getY()-r.getRadius());
+	            g.drawImage(resized, x, y, this);
+	        }
+		}
+		for(CleanerRobot cr : gc.getGame().getCleanerRobots()){
+			Image image = cleanerRobotSprite;
+			int diameter = transform(cr.getRadius()*2);
+			if (image != null) {
+				BufferedImage resized = resize( image, diameter );
+	            int x = transform(cr.getPosition().getX()-cr.getRadius());
+	            int y = transform(cr.getPosition().getY()-cr.getRadius());
 	            g.drawImage(resized, x, y, this);
 	        }
 		}
