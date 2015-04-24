@@ -87,8 +87,8 @@ public class ViewPanel extends JPanel{
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
 				BufferedImage resized = resize( image, diameter );
-	            int x = transform(r.getPosition().getX()-0.45);
-	            int y = transform(r.getPosition().getY()-0.45);
+	            int x = transform(r.getPosition().getX()-r.getRadius());
+	            int y = transform(r.getPosition().getY()-r.getRadius());
 	            g.drawImage(resized, x, y, this);
 	        }
 		}
