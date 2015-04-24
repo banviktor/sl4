@@ -39,4 +39,12 @@ public abstract class Robot {
 	 */
 	public abstract Oil createOil();
 	
+	/**
+	 * Visszatér a robot sugarával.
+	 * @return robot sugara
+	 */
+	public double getRadius() {
+		return radius;
+	}
+	
 }

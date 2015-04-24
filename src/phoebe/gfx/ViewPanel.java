@@ -15,18 +15,21 @@ import javax.swing.JPanel;
 
 import phoebe.basic.Line;
 import phoebe.basic.Vector;
-import phoebe.game.Game;
 import phoebe.game.GameController;
 import phoebe.game.Map;
 import phoebe.game.PlayerRobot;
-import phoebe.game.Robot;
 
 public class ViewPanel extends JPanel{
 	private static final long serialVersionUID = -138224603482222475L;
 	private GameController gc;
+	private Image[] robotSprites;
+	private Image cleanerRobotSprite;
+	private Image[] smudgesSprites;
+	private Image flaresSprite;
 	
 	public ViewPanel(GameController gc) {
 		this.gc = gc;
+		loadSprites();
 	}
 	
 	@Override
@@ -35,13 +38,22 @@ public class ViewPanel extends JPanel{
 		drawAll(g);
 	}
 	
+	/**
+	 * Felrajzol mindent a felületre
+	 * @param g felület
+	 */
 	private void drawAll(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 
 		drawMap(g2d);
+		drawSmudges(g2d);
 		drawRobots(g2d);
 	}
 	
+	/**
+	 * Felrajzolja a pályát a felületre
+	 * @param g felület
+	 */
 	private void drawMap(Graphics2D g) {
 		Map map = gc.getMap();
 		int lineWidth = transform(map.getLineWidth());
@@ -61,27 +73,99 @@ public class ViewPanel extends JPanel{
 		}
 	}
 	
+	/**
+	 * Felrajzolja a robotokat a felületre
+	 * @param g felület
+	 */
 	private void drawRobots(Graphics2D g) {
-		Game game = gc.getGame();
-		List<PlayerRobot> robots = game.getPlayerRobots();
-		for(PlayerRobot r : robots) {
-			BufferedImage img = null;
+		// TODO: cleanerRobotok
+		// TODO: orientation, flares
+		List<PlayerRobot> robots = gc.getGame().getPlayerRobots();
+		for(int i=0;i<robots.size();++i) {
+			PlayerRobot r = robots.get(i);
+			Image image = robotSprites[r.getColor().toInt()];
+			int diameter = transform(r.getRadius()*2);
+			if (image != null) {
+				BufferedImage resized = resize( image, diameter );
+	            int x = transform(r.getPosition().getX()-0.45);
+	            int y = transform(r.getPosition().getY()-0.45);
+	            g.drawImage(resized, x, y, this);
+	        }
+		}
+	}
+	
+	/**
+	 * Felrajzolja a foltokat a felületre
+	 * @param g felület
+	 */
+	private void drawSmudges(Graphics2D g) {
+		// TODO
+	}
+	
+	/**
+	 * A pályakoordinátákat(0.0-10.0) képernyőkoordinátákká (0-600) alakítja
+	 * @param d pályakoordináta
+	 * @return képernyőkoordináta
+	 */
+	private int transform(double d) {
+		return (int)( d / Map.size * 600 );
+	}
+	
+	/**
+	 * A játék elején betölti a memóriába a robot-képeket
+	 */
+	private void loadSprites() {
+		robotSprites = new BufferedImage[5];
+		smudgesSprites = new BufferedImage[2];
+		String[] filenames = new String[5];
+		filenames[0] = new String("sprites/robot_piros.png");
+		filenames[1] = new String("sprites/robot_sarga.png");
+		filenames[2] = new String("sprites/robot_zold.png");
+		filenames[3] = new String("sprites/robot_kek.png");
+		filenames[4] = new String("sprites/robot_lila.png");
+		for(int i=0;i<5;++i) {
 			try {
-                img = ImageIO.read(new File("sprites/robot_kek.png"));
+                robotSprites[i] = ImageIO.read(new File(filenames[i]));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-			Image image = img.getScaledInstance(transform(0.45*2), transform(0.45*2), Image.SCALE_SMOOTH);
-			if (image != null) {
-	            int x = transform(r.getPosition().getX()-0.45);
-	            int y = transform(r.getPosition().getY()-0.45);
-	            g.drawImage(image, x, y, this);
-	        }
 		}
-		
+		try {
+			smudgesSprites[0] = ImageIO.read(new File("sprites/oil.png"));
+			smudgesSprites[1] = ImageIO.read(new File("sprites/glue.png"));
+			cleanerRobotSprite = ImageIO.read(new File("sprites/kisrobot.png"));
+			flaresSprite = ImageIO.read(new File("sprites/flares.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	private int transform(double d) {
-		return (int)( d / 10.0 * getWidth() );
+	/**
+	 * Átméretez egy képet
+	 * @param img bementi kép
+	 * @param newW új szélesség
+	 * @param newH új magasság
+	 * @return átméretezett kép
+	 */
+	private BufferedImage resize(Image img, int newW, int newH) { 
+	    Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+	    BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+	    Graphics2D g2d = dimg.createGraphics();
+	    g2d.drawImage(tmp, 0, 0, null);
+	    g2d.dispose();
+
+	    return dimg;
+	}  
+	
+	/**
+	 * Átméretez egy négyzet alakú képet
+	 * @param img
+	 * @param diameter
+	 * @return
+	 */
+	private BufferedImage resize(Image img, int side) { 
+		return resize(img, side, side);
 	}
 }
