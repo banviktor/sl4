@@ -140,7 +140,7 @@ public class ViewPanel extends JPanel{
 	}
 	
 	/**
-	 * A játék elején betölti a memóriába a robot-képeket
+	 * A játék elején betölti a memóriába a játékban használt képeket
 	 */
 	private void loadSprites() {
 		robotSprites = new BufferedImage[5];
