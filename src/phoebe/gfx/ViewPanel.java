@@ -19,6 +19,7 @@ import phoebe.game.CleanerRobot;
 import phoebe.game.GameController;
 import phoebe.game.Map;
 import phoebe.game.PlayerRobot;
+import phoebe.game.Smudge;
 
 public class ViewPanel extends JPanel{
 	private static final long serialVersionUID = -138224603482222475L;
@@ -127,7 +128,26 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawSmudges(Graphics2D g) {
-		// TODO
+		for(Smudge s : gc.getMap().getSmudges()){
+			Image image;
+			int diameter = transform(s.getRadius()*2);
+			if(s.getClass().getName() == "phoebe.game.Oil"){
+				image = smudgesSprites[0];
+			}else{
+				image = smudgesSprites[1];
+			}
+			if (image != null) {
+				//Átméretezés
+				BufferedImage resized = resize( image, diameter );
+				
+				//Bal felső sarok
+				int x = transform(s.getPosition().getX()-s.getRadius());
+				int y = transform(s.getPosition().getY()-s.getRadius());
+				
+				//Rajzolás
+				g.drawImage(resized, x, y, this);
+			}
+		}
 	}
 	
 	/**
