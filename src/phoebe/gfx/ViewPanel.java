@@ -80,13 +80,13 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawRobots(Graphics2D g) {
-		// TODO: flares
 		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
 			Image image = robotSprites[r.getColor().toInt()];
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
 				//Átméretezés
-				BufferedImage resized = resize( image, diameter );
+				BufferedImage resized = resize(image, diameter);
+				BufferedImage flare = resize(flaresSprite, diameter);
 				
 				//Bal felső sarok
 				int x = transform(r.getPosition().getX()-r.getRadius());
@@ -103,9 +103,11 @@ public class ViewPanel extends JPanel{
 				g.rotate(angle, rotateX, rotateY);
 				g.drawImage(resized, x, y, this);
 				g.rotate(-angle, rotateX, rotateY);
+				g.drawImage(flare, x, y, this);
 			}
 		}
 		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
+			//TODO: flares?, flying and cleaning sprites
 			Image image = cleanerRobotSprite;
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
