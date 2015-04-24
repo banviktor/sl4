@@ -30,7 +30,7 @@ public abstract class Smudge {
 	 * @return logikai érték, mely megadja, hogy a vizsgált helyen fejt-e ki hatást a folt
 	 */
 	public boolean isEffectiveAt(Vector p) {
-		return (position.distance(p) <= 0.5);
+		return (position.distance(p) <= radius);
 	}
 	
 	/** 
