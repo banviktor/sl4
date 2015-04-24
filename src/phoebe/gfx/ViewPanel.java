@@ -79,24 +79,43 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawRobots(Graphics2D g) {
-		// TODO: orientation, flares
+		// TODO: flares
 		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
 			Image image = robotSprites[r.getColor().toInt()];
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
+				//Átméretezés
 				BufferedImage resized = resize( image, diameter );
+				
+				//Bal felső sarok
 	            int x = transform(r.getPosition().getX()-r.getRadius());
 	            int y = transform(r.getPosition().getY()-r.getRadius());
+	            
+	            //Valós középpont
+	            int rotateX = transform(r.getPosition().getX());
+	            int rotateY = transform(r.getPosition().getY());
+	            
+	            //A forgatás szöge
+	            double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
+	            
+	            //Rajzolás
+	            g.rotate(angle, rotateX, rotateY);
 	            g.drawImage(resized, x, y, this);
+	            g.rotate(-angle, rotateX, rotateY);
 	        }
 		}
-		for(CleanerRobot cr : gc.getGame().getCleanerRobots()){
+		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
 			Image image = cleanerRobotSprite;
-			int diameter = transform(cr.getRadius()*2);
+			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
+				//Átméretezés
 				BufferedImage resized = resize( image, diameter );
-	            int x = transform(cr.getPosition().getX()-cr.getRadius());
-	            int y = transform(cr.getPosition().getY()-cr.getRadius());
+				
+				//Bal felső sarok
+	            int x = transform(r.getPosition().getX()-r.getRadius());
+	            int y = transform(r.getPosition().getY()-r.getRadius());
+	
+	            //Rajzolás
 	            g.drawImage(resized, x, y, this);
 	        }
 		}
