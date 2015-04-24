@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import phoebe.control.GameButtonListener;
+import phoebe.control.PlayerNumberButtonListener;
 import phoebe.game.GameController;
 
 public class MainWindow extends JFrame{
@@ -109,7 +109,7 @@ public class MainWindow extends JFrame{
 		
 		//Négy különböző gombot hozunk létre a játékosszám beolvasásához
 		JButton[] numberButton = new JButton[4];
-		GameButtonListener gbl = new GameButtonListener(this);
+		PlayerNumberButtonListener gbl = new PlayerNumberButtonListener(this);
 		for(int i=0; i<4; ++i) {
 			numberButton[i] = new JButton(Integer.toString(i+2));
 			numberButton[i].setActionCommand((i+2) + " player");

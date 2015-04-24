@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import phoebe.gfx.MainWindow;
 
-public class GameButtonListener implements ActionListener{
+public class PlayerNumberButtonListener implements ActionListener{
 	
 	private MainWindow win;
 	
-	public GameButtonListener(MainWindow w) {
+	public PlayerNumberButtonListener(MainWindow w) {
 		win = w;
 	}
 	
