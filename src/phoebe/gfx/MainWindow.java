@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import phoebe.control.GameButtonListener;
 import phoebe.game.GameController;
 
-public class Window extends JFrame{
+public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 2764832581974173222L;
 	
 	private JButton glue;
@@ -22,7 +22,7 @@ public class Window extends JFrame{
 	
 	protected ViewPanel vp;
 	
-	public Window(GameController gc) {
+	public MainWindow(GameController gc) {
 		initComponents();
 		
 		this.setSize(616, 675); // így a ViewPanel 600x600-as lesz
@@ -94,7 +94,7 @@ public class Window extends JFrame{
 	
 	public static void main(String[] args) {
 		GameController gc = new GameController();
-		Window win = new Window(gc);
+		MainWindow win = new MainWindow(gc);
 		win.setVisible(true);
 	}
 

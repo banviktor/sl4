@@ -2,9 +2,9 @@ package phoebe.gfx;
 
 public class Render extends Thread {
 	
-	Window mw;
+	MainWindow mw;
 	
-	public Render(Window mw){
+	public Render(MainWindow mw){
 		this.mw = mw;
 	}
 

@@ -3,13 +3,13 @@ package phoebe.control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import phoebe.gfx.Window;
+import phoebe.gfx.MainWindow;
 
 public class GameButtonListener implements ActionListener{
 	
-	private Window win;
+	private MainWindow win;
 	
-	public GameButtonListener(Window w) {
+	public GameButtonListener(MainWindow w) {
 		win = w;
 	}
 	
