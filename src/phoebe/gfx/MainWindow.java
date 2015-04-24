@@ -22,6 +22,11 @@ public class MainWindow extends JFrame{
 	
 	protected ViewPanel vp;
 	
+	/**
+	 * Konstruktor, mely beállítja az ablak alapető tulajdonságait, és folytatja a játékot a játékosszám
+	 * bekérésének elindításával.
+	 * @param gc a játékhoz tartozó GameController
+	 */
 	public MainWindow(GameController gc) {
 		initComponents();
 		
@@ -29,27 +34,35 @@ public class MainWindow extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
+		//A GameController elmentése
 		this.gc = gc;
 		
+		//A játékosszám beolvasásának indítása
 		getPlayerNumber();
 	}
 	
+	
+	/**
+	 * A komponensek inicializálása, elrendezésük beállítása
+	 */
 	private void initComponents(){
 		this.setLayout(new BorderLayout());
 		buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout());	
 	}
 	
+	/**
+	 * Metódus új játék indítására
+	 * @param n a játékosok száma
+	 */
 	public void newGame(int n) {
+		// Új játék indítása
 		gc.newGame(n);
 		
+		//Az új játék megjelenítése a képernyőn
 		getContentPane().removeAll();
 		getContentPane().repaint();
-		
-		glue = new JButton("Glue");
-		oil = new JButton("Oil");
-		jump = new JButton("Jump");
-		
+				
 		setUpButtons();
 		buttonPanel.setVisible(true);
 		
@@ -61,7 +74,16 @@ public class MainWindow extends JFrame{
 		setVisible(true);
 	}
 	
+	
+	/**
+	 * Létrehozza az olaj, a ragacs és az ugrás gombját megfelelő stílussal, és a tárolójukba helyezi őket.
+	 */
 	private void setUpButtons(){
+		glue = new JButton("Glue");
+		oil = new JButton("Oil");
+		jump = new JButton("Jump");
+		
+		//A gombok kívánt kinézetének beállítása
 		glue.setBackground(new Color(98, 77, 125));
 		glue.setForeground(Color.WHITE);
         glue.setFocusPainted(false);
@@ -72,15 +94,20 @@ public class MainWindow extends JFrame{
 		jump.setForeground(Color.WHITE);
         jump.setFocusPainted(false);
         
+        //Elhelyezzük őket a buttonPanelen
         buttonPanel.add(glue);
 		buttonPanel.add(jump);
 		buttonPanel.add(oil);
 	}
 	
+	/**
+	 * Metódus az új játék játékosszámának beolvasásához
+	 */
 	public void getPlayerNumber () {
 		JPanel getNumberPanel = new JPanel();
 		getNumberPanel.setLayout(new FlowLayout());
 		
+		//Négy különböző gombot hozunk létre a játékosszám beolvasásához
 		JButton[] numberButton = new JButton[4];
 		for(int i=0; i<4; ++i) {
 			numberButton[i] = new JButton(Integer.toString(i+2));
@@ -93,10 +120,16 @@ public class MainWindow extends JFrame{
 		
 	}
 	
+	/**
+	 * A program belépési pontja, itt hozzuk létre az főablakot és indítjuk el külön szálon az időzítőt
+	 * @param args a program futásának paraméterei
+	 */
 	public static void main(String[] args) {
 		GameController gc = new GameController();
 		MainWindow win = new MainWindow(gc);
 		win.setVisible(true);
+		
+		//Időzítő a képernyőfrissítés megadásához
 		Render render = new Render(win);
 		render.start();
 	}
