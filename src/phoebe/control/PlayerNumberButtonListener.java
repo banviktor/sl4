@@ -7,22 +7,22 @@ import phoebe.gfx.MainWindow;
 
 public class PlayerNumberButtonListener implements ActionListener{
 	
-	private MainWindow win;
+	private MainWindow mw;
 	
-	public PlayerNumberButtonListener(MainWindow w) {
-		win = w;
+	public PlayerNumberButtonListener(MainWindow mw) {
+		this.mw = mw;
 	}
 	
 
 	public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("2 player")) {
-        	win.newGame(2);
+        	mw.newGame(2);
         } else if(e.getActionCommand().equals("3 player")) {
-        	win.newGame(3);
+        	mw.newGame(3);
         } else if(e.getActionCommand().equals("4 player")) {
-        	win.newGame(4);
+        	mw.newGame(4);
         } else {
-        	win.newGame(5);
+        	mw.newGame(5);
         }
     } 
 	
