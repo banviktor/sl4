@@ -45,7 +45,6 @@ public class GameController {
 	 */
 	public void gameEnded(PlayerRobot winner) {
 		running = false;
-		game = null;
 		this.winner = winner;
 	}
 	
