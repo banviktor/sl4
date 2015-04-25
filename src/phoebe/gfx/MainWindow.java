@@ -89,17 +89,17 @@ public class MainWindow extends JFrame{
 		glue.setForeground(Color.WHITE);
 		glue.setRolloverEnabled(false);
         glue.setFocusPainted(false);
-        glue.addActionListener(new ActionButtonListener(gc));
+        glue.addActionListener(new ActionButtonListener(gc.getRobotController()));
 		oil.setBackground(new Color(98, 77, 125));
 		oil.setForeground(Color.WHITE);
 		oil.setRolloverEnabled(false);
         oil.setFocusPainted(false);
-        oil.addActionListener(new ActionButtonListener(gc));
+        oil.addActionListener(new ActionButtonListener(gc.getRobotController()));
 		jump.setBackground(new Color(98, 77, 125));
 		jump.setForeground(Color.WHITE);
 		jump.setRolloverEnabled(false);
         jump.setFocusPainted(false);
-        jump.addActionListener(new ActionButtonListener(gc));
+        jump.addActionListener(new ActionButtonListener(gc.getRobotController()));
         
         //Elhelyezzük őket a buttonPanelen
         buttonPanel.add(glue);
