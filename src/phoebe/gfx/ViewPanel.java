@@ -47,10 +47,17 @@ public class ViewPanel extends JPanel{
 	 */
 	private void drawAll(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-
-		drawMap(g2d);
-		drawSmudges(g2d);
-		drawRobots(g2d);
+		
+		if(gc.isRunning()){
+			drawMap(g2d);
+			drawSmudges(g2d);
+			drawRobots(g2d);
+		}else{
+			g.setColor(Color.WHITE);
+			g2d.fillRect(0, 0, 600, 600);
+			//TODO: nyertes rajzolása kiírása stb
+		}
+		
 	}
 	
 	/**
