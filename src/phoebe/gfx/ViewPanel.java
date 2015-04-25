@@ -26,12 +26,12 @@ public class ViewPanel extends JPanel{
 	private static final long serialVersionUID = -138224603482222475L;
 	private final GameController gc;
 	private final HashMap<String, BufferedImage> sprites;
-	private final HashMap<Image, BufferedImage> cachedSprites;
+	private final HashMap<Integer, BufferedImage> cachedSprites;
 	
 	public ViewPanel(GameController gc) {
 		this.gc = gc;
 		sprites = new HashMap<String, BufferedImage>();
-		cachedSprites = new HashMap<Image, BufferedImage>();
+		cachedSprites = new HashMap<Integer, BufferedImage>();
 		loadSprites();
 	}
 	
@@ -215,10 +215,10 @@ public class ViewPanel extends JPanel{
 	 * @return
 	 */
 	private BufferedImage resize(Image img, int side) { 
-		BufferedImage cachedImage = cachedSprites.get(img);
+		BufferedImage cachedImage = cachedSprites.get(img.hashCode());
 		if (cachedImage == null ) {
 			cachedImage = resize(img, side, side); // ha még nincs cachelve tároljuk
-			cachedSprites.put(img, cachedImage);
+			cachedSprites.put(img.hashCode(), cachedImage);
 		} else {
 			if (cachedImage.getWidth() != side) {
 				return resize(img, side, side); // ha másik méretű van cachelve, nem tároljuk
