@@ -2,6 +2,7 @@ package phoebe.gfx;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -57,7 +58,11 @@ public class ViewPanel extends JPanel{
 		}else{
 			g.setColor(Color.WHITE);
 			g2d.fillRect(0, 0, 600, 600);
-			//TODO: nyertes rajzolása kiírása stb
+			PlayerRobot winnerCopy = new PlayerRobot(gc.getWinner().getColor(), new Vector(Map.size / 2, Map.size / 2));
+			drawRobot(g2d, winnerCopy, new Image[] {sprites.get("robot" + winnerCopy.getColor().toInt())}, new double[] {0});
+			g2d.setColor(Color.BLACK);
+			g2d.setFont(g2d.getFont().deriveFont(30.0f).deriveFont(Font.BOLD));			
+			g2d.drawString("A nyertes", 225, 250);
 		}
 		
 	}
