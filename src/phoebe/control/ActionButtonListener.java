@@ -17,7 +17,21 @@ public class ActionButtonListener  implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if(ControlState.get()){
+			(new Thread(){
+				public void run(){
+					try {
+						System.out.println("doing some work");
+						Thread.sleep(1000);
+						System.out.println("work done");
+						
+					} catch (InterruptedException e) {
+					} finally {
+						ControlState.release();
+					}
+				}
+			}).start();
+		}
 	}
 
 }
