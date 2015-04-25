@@ -86,12 +86,15 @@ public class MainWindow extends JFrame{
 		//A gombok kívánt kinézetének beállítása
 		glue.setBackground(new Color(98, 77, 125));
 		glue.setForeground(Color.WHITE);
+		glue.setRolloverEnabled(false);
         glue.setFocusPainted(false);
 		oil.setBackground(new Color(98, 77, 125));
 		oil.setForeground(Color.WHITE);
+		oil.setRolloverEnabled(false);
         oil.setFocusPainted(false);
 		jump.setBackground(new Color(98, 77, 125));
 		jump.setForeground(Color.WHITE);
+		jump.setRolloverEnabled(false);
         jump.setFocusPainted(false);
         
         //Elhelyezzük őket a buttonPanelen
