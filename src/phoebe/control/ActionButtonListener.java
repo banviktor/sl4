@@ -3,29 +3,35 @@ package phoebe.control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import phoebe.game.RobotController;
+import phoebe.game.GameController;
 
 public class ActionButtonListener  implements ActionListener{
-
-	private RobotController rc;
+	private GameController gc;
 	
-	
-	public ActionButtonListener(RobotController rc) {
-		this.rc = rc;
+	public ActionButtonListener(GameController gc) {
+		this.gc = gc;
 	}
 	
-	
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(final ActionEvent e) {
 		if(ControlState.get()){
 			(new Thread(){
 				public void run(){
 					try {
-						System.out.println("doing some work");
-						Thread.sleep(1000);
-						System.out.println("work done");
-						
-					} catch (InterruptedException e) {
+						String action = e.getActionCommand();
+						if(action.equals("Jump")){
+							gc.getRobotController().nextTurn();
+							if(!gc.isRunning()){
+								//Ha a játék véget ért
+							}
+						}else if(action.equals("Glue")){
+							gc.getRobotController().toggleGlue();
+						}else if(action.equals("Oil")){
+							gc.getRobotController().toggleOil();
+						}else{
+							//?
+						}
+					} catch (Exception e) {
 					} finally {
 						ControlState.release();
 					}
