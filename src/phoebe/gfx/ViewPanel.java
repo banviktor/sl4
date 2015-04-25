@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -23,14 +24,12 @@ import phoebe.game.Smudge;
 
 public class ViewPanel extends JPanel{
 	private static final long serialVersionUID = -138224603482222475L;
-	private GameController gc;
-	private Image[] robotSprites;
-	private Image cleanerRobotSprite;
-	private Image[] smudgesSprites;
-	private Image flaresSprite;
+	private final GameController gc;
+	private HashMap<String, BufferedImage> sprites;
 	
 	public ViewPanel(GameController gc) {
 		this.gc = gc;
+		sprites = new HashMap<String, BufferedImage>();
 		loadSprites();
 	}
 	
@@ -81,12 +80,12 @@ public class ViewPanel extends JPanel{
 	 */
 	private void drawRobots(Graphics2D g) {
 		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
-			Image image = robotSprites[r.getColor().toInt()];
+			Image image = sprites.get("robot" + r.getColor().toInt() );
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
 				//Átméretezés
 				BufferedImage resized = resize(image, diameter);
-				BufferedImage flare = resize(flaresSprite, diameter);
+				BufferedImage flare = resize(sprites.get("flares"), diameter);
 				
 				//Bal felső sarok
 				int x = transform(r.getPosition().getX()-r.getRadius());
@@ -108,7 +107,7 @@ public class ViewPanel extends JPanel{
 		}
 		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
 			//TODO: flares?, flying and cleaning sprites
-			Image image = cleanerRobotSprite;
+			Image image = sprites.get("cleaner");
 			int diameter = transform(r.getRadius()*2);
 			if (image != null) {
 				//Átméretezés
@@ -134,9 +133,9 @@ public class ViewPanel extends JPanel{
 			Image image;
 			int diameter = transform(s.getRadius()*2);
 			if(s.getClass().getName() == "phoebe.game.Oil"){
-				image = smudgesSprites[0];
+				image = sprites.get("oil");
 			}else{
-				image = smudgesSprites[1];
+				image = sprites.get("glue");
 			}
 			if (image != null) {
 				//Átméretezés
@@ -165,8 +164,6 @@ public class ViewPanel extends JPanel{
 	 * A játék elején betölti a memóriába a játékban használt képeket
 	 */
 	private void loadSprites() {
-		robotSprites = new BufferedImage[5];
-		smudgesSprites = new BufferedImage[2];
 		String[] filenames = new String[5];
 		filenames[0] = new String("sprites/robot_piros.png");
 		filenames[1] = new String("sprites/robot_sarga.png");
@@ -175,16 +172,16 @@ public class ViewPanel extends JPanel{
 		filenames[4] = new String("sprites/robot_lila.png");
 		for(int i=0;i<5;++i) {
 			try {
-                robotSprites[i] = ImageIO.read(new File(filenames[i]));
+                sprites.put( "robot" + i, ImageIO.read(new File(filenames[i])) );
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
 		}
 		try {
-			smudgesSprites[0] = ImageIO.read(new File("sprites/oil.png"));
-			smudgesSprites[1] = ImageIO.read(new File("sprites/glue.png"));
-			cleanerRobotSprite = ImageIO.read(new File("sprites/kisrobot.png"));
-			flaresSprite = ImageIO.read(new File("sprites/flares.png"));
+			sprites.put("oil", ImageIO.read(new File("sprites/oil.png")) );
+			sprites.put("glue", ImageIO.read(new File("sprites/glue.png")) );
+			sprites.put("cleaner", ImageIO.read(new File("sprites/kisrobot.png")) );
+			sprites.put("flares", ImageIO.read(new File("sprites/flares.png")) );
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
