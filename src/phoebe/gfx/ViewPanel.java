@@ -25,11 +25,13 @@ import phoebe.game.Smudge;
 public class ViewPanel extends JPanel{
 	private static final long serialVersionUID = -138224603482222475L;
 	private final GameController gc;
-	private HashMap<String, BufferedImage> sprites;
+	private final HashMap<String, BufferedImage> sprites;
+	private final HashMap<Image, BufferedImage> cachedSprites;
 	
 	public ViewPanel(GameController gc) {
 		this.gc = gc;
 		sprites = new HashMap<String, BufferedImage>();
+		cachedSprites = new HashMap<Image, BufferedImage>();
 		loadSprites();
 	}
 	
@@ -213,6 +215,15 @@ public class ViewPanel extends JPanel{
 	 * @return
 	 */
 	private BufferedImage resize(Image img, int side) { 
-		return resize(img, side, side);
+		BufferedImage cachedImage = cachedSprites.get(img);
+		if (cachedImage == null ) {
+			cachedImage = resize(img, side, side); // ha még nincs cachelve tároljuk
+			cachedSprites.put(img, cachedImage);
+		} else {
+			if (cachedImage.getWidth() != side) {
+				return resize(img, side, side); // ha másik méretű van cachelve, nem tároljuk
+			}
+		}
+		return cachedImage; // ha cachelve van, visszaadjuk
 	}
 }
