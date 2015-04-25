@@ -119,7 +119,7 @@ public class Game {
 		double chance = (double) (map.getSmudges().size() - cleanerRobots.size()) * r.nextDouble();
 		
 		// Ha új robotot spawnolunk
-		if(chance <= 0.2){
+		if(chance <= 0.2 && chance > 0){
 			double x = r.nextInt(2) * 10;
 			double y = r.nextInt(2) * 10;
 			Vector p = new Vector(x, y);
