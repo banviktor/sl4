@@ -84,22 +84,25 @@ public class MainWindow extends JFrame{
 		oil = new JButton("Oil");
 		jump = new JButton("Jump");
 		
+		//A közös ActionButtonListener létrehozása
+		ActionButtonListener abl = new ActionButtonListener(gc.getRobotController());
+		
 		//A gombok kívánt kinézetének beállítása
 		glue.setBackground(new Color(98, 77, 125));
 		glue.setForeground(Color.WHITE);
 		glue.setRolloverEnabled(false);
         glue.setFocusPainted(false);
-        glue.addActionListener(new ActionButtonListener(gc.getRobotController()));
+        glue.addActionListener(abl);
 		oil.setBackground(new Color(98, 77, 125));
 		oil.setForeground(Color.WHITE);
 		oil.setRolloverEnabled(false);
         oil.setFocusPainted(false);
-        oil.addActionListener(new ActionButtonListener(gc.getRobotController()));
+        oil.addActionListener(abl);
 		jump.setBackground(new Color(98, 77, 125));
 		jump.setForeground(Color.WHITE);
 		jump.setRolloverEnabled(false);
         jump.setFocusPainted(false);
-        jump.addActionListener(new ActionButtonListener(gc.getRobotController()));
+        jump.addActionListener(abl);
         
         //Elhelyezzük őket a buttonPanelen
         buttonPanel.add(glue);
