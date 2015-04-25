@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import phoebe.game.CleanerRobot;
 import phoebe.game.GameController;
 import phoebe.game.Map;
 import phoebe.game.PlayerRobot;
+import phoebe.game.Robot;
 import phoebe.game.Smudge;
 
 public class ViewPanel extends JPanel{
@@ -88,49 +90,52 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawRobots(Graphics2D g) {
+		//Játékosrobotok kirajzolása
 		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
-			Image image = sprites.get("robot" + r.getColor().toInt() );
-			int diameter = transform(r.getRadius()*2);
-			if (image != null) {
-				//Átméretezés
-				BufferedImage resized = resize(image, diameter);
-				BufferedImage flare = resize(sprites.get("flares"), diameter);
-				
-				//Bal felső sarok
-				int x = transform(r.getPosition().getX()-r.getRadius());
-				int y = transform(r.getPosition().getY()-r.getRadius());
-				
-				//Valós középpont
-				int rotateX = transform(r.getPosition().getX());
-				int rotateY = transform(r.getPosition().getY());
-				
+			Image image = sprites.get("robot" + r.getColor().toInt());
+			if (image != null) {				
 				//A forgatás szöge
 				double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
 				
 				//Rajzolás
-				g.rotate(angle, rotateX, rotateY);
-				g.drawImage(resized, x, y, this);
-				g.rotate(-angle, rotateX, rotateY);
-				g.drawImage(flare, x, y, this);
+				drawRobot(g, r, new Image[] {image, sprites.get("flares")}, new double[] {angle, 0});
 			}
 		}
+		
+		//Takarítórobotok kirajzolása
 		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
-			//TODO: flares?, flying and cleaning sprites
-			Image image = sprites.get("cleaner");
-			int diameter = transform(r.getRadius()*2);
-			if (image != null) {
-				//Átméretezés
-				BufferedImage resized = resize( image, diameter );
-				
-				//Bal felső sarok
-				int x = transform(r.getPosition().getX()-r.getRadius());
-				int y = transform(r.getPosition().getY()-r.getRadius());
-				
-				//Rajzolás
-				g.drawImage(resized, x, y, this);
-			}
+			drawRobot(g, r, new Image[] {sprites.get("cleaner")}, new double[] {0});
 		}
-		g.drawString(Double.toString(Math.random()*30), 30, 30); // DEBUG
+	}
+	
+	/**
+	 * Felrajzol egy robotot a felületre
+	 * @param g felület
+	 * @param r robot
+	 * @param sprites sprite-ok
+	 * @param angles az egyes spriteok forgatásának szögei
+	 */
+	private void drawRobot(Graphics2D g, Robot r, Image[] sprites, double[] angles){
+		//Átméretezés
+		List<BufferedImage> resized = new ArrayList<BufferedImage>();
+		for(Image sprite : sprites){
+			resized.add(resize(sprite, transform(r.getRadius()*2)));
+		}
+		
+		//Bal felső sarok
+		int x = transform(r.getPosition().getX()-r.getRadius());
+		int y = transform(r.getPosition().getY()-r.getRadius());
+		
+		//Valós középpont
+		int rotateX = transform(r.getPosition().getX());
+		int rotateY = transform(r.getPosition().getY());
+		
+		//Rajzolás		
+		for(int i = 0; i < resized.size(); ++i){
+			g.rotate(angles[i], rotateX, rotateY);
+			g.drawImage(resized.get(i), x, y, this);
+			g.rotate(-angles[i], rotateX, rotateY);
+		}	
 	}
 	
 	/**
