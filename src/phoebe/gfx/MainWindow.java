@@ -80,11 +80,9 @@ public class MainWindow extends JFrame{
 	 * Létrehozza az olaj, a ragacs és az ugrás gombját megfelelő stílussal, és a tárolójukba helyezi őket.
 	 */
 	private void setUpButtons(){
-		glue = new JButton("New game");
+		glue = new JButton("Glue");
 		oil = new JButton("Oil");
-		oil.setVisible(false);
 		jump = new JButton("Jump");
-		jump.setVisible(false);
 		
 		//A közös ActionButtonListener létrehozása
 		ActionButtonListener abl = new ActionButtonListener(gc.getRobotController());
