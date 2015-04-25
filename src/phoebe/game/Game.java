@@ -271,8 +271,7 @@ public class Game {
 	/**
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
-	private void gameEnd(){
-		
+	private void gameEnd(){		
 		//Megnézzük az összes robot közül kinek a legnagyobb a megtett távolsága
 		PlayerRobot winner = playerRobots.get(0);
 		for (PlayerRobot i : playerRobots) {
@@ -282,11 +281,7 @@ public class Game {
 		}
 		
 		//Értesítjük gameControllert a játék végéről
-		gameController.gameEnded();
-		
-		//Kiírjuk a nyertest
-		//UserIO.println("A " + winner.getColor() + " Robot nyert!");
-		
+		gameController.gameEnded(winner);		
 	}
 	
 	

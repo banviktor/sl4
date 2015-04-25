@@ -7,7 +7,7 @@ public class GameController {
 	
 	private Game game;
 	private boolean running;
-
+	private PlayerRobot winner = null;
 	
 	/**
 	 * Az osztály konstruktora
@@ -43,9 +43,10 @@ public class GameController {
 	/**
 	 * Beállítja, hogy nincs futó játék
 	 */
-	public void gameEnded() {
+	public void gameEnded(PlayerRobot winner) {
 		running = false;
 		game = null;
+		this.winner = winner;
 	}
 	
 	/**
@@ -81,6 +82,14 @@ public class GameController {
 	 */
 	public Game getGame() {
 		return game;
+	}
+	
+	/**
+	 * Visszaadja a nyertes játékosrobotot.
+	 * @return A nyertes játékosrobot
+	 */
+	public PlayerRobot getWinner() {
+		return winner;
 	}
 	
 }
