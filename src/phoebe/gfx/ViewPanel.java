@@ -60,7 +60,7 @@ public class ViewPanel extends JPanel{
 			drawRobot(g2d, winnerCopy, new Image[] {sprites.get("robot" + winnerCopy.getColor().toInt()), sprites.get("flares")}, new double[] {0, 0});
 			g2d.setColor(Color.BLACK);
 			g2d.setFont(g2d.getFont().deriveFont(30.0f).deriveFont(Font.BOLD));			
-			g2d.drawString("A nyertes", 225, 250);
+			g2d.drawString("The winner is:", 200, 250);
 		}
 		
 	}
