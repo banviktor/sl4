@@ -56,8 +56,6 @@ public class ViewPanel extends JPanel{
 			drawSmudges(g2d);
 			drawRobots(g2d);
 		}else{
-			g.setColor(Color.WHITE);
-			g2d.fillRect(0, 0, 600, 600);
 			PlayerRobot winnerCopy = new PlayerRobot(gc.getWinner().getColor(), new Vector(Map.size / 2, Map.size / 2));
 			drawRobot(g2d, winnerCopy, new Image[] {sprites.get("robot" + winnerCopy.getColor().toInt())}, new double[] {0});
 			g2d.setColor(Color.BLACK);
