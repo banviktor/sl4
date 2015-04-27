@@ -55,6 +55,7 @@ public class ViewPanel extends JPanel{
 		if(gc.isRunning()){
 			drawMap(g2d);
 			drawSmudges(g2d);
+			drawArrows(g2d);
 			drawRobots(g2d);
 		}else{
 			PlayerRobot winnerCopy = new PlayerRobot(gc.getWinner().getColor(), new Vector(Map.size / 2, Map.size / 2));
@@ -64,6 +65,23 @@ public class ViewPanel extends JPanel{
 			g2d.drawString("The winner is:", 200, 250);
 		}
 		
+	}
+	
+	/**
+	 * Felrajzolja a robotok inputvektorát, és sebességvektorát TODO Beta (colors, scheme don't match)
+	 * @param g2d felület
+	 */
+	private void drawArrows(Graphics2D g2d){
+		g2d.setColor(Color.BLUE);
+		int x1 = transform(gc.getRobotController().getActualRobot().getPosition().getX());
+		int y1 = transform(gc.getRobotController().getActualRobot().getPosition().getY());
+		int x2 = transform(gc.getRobotController().getJumpDestination().getX());
+		int y2 = transform(gc.getRobotController().getJumpDestination().getY());
+		g2d.drawLine(x1, y1, x2, y2);
+		g2d.setColor(Color.cyan);
+		x2 = x1 + transform(gc.getRobotController().getInputSpeedVector().getX());
+		y2 = y1 + transform(gc.getRobotController().getInputSpeedVector().getY());
+		g2d.drawLine(x1, y1, x2, y2);
 	}
 	
 	/**
