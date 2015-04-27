@@ -19,6 +19,21 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		mouseInput(e);
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		mouseInput(e);	
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private void mouseInput(MouseEvent e){
 		PlayerRobot actualRobot = rc.getActualRobot();
 		if(actualRobot == null)
 			return;
@@ -26,18 +41,6 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 		double yCoord = (Map.size*e.getY()/600)-actualRobot.getPosition().getY();
 		Vector input = new Vector(xCoord, yCoord);
 		rc.setInputSpeedVector(input);
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
