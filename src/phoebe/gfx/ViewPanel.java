@@ -70,22 +70,7 @@ public class ViewPanel extends JPanel{
 	 * @param g felület
 	 */
 	private void drawMap(Graphics2D g) {
-		Map map = gc.getMap();
-		int lineWidth = transform(map.getLineWidth());
-		List<Line> lines = map.getLines();
-		g.setColor(Color.GRAY);
-		g.setStroke(new BasicStroke(lineWidth));
-		for(Line l : lines) {
-			Vector v1 = l.getVector1();
-			Vector v2 = l.getVector2();
-			int x1 = transform(v1.getX());
-			int y1 = transform(v1.getY());
-			int x2 = transform(v2.getX());
-			int y2 = transform(v2.getY());
-			g.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
-			g.drawLine(x1, y1, x2, y2);
-			g.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
-		}
+		g.drawImage(sprites.get("map"), 0, 0, this);
 	}
 	
 	/**
@@ -203,6 +188,27 @@ public class ViewPanel extends JPanel{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//map betöltése
+		BufferedImage mapImage = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = mapImage.createGraphics();
+		Map map = gc.getMap();
+		int lineWidth = transform(map.getLineWidth());
+		List<Line> lines = map.getLines();
+		g.setColor(Color.GRAY);
+		g.setStroke(new BasicStroke(lineWidth));
+		for(Line l : lines) {
+			Vector v1 = l.getVector1();
+			Vector v2 = l.getVector2();
+			int x1 = transform(v1.getX());
+			int y1 = transform(v1.getY());
+			int x2 = transform(v2.getX());
+			int y2 = transform(v2.getY());
+			g.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
+			g.drawLine(x1, y1, x2, y2);
+			g.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
+		}
+		sprites.put("map", mapImage);
 	}
 	
 	/**
