@@ -21,7 +21,6 @@ public class ActionButtonListener  implements ActionListener{
 					try {
 						String action = e.getActionCommand();
 						if(action.equals("Jump")){
-							rc.setInputSpeedVector(new Vector(3,3));
 							rc.nextTurn();
 						}else if(action.equals("Glue")){
 							rc.toggleGlue();
