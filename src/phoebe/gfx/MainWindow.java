@@ -72,6 +72,7 @@ public class MainWindow extends JFrame{
 		
 		vp = new ViewPanel(gc);
 		vp.addMouseListener(new GameMouseListener(gc.getRobotController()));
+		//TODO remove after game end, (exceptions)
 		this.add(vp ,BorderLayout.CENTER);
 		
 		setVisible(true);
