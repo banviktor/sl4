@@ -1,5 +1,6 @@
 package phoebe.gfx;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -166,6 +167,7 @@ public class ViewPanel extends JPanel{
 	 * A játék elején betölti a memóriába a játékban használt képeket
 	 */
 	private void loadSprites() {
+		// robotok betöltése
 		String[] filenames = new String[5];
 		filenames[0] = new String("sprites/robot_piros.png");
 		filenames[1] = new String("sprites/robot_sarga.png");
@@ -179,6 +181,7 @@ public class ViewPanel extends JPanel{
                 ex.printStackTrace();
             }
 		}
+		// többi kép betöltése
 		try {
 			sprites.put("oil", ImageIO.read(new File("sprites/oil.png")) );
 			sprites.put("glue", ImageIO.read(new File("sprites/glue.png")) );
@@ -189,14 +192,32 @@ public class ViewPanel extends JPanel{
 			e.printStackTrace();
 		}
 		
-		//map betöltése
+		// map betöltése
+		int lineWidth = transform(gc.getMap().getLineWidth());
+		List<Line> lines = gc.getMap().getLines();
+		
+		// map képek betöltése
 		BufferedImage mapImage = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = mapImage.createGraphics();
-		Map map = gc.getMap();
-		int lineWidth = transform(map.getLineWidth());
-		List<Line> lines = map.getLines();
-		g.setColor(Color.GRAY);
-		g.setStroke(new BasicStroke(lineWidth));
+		BufferedImage mapRoad = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage mapSky = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage tmpImg;
+		try {
+			tmpImg = ImageIO.read(new File("sprites/map_road.png"));
+			mapRoad.getGraphics().drawImage(tmpImg, 0, 0, this);
+			tmpImg = ImageIO.read(new File("sprites/map_sky.png"));
+			mapSky.getGraphics().drawImage(tmpImg, 0, 0, this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// map képek összevágása
+		g.drawImage(mapRoad, 0, 0, this);
+		Graphics2D gSky = mapSky.createGraphics();
+		gSky.setStroke(new BasicStroke(lineWidth));
+		gSky.setComposite(AlphaComposite.Src);
+		gSky.setColor( new Color(0, 0, 0, 0) ); // transparent ink
 		for(Line l : lines) {
 			Vector v1 = l.getVector1();
 			Vector v2 = l.getVector2();
@@ -204,10 +225,11 @@ public class ViewPanel extends JPanel{
 			int y1 = transform(v1.getY());
 			int x2 = transform(v2.getX());
 			int y2 = transform(v2.getY());
-			g.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
-			g.drawLine(x1, y1, x2, y2);
-			g.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
+			gSky.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
+			gSky.drawLine(x1, y1, x2, y2);
+			gSky.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
 		}
+		g.drawImage(mapSky, 0, 0, this);
 		sprites.put("map", mapImage);
 	}
 	
