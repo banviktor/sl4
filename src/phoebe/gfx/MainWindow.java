@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import phoebe.control.ActionButtonListener;
+import phoebe.control.GameMouseListener;
 import phoebe.control.PlayerNumberButtonListener;
 import phoebe.game.GameController;
 
@@ -70,6 +71,7 @@ public class MainWindow extends JFrame{
 		this.add(buttonPanel, BorderLayout.SOUTH);
 		
 		vp = new ViewPanel(gc);
+		vp.addMouseListener(new GameMouseListener(gc.getRobotController()));
 		this.add(vp ,BorderLayout.CENTER);
 		
 		setVisible(true);
