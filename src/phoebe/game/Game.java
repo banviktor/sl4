@@ -206,9 +206,9 @@ public class Game {
 					
 					//Amennyiben az aktuális robot a gyorsabb a másik robot törik össze
 					deleted.add(pr);
-					playerRobots.remove(pr);
 					if(playerRobots.indexOf(pr) <= actualRobotNumber)
 						actualRobotNumber--;
+					playerRobots.remove(pr);					
 					robotIterator.remove();
 					
 					//Az aktuális a kettő átlagával megy tovább, és ütközhet másokkal
@@ -219,9 +219,9 @@ public class Game {
 					
 					//Ha egyforma gyorsak mindeketten összetörnek
 					deleted.add(pr);
-					playerRobots.remove(pr);
 					if(playerRobots.indexOf(pr) <= actualRobotNumber)
 						actualRobotNumber--;
+					playerRobots.remove(pr);							
 					robotIterator.remove();
 					
 					//Ha az ugró egyedül maradt, ő nyer, ezért akkor életben hagyjuk
