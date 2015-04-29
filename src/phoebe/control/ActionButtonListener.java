@@ -3,14 +3,14 @@ package phoebe.control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import phoebe.basic.Vector;
+import phoebe.game.GameController;
 import phoebe.game.RobotController;
 
 public class ActionButtonListener  implements ActionListener{
-	private RobotController rc;
+	private GameController gc;
 	
-	public ActionButtonListener(RobotController rc) {
-		this.rc = rc;
+	public ActionButtonListener(GameController gc) {
+		this.gc = gc;
 	}
 	
 	@Override
@@ -19,6 +19,7 @@ public class ActionButtonListener  implements ActionListener{
 			(new Thread(){
 				public void run(){
 					try {
+						RobotController rc = gc.getRobotController();
 						String action = e.getActionCommand();
 						if(action.equals("Jump")){
 							rc.nextTurn();

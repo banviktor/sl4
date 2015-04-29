@@ -15,11 +15,11 @@ public class PlayerNumberButtonListener implements ActionListener{
 	
 
 	public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("2 player")) {
+        if(e.getActionCommand().equals("2")) {
         	mw.newGame(2);
-        } else if(e.getActionCommand().equals("3 player")) {
+        } else if(e.getActionCommand().equals("3")) {
         	mw.newGame(3);
-        } else if(e.getActionCommand().equals("4 player")) {
+        } else if(e.getActionCommand().equals("4")) {
         	mw.newGame(4);
         } else {
         	mw.newGame(5);

@@ -5,16 +5,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 import phoebe.basic.Vector;
+import phoebe.game.GameController;
 import phoebe.game.Map;
 import phoebe.game.PlayerRobot;
 import phoebe.game.RobotController;
 
 public class GameMouseListener extends MouseAdapter implements MouseMotionListener{
 
-	private RobotController rc;
+	private GameController gc;
 		
-	public GameMouseListener(RobotController rc) {
-		this.rc = rc;
+	public GameMouseListener(GameController gc) {
+		this.gc = gc;
 	}
 	
 	@Override
@@ -34,6 +35,7 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 	}
 	
 	private void mouseInput(MouseEvent e){
+		RobotController rc = gc.getRobotController();
 		PlayerRobot actualRobot = rc.getActualRobot();
 		if(actualRobot == null)
 			return;

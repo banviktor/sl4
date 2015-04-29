@@ -3,6 +3,7 @@ package phoebe.gfx;
 public class Render extends Thread {
 	
 	private MainWindow mw;
+	private boolean stopSignal = false;
 	
 	public Render(MainWindow mw){
 		this.mw = mw;
@@ -19,16 +20,17 @@ public class Render extends Thread {
 	    long timer = System.currentTimeMillis();
 	    int frames = 0;
 	    long currentTime;
+	    ViewPanel vp = mw.getViewPanel();
 	    
-		while(true){
+		while(!stopSignal){
 			 currentTime = System.nanoTime();
 			 deltaT += (currentTime - initialTime) / OPTIMAL_TIME;
 			 initialTime = currentTime;
 			 
 			 if (deltaT >= 1) {
-				 if (mw.vp != null)
+				 if (vp != null)
 					 // blokkol a repaint alatt, így mérhető a szükséges idő
-					mw.vp.paintImmediately(0, 0, mw.vp.getHeight(), mw.vp.getWidth());
+					vp.paintImmediately(0, 0, vp.getHeight(), vp.getWidth());
 		         frames++;
 		         deltaT--;
 		    }
@@ -41,6 +43,10 @@ public class Render extends Thread {
 		            timer += 1000;
 		        }
 		}
+	}
+	
+	public void stopSignal(){
+		stopSignal = true;
 	}
 
 }

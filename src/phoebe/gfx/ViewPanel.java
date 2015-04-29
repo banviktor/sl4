@@ -31,12 +31,19 @@ public class ViewPanel extends JPanel{
 	private final GameController gc;
 	private final HashMap<String, BufferedImage> sprites;
 	private final HashMap<Integer, BufferedImage> cachedSprites;
+	private final MainWindow mw;
+	private boolean ended = false;
 	
-	public ViewPanel(GameController gc) {
-		this.gc = gc;
+	public ViewPanel(MainWindow mw) {
+		this.mw = mw;
+		this.gc = mw.getGameController();
 		sprites = new HashMap<String, BufferedImage>();
 		cachedSprites = new HashMap<Integer, BufferedImage>();
 		loadSprites();
+	}
+	
+	public void init(){
+		ended = false;
 	}
 	
 	@Override
@@ -57,7 +64,12 @@ public class ViewPanel extends JPanel{
 			drawSmudges(g2d);
 			drawArrows(g2d);
 			drawRobots(g2d);
-		}else{
+		}else{			
+			if(!ended){
+				ended = true;
+				mw.endGame();
+			}
+			
 			PlayerRobot winnerCopy = new PlayerRobot(gc.getWinner().getColor(), new Vector(Map.size / 2, Map.size / 2));
 			drawRobot(g2d, winnerCopy, new Image[] {sprites.get("robot" + winnerCopy.getColor().toInt()), sprites.get("flares")}, new double[] {0, 0});
 			g2d.setColor(Color.BLACK);
