@@ -76,6 +76,8 @@ public class PlayerRobot extends Robot {
 		
 		// Ugráskor a hely módosítása a sebességvektorral
 		Vector destination = position.add(speedVector);
+		Vector oldSpeedVector = speedVector;
+		speedVector = new Vector(0,0);
 		Vector fragment = new Vector(position, destination).multiply(1.0/20.0);
 		for(int i = 0; i < 20; ++i){			
 			try {
@@ -89,6 +91,7 @@ public class PlayerRobot extends Robot {
 		
 		radius = 0.45;
 		position = destination;
+		speedVector = oldSpeedVector;
 		
 		// Új pozíció kiírása
 		//UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());
