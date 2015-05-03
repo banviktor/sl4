@@ -84,16 +84,35 @@ public class ViewPanel extends JPanel{
 	 * @param g2d felület
 	 */
 	private void drawArrows(Graphics2D g2d){
-		g2d.setColor(Color.BLUE);
-		int x1 = transform(gc.getRobotController().getActualRobot().getPosition().getX());
-		int y1 = transform(gc.getRobotController().getActualRobot().getPosition().getY());
-		int x2 = transform(gc.getRobotController().getJumpDestination().getX());
-		int y2 = transform(gc.getRobotController().getJumpDestination().getY());
-		g2d.drawLine(x1, y1, x2, y2);
-		g2d.setColor(Color.cyan);
-		x2 = x1 + transform(gc.getRobotController().getInputSpeedVector().getX());
-		y2 = y1 + transform(gc.getRobotController().getInputSpeedVector().getY());
-		g2d.drawLine(x1, y1, x2, y2);
+		PlayerRobot r = gc.getRobotController().getActualRobot();
+		g2d.setColor(new Color(47, 47, 47));
+		g2d.setStroke(new BasicStroke(5));
+		
+		int x1 = transform(r.getPosition().getX());
+		int y1 = transform(r.getPosition().getY());
+		int y2 = y1 + transform(gc.getRobotController().getJumpDestination().length());
+		
+		double angle = Math.atan2(-gc.getRobotController().getJumpDestination().getX(),
+				gc.getRobotController().getJumpDestination().getY());
+		g2d.rotate(angle, x1, y1);
+		int[] xPoints = {x1, x1-10, x1+10};
+		int[] yPoints = {y2, y2-17, y2-17};
+		g2d.drawLine(x1, y1, x1, y2 - 15);
+		g2d.fillPolygon(xPoints, yPoints , 3);
+		g2d.rotate(-angle, x1, y1);
+		
+		g2d.setColor(new Color(194, 194, 194));
+		
+		y2 = y1 + transform(1);
+		
+		angle = Math.atan2(-gc.getRobotController().getInputSpeedVector().getX(),
+				gc.getRobotController().getInputSpeedVector().getY());
+		g2d.rotate(angle, x1, y1);
+		int[] xPoints2 = {x1, x1-10, x1+10};
+		int[] yPoints2 = {y2, y2-17, y2-17};
+		g2d.drawLine(x1, y1, x1, y2 - 15);
+		g2d.fillPolygon(xPoints2, yPoints2 , 3);
+		g2d.rotate(-angle, x1, y1);
 	}
 	
 	/**
