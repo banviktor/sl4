@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -141,23 +142,27 @@ public class ViewPanel extends JPanel{
 	 * Felrajzolja a robotokat a felületre
 	 * @param g felület
 	 */
-	private void drawRobots(Graphics2D g) {
-		//Játékosrobotok kirajzolása
-		for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
-			Image image = sprites.get("robot" + r.getColor().toInt());
-			if (image != null) {				
-				//A forgatás szöge
-				double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
-				
-				//Rajzolás
-				drawRobot(g, r, new Image[] {image, sprites.get("flares")}, new double[] {angle, 0});
+	private void drawRobots(Graphics2D g) {		
+		try{
+			//Játékosrobotok kirajzolása
+			for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
+				Image image = sprites.get("robot" + r.getColor().toInt());
+				if (image != null) {				
+					//A forgatás szöge
+					double angle = Math.atan2(-r.getSpeedVector().getX(), r.getSpeedVector().getY());
+					
+					//Rajzolás
+					drawRobot(g, r, new Image[] {image, sprites.get("flares")}, new double[] {angle, 0});
+				}
 			}
-		}
-		
-		//Takarítórobotok kirajzolása
-		for(CleanerRobot r : gc.getGame().getCleanerRobots()){
-			drawRobot(g, r, new Image[] {sprites.get("cleaner")}, new double[] {0});
-		}
+			
+			//Takarítórobotok kirajzolása
+			for(CleanerRobot r : gc.getGame().getCleanerRobots()){
+				drawRobot(g, r, new Image[] {sprites.get("cleaner")}, new double[] {0});
+			}
+		}catch (ConcurrentModificationException e){
+			
+		}		
 	}
 	
 	/**

@@ -75,7 +75,20 @@ public class PlayerRobot extends Robot {
 		distance += speedVector.length();
 		
 		// Ugráskor a hely módosítása a sebességvektorral
-		position = position.add( speedVector );
+		Vector destination = position.add(speedVector);
+		Vector fragment = new Vector(position, destination).multiply(1.0/20.0);
+		for(int i = 0; i < 20; ++i){			
+			try {
+				position = position.add(fragment);
+				radius = 0.6-Math.abs(0.015*(i-10));
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} 
+		}
+		
+		radius = 0.45;
+		position = destination;
 		
 		// Új pozíció kiírása
 		//UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());

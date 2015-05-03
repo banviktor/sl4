@@ -72,7 +72,7 @@ public class Game {
 	 * játék véget ér), létrehozza esetlegesen az új takarítórobotot, továbbá az összes takarítórobotot dolgoztatja.
 	 * @return A sorrendben következő robot
 	 */
-	public PlayerRobot getNextPlayerRobot(){
+	public synchronized PlayerRobot getNextPlayerRobot(){
 		++actualRobotNumber;
 		
 		//Ha csak egy robot maradt, vége a játéknak. Ez kör közben is előfordulhat.
@@ -112,7 +112,7 @@ public class Game {
 	
 	
 	
-	private void spawnCleanerRobot() {
+	private synchronized void spawnCleanerRobot() {
 		Random r = new Random();
 		
 		// Spawnolási esély: ([aktuális foltok száma] - [aktuális takarítók száma]) * 20%
@@ -133,7 +133,7 @@ public class Game {
 	/**
 	 * Törli az aktuális robotot
 	 */
-	public void deleteActualRobot(){
+	public synchronized void deleteActualRobot(){
 		// Kitörli a robotot a listából 
 		playerRobots.remove( actualRobotNumber );
 		// Visszalép, hogy a következő robot helyes legyen
@@ -145,7 +145,7 @@ public class Game {
 	 * Megsemmisíti az adott pozícion lévő takarítórobotokat
 	 * @param p az adott pozíció vektora
 	 */
-	public List<CleanerRobot> collideCleanerRobotsWithActual(){
+	public synchronized List<CleanerRobot> collideCleanerRobotsWithActual(){
 		List<CleanerRobot> deleted = new ArrayList<CleanerRobot>();
 		
 		Iterator<CleanerRobot> robotIterator = cleanerRobots.iterator();
@@ -170,7 +170,7 @@ public class Game {
 	/**
 	 * Megvizsgálja az ütközö robotokat, és kitörli a kisebb sebességüt
 	 */
-	public List<PlayerRobot> collidePlayerRobotsWithActual() {
+	public synchronized List<PlayerRobot> collidePlayerRobotsWithActual() {
 		List<PlayerRobot> deleted = new ArrayList<PlayerRobot>();
 		PlayerRobot actualRobot = playerRobots.get(actualRobotNumber);
 		
@@ -245,7 +245,7 @@ public class Game {
 	 * @param p az adott pozíció vektora
 	 * @return tartózkodik-e robot az adott helyen
 	 */
-	public boolean isRobotCollision(Robot robot) {
+	public synchronized boolean isRobotCollision(Robot robot) {
 		for(PlayerRobot r : playerRobots){
 			// Önmagával ne ütközzön
 			if (r == robot) {
@@ -271,7 +271,7 @@ public class Game {
 	/**
 	 * A játék végetérését megvalósító metódus, kiválasztja a nyertest és leállítja a játékot
 	 */
-	private void gameEnd(){		
+	private synchronized void gameEnd(){		
 		//Megnézzük az összes robot közül kinek a legnagyobb a megtett távolsága
 		PlayerRobot winner = playerRobots.get(0);
 		for (PlayerRobot i : playerRobots) {
@@ -289,7 +289,7 @@ public class Game {
 	 * A játékban lévő játékosrobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévő játékosrobotok
 	 */
-	public List<PlayerRobot> getPlayerRobots(){
+	public synchronized List<PlayerRobot> getPlayerRobots(){
 		return playerRobots;
 	}
 	
@@ -298,7 +298,7 @@ public class Game {
 	 * A játékban lévő takarítórobotok lekérdezését szolgáló metódus
 	 * @return a játékban lévő takarítórobotok
 	 */
-	public List<CleanerRobot> getCleanerRobots() {
+	public synchronized List<CleanerRobot> getCleanerRobots() {
 		return cleanerRobots;
 	}
 	
@@ -307,7 +307,7 @@ public class Game {
 	 * A játékban lévő robotok lekérdezését szolgáló metódus
 	 * @return a játékban lévő robotok
 	 */
-	public List<Robot> getRobots() {
+	public synchronized List<Robot> getRobots() {
 		// Létrehozunk egy listát a játékosrobotokkal
 		List<Robot> robots = new ArrayList<Robot>(playerRobots);
 		
@@ -324,7 +324,7 @@ public class Game {
 	 * Visszaadja az itt tárolt pályát
 	 * @return Pálya
 	 */
-	public Map getMap() {
+	public synchronized Map getMap() {
 		return map;
 	}
 	
@@ -333,7 +333,7 @@ public class Game {
 	 * Visszaadja az itt tárolt robotvezérlőt
 	 * @return Robotvezérlő
 	 */
-	public RobotController getRobotController() {
+	public synchronized RobotController getRobotController() {
 		return robotController;
 	}
 	
