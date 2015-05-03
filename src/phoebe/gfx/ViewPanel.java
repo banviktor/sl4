@@ -85,15 +85,24 @@ public class ViewPanel extends JPanel{
 	 */
 	private void drawArrows(Graphics2D g2d){
 		PlayerRobot r = gc.getRobotController().getActualRobot();
-		g2d.setColor(new Color(47, 47, 47));
+		
 		g2d.setStroke(new BasicStroke(5));
 		
+		//Világosszürke
+		g2d.setColor(new Color(47, 47, 47));
+		
+		//A robot középpontja
 		int x1 = transform(r.getPosition().getX());
 		int y1 = transform(r.getPosition().getY());
+		
+		//Az ugrás célvektorának vége
 		int y2 = y1 + transform(gc.getRobotController().getJumpDestination().length());
 		
+		//A célvektor forgásszöge
 		double angle = Math.atan2(-gc.getRobotController().getJumpDestination().getX(),
 				gc.getRobotController().getJumpDestination().getY());
+		
+		//A nyíl felrajzolása
 		g2d.rotate(angle, x1, y1);
 		int[] xPoints = {x1, x1-10, x1+10};
 		int[] yPoints = {y2, y2-17, y2-17};
@@ -101,12 +110,17 @@ public class ViewPanel extends JPanel{
 		g2d.fillPolygon(xPoints, yPoints , 3);
 		g2d.rotate(-angle, x1, y1);
 		
+		//Sötétszürke
 		g2d.setColor(new Color(194, 194, 194));
 		
+		//Az egységnyi inputvektor vége
 		y2 = y1 + transform(1);
 		
+		//Az inputvektor forgásszöge
 		angle = Math.atan2(-gc.getRobotController().getInputSpeedVector().getX(),
 				gc.getRobotController().getInputSpeedVector().getY());
+		
+		//A nyíl felrajzolása
 		g2d.rotate(angle, x1, y1);
 		int[] xPoints2 = {x1, x1-10, x1+10};
 		int[] yPoints2 = {y2, y2-17, y2-17};
