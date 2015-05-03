@@ -178,7 +178,7 @@ public class RobotController {
 	 * @return az ugrás céljának vektora
 	 */
 	public Vector getJumpDestination(){
-		return actualRobot.getPosition().add(actualRobot.getSpeedVector()).add(inputSpeedVector);		
+		return actualRobot.getSpeedVector().add(inputSpeedVector);		
 	}
 	
 }
