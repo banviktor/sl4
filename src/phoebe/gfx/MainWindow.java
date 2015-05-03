@@ -115,7 +115,7 @@ public class MainWindow extends JFrame{
 		btnGlue.setRolloverEnabled(false);
 		btnGlue.setFocusPainted(false);
 		
-		btnJump.setBackground(new Color(98, 77, 125));
+		btnJump.setBackground(phoebe.basic.Color.RED.toColor());
 		btnJump.setForeground(Color.WHITE);
 		btnJump.setRolloverEnabled(false);
 		btnJump.setFocusPainted(false);
@@ -172,10 +172,11 @@ public class MainWindow extends JFrame{
 		render = new Render(this);
 		render.start();
 		
+		btnJump.setBackground(phoebe.basic.Color.RED.toColor());
 		gameControlPanel.removeAll();
 		gameControlPanel.add(btnOil);
-		gameControlPanel.add(btnGlue);
 		gameControlPanel.add(btnJump);
+		gameControlPanel.add(btnGlue);
 		
 		gamePanel.add(viewPanel, BorderLayout.CENTER);
 		gamePanel.add(gameControlPanel, BorderLayout.SOUTH);

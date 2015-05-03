@@ -38,4 +38,20 @@ public enum Color {
 		default: return 0;
 		}
 	}
+	
+	public java.awt.Color toColor(){
+		switch(this){
+		case RED:
+			return new java.awt.Color(255, 0, 0, 255);
+		case YELLOW:
+			return new java.awt.Color(240, 255, 0, 255);
+		case GREEN:
+			return new java.awt.Color(0, 255, 30, 255);
+		case BLUE:
+			return new java.awt.Color(0, 155, 206, 255);
+		case PURPLE:
+			return new java.awt.Color(54, 8, 114, 255);
+		default: return new java.awt.Color(255, 0, 0, 255);
+		}
+	}
 }
