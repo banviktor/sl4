@@ -114,7 +114,7 @@ public class ViewPanel extends JPanel{
 		g2d.setColor(new Color(194, 194, 194));
 		
 		//Az egységnyi inputvektor vége
-		y2 = y1 + transform(1);
+		y2 = y1 + transform(gc.getRobotController().getInputSpeedVector().length());
 		
 		//Az inputvektor forgásszöge
 		angle = Math.atan2(-gc.getRobotController().getInputSpeedVector().getX(),
