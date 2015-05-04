@@ -78,12 +78,13 @@ public class PlayerRobot extends Robot {
 		Vector destination = position.add(speedVector);
 		Vector oldSpeedVector = speedVector;
 		speedVector = speedVector.normalized().multiply(0.01);
-		Vector fragment = new Vector(position, destination).multiply(1.0/20.0);
-		for(int i = 0; i < 20; ++i){			
+		double precision = 20;
+		Vector fragment = new Vector(position, destination).multiply(1.0/precision);
+		for(int i = 0; i < precision; ++i){			
 			try {
 				position = position.add(fragment);
-				radius = 0.6-Math.abs(0.015*(i-10));
-				Thread.sleep(20);
+				radius = 0.6-Math.abs((0.15/(precision/2))*(i-precision/2.0));
+				Thread.sleep((int)(400.0/precision));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} 
