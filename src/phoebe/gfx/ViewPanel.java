@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -58,6 +59,17 @@ public class ViewPanel extends JPanel{
 	 */
 	private void drawAll(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
+		HashMap<RenderingHints.Key,Object> rh = new HashMap<RenderingHints.Key,Object>();
+		rh.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		rh.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+		rh.put(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+		rh.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+		rh.put(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+		rh.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		rh.put(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
+		rh.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		g2d.setRenderingHints(rh);
 		
 		if(gc.isRunning()){
 			drawMap(g2d);
@@ -282,7 +294,7 @@ public class ViewPanel extends JPanel{
 		// map képek összevágása
 		g.drawImage(mapRoad, 0, 0, this);
 		Graphics2D gSky = mapSky.createGraphics();
-		gSky.setStroke(new BasicStroke(lineWidth));
+		gSky.setStroke(new BasicStroke(lineWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL) );
 		gSky.setComposite(AlphaComposite.Src);
 		gSky.setColor( new Color(0, 0, 0, 0) ); // transparent ink
 		for(Line l : lines) {
@@ -292,9 +304,7 @@ public class ViewPanel extends JPanel{
 			int y1 = transform(v1.getY());
 			int x2 = transform(v2.getX());
 			int y2 = transform(v2.getY());
-			gSky.fillOval(x1-lineWidth/2, y1-lineWidth/2, lineWidth, lineWidth);
 			gSky.drawLine(x1, y1, x2, y2);
-			gSky.fillOval(x2-lineWidth/2, y2-lineWidth/2, lineWidth, lineWidth);
 		}
 		g.drawImage(mapSky, 0, 0, this);
 		sprites.put("map", mapImage);
