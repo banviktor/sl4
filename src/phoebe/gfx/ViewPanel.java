@@ -48,8 +48,7 @@ public class ViewPanel extends JPanel{
 	}
 	
 	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
+	public void paintComponent(Graphics g) {
 		drawAll(g);
 	}
 	
@@ -320,7 +319,7 @@ public class ViewPanel extends JPanel{
 	}  
 	
 	/**
-	 * Átméretez egy négyzet alakú képet
+	 * Átméretez egy négyzet alakú képet, cachelést kezeli
 	 * @param img
 	 * @param diameter
 	 * @return
