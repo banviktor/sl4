@@ -169,7 +169,11 @@ public class ViewPanel extends JPanel{
 			
 			//Takarítórobotok kirajzolása
 			for(CleanerRobot r : gc.getGame().getCleanerRobots()){
-				drawRobot(g, r, new Image[] {sprites.get("cleaner")}, new double[] {0});
+				if(gc.getMap().isOnRoad(r.getPosition())){
+					drawRobot(g, r, new Image[] {sprites.get("cleaner")}, new double[] {0});
+				}else{
+					drawRobot(g, r, new Image[] {sprites.get("cleaner_flying")}, new double[] {0});
+				}				
 			}
 		}catch (ConcurrentModificationException e){
 			
@@ -265,6 +269,7 @@ public class ViewPanel extends JPanel{
 			sprites.put("oil", ImageIO.read(new File("sprites/oil.png")) );
 			sprites.put("glue", ImageIO.read(new File("sprites/glue.png")) );
 			sprites.put("cleaner", ImageIO.read(new File("sprites/kisrobot.png")) );
+			sprites.put("cleaner_flying", ImageIO.read(new File("sprites/kisrobot_nobubbles.png")) );
 			sprites.put("flares", ImageIO.read(new File("sprites/flares.png")) );
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
