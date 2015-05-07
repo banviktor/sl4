@@ -83,8 +83,11 @@ public class RobotController {
 			//UserIO.println("Ragacsfolt lehelyezve.");
 		}
 		
-		// Robot sebességének növelése
+		//Robot sebességének növelése
 		actualRobot.setSpeedVector( actualRobot.getSpeedVector().add(inputSpeedVector) );
+		
+		//Inputvektor nullázása
+		inputSpeedVector = new Vector(0, 0);
 		
 		//Elugrik
 		actualRobot.jump();
@@ -123,8 +126,7 @@ public class RobotController {
 		
 		//Következő robot betöltése, értékek alaphelyzetbe állítása
 		actualRobot = game.getNextPlayerRobot();
-		if(actualRobot != null){
-			inputSpeedVector = new Vector(0, 0);
+		if(actualRobot != null){			
 			willPlaceOil = false;
 			willPlaceGlue = false;
 			
