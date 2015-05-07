@@ -44,6 +44,9 @@ public class ViewPanel extends JPanel{
 		loadSprites();
 	}
 	
+	/**
+	 * Kirajzolás elindítása
+	 */
 	public void init(){
 		ended = false;
 	}
@@ -59,6 +62,10 @@ public class ViewPanel extends JPanel{
 	 */
 	private void drawAll(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
+		/*
+		 * Rendereléshez használt algoritmusokhoz irányadás.
+		 * Minden a legszebbre állítva.
+		 */
 		HashMap<RenderingHints.Key,Object> rh = new HashMap<RenderingHints.Key,Object>();
 		rh.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		rh.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
@@ -72,16 +79,19 @@ public class ViewPanel extends JPanel{
 		g2d.setRenderingHints(rh);
 		
 		if(gc.isRunning()){
+			// Teljes játék felrajzolása
 			drawMap(g2d);
 			drawSmudges(g2d);
 			drawArrows(g2d);
 			drawRobots(g2d);
 		}else{			
+			// Renderelés megállítása, Restart gomb
 			if(!ended){
 				ended = true;
 				mw.endGame();
 			}
 			
+			// Nyertes kiírása
 			PlayerRobot winnerCopy = new PlayerRobot(gc.getWinner().getColor(), new Vector(Map.size / 2, Map.size / 2));
 			drawRobot(g2d, winnerCopy, new Image[] {sprites.get("robot" + winnerCopy.getColor().toInt()), sprites.get("flares")}, new double[] {0, 0});
 			g2d.setColor(Color.BLACK);
@@ -217,7 +227,9 @@ public class ViewPanel extends JPanel{
 	private void drawSmudges(Graphics2D g) {
 		for(Smudge s : gc.getMap().getSmudges()){
 			Image image;
+			// Foltátmérő pixelekké konvertálva
 			int diameter = transform(s.getRadius()*2);
+			// Reflection, hogy a foltok függvényeibe ne kelljen belenyúlni
 			if(s.getClass().getName() == "phoebe.game.Oil"){
 				image = sprites.get("oil");
 			}else{
@@ -250,7 +262,7 @@ public class ViewPanel extends JPanel{
 	 * A játék elején betölti a memóriába a játékban használt képeket
 	 */
 	private void loadSprites() {
-		// robotok betöltése
+		// Robot képfájlok betöltése
 		String[] filenames = new String[5];
 		filenames[0] = new String("sprites/robot_piros.png");
 		filenames[1] = new String("sprites/robot_sarga.png");
@@ -261,10 +273,11 @@ public class ViewPanel extends JPanel{
 			try {
                 sprites.put( "robot" + i, ImageIO.read(new File(filenames[i])) );
             } catch (IOException ex) {
+            	// TODO Auto-generated catch block
                 ex.printStackTrace();
             }
 		}
-		// többi kép betöltése
+		// Többi kép betöltése
 		try {
 			sprites.put("oil", ImageIO.read(new File("sprites/oil.png")) );
 			sprites.put("glue", ImageIO.read(new File("sprites/glue.png")) );
@@ -276,11 +289,11 @@ public class ViewPanel extends JPanel{
 			e.printStackTrace();
 		}
 		
-		// map betöltése
+		// Map adatok betöltése
 		int lineWidth = transform(gc.getMap().getLineWidth());
 		List<Line> lines = gc.getMap().getLines();
 		
-		// map képek betöltése
+		// Map képek betöltése
 		BufferedImage mapImage = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = mapImage.createGraphics();
 		BufferedImage mapRoad = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
@@ -292,11 +305,12 @@ public class ViewPanel extends JPanel{
 			tmpImg = ImageIO.read(new File("sprites/map_sky.png"));
 			mapSky.getGraphics().drawImage(tmpImg, 0, 0, this);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		// map képek összevágása
+		// Map képek összevágása
+		// Felrajzolja átlátszóval a háttérre az utat (lekerekített, út-széles szakaszok),
+		// majd rámásolja az út képére
 		g.drawImage(mapRoad, 0, 0, this);
 		Graphics2D gSky = mapSky.createGraphics();
 		gSky.setStroke(new BasicStroke(lineWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL) );
@@ -323,6 +337,11 @@ public class ViewPanel extends JPanel{
 	 * @return átméretezett kép
 	 */
 	private BufferedImage resize(Image img, int newW, int newH) { 
+		/*
+		 * Az átméretezéshez lassú (szép) algoritmust használ.
+		 * A cachelésen kívül ugráskor fut le,
+		 * ha túl lassú akkor a cachenkívülieket SCALE_FAST-tal is újra lehet méretezni.
+		 */
 	    Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
 	    BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
@@ -335,20 +354,29 @@ public class ViewPanel extends JPanel{
 	
 	/**
 	 * Átméretez egy négyzet alakú képet, cachelést kezeli
-	 * @param img
-	 * @param diameter
-	 * @return
+	 * @param img kép
+	 * @param side szélesség, átmérő
+	 * @return átméretezett kép
 	 */
 	private BufferedImage resize(Image img, int side) { 
+		/*
+		 * A sprite-ok első előforduló méretükön cachelésre kerülnek.
+		 * Azért működőképes így, mert az összes sprite első előforduló mérete a leggyakoribb.
+		 * A robotok mérete ugrás közben nő-csökken (de először biztosan nem ugrás közben rajzoljuk meg).
+		 * A többi sprite pedig végig azonos méretű.
+		 */
 		BufferedImage cachedImage = cachedSprites.get(img.hashCode());
+		// Ha még nincs cachelve, tároljuk
 		if (cachedImage == null ) {
-			cachedImage = resize(img, side, side); // ha még nincs cachelve tároljuk
+			cachedImage = resize(img, side, side); 
 			cachedSprites.put(img.hashCode(), cachedImage);
 		} else {
+			// Ha másik méretű van cachelve, nem tároljuk, visszaadjuk az átméretezettet
 			if (cachedImage.getWidth() != side) {
-				return resize(img, side, side); // ha másik méretű van cachelve, nem tároljuk
+				return resize(img, side, side); 
 			}
 		}
-		return cachedImage; // ha cachelve van, visszaadjuk
+		// Már cachelve van, visszaadjuk
+		return cachedImage;
 	}
 }
