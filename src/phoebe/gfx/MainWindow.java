@@ -64,6 +64,7 @@ public class MainWindow extends JFrame{
 	 * A komponensek inicializálása, elrendezésük beállítása
 	 */
 	private void initComponents(){
+		//Játékosválasztó nézet elemeinek beállítása
 		//ContentPane beállítása
 		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -94,7 +95,7 @@ public class MainWindow extends JFrame{
 			startGameButtonsPanel.add(startButtons[i]);
 		}
 		
-		//Játék nézet beállítása
+		//Játék nézet elemeinek beállítása
 		gamePanel = new JPanel();
 		gamePanel.setLayout(new BorderLayout(0, 0));
 		
@@ -138,6 +139,9 @@ public class MainWindow extends JFrame{
 		}));
 	}
 	
+	/**
+	 * Játékosválasztó menü visszaállítása, a játék végén
+	 */
 	private void showMenu() {
 		contentPane.removeAll();
 		
@@ -147,6 +151,9 @@ public class MainWindow extends JFrame{
 		contentPane.add(menuPanel, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Játék nézet beállítása, a játék elején
+	 */
 	private void showGame() {
 		contentPane.removeAll();
 		
@@ -185,11 +192,18 @@ public class MainWindow extends JFrame{
 		repaint();
 	}
 	
+	/**
+	 * Új játék indítása
+	 * @param nrOfPlayers játékosok száma
+	 */
 	public void newGame(int nrOfPlayers){
 		gc.newGame(nrOfPlayers);
 		showGame();
 	}
 	
+	/**
+	 * Játék vége, kiteszi a Restart gombot
+	 */
 	public void endGame() {		
 		gameControlPanel.removeAll();
 		gameControlPanel.add(btnRestart);
@@ -198,10 +212,18 @@ public class MainWindow extends JFrame{
 		repaint();
 	}
 	
+	/**
+	 * Visszaadja az ablak ViewPanel-jét
+	 * @return viewPanel
+	 */
 	public ViewPanel getViewPanel(){
 		return viewPanel;
 	}
 	
+	/**
+	 * Visszaadja a gameController példányt
+	 * @return gc
+	 */
 	public GameController getGameController(){
 		return gc;
 	}
