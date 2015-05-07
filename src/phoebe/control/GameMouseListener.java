@@ -39,9 +39,11 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 		PlayerRobot actualRobot = rc.getActualRobot();
 		if(actualRobot == null)
 			return;
-		double xCoord = (Map.size*e.getX()/600)-actualRobot.getPosition().getX();
-		double yCoord = (Map.size*e.getY()/600)-actualRobot.getPosition().getY();
-		Vector input = new Vector(xCoord, yCoord);
+		Vector click = new Vector((Map.size*e.getX()/600), (Map.size*e.getY()/600));
+		Vector input = new Vector(actualRobot.getPosition(), click);
+		if(click.distance(actualRobot.getPosition()) < actualRobot.getRadius()){
+			input = new Vector(0, 0);
+		}
 		rc.setInputSpeedVector(input);
 	}
 
