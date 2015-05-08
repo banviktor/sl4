@@ -36,11 +36,6 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 	public void mouseDragged(MouseEvent e) {
 		mouseInput(e);	
 	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		//Nem használjuk
-	}
 	
 	/**
 	 * A közös inputvectort beállító függvény
