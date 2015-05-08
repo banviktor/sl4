@@ -19,20 +19,20 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 		this.gc = gc;
 	}
 	
-	@Override
 	/**
 	 * Kattintás esetén beállítja az inputvectort
 	 * @param e a függvényhívást kiváltó esemény
 	 */
+	@Override
 	public void mouseClicked(MouseEvent e) {
 		mouseInput(e);
 	}
 
-	@Override
 	/**
 	 * Az egér húzása esetén állítja be az inputvectort
 	 * @param e
 	 */
+	@Override
 	public void mouseDragged(MouseEvent e) {
 		mouseInput(e);	
 	}
