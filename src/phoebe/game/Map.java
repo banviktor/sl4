@@ -51,15 +51,14 @@ public class Map {
 					lines.add(e);
 				}
 			}
-			//UserIO.println("Pálya betöltve.");
 		} catch (ParserConfigurationException e) {
-			//UserIO.println("A pályát nem sikerült betölteni.");
+			System.out.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		} catch (org.xml.sax.SAXException e) {
-			//UserIO.println("A pályát nem sikerült betölteni.");
+			System.out.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		} catch (IOException e) {
-			//UserIO.println("A pályát nem sikerült betölteni.");
+			System.out.println("A pályát nem sikerült betölteni.");
 			System.exit(0);
 		}
 		
@@ -110,7 +109,6 @@ public class Map {
 		}
 	}
 
-
 	/**
 	 * Visszaadja az adott pontban hatást kifejtő foltokat
 	 * @param v pont
@@ -123,10 +121,8 @@ public class Map {
 				smudgesAt.add( s );
 			}
 		}
-		
 		return smudgesAt;
 	}
-	
 	
 	/**
 	 * Visszaadja a legközelebbi foltot a megadott pozícióhoz
@@ -147,7 +143,6 @@ public class Map {
 		}
 		return null;
 	}
-	
 	
 	/**
 	 * Egy szakasz és egy pont távolságát meghatározó metódus
@@ -184,7 +179,6 @@ public class Map {
 	 */
 	public boolean isOnRoad(Vector p) {
 		boolean result = false;
-				
 		// Egyenként végignézi, elég közel van-e bármelyik pályaelemhez.
 		for (Line l : lines) {
 			if ( pointAndLineDist(l, p) < lineWidth/2 ) {
@@ -195,7 +189,6 @@ public class Map {
 			
 		return result;
 	}
-
 	
 	/**
 	 * Visszaadja az összes foltot.
@@ -204,7 +197,6 @@ public class Map {
 	public List<Smudge> getSmudges() {	
 		return smudges;
 	}
-	
 	
 	/**
 	 * Visszaadja az utak listáját

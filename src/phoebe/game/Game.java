@@ -103,15 +103,12 @@ public class Game {
 			}
 		}	
 		
-		//UserIO.println("Ez a(z) " + (round) + ". kör.");
-		//UserIO.println("A " + playerRobots.get(actualRobotNumber).getColor().toString() + " Robot következik.");
-		
 		return playerRobots.get(actualRobotNumber);
 	}
 	
-	
-	
-	
+	/**
+	 * Takarítórobotot tesz le, a foltok és takarítórobotok számának függvényében.
+	 */
 	private synchronized void spawnCleanerRobot() {
 		Random r = new Random();
 		
@@ -124,11 +121,8 @@ public class Game {
 			double y = r.nextInt(2) * 10;
 			Vector p = new Vector(x, y);
 			cleanerRobots.add(new CleanerRobot(p, map, this));
-			//UserIO.println("Takarítórobot indul útnak innen: " + p.getX() + ", " + p.getY());
 		}
 	}
-	
-	
 	
 	/**
 	 * Törli az aktuális robotot

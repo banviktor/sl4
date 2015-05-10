@@ -283,8 +283,8 @@ public class ViewPanel extends JPanel{
 			try {
                 sprites.put( "robot" + i, ImageIO.read(new File(filenames[i])) );
             } catch (IOException ex) {
-            	// TODO Auto-generated catch block
-                ex.printStackTrace();
+            	System.out.println("Cant load the images.");
+            	System.exit(0);
             }
 		}
 		// Többi kép betöltése
@@ -295,8 +295,8 @@ public class ViewPanel extends JPanel{
 			sprites.put("cleaner_flying", ImageIO.read(new File("sprites/kisrobot_nobubbles.png")) );
 			sprites.put("flares", ImageIO.read(new File("sprites/flares.png")) );
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Cant load the images.");
+        	System.exit(0);
 		}
 		
 		// Map adatok betöltése
@@ -315,7 +315,8 @@ public class ViewPanel extends JPanel{
 			tmpImg = ImageIO.read(new File("sprites/map_sky.png"));
 			mapSky.getGraphics().drawImage(tmpImg, 0, 0, this);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Cant load the images.");
+        	System.exit(0);
 		}
 		
 		// Map képek összevágása

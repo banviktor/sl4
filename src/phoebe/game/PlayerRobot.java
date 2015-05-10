@@ -86,16 +86,13 @@ public class PlayerRobot extends Robot {
 				radius = 0.6-Math.abs((0.15/(precision/2))*(i-precision/2.0));
 				Thread.sleep((int)(400.0/precision));
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+
 			} 
 		}
 		
 		radius = 0.45;
 		position = destination;
 		speedVector = oldSpeedVector;
-		
-		// Új pozíció kiírása
-		//UserIO.println("Új pozíció: " + position.getX() + ", " + position.getY());
 		
 		// Következő körre felkészítés
 		speedHalved = false;

@@ -38,8 +38,6 @@ public class RobotController {
 		if (actualRobot.getOilNumber() > 0) {
 			willPlaceOil = !willPlaceOil;
 			willPlaceGlue = false;
-			//UserIO.println("Olajfolt " + (willPlaceOil?"be.":"ki.") );
-			//UserIO.println("Ragacs ki.");
 		}
 	}
 	
@@ -50,8 +48,6 @@ public class RobotController {
 		if (actualRobot.getGlueNumber() > 0) {
 			willPlaceGlue = !willPlaceGlue;
 			willPlaceOil = false;
-			//UserIO.println("Ragacs " + (willPlaceGlue?"be.":"ki.") );
-			//UserIO.println("Olajfolt ki.");
 		}
 	}
 	
@@ -62,11 +58,9 @@ public class RobotController {
 	 */
 	public void setInputSpeedVector(Vector v){
 		if(actualRobot.isSpeedModificationDisabled()){
-			//UserIO.println("Ebben a körben nem lehet sebességvektort megadni a robotnak.");
 			return;
 		}
 		inputSpeedVector = v.normalized();
-		//UserIO.println("Inputvector: " + v.normalized());
 	}
 	
 	/**
@@ -77,10 +71,8 @@ public class RobotController {
 		//Lerakja a kiválasztott foltot
 		if(willPlaceOil){
 			map.addSmudge( actualRobot.createOil() );
-			//UserIO.println("Olajfolt lehelyezve.");
 		} else if(willPlaceGlue){
 			map.addSmudge( actualRobot.createGlue() );
-			//UserIO.println("Ragacsfolt lehelyezve.");
 		}
 		
 		//Robot sebességének növelése
@@ -96,32 +88,12 @@ public class RobotController {
 		if(!map.isOnRoad(actualRobot.getPosition())){
 			// A robot leesett a pályáról
 			game.deleteActualRobot();
-			//UserIO.println("A robot leesett.");
 		}
 		else {			
 			//Ha ráesik takarítórobotra, összetöri azt
-			List<CleanerRobot> deletedCleaners = new ArrayList<CleanerRobot>(
-					game.collideCleanerRobotsWithActual());
-		
-			//Ha egy másik játékos robotjával ütközik
-			List<PlayerRobot> deletedPlayers = new ArrayList<PlayerRobot>(
-					game.collidePlayerRobotsWithActual());
-			
-			//Ha volt ütközés
-			if((deletedCleaners.size() + deletedPlayers.size()) > 0){
-				//UserIO.println("Ez a robot a következőkkel ütközött:");
-				//Kiírjuk a játékosokat
-				for(PlayerRobot pr : deletedPlayers){
-					if(!pr.equals(actualRobot)){
-						//UserIO.println("\t" + pr.getColor().toString());
-					}
-				}
-				//Kiírjuk a takarítókat
-				for (int i=0;i<deletedCleaners.size();++i) {
-					//UserIO.println("\t" + "Takarítórobot");
-				}
-			}
-			
+			game.collideCleanerRobotsWithActual();
+			// Ütközteti a játékosrobotokkal is
+			game.collidePlayerRobotsWithActual();		
 		}
 		
 		//Következő robot betöltése, értékek alaphelyzetbe állítása

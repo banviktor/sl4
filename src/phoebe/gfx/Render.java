@@ -33,8 +33,7 @@ public class Render extends Thread {
 			    try {
 					Thread.sleep((long) (900/TARGET_FPS));
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					
 				}
 			 // ha renderelni kell
 			 } else if (deltaT >= 1) {
