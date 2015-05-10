@@ -337,4 +337,12 @@ public class Game {
 		return robotController;
 	}
 	
+	/**
+	 * Visszaadja az aktuális kör számát.
+	 * @return kör
+	 */
+	public int getRound() {
+		return round;
+	}
+	
 }

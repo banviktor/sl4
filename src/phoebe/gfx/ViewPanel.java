@@ -185,6 +185,16 @@ public class ViewPanel extends JPanel{
 					drawRobot(g, r, new Image[] {sprites.get("cleaner_flying")}, new double[] {0});
 				}				
 			}
+			// Foltok, körök számának kiírása
+			if (gc.getRobotController().getActualRobot() != null) {
+				g.setFont(new Font("TimesRoman", Font.BOLD, 20));
+			    g.setColor(gc.getRobotController().getActualRobot().getColor().toColor());
+				g.drawString("Glue: " + gc.getRobotController().getActualRobot().getGlueNumber() +
+						" Oil: " + gc.getRobotController().getActualRobot().getOilNumber() +
+						" Round: " + gc.getGame().getRound() + 
+						"/" + gc.getMap().getRounds()
+						, 10, 20);
+			}
 		}catch (ConcurrentModificationException e){
 			
 		}		
