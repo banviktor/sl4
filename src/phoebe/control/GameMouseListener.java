@@ -45,22 +45,22 @@ public class GameMouseListener extends MouseAdapter implements MouseMotionListen
 		RobotController rc = gc.getRobotController();
 		PlayerRobot actualRobot = rc.getActualRobot();
 		
-		//Amennyiben nincsen robot, nicnsen minek inputvectort adni
+		// Amennyiben nincsen robot, nincsen minek inputvectort adni
 		if(actualRobot == null)
 			return;
 		
-		//Kiszámoljuk a kettintás koordinátájit a játék koordinátarendszerében
+		// Kiszámoljuk a kattintás koordinátáit a játék koordinátarendszerében
 		Vector click = new Vector((Map.size*e.getX()/600), (Map.size*e.getY()/600));
 		
-		//Létrehozzuk az inputvectort
+		// Létrehozzuk az inputvectort
 		Vector input = new Vector(actualRobot.getPosition(), click);
 		
-		//Amennyiben a roboton kattintunk, az input vector 0 hosszú lesz
+		// Amennyiben a roboton kattintunk, az input vector 0 hosszú lesz
 		if(click.distance(actualRobot.getPosition()) < actualRobot.getRadius()){
 			input = new Vector(0, 0);
 		}
 		
-		//Átadjuk az inputvectort
+		// Átadjuk az inputvectort
 		rc.setInputSpeedVector(input);
 	}
 
