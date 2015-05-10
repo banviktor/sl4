@@ -15,10 +15,13 @@ public class Render extends Thread {
 		final boolean RENDER_TIME = false; // kiírja az fps-t sysout-ra
 	    final long TARGET_FPS = 60;
 	    final double OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+	    long frames;
+	    if (RENDER_TIME)
+	    	frames = 0;
 	    long initialTime = System.nanoTime();
 	    double deltaT = 0;
 	    long timer = System.currentTimeMillis();
-	    long frames = 0;
+	    
 	    long currentTime;
 	    ViewPanel vp = mw.getViewPanel();
 	    
@@ -40,7 +43,8 @@ public class Render extends Thread {
 				 if (vp != null)
 					//vp.paintImmediately(vp.getBounds()); // blokkol a repaint alatt, így mérhető a szükséges idő
 					 vp.repaint();
-		         frames++;
+				 if (RENDER_TIME)
+					 frames++;
 		         deltaT--;
 		    }
 			 

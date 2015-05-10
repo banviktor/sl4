@@ -1,6 +1,5 @@
 package phoebe.game;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import phoebe.basic.Vector;
