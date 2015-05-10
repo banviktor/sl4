@@ -12,7 +12,7 @@ public class Render extends Thread {
 
 	@Override
 	public void run() {
-		final boolean RENDER_TIME = true;
+		final boolean RENDER_TIME = false; // kiírja az fps-t sysout-ra
 	    final long TARGET_FPS = 60;
 	    final double OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 	    long initialTime = System.nanoTime();
