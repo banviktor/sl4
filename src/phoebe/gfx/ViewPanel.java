@@ -4,12 +4,15 @@ import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -163,7 +166,23 @@ public class ViewPanel extends JPanel{
 	 * Felrajzolja a robotokat a felületre
 	 * @param g felület
 	 */
-	private void drawRobots(Graphics2D g) {		
+	private void drawRobots(Graphics2D g) {	
+		// Betűtípus
+		Font f = null;
+		// Csak egyszer kell beállítani
+		if (f == null)
+			try {
+				// Gyökérmappából tölti be
+				f = Font.createFont( Font.TRUETYPE_FONT, new FileInputStream("Comicbd.ttf") ).deriveFont(20f);
+			} catch (FileNotFoundException e1) {
+				// Ha nem lehet, TimesNewRoman-t használ
+				f = new Font("TimesRoman", Font.BOLD, 20);
+			} catch (FontFormatException e) {
+				f = new Font("TimesRoman", Font.BOLD, 20);
+			} catch (IOException e) {
+				f = new Font("TimesRoman", Font.BOLD, 20);
+			} 
+		
 		try{
 			//Játékosrobotok kirajzolása
 			for(PlayerRobot r : gc.getGame().getPlayerRobots()) {
@@ -187,17 +206,16 @@ public class ViewPanel extends JPanel{
 			}
 			// Foltok, körök számának kiírása
 			if (gc.getRobotController().getActualRobot() != null) {
-				g.setFont(new Font("TimesRoman", Font.BOLD, 20));
+				g.setFont( f );
 			    g.setColor(gc.getRobotController().getActualRobot().getColor().toColor());
 				g.drawString("Glue: " + gc.getRobotController().getActualRobot().getGlueNumber() +
 						" Oil: " + gc.getRobotController().getActualRobot().getOilNumber() +
 						" Round: " + gc.getGame().getRound() + 
 						"/" + gc.getMap().getRounds()
-						, 10, 20);
+						, 10, 21);
 			}
-		}catch (ConcurrentModificationException e){
-			
-		}		
+		}catch (ConcurrentModificationException e){	
+		} 		
 	}
 	
 	/**
