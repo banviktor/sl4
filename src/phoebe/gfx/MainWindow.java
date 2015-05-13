@@ -79,7 +79,7 @@ public class MainWindow extends JFrame{
 		lblNewGame.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPanel.add(lblNewGame);
 		
-		JLabel lblNrOfPlayers = new JLabel("Number of players:");
+		JLabel lblNrOfPlayers = new JLabel("Number of playerzz:");
 		lblNrOfPlayers.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNrOfPlayers.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPanel.add(lblNrOfPlayers);
